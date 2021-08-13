@@ -1,25 +1,24 @@
-import logo from './logo.svg';
+import React from 'react';
+import {BrowserRouter, Redirect, Route, Switch} from 'react-router-dom';
 import './App.css';
+import Navbar from "./Component/NavigationBar/Navbar";
+import HomePage from "./Pages/HomePage/HomePage";
+import LoginPage from "./Pages/LoginPage/LoginPage";
+import StudentProfile from "./Pages/StudentProfilePage/StudentProfile";
+import RegistrationPage from "./Pages/Registration/RegistrationPage";
 
-function App() {
+const App = () => {
+//Add the React Router And Create Routing
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+      <BrowserRouter>
+        <Navbar/>
+        <Switch>
+            <Route exact path = "/home" component={HomePage}/>
+            <Route exact path = "/profile" component={StudentProfile}/>
+            <Route exact path = "/login" component={LoginPage}/>
+            <Route exact path = "/registration" component={RegistrationPage}/>
+        </Switch>
+      </BrowserRouter>
+  )
 }
-
 export default App;
