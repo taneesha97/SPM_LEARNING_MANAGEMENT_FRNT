@@ -1,5 +1,4 @@
 import React from 'react'
-
 function StudentProfileUpdate() {
     return (
         <div>
@@ -7,5 +6,4 @@ function StudentProfileUpdate() {
         </div>
     )
 }
-
 export default StudentProfileUpdate
