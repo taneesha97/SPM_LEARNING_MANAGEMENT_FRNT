@@ -5,6 +5,7 @@ function LoginPage() {
     return (
         <div>
             <Login/>
+            <h1>Login page</h1>
         </div>
     )
 }
