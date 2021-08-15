@@ -1,3 +1,6 @@
+.course-component .course-form .input-form {
+  display: flex;
+  float: bottom;
+}
 
-
-/*# sourceMappingURL=FileAttachInt.css.map */
+/*# sourceMappingURL=CourseMgntInt.css.map */
