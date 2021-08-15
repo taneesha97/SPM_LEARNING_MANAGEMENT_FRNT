@@ -2,3 +2,24 @@
   background-color: #838383;
   padding: 10px;
 }
+
+//Gloabl to all the component.
+.section-header {
+  font-size: 30px;
+  font-weight: bolder;
+  color: white;
+  padding: 10px;
+  font-family: "Helvetica","Verdana", serif;
+
+  &.dark-header {
+    color: #525252;
+  }
+}
+
+//Global Span for all the sub components
+span {
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+  font-family: "Helvetica","Verdana", serif;
+}

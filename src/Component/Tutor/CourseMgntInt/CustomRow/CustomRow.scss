@@ -1,0 +1,38 @@
+@mixin custom-component-commons {
+  padding: 10px;
+  color: white;
+  height: 180px;
+
+}
+.custom-row-component {
+  display: flex;
+  padding: 10px;
+
+  #{&}-first-column-back {
+    background-color: #727272;
+    border-radius: 30px 0px 0px 30px;
+  }
+
+  #{&}-first-column {
+    @include custom-component-commons;
+    border-radius: 30px 30px 30px 30px;
+    background-color: #9f93e0;
+    .custom-row-component-header {
+      font-weight: bold;
+    }
+  }
+  #{&}-second-column {
+    @include custom-component-commons;
+    background-color: #727272;
+  }
+  #{&}-three-column {
+    @include custom-component-commons;
+    border-radius: 0px 30px 30px 0px;
+    background-color: #5B5A7A;
+
+    .custom-row-button-group {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
