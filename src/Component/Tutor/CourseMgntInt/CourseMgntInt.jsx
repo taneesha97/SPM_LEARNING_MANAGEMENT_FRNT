@@ -68,6 +68,8 @@ function CourseMgntInt() {
                     <div>
                         {/*Insert a custom video*/}
                         <CustomRow/>
+                        <CustomRow/>
+                        <CustomRow/>
                     </div>
                 </div>
             </div>
