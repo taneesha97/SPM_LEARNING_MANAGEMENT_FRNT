@@ -1,5 +1,4 @@
 import React from 'react'
-import Login from "../../Component/Login/Login";
 import "./TutorDashboard.css"
 import TutorDashHeader from "../../Component/Tutor/Header/TutorDashHeader";
 import CourseMgntInt from "../../Component/Tutor/CourseMgntInt/CourseMgntInt";

@@ -5,6 +5,7 @@ function TutorDashHeader() {
     return (
         <React.Fragment>
             <div className="tutor-header-component">
+                <p>Overview Dashboard. </p>
                <div className="container">
                    <div className="container-row">
                        <div className="tile-component">
