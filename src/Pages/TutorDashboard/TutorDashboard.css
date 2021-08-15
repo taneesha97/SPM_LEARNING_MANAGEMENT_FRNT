@@ -22,4 +22,11 @@ span {
   font-family: "Helvetica", "Verdana", serif;
 }
 
+.input-form {
+  border-radius: 8.53px;
+  border: none;
+  height: 42.34px;
+  max-width: 400px;
+}
+
 /*# sourceMappingURL=TutorDashboard.css.map */

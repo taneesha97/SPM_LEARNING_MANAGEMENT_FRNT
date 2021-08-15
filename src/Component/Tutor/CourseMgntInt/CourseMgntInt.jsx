@@ -20,7 +20,7 @@ function CourseMgntInt() {
                         </div>
                         <div className="row container-row row-cols-auto">
                             <div className="col">
-                                <input type="text" className="input-form"/>
+                                <input type="text" className="input-form-field"/>
                             </div>
                         </div>
 
@@ -31,7 +31,7 @@ function CourseMgntInt() {
                         </div>
                         <div className="row container-row row-cols-auto">
                             <div className="col">
-                                <input type="text" className="input-form"/>
+                                <input type="text" className="input-form-field"/>
                             </div>
                         </div>
 
@@ -42,7 +42,7 @@ function CourseMgntInt() {
                         </div>
                         <div className="row container-row row-cols-auto">
                             <div className="col">
-                                <input type="text" className="input-form"/>
+                                <input type="text" className="input-form-field"/>
                             </div>
                         </div>
 
@@ -53,7 +53,7 @@ function CourseMgntInt() {
                         </div>
                         <div className="row container-row row-cols-auto">
                             <div className="col">
-                                <input type="text" className="input-form"/>
+                                <input type="text" className="input-form-field"/>
                             </div>
                         </div>
 
