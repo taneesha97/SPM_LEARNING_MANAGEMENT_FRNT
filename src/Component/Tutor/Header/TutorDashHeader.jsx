@@ -5,9 +5,12 @@ function TutorDashHeader() {
     return (
         <React.Fragment>
             <div className="tutor-header-component">
-                <p>Overview Dashboard. </p>
-               <div className="container">
+                <div className="section-header">Overview Dashboard. </div>
+               <div className="tutor-header-container">
                    <div className="container-row">
+                       <div className="tile-component">
+                           <Tile1 name={"Student Count"} price={"$10"}/>
+                       </div>
                        <div className="tile-component">
                            <Tile1 name={"Student Count"} price={"$10"}/>
                        </div>
@@ -16,6 +19,9 @@ function TutorDashHeader() {
                        </div>
                    </div>
                    <div className="container-row">
+                       <div className="tile-component">
+                           <Tile1 name={"Student Count"} price={"$10"}/>
+                       </div>
                        <div className="tile-component">
                            <Tile1 name={"Student Count"} price={"$10"}/>
                        </div>
