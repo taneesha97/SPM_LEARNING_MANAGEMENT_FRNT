@@ -8,18 +8,18 @@ function TutorDashHeader() {
                <div className="container">
                    <div className="container-row">
                        <div className="tile-component">
-                           <Tile1/>
+                           <Tile1 name={"Student Count"} price={"$10"}/>
                        </div>
                        <div className="tile-component">
-                           <Tile1/>
+                           <Tile1 name={"Student Count"} price={"$10"}/>
                        </div>
                    </div>
                    <div className="container-row">
                        <div className="tile-component">
-                           <Tile1/>
+                           <Tile1 name={"Student Count"} price={"$10"}/>
                        </div>
                        <div className="tile-component">
-                           <Tile1/>
+                           <Tile1 name={"Student Count"} price={"$10"}/>
                        </div>
                    </div>
                </div>
