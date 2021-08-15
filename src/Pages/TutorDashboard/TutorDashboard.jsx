@@ -7,7 +7,7 @@ import InqFeedInt from "../../Component/Tutor/InqFeedInt/InqFeedInt";
 
 function TutorDashboard() {
     return (
-        <div>
+        <div className="tutor-dashboard-page">
             <TutorDashHeader/>
             <CourseMgntInt/>
             <FileAttachInt/>
