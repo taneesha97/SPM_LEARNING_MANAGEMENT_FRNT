@@ -1,5 +1,6 @@
 import React from 'react'
 import "./CustomRow.css"
+import CustomButton from "../CustomButtons/CustomButton";
 
 function CustomRow() {
     return (
@@ -26,9 +27,9 @@ function CustomRow() {
             <div className="custom-row-component-three-column">
                 {/*Custom Button Stack*/}
                 <div className="custom-row-button-group">
-                    <button>Custom Button</button>
-                    <button>Custom Button</button>
-                    <button>Custom Button</button>
+                    <CustomButton name={"Delete"} color={"#FF5050"}/>
+                    <CustomButton name={"Revoke"} color={"#E4BF5E"}/>
+                    <CustomButton name={"Publish"} color={"#50C972"}/>
                 </div>
             </div>
         </div>

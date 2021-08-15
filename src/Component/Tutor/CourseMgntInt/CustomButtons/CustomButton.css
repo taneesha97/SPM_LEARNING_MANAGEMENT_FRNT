@@ -1,3 +1,24 @@
-
+.custom-button-container {
+  padding-bottom: 8px;
+}
+.custom-button-container .custom-button {
+  color: white;
+  font-weight: bold;
+  width: 130px;
+  justify-content: center;
+  height: 30px;
+  border-radius: 30px;
+  background-color: #2d61fd;
+  border: none;
+}
+.custom-button-container .custom-button.red {
+  background-color: #FF5050;
+}
+.custom-button-container .custom-button.yellow {
+  background-color: #E4BF5E;
+}
+.custom-button-container .custom-button.green {
+  background-color: #50C972;
+}
 
 /*# sourceMappingURL=CustomButton.css.map */
