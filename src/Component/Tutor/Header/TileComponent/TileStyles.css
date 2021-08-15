@@ -1,14 +1,14 @@
 .tutor-header-card {
   background-color: #7F7CFF;
-  border-radius: 20px;
-  width: 475px;
+  border-radius: 22.34px;
+  width: 400px;
   height: 242px;
   padding-left: 10px;
 }
 .tutor-header-card .tutor-card-header {
   margin-top: 2px;
   font-weight: bold;
-  font-size: 50px;
+  font-size: 30px;
 }
 .tutor-header-card .tutor-card-price {
   font-weight: lighter;
