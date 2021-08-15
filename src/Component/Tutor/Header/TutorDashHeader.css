@@ -3,19 +3,9 @@
   padding: 10px;
   border-radius: 30px;
 }
-.tutor-header-component .tutor-header-container {
-  max-width: 500px;
-  justify-content: center;
-  align-items: center;
-}
 
 .container-row {
-  display: flex;
-  padding: 10px;
-}
-
-.tile-component {
-  margin-left: 10px;
+  padding: 5px;
 }
 
 .section-header {
