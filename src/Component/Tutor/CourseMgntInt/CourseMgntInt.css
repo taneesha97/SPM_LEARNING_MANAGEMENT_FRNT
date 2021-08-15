@@ -5,12 +5,12 @@
   display: flex;
 }
 .course-component .input-form-container {
-  width: 30%;
+  width: 50%;
   padding: 10px;
 }
 .course-component .course-form .input-form {
   font-style: italic;
-  width: 70%;
+  width: 50%;
   border: solid 1px #989898;
   margin-left: 10px;
   margin-bottom: 10px;

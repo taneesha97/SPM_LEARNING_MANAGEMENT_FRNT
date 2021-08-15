@@ -2,6 +2,7 @@
   padding: 10px;
   color: white;
   height: 180px;
+  overflow: hidden;
 
 }
 .custom-row-component {
@@ -40,7 +41,8 @@
     @include custom-component-commons;
     background-color: #727272;
     margin-left: 300px;
-    width: 600px;
+    overflow:hidden;
+    width: 60%;
     .custom-row-component-second-description{
       margin-left: 70px;
       font-family: "Helvetica","Verdana", serif;
@@ -50,10 +52,15 @@
     @include custom-component-commons;
     border-radius: 0px 30px 30px 0px;
     background-color: #5B5A7A;
-    width: 200px;
+    width: 160px;
+    align-content: center;
+    margin-right: 30px;
+    text-align: center;
     .custom-row-button-group {
       display: flex;
       flex-direction: column;
+      width: 100%;
+
     }
   }
 }
