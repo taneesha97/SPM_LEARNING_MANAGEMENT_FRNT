@@ -1,12 +1,11 @@
-.card-img-top{
+.card-img-top {
   border-radius: 0% 10% 10% 0%;
   height: 150.2px;
   width: 50%;
   object-fit: cover;
-
 }
 
-.card-deck{
+.card-deck {
   width: fit-content;
   height: 200.2px;
   display: flex;
@@ -16,13 +15,15 @@
   margin: 10px;
 }
 
-.card-body{
-  background: linear-gradient(to top, #8221FE,#2D61FD);
+.card-body {
+  background: linear-gradient(to top, #8221FE, #2D61FD);
   border-radius: 10% 0% 0% 10%;
   width: 50%;
 }
 
-.class{
+.class {
   max-height: 50.2px;
   width: 302px;
 }
+
+/*# sourceMappingURL=ClassFileStyles.css.map */
