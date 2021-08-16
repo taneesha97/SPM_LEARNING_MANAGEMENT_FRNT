@@ -1,0 +1,26 @@
+@mixin button-commons {
+  color: white;
+  font-weight: bold;
+  width:  130px;
+  justify-content: center;
+  height:  30px;
+  border-radius: 30px;
+}
+
+.custom-button-container {
+  padding-bottom: 8px;
+  .custom-button {
+    @include button-commons;
+    background-color: #2d61fd;
+    border: none;
+    &.red {
+      background-color: #FF5050;
+    }
+    &.yellow {
+      background-color: #E4BF5E;
+    }
+    &.green {
+      background-color: #50C972;
+    }
+  }
+}
