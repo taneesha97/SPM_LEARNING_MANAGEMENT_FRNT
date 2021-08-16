@@ -1,13 +1,13 @@
 import React from 'react'
 import "./HomeLanding.css"
-import ClassTile from "../Class/ClassTile/ClassTile";
+import ClassSection from "./ClassSection/ClassSection";
 
 function HomeLanding() {
     return (
         <div>
             <p> This is the landing page! </p>
             <div>
-                <ClassTile/>
+                <ClassSection/>
             </div>
         </div>
     )
