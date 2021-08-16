@@ -12,7 +12,7 @@ const App = () => {
 //Add the React Router And Create Routing
   return (
       <BrowserRouter>
-        <Navbar/>
+        {/*<Navbar/>*/}
         <Switch>
             <Route exact path = "/home" component={HomePage}/>
             <Route exact path = "/profile" component={StudentProfile}/>
