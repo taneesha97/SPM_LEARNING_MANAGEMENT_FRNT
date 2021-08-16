@@ -8,12 +8,34 @@
   width: 50%;
   padding: 10px;
 }
+.course-component .input-form-container .form label {
+  font-weight: bold;
+  color: white;
+  padding-left: 20px;
+}
+.course-component .input-form-container .form .form-input {
+  width: 95%;
+  padding: 12px 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
 .course-component .course-form .input-form {
   font-style: italic;
   width: 50%;
   border: solid 1px #989898;
   margin-left: 10px;
   margin-bottom: 10px;
+}
+.course-component .course-form .input-form .input-form-field {
+  width: 100%;
+  border-radius: 8px;
+  height: 40px;
+  border: none;
+  padding: 10px;
 }
 .course-component .course-table {
   background-color: #CBC7C7;
@@ -27,6 +49,9 @@
 
 .course-button-group {
   padding: 10px;
+  margin-top: 10px;
+  margin-left: 10px;
+  justify-content: right;
 }
 .course-button-group .dark-button {
   border-radius: 5px;
@@ -45,7 +70,7 @@
   background-color: #7373f8;
 }
 .course-button-group.button-row {
-  display: flex;
+  justify-content: right;
 }
 
 /*# sourceMappingURL=CourseMgntInt.css.map */
