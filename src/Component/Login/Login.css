@@ -10,23 +10,62 @@
 }
 
 .login-info {
-  background-color: #2552F4;
-  width: 100%;
-  border-radius: 0px 0px 20px 20px;
-  padding-left: 20px;
-  padding-top: 10px;
-  height: 108px;
+  display: flex;
+  background-color: white;
+  background-image: url("./../Login/Images/loginBackground.png");
+  width: 50%;
+  margin-left: 50%;
+  border-radius: 0px 20px 20px 0px;
+  height: 100%;
 }
 
-.login-main {
+.login-image1 {
+  position: absolute;
+  width: 15%;
+  margin-top: -1%;
+  margin-left: -1%;
+}
+
+.login-info2 {
+  position: absolute;
+  width: 15%;
+  margin-top: 8%;
+  margin-left: 1%;
+}
+
+.login-info2-main {
+  font-family: Roboto;
   color: white;
+  font-weight: 700;
+  size: 40px;
 }
 
-.login-second {
-  color: lightgrey;
-  margin-top: -10px;
-  font-weight: lighter;
-  opacity: 60%;
+.login-info2-second {
+  font-family: Roboto;
+  color: black;
+  font-weight: 400;
+  size: 19px;
+}
+
+.login-info2 {
+  position: absolute;
+  width: 15%;
+  margin-top: 8%;
+  margin-left: 1%;
+}
+
+.login-info2-main {
+  font-family: Roboto;
+  color: white;
+  font-weight: 700;
+  size: 40px;
+}
+
+.login-info2-second {
+  font-family: Roboto;
+  color: black;
+  font-weight: 400;
+  size: 19px;
 }
 
 /*# sourceMappingURL=Login.css.map */
