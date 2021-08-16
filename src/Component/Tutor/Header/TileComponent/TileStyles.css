@@ -8,7 +8,8 @@
 .tutor-header-card .tutor-card-header {
   margin-top: 2px;
   font-weight: bold;
-  font-size: 30px;
+  font-size: 25px;
+  font-family: "Helvetica", "Verdana", serif;
 }
 .tutor-header-card .tutor-card-price {
   font-weight: lighter;

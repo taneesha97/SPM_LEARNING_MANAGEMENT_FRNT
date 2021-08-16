@@ -3,4 +3,40 @@
   padding: 10px;
 }
 
+.section-header {
+  font-size: 25px;
+  font-weight: bolder;
+  color: white;
+  padding: 10px;
+  margin-left: 10px;
+  font-family: "Helvetica", "Verdana", serif;
+}
+.section-header.dark-header {
+  color: #525252;
+}
+
+.second-header {
+  font-size: 15px;
+  font-weight: bolder;
+  margin-top: -15px;
+  color: white;
+  margin-bottom: 10px;
+  margin-left: 20px;
+  font-family: "Helvetica", "Verdana", serif;
+}
+
+span {
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  font-family: "Helvetica", "Verdana", serif;
+}
+
+.input-form {
+  border-radius: 8.53px;
+  border: none;
+  height: 42.34px;
+  max-width: 400px;
+}
+
 /*# sourceMappingURL=TutorDashboard.css.map */
