@@ -1,3 +1,32 @@
+.login {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  height: 520px;
+  width: 762.5px;
+  border-radius: 20px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+  background-color: #9F9DFF;
+}
 
+.login-info {
+  background-color: #2552F4;
+  width: 100%;
+  border-radius: 0px 0px 20px 20px;
+  padding-left: 20px;
+  padding-top: 10px;
+  height: 108px;
+}
+
+.login-main {
+  color: white;
+}
+
+.login-second {
+  color: lightgrey;
+  margin-top: -10px;
+  font-weight: lighter;
+  opacity: 60%;
+}
 
 /*# sourceMappingURL=Login.css.map */
