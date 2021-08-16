@@ -1,11 +1,11 @@
 import React from 'react'
 import "./TileStyles.css"
 
-function Tile({name, price}) {
+function Tile({name, count}) {
     return (
         <div className="admin-header-card">
             <p className="admin-card-header"> {name}</p>
-            <p className="admin-card-price"> {price} </p>
+            <p className="admin-card-price"> {count} </p>
             <img src="" alt="icon-name"/>
         </div>
     )

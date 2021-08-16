@@ -64,7 +64,6 @@ function Navbar () {
                             <Link to= '/register' className ="nav-links" onClick={closeMobileMenu}>
                                 REGISTRATION
                             </Link>
-
                         </li>
                     </ul>
                     <Link to= '/adminlogin' className ="nav-links" onClick={closeMobileMenu}>

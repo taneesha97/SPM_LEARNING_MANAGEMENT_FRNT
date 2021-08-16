@@ -4,9 +4,12 @@ import AdminDashHeader from "../../Component/Admin/Header/AdminDashHeader";
 
 function AdminDashboard() {
     return (
-        <div className="admin-dashboard-page">
-            <AdminDashHeader/>
+        <div>
+            <div className="admin-dashboard-page">
+                <AdminDashHeader/>
+            </div>
         </div>
+
     )
 }
 
