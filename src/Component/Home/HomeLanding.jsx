@@ -1,14 +1,14 @@
 import React from 'react'
 import "./HomeLanding.css"
-import PaymentForm from "../Payment/PaymentForm";
+import ClassTile from "../Class/ClassTile/ClassTile";
 
 function HomeLanding() {
     return (
-        <div  className='mainDiv'>
+        <div>
             <p> This is the landing page! </p>
-
-            <button>Payment</button>
-            <PaymentForm/>
+            <div>
+                <ClassTile/>
+            </div>
         </div>
     )
 }
