@@ -1,7 +1,10 @@
 import React from 'react'
 import "./Announcement.css"
-
-function Announcement() {
+import RowComponent from "./RowComponent/RowComponent";
+/**
+ * This component accept a array as a prop, data should be displayed in a scrollable div in the body of the below component.
+ * **/
+function Announcement({array}) {
     return (
         <div className="announcement-container">
             <div className="announcement-header">
@@ -13,8 +16,10 @@ function Announcement() {
                 </div>
             </div>
 
-            <div>
-
+            <div className="announcement-body">
+                {array.map((item) => (
+                   <RowComponent header={item.header} description={item.description}/>
+                ))}
             </div>
         </div>
     )
