@@ -1,0 +1,94 @@
+.Modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  padding: 0.5rem;
+  width: 70%;
+  height: fit-content;
+  color: #f00;
+  background-color: #fff;
+  border-radius: 1em;
+  transform: translate(-50%, -50%);
+  outline: transparent;
+}
+.Overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0,0,0,.4);
+}
+
+.MainModalContainer{
+  width:100%;
+  display: flex;
+  flex-direction: row;
+
+  .MainClassContainer{
+    width: 40%;
+    height: 40%;
+    background-color: #0038ff;
+    padding: 10px;
+    border-radius: 20px;
+
+  }
+  .MainMethodContainer{
+    width: 40%;
+    height: 60%;
+  }
+
+  .MainImage{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    border-radius: 20px;
+  }
+}
+.MainModalSideContainer{
+  width: fit-content;
+  height: fit-content;
+}
+.PaymentContainer{
+  align-items: center;
+  margin: 0;
+  background: linear-gradient(180deg, #FFFFFF 0%, #C3C2FF 100%);
+  width: 100%;
+  height: 90%;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  border-radius: 30px;
+
+  .input-field{
+    background: #C2C2C2;
+    height: 25px;
+    width: 90%;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 20px;
+    border: none;
+    padding-inline-start: 30px;
+  }
+
+  .input-button{
+    height: 25px;
+    width: 95%;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 20px;
+    border: none;
+    color: white;
+    background-color: #D1214B;
+
+  }
+}
+
+.PaymentSubContainer{
+  width:100%;
+  display: flex;
+  flex-direction: column;
+}
