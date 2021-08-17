@@ -8,14 +8,14 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import {Link} from "react-router-dom";
-import {makeStyles} from "@material-ui/core";
+import {makeStyles, TextField} from "@material-ui/core";
 import './studentTable.css'
 import studentDeleting1 from "./images/studentDelete-image1.png";
 function StudentTableComponent() {
     const useStyles = makeStyles({
         table: {
             minWidth: 1350,
-            marginTop: '3%',
+            //marginTop: '3%',
             borderRadius: 30
         },
         editorContent: {
@@ -29,8 +29,18 @@ function StudentTableComponent() {
 
     return (
         <div className="Student-table-background">
+
             <TableContainer component={Paper} className={classes.editorContent}>
                 <h1 className="title-studentTable">Student Details Table</h1>
+                <TextField
+                    id="filled-full-width"
+                    label="Search"
+                    style={{ marginLeft: 20}}
+                    placeholder="Search Items.."
+                    fullWidth
+                    margin="normal"
+                    variant="filled"
+                />
                 <Table className={classes.table} aria-label="simple table">
                     <TableHead className="student-table-header">
                         <TableRow >
