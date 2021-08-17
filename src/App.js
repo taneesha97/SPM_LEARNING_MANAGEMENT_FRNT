@@ -7,6 +7,7 @@ import LoginPage from "./Pages/LoginPage/LoginPage";
 import StudentProfile from "./Pages/StudentProfilePage/StudentProfile";
 import RegistrationPage from "./Pages/Registration/RegistrationPage";
 import TutorDashboard from "./Pages/TutorDashboard/TutorDashboard";
+import NavBarButtonComponent from "./Component/NavigationBar/NavBarButtonComponent";
 
 const App = () => {
 //Add the React Router And Create Routing
@@ -19,6 +20,7 @@ const App = () => {
             <Route exact path = "/login" component={LoginPage}/>
             <Route exact path = "/registration" component={RegistrationPage}/>
             <Route exact path = "/tutordash" component={TutorDashboard}/>
+            <Route exact path = "/navbarbuttoncomponent" component={NavBarButtonComponent}/>
         </Switch>
       </BrowserRouter>
   )
