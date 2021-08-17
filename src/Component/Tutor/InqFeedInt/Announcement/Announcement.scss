@@ -1,6 +1,7 @@
 .announcement-container {
   background-color: #525252;
   width: 500px;
+  height: 500px;
   border-radius: 30px;
   padding-bottom: 20px;
   padding-right: 10px;
@@ -36,6 +37,8 @@
     color: white;
     overflow: scroll;
     overflow-x: hidden;
-    height:120px;
+    height: 400px;
+    margin-left: 10px;
+    //background-color: #7F7CFF;
   }
 }

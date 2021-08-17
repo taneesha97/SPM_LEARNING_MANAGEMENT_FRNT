@@ -1,14 +1,41 @@
+@mixin common-styles {
+  font-family: "Helvetica","Verdana", serif;
+}
 .custom-row-container {
   border-radius: 10px;
-  background-color: #e3e3e3;
+  background-color: #525252;
   padding: 10px;
-  .custom-row-header{
-    font-size: 30px;
-    font-weight: bold;
+  margin-right: 10px;
+  .custom-row-flex{
+    display: flex;
+    .custom-row-header{
+      font-size: 30px;
+      font-weight: bold;
+      @include common-styles;
+    }
+    .custom-row-description {
+      font-size: 19.61px;
+      font-weight: normal;
+      margin-top: -12px;
+      margin-bottom: 9px;
+      @include common-styles;
+    }
+    .custom-row-posted-time {
+      font-size: 15px;
+      font-style: italic;
+      justify-content: right;
+      margin-left: 100px;
+      color: #9E9E9A;
+    }
   }
-  .custom-row-description {
-    font-size: 19.61px;
-    font-weight: normal;
+
+  #{&}-line {
+    background-color: #9E9E9A;
+    width: 430px;
+    height: 3px;
+    color: #9E9E9A;
+
   }
+
 
 }

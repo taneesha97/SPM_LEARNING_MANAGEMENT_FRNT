@@ -7,6 +7,9 @@ function InqFeedInt() {
     const array1 = [
         {"header":"Kamal", "description":"New News Update available"},
         {"header":"Kamal", "description":"New News Update available"},
+        {"header":"Kamal", "description":"New News Update available"},
+        {"header":"Kamal", "description":"New News Update available"},
+        {"header":"Kamal", "description":"New News Update available"},
         {"header":"Kamal", "description":"New News Update available"}];
 
     //Array for the inquiry component.
