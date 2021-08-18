@@ -1,5 +1,3 @@
 
-{"version":3,"sourceRoot":"","sources":["CourseMgntInt.scss"],"names":[],"mappings":"AAAA;EACE;EACA;EACA;EACA;;AACA;EACE;EACA;;AAEE;EACE;EACA;EACA;;AAEF;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAKJ;EACE;EACA;EACA;EACA;EACA;;AACA;EACE;EACA;EACA;EACA;EACA;;AAKN;EACE;EACA;EACA;;;AAIJ;EACE;;;AAWF;EACE;EACA;EACA;EACA;;AAEA;EAbA;EACA;EACA;EACA;EACA;EAWE;;AAEF;EAjBA;EACA;EACA;EACA;EACA;EAeE;;AAGF;EACE","file":"CourseMgntInt.css"}
-
-{"version":3,"sourceRoot":"","sources":["CourseMgntInt.scss"],"names":[],"mappings":"AACA;EACE;;AAEE;EACE;EACA","file":"CourseMgntInt.css"}
+{"version":3,"sourceRoot":"","sources":["CourseMgntInt.scss"],"names":[],"mappings":"AAAA;EACE;EACA;EACA;EACA;;AACA;EACE;EACA;;AAGA;EACE;EACA;EACA;EACA;EACA;;AAIJ;EACE;EACA;EACA;;;AAIJ;EACE;;;AAWF;EACE;;AAEA;EAVA;EACA;EACA;EACA;EACA;EAQE;;AAEF;EAdA;EACA;EACA;EACA;EACA;EAYE;;AAGF;EACE","file":"CourseMgntInt.css"}
 
