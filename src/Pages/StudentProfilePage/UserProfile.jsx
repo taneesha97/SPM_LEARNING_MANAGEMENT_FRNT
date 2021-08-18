@@ -1,6 +1,6 @@
 import React from 'react'
 import './UserProfile.css'
-import LoginLogo from "../../Component/Login/Images/LoginLogo.png";
+import profilePic from "./images/profilePic.png";
 function UserProfile() {
     return (<React.Fragment>
             <div>
@@ -12,8 +12,11 @@ function UserProfile() {
                 </div>
                 <div className="userprofile">
                     <div className="userprofile1">
-                        <img src= {LoginLogo}  className="login-image1"/>
+                        <img src= {profilePic}  className="profilePic"/>
                     </div>
+                </div>
+                <div className="userprofile1-info">
+                    <h2 className="userprofile1-info-main">Taneesha</h2>
                 </div>
             </div>
     </React.Fragment>
