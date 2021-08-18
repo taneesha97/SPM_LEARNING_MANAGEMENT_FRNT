@@ -102,4 +102,22 @@
   background-color: #e5e4ff;
 }
 
+.userprofile-bio1-info1 {
+  margin-left: 2%;
+}
+
+.userprofile-bio1-info1-main {
+  font-family: Roboto;
+  color: black;
+  font-weight: 400;
+  font-size: 48px;
+}
+
+.userprofile-bio1-info1-second {
+  font-family: Roboto;
+  color: black;
+  font-weight: 400;
+  font-size: 28px;
+}
+
 /*# sourceMappingURL=UserProfile.css.map */
