@@ -7,7 +7,7 @@ function Inquiry({array}) {
         <div className="inquiry-container">
             <div className="inquiry-header">
                 <div className="section-header light">
-                    Student Feedbacks
+                    Student Inquiries
                 </div>
                 <div className="second-header">
                     Latest
