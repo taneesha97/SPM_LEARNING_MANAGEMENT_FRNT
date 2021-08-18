@@ -1,6 +1,6 @@
 import React from 'react'
-import "./Announcement.css"
-
+//import "./Announcement.css"
+import './Announcement.css'
 function Announcement() {
     return (
         <div className="announcement-container">
