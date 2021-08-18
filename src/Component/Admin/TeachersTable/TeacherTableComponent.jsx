@@ -9,28 +9,29 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import {Link} from "react-router-dom";
 import {makeStyles, TextField} from "@material-ui/core";
-import './studentTable.css'
-import studentDeleting1 from "./images/studentDelete-image1.png";
-function StudentTableComponent() {
+import './teacherTable.css'
+import teacherDeleteimage1 from "./images/teacherDelete-image1.png";
+function TeacherTableComponent() {
     const useStyles = makeStyles({
         table: {
             minWidth: 1350,
+            //marginTop: '3%',
             borderRadius: 30
         },
-        editorContent: {
+        teacherContent: {
             borderRadius: 30
         },
-        studentTableHeaderColumns: {
+        teacherTableHeaderColumns: {
             color: 'white',
         },
     });
     const classes = useStyles();
 
     return (
-        <div className="Student-table-background">
+        <div className="Teacher-table-background">
 
-            <TableContainer component={Paper} className={classes.editorContent}>
-                <h1 className="title-studentTable">Student Details Table</h1>
+            <TableContainer component={Paper} className={classes.teacherContent}>
+                <h1 className="title-teacherTable">Teacher Details Table</h1>
                 <TextField
                     id="filled-full-width"
                     label="Search"
@@ -41,15 +42,15 @@ function StudentTableComponent() {
                     variant="filled"
                 />
                 <Table className={classes.table} aria-label="simple table">
-                    <TableHead className="student-table-header">
+                    <TableHead className="teacher-table-header">
                         <TableRow >
-                            <TableCell align="center" className={classes.studentTableHeaderColumns}>id</TableCell>
-                            <TableCell align="center" className={classes.studentTableHeaderColumns}>Name</TableCell>
-                            <TableCell align="center" className={classes.studentTableHeaderColumns}>Email</TableCell>
-                            <TableCell align="center" className={classes.studentTableHeaderColumns}>User Name</TableCell>
-                            <TableCell align="center" className={classes.studentTableHeaderColumns}>Password</TableCell>
-                            <TableCell align="center" className={classes.studentTableHeaderColumns}>Delete</TableCell>
-                            <TableCell align="center" className={classes.studentTableHeaderColumns}>Update</TableCell>
+                            <TableCell align="center" className={classes.teacherTableHeaderColumns}>id</TableCell>
+                            <TableCell align="center" className={classes.teacherTableHeaderColumns}>Name</TableCell>
+                            <TableCell align="center" className={classes.teacherTableHeaderColumns}>Email</TableCell>
+                            <TableCell align="center" className={classes.teacherTableHeaderColumns}>User Name</TableCell>
+                            <TableCell align="center" className={classes.teacherTableHeaderColumns}>Password</TableCell>
+                            <TableCell align="center" className={classes.teacherTableHeaderColumns}>Delete</TableCell>
+                            <TableCell align="center" className={classes.teacherTableHeaderColumns}>Update</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -63,7 +64,7 @@ function StudentTableComponent() {
                             <TableCell align="center"> MTUser </TableCell>
                             <TableCell align="center"> 123456 </TableCell>
                             <TableCell align="center">
-                                <Link> <p><img src= {studentDeleting1}  className="studentDelete-image1"/></p> </Link>
+                                <Link> <p><img src= {teacherDeleteimage1}  className="teacherDelete-image1"/></p> </Link>
                             </TableCell>
                             <TableCell align="center">
                                 <Link> <p>Update</p> </Link>
@@ -76,4 +77,4 @@ function StudentTableComponent() {
     )
 }
 
-export default StudentTableComponent
+export default TeacherTableComponent

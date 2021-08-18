@@ -9,6 +9,7 @@ import RegistrationPage from "./Pages/Registration/RegistrationPage";
 import TutorDashboard from "./Pages/TutorDashboard/TutorDashboard";
 import NavBarButtonComponent from "./Component/NavigationBar/NavBarButtonComponent";
 import AdminDashHeader from "./Component/Admin/Header/AdminDashHeader";
+import AdminDashboard from "./Pages/AdminDashboard/AdminDashboard";
 
 const App = () => {
 //Add the React Router And Create Routing
@@ -21,7 +22,7 @@ const App = () => {
             <Route exact path = "/login" component={LoginPage}/>
             <Route exact path = "/registration" component={RegistrationPage}/>
             <Route exact path = "/tutordash" component={TutorDashboard}/>
-            <Route exact path = "/admindash" component={AdminDashHeader}/>
+            <Route exact path = "/admindash" component={AdminDashboard}/>
             <Route exact path = "/navbarbuttoncomponent" component={NavBarButtonComponent}/>
         </Switch>
       </BrowserRouter>
