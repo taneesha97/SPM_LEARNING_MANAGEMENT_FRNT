@@ -1,6 +1,8 @@
 .card-img-top {
   border-radius: 10% 10% 0% 0%;
   height: 229.2px;
+  border-radius: 0% 10% 10% 0%;
+  height: 150.2px;
   width: 50%;
   object-fit: cover;
 }
@@ -20,6 +22,17 @@
 .card-body {
   background-color: #2d61fd;
   border-radius: 0% 0% 10% 10%;
+  height: 200.2px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 10px;
+}
+
+.card-body {
+  background: linear-gradient(to top, #8221FE, #2D61FD);
+  border-radius: 10% 0% 0% 10%;
   width: 50%;
 }
 

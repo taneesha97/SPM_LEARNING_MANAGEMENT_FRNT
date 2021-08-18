@@ -6,6 +6,23 @@
   .input-form-container {
     width: 50%;
     padding: 10px;
+    .form {
+      label{
+        font-weight: bold;
+        color: white;
+        padding-left: 20px;
+      }
+      .form-input {
+        width: 95%;
+        padding: 12px 20px;
+        margin-left: 20px;
+        margin-right: 20px;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+    }
   }
   .course-form {
     .input-form {
@@ -14,6 +31,13 @@
       border: solid 1px #989898;
       margin-left: 10px;
       margin-bottom: 10px;
+      .input-form-field{
+        width: 100%;
+        border-radius: 8px;
+        height: 40px;
+        border: none;
+        padding: 10px;
+      }
     }
   }
 
@@ -38,6 +62,9 @@
 
 .course-button-group {
   padding: 10px;
+  margin-top: 10px;
+  margin-left: 10px;
+  justify-content: right;
 
   .dark-button{
     @include base-button;
@@ -49,7 +76,7 @@
   }
 
   &.button-row {
-    display: flex;
+    justify-content: right;
   }
 }
 
