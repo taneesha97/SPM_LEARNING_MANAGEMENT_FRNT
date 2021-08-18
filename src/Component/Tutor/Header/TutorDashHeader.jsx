@@ -8,17 +8,15 @@ function TutorDashHeader() {
             <div className="tutor-header-component">
                 <div className="section-header">Overview Dashboard.</div>
                 <div>
-                    <div className="row row-cols-auto justify-content-center">
-                        <div className="col"><Tile1 name={"Student Count"} price={"$10"}/></div>
-                        <div className="col"><Tile1 name={"Student Count"} price={"$10"}/></div>
-                        <div className="col"><Tile1 name={"Student Count"} price={"$10"}/></div>
-                        <div className="col"><Tile1 name={"Student Count"} price={"$10"}/></div>
-                    </div>
-                    <div className="row container-row row-cols-auto justify-content-center">
-                        <div className="col"><Tile1 name={"Student Count"} price={"$10"}/></div>
-                        <div className="col"><Tile1 name={"Student Count"} price={"$10"}/></div>
-                        <div className="col"><Tile1 name={"Student Count"} price={"$10"}/></div>
-                        <div className="col"><Tile1 name={"Student Count"} price={"$10"}/></div>
+                    <div className="tutor-header-component-container">
+                        <div className="tutor-header-tile1"><Tile1 name={"Student Count"} price={"$10"}/></div>
+                        <div className="tutor-header-tile2"><Tile1 name={"Student Count"} price={"$10"}/></div>
+                        <div className="tutor-header-tile3"><Tile1 name={"Student Count"} price={"$10"}/></div>
+                        <div className="tutor-header-tile4"><Tile1 name={"Student Count"} price={"$10"}/></div>
+                        <div className="tutor-header-tile5"><Tile1 name={"Student Count"} price={"$10"}/></div>
+                        <div className="tutor-header-tile6"><Tile1 name={"Student Count"} price={"$10"}/></div>
+                        <div className="tutor-header-tile7"><Tile1 name={"Student Count"} price={"$10"}/></div>
+                        <div className="tutor-header-tile8"><Tile1 name={"Student Count"} price={"$10"}/></div>
                     </div>
                 </div>
             </div>

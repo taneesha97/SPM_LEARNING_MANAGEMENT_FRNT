@@ -35,7 +35,11 @@ function CourseMgntInt() {
                 <div className="course-table">
                     <div className="section-header dark-header"> Active Courses</div>
                     <div>
+                    <div id="style-1" className="course-table-body-scrollable">
                         {/*Insert a custom video*/}
+                        <CustomRow/>
+                        <CustomRow/>
+                        <CustomRow/>
                         <CustomRow/>
                         <CustomRow/>
                         <CustomRow/>
