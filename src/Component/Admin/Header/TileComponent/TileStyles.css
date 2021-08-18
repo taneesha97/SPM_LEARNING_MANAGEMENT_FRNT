@@ -1,0 +1,18 @@
+.admin-header-card {
+  background-color: #7F7CFF;
+  border-radius: 22.34px;
+  width: 400px;
+  height: 242px;
+  padding-left: 10px;
+}
+.admin-header-card .admin-card-header {
+  margin-top: 2px;
+  font-weight: bold;
+  font-size: 30px;
+}
+.admin-header-card .admin-card-price {
+  font-weight: lighter;
+  font-size: 40px;
+}
+
+/*# sourceMappingURL=TileStyles.css.map */

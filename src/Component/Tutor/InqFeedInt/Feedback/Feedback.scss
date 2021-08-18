@@ -1,0 +1,44 @@
+.feedback-container {
+  background-color: #525252;
+  width: 500px;
+  height: 500px;
+  border-radius: 30px;
+  padding-bottom: 20px;
+  padding-right: 10px;
+
+  /* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: #5b5b5b #888888;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #8d8d8d;
+    border-radius:10px ;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #606060;
+    border-radius: 10px;
+  }
+
+  .feedback-header {
+
+  }
+  .feedback-body {
+    padding-left: 10px;
+    padding-bottom: 10px;
+    color: white;
+    overflow: scroll;
+    overflow-x: hidden;
+    height: 400px;
+    margin-left: 10px;
+    //background-color: #7F7CFF;
+  }
+}

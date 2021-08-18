@@ -1,7 +1,7 @@
 import React from 'react'
 import "./CustomButton.css"
 
-function Login({name, color}) {
+function CustomButton({name, color}) {
     const buttonStyle = {backgroundColor: color};
     return (
         <div className="custom-button-container">
@@ -9,4 +9,4 @@ function Login({name, color}) {
         </div>
     )
 }
-export default Login
+export default CustomButton
