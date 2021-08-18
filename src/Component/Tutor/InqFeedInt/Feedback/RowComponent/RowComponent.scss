@@ -9,14 +9,14 @@
   .custom-row-flex{
     display: flex;
     .custom-row-header{
-      font-size: 30px;
+      font-size: 20.6px;
       font-weight: bold;
       @include common-styles;
     }
     .custom-row-description {
-      font-size: 19.61px;
+      font-size: 15.86px;
       font-weight: normal;
-      margin-top: -12px;
+      margin-top: -8px;
       margin-bottom: 9px;
       @include common-styles;
     }
