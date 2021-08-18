@@ -1,8 +1,8 @@
 import React from 'react'
 import "./InquiryCustomRow.css"
-function InquiryCustomRow() {
+function InquiryCustomRow({header, description}) {
     return (
-        <div>
+        <div className="inquiry-custom-row-container">
             <p>This is Inquiry Custom Row Component.</p>
         </div>
     )
