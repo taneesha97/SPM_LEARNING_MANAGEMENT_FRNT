@@ -1,6 +1,6 @@
 import React from 'react'
 import "./InqFeedInt.css"
-import Announcement from "./Announcement/Announcement";
+import Feedback from "./Feedback/Feedback";
 function InqFeedInt() {
 
     //Array for the announcement component.
@@ -21,13 +21,13 @@ function InqFeedInt() {
     return (
         <div className="inqfeedint-responsive-layout">
             <div className="responsive-subcomponent1">
-                <Announcement array={array1}/>
+                <Feedback array={array1}/>
             </div>
             <div className="responsive-subcomponent2">
-                <Announcement array={array1}/>
+                <Feedback array={array1}/>
             </div>
             <div className="responsive-subcomponent3">
-                <Announcement array={array1}/>
+                <Feedback array={array1}/>
             </div>
         </div>
     )
