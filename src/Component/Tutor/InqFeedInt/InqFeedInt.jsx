@@ -1,9 +1,13 @@
 import React from 'react'
 import "./InqFeedInt.css"
+import Announcement from "./Announcement/Announcement";
 function InqFeedInt() {
     return (
-        <div>
-            <p>Inquiry and Feedback Component.</p>
+        <div className="inqfeedint-responsive-layout">
+            <div className="responsive-subcomponent">
+                <Announcement/>
+            </div>
+
         </div>
     )
 }
