@@ -1,0 +1,37 @@
+.userprofile {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  height: 889px;
+  width: 546px;
+  border-radius: 30px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+  background-color: #FFFFFF;
+  margin-top: 2%;
+}
+
+.userprofile1 {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  height: 302.5px;
+  width: 546px;
+  border-radius: 20px;
+  background-color: #4A6CF4;
+  margin-top: 2%;
+}
+
+.bluescreen {
+  height: 328px;
+  background-color: #18266c;
+}
+
+.bluescreen1 {
+  height: 999px;
+  width: 420.3px;
+  background-color: #9F9DFF;
+  margin-left: 77.85%;
+  border-radius: 30px 0px 0px 30px;
+}
+
+/*# sourceMappingURL=UserProfile.css.map */

@@ -4,7 +4,7 @@ import './App.css';
 import Navbar from "./Component/NavigationBar/Navbar";
 import HomePage from "./Pages/HomePage/HomePage";
 import LoginPage from "./Pages/LoginPage/LoginPage";
-import StudentProfile from "./Pages/StudentProfilePage/StudentProfile";
+import UserProfile from "./Pages/StudentProfilePage/UserProfile";
 import RegistrationPage from "./Pages/Registration/RegistrationPage";
 import TutorDashboard from "./Pages/TutorDashboard/TutorDashboard";
 import NavBarButtonComponent from "./Component/NavigationBar/NavBarButtonComponent";
@@ -17,7 +17,7 @@ const App = () => {
         <Navbar/>
         <Switch>
             <Route exact path = "/home" component={HomePage}/>
-            <Route exact path = "/profile" component={StudentProfile}/>
+            <Route exact path = "/profile" component={UserProfile}/>
             <Route exact path = "/login" component={LoginPage}/>
             <Route exact path = "/registration" component={RegistrationPage}/>
             <Route exact path = "/tutordash" component={TutorDashboard}/>
