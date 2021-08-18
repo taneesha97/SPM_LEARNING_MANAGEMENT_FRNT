@@ -26,6 +26,11 @@ function UserProfile() {
                         </div>
                     </div>
                 </div>
+                <div className="userprofile-bio">
+                    <div className="userprofile-bio1">
+
+                    </div>
+                </div>
 
             </div>
     </React.Fragment>

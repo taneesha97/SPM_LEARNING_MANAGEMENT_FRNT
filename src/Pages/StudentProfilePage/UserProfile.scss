@@ -76,3 +76,24 @@
   align-content: center;
   width: 100%;
 }
+
+.userprofile-bio{
+  display: flex;
+  flex-direction: column;
+  height: 355px;
+  width: 1275px;
+  margin-left: 587px;
+  margin-top: -820px;
+  border-radius: 30px;
+  background-color: #FFFFFF;
+  filter: drop-shadow(0px 5px 20px rgba(0, 0, 0, 0.25)) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+.userprofile-bio1{
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  height: 305px;
+  width: 1240px;
+  border-radius: 30px;
+  background-color:rgba(229, 228, 255, 1);
+}
