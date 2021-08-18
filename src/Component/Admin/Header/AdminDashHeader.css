@@ -1,0 +1,18 @@
+.admin-header-component {
+  background-color: #525252;
+  padding: 10px;
+  border-radius: 30px;
+}
+
+.container-row {
+  padding: 5px;
+}
+
+.admin-section-header {
+  font-size: 30px;
+  font-weight: bolder;
+  color: white;
+  padding: 10px;
+}
+
+/*# sourceMappingURL=AdminDashHeader.css.map */
