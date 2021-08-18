@@ -1,6 +1,8 @@
 import React from 'react'
 import "./InqFeedInt.css"
 import Feedback from "./Feedback/Feedback";
+import AbstractModalHeader from "react-bootstrap/AbstractModalHeader";
+import Announcement from "./Announcement/Announcement";
 function InqFeedInt() {
 
     //Array for the announcement component.
@@ -24,7 +26,7 @@ function InqFeedInt() {
                 <Feedback array={array1}/>
             </div>
             <div className="responsive-subcomponent2">
-                <Feedback array={array1}/>
+                <Announcement/>
             </div>
             <div className="responsive-subcomponent3">
                 <Feedback array={array1}/>
