@@ -1,5 +1,5 @@
 .admin-header-card {
-  background: linear-gradient(to top, #8221FE, #2D61FD);
+  background-color: #7F7CFF;
   border-radius: 22.34px;
   width: 400px;
   height: 242px;
@@ -9,12 +9,10 @@
   margin-top: 2px;
   font-weight: bold;
   font-size: 30px;
-  color: #FFFFFF;
 }
 .admin-header-card .admin-card-price {
   font-weight: lighter;
   font-size: 40px;
-  color: #4B413A;
 }
 
 /*# sourceMappingURL=TileStyles.css.map */
