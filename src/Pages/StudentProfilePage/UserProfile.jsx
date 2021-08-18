@@ -13,11 +13,20 @@ function UserProfile() {
                 <div className="userprofile">
                     <div className="userprofile1">
                         <img src= {profilePic}  className="profilePic"/>
+                        <div className="userprofile1-info">
+                            <h2 className="userprofile1-info-main">Taneesha</h2>
+                            <div className="profitable-group">
+                                <button className="userprofile-button1">Update User Name</button><br/>
+                                <button className="userprofile-button1">Update My Email</button><br/>
+                                <button className="userprofile-button1">Update Password</button><br/>
+                                <button className="userprofile-button1">My Transactions</button><br/>
+                                <button className="userprofile-button2">Delete My Account</button><br/>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
-                <div className="userprofile1-info">
-                    <h2 className="userprofile1-info-main">Taneesha</h2>
-                </div>
+
             </div>
     </React.Fragment>
 
