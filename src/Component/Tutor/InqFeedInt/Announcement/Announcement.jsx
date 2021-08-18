@@ -32,6 +32,9 @@ function Announcement() {
                             <div className="announcement-button">
                                 <CustomButton name={"Send"} color={"#e4bf5e"}/>
                             </div>
+                            <div className="announcement-button">
+                                <CustomButton name={"Show"} color={"#9ee55c"}/>
+                            </div>
                         </div>
                     </form>
                     </div>
