@@ -1,0 +1,25 @@
+.admin-header-component {
+  background-color: #9F9DFF;
+  padding: 10px;
+  border-radius: 30px;
+}
+
+.container-row {
+  padding: 5px;
+}
+
+.admin-section-header {
+  font-size: 30px;
+  font-weight: bolder;
+  color: white;
+  padding: 10px;
+}
+
+.card-img {
+  border-radius: 0% 10% 10% 0%;
+  height: 150.2px;
+  width: 50%;
+  object-fit: cover;
+}
+
+/*# sourceMappingURL=AdminDashHeader.css.map */
