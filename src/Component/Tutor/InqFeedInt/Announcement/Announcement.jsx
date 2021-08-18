@@ -1,7 +1,6 @@
 import React from 'react'
+import './Announcement.css'
 import CustomButton from "../../CourseMgntInt/CustomButtons/CustomButton";
-import "./Announcement.css"
-
 function Announcement() {
     return (
         <div className="announcement-container">
@@ -23,7 +22,7 @@ function Announcement() {
                         <label> Body</label>
                         <div>
                             <textarea type="text" id="fname" name="firstname" placeholder="Announcement body comes here..."
-                                   className="form-area"/>
+                                  className="form-area"/>
                         </div>
                         <div className="announcement-body-button-group">
                             <div className="announcement-button">
@@ -43,5 +42,4 @@ function Announcement() {
         </div>
     )
 }
-
 export default Announcement
