@@ -1,5 +1,6 @@
 import React from 'react'
 import './UserProfile.css'
+import LoginLogo from "../../Component/Login/Images/LoginLogo.png";
 function UserProfile() {
     return (<React.Fragment>
             <div>
@@ -11,7 +12,7 @@ function UserProfile() {
                 </div>
                 <div className="userprofile">
                     <div className="userprofile1">
-
+                        <img src= {LoginLogo}  className="login-image1"/>
                     </div>
                 </div>
             </div>
