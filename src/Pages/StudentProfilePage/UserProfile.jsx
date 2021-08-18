@@ -29,7 +29,7 @@ function UserProfile() {
                 <div className="userprofile-bio">
                     <div className="userprofile-bio1">
                         <div className="userprofile-bio1-info1">
-                            <h2 className="userprofile-bio1-info1-main">Login</h2><br/>
+                            <h2 className="userprofile-bio1-info1-main">Bio</h2><br/>
                             <h4 className="userprofile-bio1-info1-second">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                                 Curabitur nec dignissim sem. Donec sed justo rutrum, vehicula elit a, pulvinar sem. Proin convallis,
                                 orci vel blandit luctus, massa lectus blandit neque,

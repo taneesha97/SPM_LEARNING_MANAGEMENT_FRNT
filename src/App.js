@@ -8,8 +8,9 @@ import UserProfile from "./Pages/StudentProfilePage/UserProfile";
 import RegistrationPage from "./Pages/Registration/RegistrationPage";
 import TutorDashboard from "./Pages/TutorDashboard/TutorDashboard";
 import NavBarButtonComponent from "./Component/NavigationBar/NavBarButtonComponent";
-import AdminDashHeader from "./Component/Admin/Header/AdminDashHeader";
 import AdminDashboard from "./Pages/AdminDashboard/AdminDashboard";
+import UserProfilePage from "./Pages/UserProfile/UserProfilePage";
+
 
 const App = () => {
 //Add the React Router And Create Routing
@@ -20,7 +21,7 @@ const App = () => {
 
 
             <Route exact path = "/home" component={HomePage}/>
-            <Route exact path = "/profile" component={UserProfile}/>
+            <Route exact path = "/profile" component={UserProfilePage}/>
             <Route exact path = "/login" component={LoginPage}/>
             <Route exact path = "/registration" component={RegistrationPage}/>
             <Route exact path = "/tutordash" component={TutorDashboard}/>
