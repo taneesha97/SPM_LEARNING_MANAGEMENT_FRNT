@@ -4,6 +4,7 @@ import TutorDashHeader from "../../Component/Tutor/Header/TutorDashHeader";
 import CourseMgntInt from "../../Component/Tutor/CourseMgntInt/CourseMgntInt";
 import FileAttachInt from "../../Component/Tutor/FileAttachInt/FileAttachInt";
 import InqFeedInt from "../../Component/Tutor/InqFeedInt/InqFeedInt";
+import StudentTableComponent from "../../Component/Tutor/StudentTable/StudentTableCompoenent";
 
 function TutorDashboard() {
 
@@ -52,6 +53,7 @@ function TutorDashboard() {
             <CourseMgntInt array4={array3} />
             <FileAttachInt/>
             <InqFeedInt array1={array1} array2={array2}/>
+            <StudentTableComponent/>
         </div>
     )
 }

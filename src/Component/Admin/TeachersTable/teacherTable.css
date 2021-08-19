@@ -1,0 +1,27 @@
+.Teacher-table-background {
+  background-color: #525252;
+  padding: 10px;
+  border-radius: 30px;
+}
+
+.teacherContent {
+  border-radius: 30px;
+}
+
+.title-teacherTable {
+  text-align: center;
+}
+
+.teacher-table-header {
+  background-color: black;
+}
+
+.student-table-header-columns {
+  color: white;
+}
+
+.teacherDelete-image1 {
+  height: 20px;
+}
+
+/*# sourceMappingURL=teacherTable.css.map */

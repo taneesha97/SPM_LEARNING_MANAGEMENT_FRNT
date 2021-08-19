@@ -9,29 +9,35 @@ function CourseMgntInt({array4}) {
         <React.Fragment>
             <div className="course-component">
                 <div className="input-form-container">
-                        <form className="form">
-                            <div className="course-component-header">
-                                <div className="section-header">Course Form</div>
-                                <div className="second-header">Course Form</div>
-                            </div>
+                    <form className="form">
+                        <div className="course-component-header">
+                            <div className="section-header">Course Form</div>
+                            <div className="second-header">Course Form</div>
+                        </div>
 
-                            <label htmlFor="fname">Name</label>
-                            <input type="text" id="fname" name="firstname" placeholder="Your name.." className="form-input"/>
+                        <label htmlFor="fname">Name</label>
+                        <input type="text" id="fname" name="firstname" placeholder="Your name.."
+                               className="form-input"/>
 
-                            <label htmlFor="lname">Number of Chapters</label>
-                            <input type="text" id="lname" name="lastname" placeholder="Number of Chapters.." className="form-input"/>
+                        <label htmlFor="lname">Number of Chapters</label>
+                        <input type="text" id="lname" name="lastname" placeholder="Number of Chapters.."
+                               className="form-input"/>
 
-                            <label htmlFor="lname">Price</label>
-                            <input type="text" id="lname" name="lastname" placeholder="Price.." className="form-input"/>
 
-                            <label htmlFor="lname">Description</label>
-                            <input type="text" id="lname" name="lastname" placeholder="Description.." className="form-input"/>
 
-                            <div className="course-button-group button-row">
-                                <button className="dark-button">Add</button>
-                                <button className="light-button">Reset</button>
-                            </div>
-                        </form>
+                        <label htmlFor="lname">Price</label>
+                        <input type="text" id="lname" name="lastname" placeholder="Price.." className="form-input"/>
+
+                        <label htmlFor="lname">Description</label>
+
+                        <input type="text" id="lname" name="lastname" placeholder="Description.."
+                               className="form-input"/>
+
+                        <div className="course-button-group button-row">
+                            <button className="dark-button">Add</button>
+                            <button className="light-button">Reset</button>
+                        </div>
+                    </form>
                 </div>
                 <div className="course-table">
                     <div className="section-header dark-header"> Active Courses</div>
