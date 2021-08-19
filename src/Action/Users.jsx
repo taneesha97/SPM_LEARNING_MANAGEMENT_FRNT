@@ -1,11 +1,9 @@
 import {ADD_USER, GET_USER, UPDATE_USER, DELETE_USER, FETCH_USERS} from "./types";
 import axios from "axios";
-import URL from '../URL'
 import * as api from '../API'
 export const fetchUser = () => dispatch => {
     console.log('fetching');
-    console.log(URL.baseURL);
-    axios.get(URL.baseURL + 'student/')
+    axios.get(api.baseURL + 'student/')
         .then(response => {
             dispatch({
                 type: ADD_USER,
