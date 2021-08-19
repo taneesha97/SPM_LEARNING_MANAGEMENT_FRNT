@@ -26,4 +26,10 @@
   justify-content: center;
 }
 
+.collapseList {
+  position: absolute;
+  margin-left: 960px;
+  margin-top: 1%;
+}
+
 /*# sourceMappingURL=ProfileClassRoom.css.map */
