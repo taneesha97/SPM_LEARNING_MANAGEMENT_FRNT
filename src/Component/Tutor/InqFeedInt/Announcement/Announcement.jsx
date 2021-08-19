@@ -1,20 +1,43 @@
 import React from 'react'
-import "./Announcement.css"
-
+import './Announcement.css'
+import CustomButton from "../../CourseMgntInt/CustomButtons/CustomButton";
 function Announcement() {
     return (
         <div className="announcement-container">
             <div className="announcement-header">
                 <div className="section-header light">
-                    Student Feedbacks
+                    Announcements
                 </div>
                 <div className="second-header">
                     Latest
                 </div>
-            </div>
-
-            <div>
-
+                <div className="announcement-body">
+                    <div className="input-form-container">
+                    <form className="form">
+                        <label> Heading</label>
+                        <div>
+                            <input type="text" id="fname" name="firstname"
+                                   placeholder="Announcement Heading Comes here..." className="form-input"/>
+                        </div>
+                        <label> Body</label>
+                        <div>
+                            <textarea type="text" id="fname" name="firstname" placeholder="Announcement body comes here..."
+                                  className="form-area"/>
+                        </div>
+                        <div className="announcement-body-button-group">
+                            <div className="announcement-button">
+                                <CustomButton name={"Discard"} color={"#FF5050"}/>
+                            </div>
+                            <div className="announcement-button">
+                                <CustomButton name={"Send"} color={"#e4bf5e"}/>
+                            </div>
+                            <div className="announcement-button">
+                                <CustomButton name={"Show"} color={"#50C972"}/>
+                            </div>
+                        </div>
+                    </form>
+                    </div>
+                </div>
             </div>
         </div>
     )

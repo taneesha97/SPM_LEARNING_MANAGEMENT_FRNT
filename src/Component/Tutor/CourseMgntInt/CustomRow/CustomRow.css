@@ -13,11 +13,11 @@
   color: white;
   height: 180px;
   overflow: hidden;
+  overflow: hidden;
   border-radius: 30px 30px 30px 30px;
-  width: 366px;
+  width: 500px;
   background-color: #7364b9;
   z-index: 1;
-  position: absolute;
   -webkit-box-shadow: 30px 30px 80px 0px #b2afb0;
   box-shadow: 30px 30px 300px 0px #343434;
 }
@@ -32,18 +32,18 @@
   padding-left: 10px;
 }
 .custom-row-component .custom-row-component-second-column {
-  padding: 10px;
   color: white;
   height: 180px;
   overflow: hidden;
   background-color: #727272;
-  margin-left: 300px;
   overflow: hidden;
-  width: 60%;
+  display: flex;
+  border-radius: 30px 0px 0px 30px;
+  width: 90%;
 }
 .custom-row-component .custom-row-component-second-column .custom-row-component-second-description {
-  margin-left: 70px;
   font-family: "Helvetica", "Verdana", serif;
+  padding: 10px;
 }
 .custom-row-component .custom-row-component-three-column {
   padding: 10px;

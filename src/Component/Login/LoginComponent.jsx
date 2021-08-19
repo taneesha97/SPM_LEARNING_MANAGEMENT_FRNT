@@ -1,10 +1,34 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './Login.css'
+import {useDispatch} from "react-redux";
+import {loginUserValidation} from "../../Action/Users";
+import {useHistory} from "react-router";
 
 function LoginComponent() {
+
+
+    const [name, setName] = useState("");
+    const [password, setPassword] = useState("");
+    const dispatch = useDispatch();
+    const history = useHistory();
+
+    function SubmitPressed(e) {
+        e.preventDefault();
+        const newUser = {
+            name,
+            password
+        }
+        console.log(newUser);
+        dispatch(loginUserValidation(newUser));
+    }
+
+    const NavigateToRegistration = () => {
+        history.push("/registration");
+    }
+
     return (
         <div>
-            <form>
+            <form onSubmit={SubmitPressed}>
                     <div className="login-info4">
                         <h2 className="login-info4-main">Login</h2>
                         <h4 className="login-info4-second">Login to get access to premium features and discounts</h4>
@@ -16,6 +40,9 @@ function LoginComponent() {
                             <input className="input-field"
                                    placeholder="Enter Name..."
                                    type="text"
+                                   onChange = {(e) =>{
+                                       setName(e.target.value);
+                                   }}
                             />
                             <br/>
                         </div>
@@ -24,6 +51,9 @@ function LoginComponent() {
                             <input className="input-field"
                                    placeholder="Enter Password..."
                                    type="password"
+                                   onChange = {(e) =>{
+                                       setPassword(e.target.value);
+                                   }}
                             />
                         </div>
                         <div>
@@ -36,7 +66,7 @@ function LoginComponent() {
                         </div>
                         <div className="login-info5">
                             <h2 className="login-info5-main">New to the site?</h2>
-                            <h4 className="login-info5-second">Sign up</h4>
+                            <h4 className="login-info5-second" onClick={NavigateToRegistration}>Sign up</h4>
                         </div>
                         <div className="login-info6">
                             <h2 className="login-info6-main">Forgot Password?</h2>
