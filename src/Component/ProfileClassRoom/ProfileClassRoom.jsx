@@ -1,5 +1,6 @@
 import React from 'react'
 import './ProfileClassRoom.css'
+import CollapsComponent from "../CollapsComponent/CollapsComponent";
 function ProfileClassRoom() {
     return (
         <div>
@@ -8,8 +9,16 @@ function ProfileClassRoom() {
             </div>
             <div className="bluescreen4">
                 <div className="bluescreen5">
+                    <div className="collapseList">
+                        <CollapsComponent/><br/>
+                        <CollapsComponent/><br/>
+                        <CollapsComponent/><br/>
+                        <CollapsComponent/><br/>
+                        <CollapsComponent/><br/>
+                    </div>
 
                 </div>
+
             </div>
         </div>
     )
