@@ -22,10 +22,13 @@ function CourseMgntInt() {
                         <input type="text" id="lname" name="lastname" placeholder="Number of Chapters.."
                                className="form-input"/>
 
+
+
                         <label htmlFor="lname">Price</label>
                         <input type="text" id="lname" name="lastname" placeholder="Price.." className="form-input"/>
 
                         <label htmlFor="lname">Description</label>
+
                         <input type="text" id="lname" name="lastname" placeholder="Description.."
                                className="form-input"/>
 
