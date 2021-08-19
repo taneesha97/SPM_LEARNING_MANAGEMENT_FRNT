@@ -14,7 +14,7 @@ function ClassMgntInt(){
                                 <div className="second-header">New class room add here</div>
                             </div>
                             <label htmlFor="name">Class Name</label>
-                            <input type="text" id="name" name="classname" placeholder="class name(eg:Grade 10)..."
+                            <input type="text" id="name" name="classname" placeholder="class name(eg:Grade 10)"
                                    className="form-input"/>
 
                             <label htmlFor="description">Description</label>
