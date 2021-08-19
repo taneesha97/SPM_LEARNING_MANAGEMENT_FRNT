@@ -37,7 +37,6 @@
 }
 
 .lower {
-  padding: 40px;
   display: none;
 }
 
@@ -84,6 +83,62 @@ div.expand .lower {
   color: white;
   font-weight: 400;
   font-size: 20px;
+}
+
+.bluescreencss6 {
+  background: #8221FE;
+  width: 1200px;
+  height: 64px;
+  border-radius: 30px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.listOfBluescreen6 {
+  margin: 0 auto;
+  position: relative;
+}
+
+.title-blueScreen {
+  font-family: Roboto;
+  color: white;
+  font-weight: 700;
+  font-size: 50px;
+  display: inline;
+  margin-left: 1%;
+  margin-top: auto;
+  margin-bottom: auto;
+  position: relative;
+}
+
+.title-blueScreen2 {
+  font-family: Roboto;
+  color: white;
+  font-weight: 400;
+  font-size: 30px;
+  display: inline;
+  margin-left: 1%;
+  margin-top: auto;
+  margin-bottom: auto;
+  position: relative;
+}
+
+.title-blueScreen3 {
+  font-family: Roboto;
+  color: white;
+  font-weight: 400;
+  font-size: 25px;
+  display: inline;
+  margin-left: 6%;
+  margin-top: auto;
+  margin-bottom: auto;
+  position: relative;
+}
+
+.progressbar1 {
+  width: 50%;
+  margin-left: 48%;
+  margin-top: -3%;
 }
 
 /*# sourceMappingURL=collapseClassroom.css.map */
