@@ -2,6 +2,7 @@ import React from 'react';
 import {Dropdown} from "bootstrap";
 import './ClassMgntInt.css'
 import "../../../../node_modules/bootstrap/dist/css/bootstrap.css"
+
 function ClassMgntInt(){
     return(
         <React.Fragment>
@@ -22,12 +23,16 @@ function ClassMgntInt(){
 
                        <label htmlFor="lname">Teacher name</label>
                        <select className="form-input" aria-label="Default select example">
-                           <option selected>Select Teacher name</option>
+                           <option selected>Choose...</option>
                            <option value="1">One</option>
                            <option value="2">Two</option>
                            <option value="3">Three</option>
                        </select>
 
+                       <label htmlFor="lname">Image</label>
+                       <div className="mb-3" style={{marginLeft:20}}>
+                           <input className="form-control" type="file" id="formFile"/>
+                       </div>
                    </form>
                </div>
             </div>
