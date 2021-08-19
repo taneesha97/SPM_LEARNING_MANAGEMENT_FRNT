@@ -2,8 +2,9 @@ import React from 'react'
 import "./CourseMgntInt.css"
 import "../../../../node_modules/bootstrap/dist/css/bootstrap.css"
 import CustomRow from "./CustomRow/CustomRow";
+import RowComponent from "../InqFeedInt/Feedback/RowComponent/RowComponent";
 
-function CourseMgntInt() {
+function CourseMgntInt({array4}) {
     return (
         <React.Fragment>
             <div className="course-component">
@@ -40,16 +41,10 @@ function CourseMgntInt() {
                 </div>
                 <div className="course-table">
                     <div className="section-header dark-header"> Active Courses</div>
-                    <div>
-                        <div id="style-1" className="course-table-body-scrollable">
-                            {/*Insert a custom video*/}
-                            <CustomRow/>
-                            <CustomRow/>
-                            <CustomRow/>
-                            <CustomRow/>
-                            <CustomRow/>
-                            <CustomRow/>
-                        </div>
+                    <div id="style-1" className="course-table-body-scrollable">
+                        {array4.map((item) => (
+                            <CustomRow header={item.header} description={item.description} body={item.body}/>
+                        ))}
                     </div>
                 </div>
             </div>

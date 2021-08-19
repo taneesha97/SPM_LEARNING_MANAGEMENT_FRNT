@@ -4,7 +4,7 @@
   border-radius: 20px;
   width: 1300px;
   height: 250px;
-  background: rgb(101, 22, 22);
+  background: rgba(22, 35, 101, 1);
   color: white;
   transition: all 300ms ease-in-out;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
@@ -37,7 +37,6 @@
 }
 
 .lower {
-  padding: 40px;
   display: none;
 }
 
@@ -56,4 +55,89 @@ div.expand {
   .lower{
     display: block;
   }
+}
+
+.collapseImage1{
+  width: 500px;
+  height: 210px;
+  margin-top: -2%;
+  margin-left: -1%;
+}
+
+.collapse-info1 {
+  position: absolute;
+  margin-left: 530px;
+  margin-top: -2%;
+  width: 700px;
+}
+
+.collapse-info1-main {
+  font-family: Roboto;
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 64px;
+}
+
+.collapse-info1-second {
+  font-family: Roboto;
+  color: rgba(255, 255, 255, 1);
+  font-weight: 400;
+  font-size: 20px;
+}
+
+.bluescreencss6{
+ // background: rgba(130, 33, 254, 1);
+  background:#8221FE;
+  width: 1200px;
+  height: 64px;
+  border-radius: 30px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.listOfBluescreen6{
+  margin: 0 auto;
+  position: relative;
+}
+
+
+.title-blueScreen{
+  font-family:Roboto;
+  color: rgba(255, 255, 255, 1);
+  font-weight: 700;
+  font-size: 50px;
+  display: inline;
+  margin-left: 1%;
+  margin-top: auto;
+  margin-bottom: auto;
+  position: relative;
+}
+
+.title-blueScreen2{
+  font-family:Roboto;
+  color: rgba(255, 255, 255, 1);
+  font-weight: 400;
+  font-size: 30px;
+  display: inline;
+  margin-left: 1%;
+  margin-top: auto;
+  margin-bottom: auto;
+  position: relative;
+}
+
+.title-blueScreen3{
+  font-family:Roboto;
+  color: rgba(255, 255, 255, 1);
+  font-weight: 400;
+  font-size: 25px;
+  display: inline;
+  margin-left: 6%;
+  margin-top: auto;
+  margin-bottom: auto;
+  position: relative;
+}
+.progressbar1{
+  width: 50%;
+  margin-left: 48%;
+  margin-top: -3%;
 }

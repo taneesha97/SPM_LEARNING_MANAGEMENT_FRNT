@@ -4,7 +4,7 @@
   border-radius: 20px;
   width: 1300px;
   height: 250px;
-  background: #651616;
+  background: #162365;
   color: white;
   transition: all 300ms ease-in-out;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
@@ -37,7 +37,6 @@
 }
 
 .lower {
-  padding: 40px;
   display: none;
 }
 
@@ -56,6 +55,90 @@ div.expand {
 }
 div.expand .lower {
   display: block;
+}
+
+.collapseImage1 {
+  width: 500px;
+  height: 210px;
+  margin-top: -2%;
+  margin-left: -1%;
+}
+
+.collapse-info1 {
+  position: absolute;
+  margin-left: 530px;
+  margin-top: -2%;
+  width: 700px;
+}
+
+.collapse-info1-main {
+  font-family: Roboto;
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 64px;
+}
+
+.collapse-info1-second {
+  font-family: Roboto;
+  color: white;
+  font-weight: 400;
+  font-size: 20px;
+}
+
+.bluescreencss6 {
+  background: #8221FE;
+  width: 1200px;
+  height: 64px;
+  border-radius: 30px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.listOfBluescreen6 {
+  margin: 0 auto;
+  position: relative;
+}
+
+.title-blueScreen {
+  font-family: Roboto;
+  color: white;
+  font-weight: 700;
+  font-size: 50px;
+  display: inline;
+  margin-left: 1%;
+  margin-top: auto;
+  margin-bottom: auto;
+  position: relative;
+}
+
+.title-blueScreen2 {
+  font-family: Roboto;
+  color: white;
+  font-weight: 400;
+  font-size: 30px;
+  display: inline;
+  margin-left: 1%;
+  margin-top: auto;
+  margin-bottom: auto;
+  position: relative;
+}
+
+.title-blueScreen3 {
+  font-family: Roboto;
+  color: white;
+  font-weight: 400;
+  font-size: 25px;
+  display: inline;
+  margin-left: 6%;
+  margin-top: auto;
+  margin-bottom: auto;
+  position: relative;
+}
+
+.progressbar1 {
+  width: 50%;
+  margin-left: 48%;
+  margin-top: -3%;
 }
 
 /*# sourceMappingURL=collapseClassroom.css.map */
