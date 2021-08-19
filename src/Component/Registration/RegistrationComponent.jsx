@@ -41,11 +41,11 @@ function RegistrationComponent() {
                         />
                     </div>
                     <div>
-                        <lable className="input-wrapper">Re-Enter Password</lable><br/>
-                        <input className="input-field"
-                               placeholder="Enter Password..."
-                               type="password"
-                        />
+                        <lable className="input-wrapper">User Type</lable><br/>
+                        <input type="radio" id="teacher" name="fav_language" value="teacher" className="input-field1"/>
+                        <label htmlFor="teacher">Teacher</label><br/>
+                        <input type="radio" id="student" name="fav_language" value="student" className="input-field1"/>
+                        <label htmlFor="student">Student</label>
                     </div><br/>
 
                     <div className="registration-button-group">
