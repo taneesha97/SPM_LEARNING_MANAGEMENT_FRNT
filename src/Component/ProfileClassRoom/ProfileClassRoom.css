@@ -1,0 +1,35 @@
+.bluescreen3 {
+  height: 119px;
+  background-color: #162365;
+  margin-top: 27%;
+}
+
+.bluescreen4 {
+  height: 1909px;
+  background-color: #9f9dff;
+}
+
+.bluescreen5 {
+  height: 1909px;
+  width: 725px;
+  border-radius: 0px 30px 30px 0px;
+  background-color: #8221fe;
+}
+
+.title-profileClassRoom {
+  font-family: Roboto;
+  color: white;
+  font-weight: 700;
+  font-size: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.collapseList {
+  position: absolute;
+  margin-left: 960px;
+  margin-top: 1%;
+}
+
+/*# sourceMappingURL=ProfileClassRoom.css.map */
