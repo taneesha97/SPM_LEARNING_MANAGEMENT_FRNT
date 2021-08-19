@@ -2,9 +2,10 @@
   background-color: #C8C8C8;
   margin-top: 12px;
   border-radius: 30px;
-  display: flex;
+  //display: flex;
+  max-width: 30%;
   .input-form-container {
-    width: 30%;
+    width: 90%;
     padding: 10px;
     .form {
       label{
@@ -65,3 +66,34 @@
   margin-left: 20px;
   font-family: "Helvetica","Verdana", serif;
 }
+
+
+@mixin base-button {
+  border-radius: 5px;
+  width: 100px;
+  color: white;
+  border: none;
+  margin-right: 20px;
+}
+
+.course-button-group {
+  padding: 10px;
+  margin-top: 10px;
+  margin-left: 10px;
+  justify-content: right;
+
+  .add-button{
+    @include base-button;
+    background-color: #5e5ee9;
+  }
+  .reset-button {
+    @include base-button;
+    background-color: #D1214B;
+  }
+
+  &.button-row {
+    justify-content: right;
+  }
+}
+
+
