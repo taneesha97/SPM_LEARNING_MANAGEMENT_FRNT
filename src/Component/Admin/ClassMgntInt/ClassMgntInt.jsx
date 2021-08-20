@@ -1,5 +1,4 @@
 import React from 'react';
-import {Dropdown} from "bootstrap";
 import './ClassMgntInt.css'
 import "../../../../node_modules/bootstrap/dist/css/bootstrap.css"
 
