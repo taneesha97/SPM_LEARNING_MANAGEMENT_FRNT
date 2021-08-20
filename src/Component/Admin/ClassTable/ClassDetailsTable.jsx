@@ -10,7 +10,8 @@ import Paper from '@material-ui/core/Paper';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
 import {green} from "@material-ui/core/colors";
-
+import TableFooter from '@material-ui/core/TableFooter';
+import TablePagination from '@material-ui/core/TablePagination';
 
 const StyledTableCell = withStyles((theme: Theme) =>
     createStyles({
@@ -59,18 +60,36 @@ const rows = [
 
 const useStyles = makeStyles({
     table: {
-        width: 800,
+        minWidth: 1350,
+        borderRadius: 50
+    },
+    editorContent: {
+        borderRadius: 30
     },
 });
 
 function ClassDetailsTable() {
     const classes = useStyles();
+    const [page, setPage] = React.useState(0);
+    const [rowsPerPage, setRowsPerPage] = React.useState(5);
+    const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
+
+    const handleChangePage = (event: React.MouseEvent<HTMLButtonElement> | null, newPage: number) => {
+        setPage(newPage);
+    };
+
+    const handleChangeRowsPerPage = (
+        event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    ) => {
+        setRowsPerPage(parseInt(event.target.value, 10));
+        setPage(0);
+    };
 
     return (
         <React.Fragment>
-            <div className="class-table-component">
-                <div className="input-table-container">
-                    <TableContainer component={Paper}>
+            {/*<div className="class-table-component">*/}
+            {/*    <div className="input-table-container">*/}
+                    <TableContainer component={Paper} className={classes.editorContent}>
                         <Table className={classes.table} aria-label="customized table">
                             <TableHead>
                                 <TableRow>
@@ -86,10 +105,10 @@ function ClassDetailsTable() {
                                 {rows.map((row) => (
                                     <StyledTableRow key={row.id}>
                                         {/*<StyledTableCell component="th" scope="row">{row.id}</StyledTableCell>*/}
-                                        <StyledTableCell align="right">{row.name}</StyledTableCell>
-                                        <StyledTableCell align="right">{row.description}</StyledTableCell>
-                                        <StyledTableCell align="right">{row.teacher}</StyledTableCell>
-                                        <StyledTableCell align="right">{row.image}</StyledTableCell>
+                                        <StyledTableCell align="center">{row.name}</StyledTableCell>
+                                        <StyledTableCell align="center">{row.description}</StyledTableCell>
+                                        <StyledTableCell align="center">{row.teacher}</StyledTableCell>
+                                        <StyledTableCell align="center">{row.image}</StyledTableCell>
                                         <TableCell align="center">
                                             <DeleteIcon color="primary" style={{fontSize: 40 }}/>
                                         </TableCell>
@@ -99,10 +118,28 @@ function ClassDetailsTable() {
                                     </StyledTableRow>
                                 ))}
                             </TableBody>
+                            <TableFooter>
+                                <TableRow>
+                                    <TablePagination
+                                        rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
+                                        colSpan={3}
+                                        count={rows.length}
+                                        rowsPerPage={rowsPerPage}
+                                        page={page}
+                                        SelectProps={{
+                                            inputProps: { 'aria-label': 'rows per page' },
+                                            native: true,
+                                        }}
+                                        onPageChange={handleChangePage}
+                                        onRowsPerPageChange={handleChangeRowsPerPage}
+                                        // ActionsComponent={TablePaginationActions}
+                                    />
+                                </TableRow>
+                            </TableFooter>
                         </Table>
                     </TableContainer>
-                </div>
-            </div>
+            {/*    </div>*/}
+            {/*</div>*/}
         </React.Fragment>
 
     )
