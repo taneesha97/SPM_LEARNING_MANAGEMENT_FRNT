@@ -7,6 +7,9 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import EditIcon from '@material-ui/icons/Edit';
+import DeleteIcon from '@material-ui/icons/Delete';
+import {green} from "@material-ui/core/colors";
 
 
 const StyledTableCell = withStyles((theme: Theme) =>
@@ -36,20 +39,27 @@ const StyledTableRow = withStyles((theme: Theme) =>
 // }
 
 const rows = [
-    { id: 1, name: 'Snow', email: 'Jon@gmail.com', username: 'Snow',password: 1234 },
-    { id: 2, name: 'Lannister', email: 'Cersei@gmail.com',username: 'Lannister', password: 1234 },
-    { id: 3, name: 'Lannister', email: 'Jaime@gmail.com',username: 'Snow', password: 1234 },
-    { id: 4, name: 'Stark', email: 'Arya@gmail.com',username: 'Snow', password: 1234 },
-    { id: 5, name: 'Targaryen', email: 'Daenerys@gmail.com', username: 'Snow', password: 1234 },
-    { id: 6, name: 'Melisandre', email: 'ee@gmail.com', username: 'Snow', password: 1234 },
-    { id: 7, name: 'Clifford', email: 'Ferrara@gmail.com', username: 'Snow', password: 1234 },
-    { id: 8, name: 'Frances', email: 'Rossini@gmail.com', username: 'Snow', password: 1234 },
-    { id: 9, name: 'Roxie', email: 'Harvey@gmail.com',username: 'Snow', password: 1234 },
+    { id: 1, name: 'Grade 11', description: 'This is a grade 11 class', teacher: 'Mr.Dissanayka',image: 'Class_Image' },
+    { id: 2, name: 'Grade 11', description: 'This is a grade 11 class', teacher: 'Mr.Dissanayka',image: 'Class_Image' },
+    { id: 3, name: 'Grade 11', description: 'This is a grade 11 class', teacher: 'Mr.Dissanayka',image: 'Class_Image' },
+    { id: 4, name: 'Grade 11', description: 'This is a grade 11 class', teacher: 'Mr.Dissanayka',image: 'Class_Image' },
+    { id: 5, name: 'Grade 11', description: 'This is a grade 11 class', teacher: 'Mr.Dissanayka',image: 'Class_Image' },
+    { id: 6, name: 'Grade 11', description: 'This is a grade 11 class', teacher: 'Mr.Dissanayka',image: 'Class_Image' },
+    { id: 7, name: 'Grade 11', description: 'This is a grade 11 class', teacher: 'Mr.Dissanayka',image: 'Class_Image' },
+    { id: 8, name: 'Grade 11', description: 'This is a grade 11 class', teacher: 'Mr.Dissanayka',image: 'Class_Image' },
+    { id: 9, name: 'Grade 11', description: 'This is a grade 11 class', teacher: 'Mr.Dissanayka',image: 'Class_Image' },
+    { id: 10, name: 'Grade 11', description: 'This is a grade 11 class', teacher: 'Mr.Dissanayka',image: 'Class_Image' },
+    { id: 11, name: 'Grade 11', description: 'This is a grade 11 class', teacher: 'Mr.Dissanayka',image: 'Class_Image' },
+    { id: 12, name: 'Grade 11', description: 'This is a grade 11 class', teacher: 'Mr.Dissanayka',image: 'Class_Image' },
+    { id: 13, name: 'Grade 11', description: 'This is a grade 11 class', teacher: 'Mr.Dissanayka',image: 'Class_Image' },
+    { id: 14, name: 'Grade 11', description: 'This is a grade 11 class', teacher: 'Mr.Dissanayka',image: 'Class_Image' },
+    { id: 15, name: 'Grade 11', description: 'This is a grade 11 class', teacher: 'Mr.Dissanayka',image: 'Class_Image' },
+
 ];
 
 const useStyles = makeStyles({
     table: {
-        minWidth: 200,
+        width: 800,
     },
 });
 
@@ -57,32 +67,44 @@ function ClassDetailsTable() {
     const classes = useStyles();
 
     return (
-        <TableContainer component={Paper}>
-            <Table className={classes.table} aria-label="customized table">
-                <TableHead>
-                    <TableRow>
-                        <StyledTableCell>Dessert (100g serving)</StyledTableCell>
-                        <StyledTableCell align="right">Calories</StyledTableCell>
-                        <StyledTableCell align="right">Fat&nbsp;(g)</StyledTableCell>
-                        <StyledTableCell align="right">Carbs&nbsp;(g)</StyledTableCell>
-                        <StyledTableCell align="right">Protein&nbsp;(g)</StyledTableCell>
-                    </TableRow>
-                </TableHead>
-                <TableBody>
-                    {rows.map((row) => (
-                        <StyledTableRow key={row.name}>
-                            <StyledTableCell component="th" scope="row">
-                                {row.name}
-                            </StyledTableCell>
-                            <StyledTableCell align="right">{row.calories}</StyledTableCell>
-                            <StyledTableCell align="right">{row.fat}</StyledTableCell>
-                            <StyledTableCell align="right">{row.carbs}</StyledTableCell>
-                            <StyledTableCell align="right">{row.protein}</StyledTableCell>
-                        </StyledTableRow>
-                    ))}
-                </TableBody>
-            </Table>
-        </TableContainer>
+        <React.Fragment>
+            <div className="class-table-component">
+                <div className="input-table-container">
+                    <TableContainer component={Paper}>
+                        <Table className={classes.table} aria-label="customized table">
+                            <TableHead>
+                                <TableRow>
+                                    <TableCell align="center" >Class name</TableCell>
+                                    <TableCell align="center" >Description</TableCell>
+                                    <TableCell align="center" >Teacher name</TableCell>
+                                    <TableCell align="center" >Image</TableCell>
+                                    <TableCell align="center" >Delete</TableCell>
+                                    <TableCell align="center" >Update</TableCell>
+                                </TableRow>
+                            </TableHead>
+                            <TableBody>
+                                {rows.map((row) => (
+                                    <StyledTableRow key={row.id}>
+                                        {/*<StyledTableCell component="th" scope="row">{row.id}</StyledTableCell>*/}
+                                        <StyledTableCell align="right">{row.name}</StyledTableCell>
+                                        <StyledTableCell align="right">{row.description}</StyledTableCell>
+                                        <StyledTableCell align="right">{row.teacher}</StyledTableCell>
+                                        <StyledTableCell align="right">{row.image}</StyledTableCell>
+                                        <TableCell align="center">
+                                            <DeleteIcon color="primary" style={{fontSize: 40 }}/>
+                                        </TableCell>
+                                        <TableCell align="center">
+                                            <EditIcon style={{ color: green[500], fontSize: 40 }}/>
+                                        </TableCell>
+                                    </StyledTableRow>
+                                ))}
+                            </TableBody>
+                        </Table>
+                    </TableContainer>
+                </div>
+            </div>
+        </React.Fragment>
+
     )
 }
 
