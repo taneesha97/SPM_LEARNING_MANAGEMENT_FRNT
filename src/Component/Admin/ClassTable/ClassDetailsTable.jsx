@@ -35,10 +35,6 @@ const StyledTableRow = withStyles((theme: Theme) =>
     }),
 )(TableRow);
 
-// function createData(name: string, calories: number, fat: number, carbs: number, protein: number) {
-//     return { name, calories, fat, carbs, protein };
-// }
-
 const rows = [
     { id: 1, name: 'Grade 11', description: 'This is a grade 11 class', teacher: 'Mr.Dissanayka',image: 'Class_Image' },
     { id: 2, name: 'Grade 11', description: 'This is a grade 11 class', teacher: 'Mr.Dissanayka',image: 'Class_Image' },
