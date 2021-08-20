@@ -1,7 +1,7 @@
 import axios from 'axios'
 const url = "http://localhost:8073/";
 //register user
-export const createUser = (user) =>  axios.post(url + "user", user);
+export const createUser = (user) =>  axios.post(url + "users", user);
 //validate user
 export const validateUser = (user) => axios.post(url + "validate", user);
 //export URL
