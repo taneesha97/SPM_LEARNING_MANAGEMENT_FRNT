@@ -100,7 +100,6 @@ function RegistrationComponent() {
                     <div className="registration-button-group">
                         <button className="registration-button" type="submit">Register</button><br/>
                     </div>
-
                 </div>
             </form>
         </div>

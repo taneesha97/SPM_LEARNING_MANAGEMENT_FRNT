@@ -20,7 +20,7 @@ import {useDispatch, useSelector} from "react-redux";
 const StudentTableComponent = ()  => {
     const dispatch = useDispatch();
 
-    const response = useSelector((state) => state.userDetails1.UserDetails.records);
+    const response = useSelector((state) => state.userDetails1.UserDetails.records.data);
     console.log(response);
 
     useEffect(() => {
@@ -72,11 +72,9 @@ const StudentTableComponent = ()  => {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-
                         {
-                            response.data.map((row) => (
+                            response?.map((row) => (
                                 <TableRow key={row.id}>
-
                                     <TableCell align="center"> {row.id} </TableCell>
                                     <TableCell align="center"> {row.name} </TableCell>
                                     <TableCell align="center"> {row.email} </TableCell>
@@ -92,7 +90,6 @@ const StudentTableComponent = ()  => {
                                 </TableRow>
                             ))
                         }
-
                     </TableBody>
                 </Table>
             </TableContainer>

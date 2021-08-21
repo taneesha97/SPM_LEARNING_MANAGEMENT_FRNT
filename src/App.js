@@ -17,12 +17,9 @@ import store from "./store";
 const App = () => {
 //Add the React Router And Create Routing
   return (
-      <Provider store={store}>
           <BrowserRouter>
               <Navbar/>
               <Switch>
-
-
                   <Route exact path = "/home" component={HomePage}/>
                   <Route exact path = "/profile" component={UserProfilePage}/>
                   <Route exact path = "/login" component={LoginPage}/>
@@ -32,8 +29,6 @@ const App = () => {
                   <Route exact path = "/navbarbuttoncomponent" component={NavBarButtonComponent}/>
               </Switch>
           </BrowserRouter>
-      </Provider>
-
   )
 }
 export default App;
