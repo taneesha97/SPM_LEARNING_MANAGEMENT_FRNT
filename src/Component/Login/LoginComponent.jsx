@@ -1,13 +1,14 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import './Login.css'
-import {useDispatch} from "react-redux";
-import {loginUserValidation} from "../../Action/Users";
+import {useDispatch, useSelector} from "react-redux";
+import {fetchUser, loginUserValidation} from "../../Action/Users";
 import {useHistory} from "react-router";
+import axios from "axios";
 
 function LoginComponent() {
 
 
-    const [name, setName] = useState("");
+    const [username, setName] = useState("");
     const [password, setPassword] = useState("");
     const dispatch = useDispatch();
     const history = useHistory();
@@ -15,12 +16,26 @@ function LoginComponent() {
     function SubmitPressed(e) {
         e.preventDefault();
         const newUser = {
-            name,
+            username,
             password
         }
         console.log(newUser);
+
         dispatch(loginUserValidation(newUser));
+        const response = useSelector((state) => state.userDetails1.loginUser);
+        console.log('res1 ', response);
+        if (response == ""){
+            console.log("null");
+        }else if (response == "student"){
+            console.log("student");
+        }else if (response == "teacher"){
+            console.log("teacher");
+        }
+
     }
+
+
+
 
     const NavigateToRegistration = () => {
         history.push("/registration");

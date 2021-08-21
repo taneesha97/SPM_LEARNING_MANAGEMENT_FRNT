@@ -8,11 +8,4 @@ export const validateUser = (user) => axios.post(url + "validate", user);
 export const baseURL = url
 
 
-//till not used
-//get User id
-// export const getUserId = (user) => axios.post(url + "getValdatedUserId", user)
-// //get user email
-// export const getUserEmail = (user) => axios.post(url + "getValdatedUseremail", user)
-//get Users
-//export const getUsers = () => axios.get(url + "user");
 

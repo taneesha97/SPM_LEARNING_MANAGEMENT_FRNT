@@ -1,4 +1,4 @@
-import {ADD_USER, GET_USER, UPDATE_USER, DELETE_USER, FETCH_USERS} from "./types";
+import {ADD_USER, GET_USER, UPDATE_USER, DELETE_USER, FETCH_USERS, VALID_USER} from "./types";
 import axios from "axios";
 import * as api from '../API'
 export const fetchUser = () => dispatch => {
@@ -21,16 +21,17 @@ export const addUsers = (PostData) => async (dispatch) => {
     try{
         const { data } = await api.createUser(PostData);
         dispatch({type: ADD_USER, payload: data });
-        alert("data added successfully");
     } catch (error){
         console.log(error);
     }
 }
 
-export const loginUserValidation = (user) => async () => {
+export const loginUserValidation = (user) => async (dispatch) => {
+    console.log('creating');
     try {
-        const data = await api.validateUser(user);
-        return data;
+        const data= await api.validateUser(user);
+        console.log('data ', data);
+        dispatch({type: VALID_USER, payload: data });
     } catch (error) {
         console.log(error);
     }
