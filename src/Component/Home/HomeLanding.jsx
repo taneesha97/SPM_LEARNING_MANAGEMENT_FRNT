@@ -5,6 +5,7 @@ import ClassSection from "./ClassSection/ClassSection";
 
 import ClassTile from "../Class/ClassTile/ClassTile";
 import PaymentForm from "../Payment/PaymentForm";
+import TutorSection from "./TutorSection/TutorSection";
 
 
 function HomeLanding() {
@@ -14,6 +15,7 @@ function HomeLanding() {
             <div>
                 <ClassSection/>
             </div>
+            <TutorSection/>
             <button>Payment</button>
             <p>Lol</p>
             <PaymentForm/>
