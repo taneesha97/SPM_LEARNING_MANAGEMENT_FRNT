@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -11,7 +11,20 @@ import {Link} from "react-router-dom";
 import {makeStyles, TextField} from "@material-ui/core";
 import './teacherTable.css'
 import teacherDeleteimage1 from "./images/teacherDelete-image1.png";
+import {useDispatch, useSelector} from "react-redux";
+import {fetchUser} from "../../../Action/Users";
 function TeacherTableComponent() {
+
+
+    const dispatch = useDispatch();
+
+    const response = useSelector((state) => state.userDetails1.UserDetails.records.data);
+    console.log(response);
+
+    useEffect(() => {
+        console.log('calling')
+        dispatch(fetchUser());
+    },[])
 
     const rows = [
         { id: 1, name: 'Snow', email: 'Jon@gmail.com', username: 'Snow',password: 1234 },
@@ -68,7 +81,7 @@ function TeacherTableComponent() {
                     </TableHead>
                     <TableBody>
                         {
-                            rows.map((row) => (
+                            response.map((row) => (
                                 <TableRow key={row.id}>
                                     <TableCell align="center"> {row.id} </TableCell>
                                     <TableCell align="center"> {row.name} </TableCell>

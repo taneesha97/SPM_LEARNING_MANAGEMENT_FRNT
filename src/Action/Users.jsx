@@ -3,13 +3,15 @@ import axios from "axios";
 import * as api from '../API'
 export const fetchUser = () => dispatch => {
     console.log('fetching');
-    axios.get(api.baseURL + 'users/')
+    axios.get(api.baseURL + '/users')//api.baseURL + 'deleteuser'
         .then(response => {
             dispatch({
-                type: ADD_USER,
-                payload: response.data
+                type: FETCH_USERS,
+                payload: response
             })}
+
         ).catch((err) => {
+
         console.log(err);
     })
 }
