@@ -1,5 +1,5 @@
 import React from 'react'
-import './Login.css'
+import './TutorSection.css'
 import ProfileImage from "./ProfileImage/ProfileImage";
 
 function Login() {
