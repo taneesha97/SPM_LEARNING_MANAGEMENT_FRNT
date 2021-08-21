@@ -3,9 +3,10 @@ import "./HomeLanding.css"
 
 import ClassSection from "./ClassSection/ClassSection";
 
-import ClassTile from "../Class/ClassTile/ClassTile";
 import PaymentForm from "../Payment/PaymentForm";
 import WelcomeHeader from "./WelcomeHeader/WelcomeHeader";
+import Footer from "../Footer/Footer";
+
 
 
 function HomeLanding() {
@@ -18,6 +19,7 @@ function HomeLanding() {
             <button>Payment</button>
             <p>Lol</p>
             <PaymentForm/>
+            <Footer/>
         </div>
     )
 }
