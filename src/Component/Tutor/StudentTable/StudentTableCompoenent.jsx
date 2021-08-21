@@ -74,7 +74,7 @@ const StudentTableComponent = ()  => {
                     <TableBody>
 
                         {
-                            response.map((row) => (
+                            response?.map((row) => (
                                 <TableRow key={row.id}>
 
                                     <TableCell align="center"> {row.id} </TableCell>
