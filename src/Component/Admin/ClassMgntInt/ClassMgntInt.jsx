@@ -9,8 +9,8 @@ function ClassMgntInt(){
                     <div className="input-form-container">
                         <form className="form">
                             <div className="class-component-header">
-                                <div className="section-header">Class Form</div>
-                                <div className="second-header">New class room add here</div>
+                                <div className="class-section-header">Class Form</div>
+                                <div className="class-second-header">New class room add here</div>
                             </div>
                             <label htmlFor="name">Class Name</label>
                             <input type="text" id="name" name="classname" placeholder="class name(eg:Grade 10)"
@@ -40,9 +40,6 @@ function ClassMgntInt(){
                     </div>
                 </div>
         </React.Fragment>
-
-
-
     )
 }
 

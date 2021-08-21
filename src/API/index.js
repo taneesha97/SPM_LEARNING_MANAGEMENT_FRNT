@@ -12,6 +12,11 @@ export const createCourse = (course) => axios.post(url + "course", course);
  * Get Course Directly Called from the URL export.
  * **/
 
+//add class
+export const createClass = (clz) => axios.post(url + "class", clz);
+
+
+
 
 //till not used
 //get User id
