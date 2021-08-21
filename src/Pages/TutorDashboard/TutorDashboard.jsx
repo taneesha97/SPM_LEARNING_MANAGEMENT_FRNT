@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {fetchCourses} from "../../Action/Courses";
 function TutorDashboard() {
 
-    const courses = useSelector((state) => state.CourseReducer);
+    const courses = useSelector((state) => state.courses);
     const dispatch = useDispatch();
     useEffect(()=> {
         getCourses();
@@ -59,11 +59,12 @@ function TutorDashboard() {
         {"header":"Student Count", "count":"5K"},
         {"header":"Student Count", "count":"5K"}
     ];
+
     console.log(courses);
     return (
         <div className="tutor-dashboard-page">
             <TutorDashHeader array5={array4}/>
-            <CourseMgntInt array4={array3} />
+            <CourseMgntInt array4={courses} />
             <FileAttachInt array4={array4}/>
             <InqFeedInt array1={array1} array2={array2}/>
             <StudentTableComponent/>

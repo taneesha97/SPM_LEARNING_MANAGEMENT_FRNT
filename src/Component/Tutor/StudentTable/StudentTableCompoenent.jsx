@@ -14,13 +14,14 @@ import studentDeleting1 from "./images/studentDelete-image1.png";
 import {fetchUser} from "../../../Action/Users";
 import teacherDeleteimage1 from "../../Admin/TeachersTable/images/teacherDelete-image1.png";
 import {useDispatch, useSelector} from "react-redux";
+import UserReducer from "../../../Reducers/UserReducer";
 
 
 
 const StudentTableComponent = ()  => {
     const dispatch = useDispatch();
 
-    const response = useSelector((state) => state.userDetails1.UserDetails.records);
+    const response = useSelector((state) => state.userDetails1.UserDetails.records.data);
     console.log(response);
 
     useEffect(() => {
@@ -74,23 +75,22 @@ const StudentTableComponent = ()  => {
                     <TableBody>
 
                         {
-                            response.data.map((row) => (
-                                <TableRow key={row.id}>
-
-                                    <TableCell align="center"> {row.id} </TableCell>
-                                    <TableCell align="center"> {row.name} </TableCell>
-                                    <TableCell align="center"> {row.email} </TableCell>
-                                    <TableCell align="center"> {row.username} </TableCell>
-                                    <TableCell align="center"> {row.password} </TableCell>
-                                    <TableCell align="center"> {row.type} </TableCell>
-                                    <TableCell align="center">
-                                        <Link> <p><img src= {studentDeleting1}  className="studentDelete-image1"/></p> </Link>
-                                    </TableCell>
-                                    <TableCell align="center">
-                                        <Link> <p>Update</p> </Link>
-                                    </TableCell>
-                                </TableRow>
-                            ))
+                            // response.map((row) => (
+                            //     <TableRow key={row.id}>
+                            //         <TableCell align="center"> {row.id} </TableCell>
+                            //         <TableCell align="center"> {row.name} </TableCell>
+                            //         <TableCell align="center"> {row.email} </TableCell>
+                            //         <TableCell align="center"> {row.username} </TableCell>
+                            //         <TableCell align="center"> {row.password} </TableCell>
+                            //         <TableCell align="center"> {row.type} </TableCell>
+                            //         <TableCell align="center">
+                            //             <Link> <p><img src= {studentDeleting1}  className="studentDelete-image1"/></p> </Link>
+                            //         </TableCell>
+                            //         <TableCell align="center">
+                            //             <Link> <p>Update</p> </Link>
+                            //         </TableCell>
+                            //     </TableRow>
+                            // ))
                         }
 
                     </TableBody>

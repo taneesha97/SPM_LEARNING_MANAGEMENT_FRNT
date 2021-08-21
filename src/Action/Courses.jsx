@@ -4,10 +4,10 @@ import axios from "axios";
 import * as api from '../API'
 export const fetchCourses = () => dispatch => {
     console.log('fetching');
-    axios.get(api.baseURL + 'api/courses/')
+    axios.get(api.baseURL + 'courses/')
         .then(response => {
             dispatch({
-                type: ADD_COURSES,
+                type: FETCH_COURSES,
                 payload: response.data
             })}
         ).catch((err) => {
@@ -19,7 +19,7 @@ export const addCourse = (Course) => async (dispatch) => {
     console.log('creating');
     try{
         const { data } = await api.createCourse(Course);
-        dispatch({type: FETCH_COURSES, payload: data });
+        dispatch({type: ADD_COURSES, payload: data });
         alert("data added successfully");
     } catch (error){
         console.log(error);
