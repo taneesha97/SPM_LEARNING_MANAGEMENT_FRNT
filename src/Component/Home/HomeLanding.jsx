@@ -6,6 +6,7 @@ import ClassSection from "./ClassSection/ClassSection";
 import PaymentForm from "../Payment/PaymentForm";
 import WelcomeHeader from "./WelcomeHeader/WelcomeHeader";
 import Footer from "../Footer/Footer";
+import GetUpdates from "./GetUpdates/GetUpdates";
 
 
 
@@ -19,6 +20,7 @@ function HomeLanding() {
             <button>Payment</button>
             <p>Lol</p>
             <PaymentForm/>
+            <GetUpdates/>
             <Footer/>
         </div>
     )
