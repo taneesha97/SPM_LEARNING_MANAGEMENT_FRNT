@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import "./CourseMgntInt.css"
+import "./CourseMgntInt.css";
 import "../../../../node_modules/bootstrap/dist/css/bootstrap.css";
 import CustomRow from "./CustomRow/CustomRow";
 import {useDispatch} from "react-redux";
