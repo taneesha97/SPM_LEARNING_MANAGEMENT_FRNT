@@ -81,7 +81,6 @@ function Navbar () {
                             <Link to= '/register' className ="nav-links" onClick={closeMobileMenu}>
                                 CONTACT US
                             </Link>
-
                         </li>
                     </ul>
                     <Link to = "/navbarbuttoncomponent" className ="navbar-logo" onClick={closeMobileMenu}>
