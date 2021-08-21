@@ -8,6 +8,7 @@ function HomeLanding() {
             <p> This is the landing page! </p>
 
             <button>Payment</button>
+            <p>Lol</p>
             <PaymentForm/>
         </div>
     )
