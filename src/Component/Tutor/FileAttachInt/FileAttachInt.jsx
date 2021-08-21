@@ -1,5 +1,6 @@
 import React from 'react'
 import "./FileAttachInt.css"
+import FileAttachmentTable from "./FileAttachmentTable/FileAttachmentTable";
 function FileAttachInt({array4}) {
     return (
         <div>
@@ -36,15 +37,7 @@ function FileAttachInt({array4}) {
                 <div className="file-table">
                     <div className="section-header dark-header"> Active Courses </div>
                     <div id="style-1" className="file-table-body-scrollable">
-                        <table>
-                        {array4.map((item) => (
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                        ))}
-                        </table>
+                        <FileAttachmentTable/>
                     </div>
                 </div>
             </div>

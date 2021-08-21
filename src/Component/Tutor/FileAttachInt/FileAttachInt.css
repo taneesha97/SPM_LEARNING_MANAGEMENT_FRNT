@@ -9,12 +9,12 @@
   width: 50%;
   padding: 10px;
 }
-.file-component .file-table .form label {
+.file-component .input-form-container .form label {
   font-weight: bold;
   color: white;
   padding-left: 20px;
 }
-.file-component .file-table .form .form-input {
+.file-component .input-form-container .form .form-input {
   width: 95%;
   padding: 12px 20px;
   margin-left: 20px;
@@ -24,16 +24,29 @@
   border-radius: 4px;
   box-sizing: border-box;
 }
+.file-component .file-form .input-form {
+  font-style: italic;
+  width: 50%;
+  border: solid 1px #989898;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+.file-component .file-form .input-form .input-form-field {
+  width: 100%;
+  border-radius: 8px;
+  height: 40px;
+  border: none;
+  padding: 10px;
+}
 .file-component .file-table {
   background-color: #CBC7C7;
   border-radius: 30px;
   width: 70%;
   height: 500px;
+  padding: 10px;
 }
 .file-component .file-table .file-table-body-scrollable {
-  overflow: scroll;
-  overflow-x: hidden;
-  height: 430px;
+  height: 420px;
 }
 
 /*# sourceMappingURL=FileAttachInt.css.map */

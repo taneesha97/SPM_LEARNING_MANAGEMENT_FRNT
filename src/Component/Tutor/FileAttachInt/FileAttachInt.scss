@@ -7,8 +7,6 @@
   .input-form-container {
     width: 50%;
     padding: 10px;
-  }
-  .file-table {
     .form {
       label{
         font-weight: bold;
@@ -28,15 +26,31 @@
     }
   }
 
+  .file-form {
+    .input-form {
+      font-style: italic;
+      width: 50%;
+      border: solid 1px #989898;
+      margin-left: 10px;
+      margin-bottom: 10px;
+      .input-form-field{
+        width: 100%;
+        border-radius: 8px;
+        height: 40px;
+        border: none;
+        padding: 10px;
+      }
+    }
+  }
+
   .file-table {
     background-color: #CBC7C7;
     border-radius: 30px;
     width: 70%;
     height: 500px;
+    padding:10px;
     .file-table-body-scrollable{
-      overflow: scroll;
-      overflow-x: hidden;
-      height:430px;
+      height:420px;
     }
   }
 }
