@@ -1,6 +1,7 @@
 import React from 'react'
 import "./HomeLanding.css"
 import ClassTile from "../Class/ClassTile/ClassTile";
+import PaymentForm from "../Payment/PaymentForm";
 
 function HomeLanding() {
     return (
@@ -9,6 +10,8 @@ function HomeLanding() {
             <div>
                 <ClassTile/>
             </div>
+            <button>Payment</button>
+            <PaymentForm/>
         </div>
     )
 }
