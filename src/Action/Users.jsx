@@ -37,7 +37,6 @@ export const loginUserValidation = (user) => async () => {
 }
 
 
-
 export const deleteUsers = (id) => dispatch => {
     console.log('creating');
     axios.delete(api.baseURL + 'deleteuser/'+ id)

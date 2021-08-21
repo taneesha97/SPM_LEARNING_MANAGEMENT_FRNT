@@ -26,7 +26,7 @@ const StudentTableComponent = ()  => {
     useEffect(() => {
         console.log('calling')
         dispatch(fetchUser());
-    },[response])
+    },[])
 
 
 
