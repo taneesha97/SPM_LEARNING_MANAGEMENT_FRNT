@@ -26,17 +26,6 @@ function TeacherTableComponent() {
         dispatch(fetchUser());
     },[])
 
-    const rows = [
-        { id: 1, name: 'Snow', email: 'Jon@gmail.com', username: 'Snow',password: 1234 },
-        { id: 2, name: 'Lannister', email: 'Cersei@gmail.com',username: 'Lannister', password: 1234 },
-        { id: 3, name: 'Lannister', email: 'Jaime@gmail.com',username: 'Snow', password: 1234 },
-        { id: 4, name: 'Stark', email: 'Arya@gmail.com',username: 'Snow', password: 1234 },
-        { id: 5, name: 'Targaryen', email: 'Daenerys@gmail.com', username: 'Snow', password: 1234 },
-        { id: 6, name: 'Melisandre', email: 'ee@gmail.com', username: 'Snow', password: 1234 },
-        { id: 7, name: 'Clifford', email: 'Ferrara@gmail.com', username: 'Snow', password: 1234 },
-        { id: 8, name: 'Frances', email: 'Rossini@gmail.com', username: 'Snow', password: 1234 },
-        { id: 9, name: 'Roxie', email: 'Harvey@gmail.com',username: 'Snow', password: 1234 },
-    ];
 
     const useStyles = makeStyles({
         table: {
@@ -81,7 +70,7 @@ function TeacherTableComponent() {
                     </TableHead>
                     <TableBody>
                         {
-                            response.map((row) => (
+                            response?.map((row) => (
                                 <TableRow key={row.id}>
                                     <TableCell align="center"> {row.id} </TableCell>
                                     <TableCell align="center"> {row.name} </TableCell>
