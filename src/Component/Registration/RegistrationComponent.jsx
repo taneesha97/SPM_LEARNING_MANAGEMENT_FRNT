@@ -9,25 +9,26 @@ function RegistrationComponent() {
 
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
-    const [userName, setUsername] = useState("");
+    const [username, setUsername] = useState("");
     const [type, setType] = useState('teacher');
     const [password, setPassword] = useState();
 
     const dispatch = useDispatch();
     const history = useHistory();
 
+
     function SubmitPressed(e) {
         e.preventDefault();
         const newUser = {
             name,
             email,
-            userName,
+            username,
+            password,
             type,
-            password
         }
         console.log(newUser);
        dispatch(addUsers(newUser));
-        history.push("/login");
+       history.push("/login");
     }
 
 
@@ -99,7 +100,6 @@ function RegistrationComponent() {
                     <div className="registration-button-group">
                         <button className="registration-button" type="submit">Register</button><br/>
                     </div>
-
                 </div>
             </form>
         </div>

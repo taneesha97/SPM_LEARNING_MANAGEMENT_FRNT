@@ -3,13 +3,15 @@ import axios from "axios";
 import * as api from '../API'
 export const fetchUser = () => dispatch => {
     console.log('fetching');
-    axios.get(api.baseURL + 'student/')
+    axios.get(api.baseURL + '/users')//api.baseURL + 'deleteuser'
         .then(response => {
             dispatch({
-                type: ADD_USER,
-                payload: response.data
+                type: FETCH_USERS,
+                payload: response
             })}
+
         ).catch((err) => {
+
         console.log(err);
     })
 }
@@ -35,10 +37,9 @@ export const loginUserValidation = (user) => async () => {
 }
 
 
-
 export const deleteUsers = (id) => dispatch => {
     console.log('creating');
-    axios.delete(api.baseURL + 'student/delete/'+ id)
+    axios.delete(api.baseURL + 'deleteuser/'+ id)
         .then(response => {
                 dispatch({
                     type: DELETE_USER,
@@ -60,7 +61,7 @@ export const getUserByID = (data) => dispatch => {
 }
 
 export const upDateUser = (PostData, id) => dispatch => {
-    axios.put(api.baseURL + 'student/update/' + id , PostData)
+    axios.put(api.baseURL + 'updateuser/' + id , PostData)
         .then(response => {
                 dispatch({
                     type: UPDATE_USER,
