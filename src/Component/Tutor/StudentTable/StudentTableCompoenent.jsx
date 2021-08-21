@@ -27,7 +27,7 @@ const StudentTableComponent = ()  => {
     useEffect(() => {
         console.log('calling')
         dispatch(fetchUser());
-    },[])
+    },[response])
 
 
 
@@ -73,26 +73,24 @@ const StudentTableComponent = ()  => {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-
                         {
-                            // response.map((row) => (
-                            //     <TableRow key={row.id}>
-                            //         <TableCell align="center"> {row.id} </TableCell>
-                            //         <TableCell align="center"> {row.name} </TableCell>
-                            //         <TableCell align="center"> {row.email} </TableCell>
-                            //         <TableCell align="center"> {row.username} </TableCell>
-                            //         <TableCell align="center"> {row.password} </TableCell>
-                            //         <TableCell align="center"> {row.type} </TableCell>
-                            //         <TableCell align="center">
-                            //             <Link> <p><img src= {studentDeleting1}  className="studentDelete-image1"/></p> </Link>
-                            //         </TableCell>
-                            //         <TableCell align="center">
-                            //             <Link> <p>Update</p> </Link>
-                            //         </TableCell>
-                            //     </TableRow>
-                            // ))
+                            response?.map((row) => (
+                                <TableRow key={row.id}>
+                                    <TableCell align="center"> {row.id} </TableCell>
+                                    <TableCell align="center"> {row.name} </TableCell>
+                                    <TableCell align="center"> {row.email} </TableCell>
+                                    <TableCell align="center"> {row.username} </TableCell>
+                                    <TableCell align="center"> {row.password} </TableCell>
+                                    <TableCell align="center"> {row.type} </TableCell>
+                                    <TableCell align="center">
+                                        <Link> <p><img src= {studentDeleting1}  className="studentDelete-image1"/></p> </Link>
+                                    </TableCell>
+                                    <TableCell align="center">
+                                        <Link> <p>Update</p> </Link>
+                                    </TableCell>
+                                </TableRow>
+                            ))
                         }
-
                     </TableBody>
                 </Table>
             </TableContainer>
