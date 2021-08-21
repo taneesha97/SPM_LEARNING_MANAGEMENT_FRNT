@@ -15,11 +15,12 @@
       }
       .form-input {
         width: 95%;
+        //color: #A6A6A6;
         padding: 12px 20px;
         margin-left: 20px;
         margin-right: 20px;
         display: inline-block;
-        border: 1px solid #ccc;
+        border: 1px solid #cccccc;
         border-radius: 4px;
         box-sizing: border-box;
       }
@@ -45,7 +46,7 @@
 }
 
 //global to all the component.
-.section-header {
+.class-section-header {
   font-size: 25px;
   font-weight: bolder;
   color: #5A5A5A;
@@ -57,7 +58,7 @@
   }
 }
 
-.second-header {
+.class-second-header {
   font-size: 20px;
   font-weight: bolder;
   margin-top: -15px;
