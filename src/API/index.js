@@ -1,11 +1,16 @@
 import axios from 'axios'
-const url = "http://localhost:8073/";
+const url = "http://localhost:8073/api/";
 //register user
-export const createUser = (user) =>  axios.post(url + "user", user);
+export const createUser = (user) =>  axios.post(url + "useradd", user);
 //validate user
 export const validateUser = (user) => axios.post(url + "validate", user);
 //export URL
 export const baseURL = url
+//Add new Course
+export const createCourse = (course) => axios.post(url + "course", course);
+/**
+ * Get Course Directly Called from the URL export.
+ * **/
 
 
 //till not used
@@ -13,6 +18,6 @@ export const baseURL = url
 // export const getUserId = (user) => axios.post(url + "getValdatedUserId", user)
 // //get user email
 // export const getUserEmail = (user) => axios.post(url + "getValdatedUseremail", user)
-// //get Users
-// export const getUsers = () => axios.get(url + "user");
+//get Users
+//export const getUsers = () => axios.get(url + "user");
 

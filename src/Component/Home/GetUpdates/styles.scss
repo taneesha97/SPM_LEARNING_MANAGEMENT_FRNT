@@ -1,0 +1,37 @@
+.main-warpper{
+  width: 100%;
+  background: #1E1E1E;
+  color: #FFFFFF;
+  text-align: center;
+  .main-header{
+    font-size: xx-large;
+    padding: 50px 0;
+  }
+  .address-form{
+    .input-field{
+      width: 50%;
+      height: 50px;
+      border-radius: 13.48px;
+      margin-right:20px;
+      border: none;
+      padding-inline-start: 30px;
+      background-color: #C4C4C4;
+    }
+  .Subscribe-btn{
+    padding: 5px;
+    width: 150px;
+    color: #FFFFFF;
+    border: none;
+    height: 50px;
+    border-radius: 12px;
+    background-color: #8886FF;
+
+         }
+
+  }
+  .sub-header{
+    font-size:large;
+    padding: 50px 0;
+
+  }
+}
