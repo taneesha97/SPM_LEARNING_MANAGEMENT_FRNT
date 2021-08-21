@@ -5,12 +5,13 @@ import ClassSection from "./ClassSection/ClassSection";
 
 import ClassTile from "../Class/ClassTile/ClassTile";
 import PaymentForm from "../Payment/PaymentForm";
+import WelcomeHeader from "./WelcomeHeader/WelcomeHeader";
 
 
 function HomeLanding() {
     return (
         <div>
-            <p> This is the landing page! </p>
+            <WelcomeHeader/>
             <div>
                 <ClassSection/>
             </div>
