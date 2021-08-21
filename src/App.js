@@ -10,25 +10,30 @@ import TutorDashboard from "./Pages/TutorDashboard/TutorDashboard";
 import NavBarButtonComponent from "./Component/NavigationBar/NavBarButtonComponent";
 import AdminDashboard from "./Pages/AdminDashboard/AdminDashboard";
 import UserProfilePage from "./Pages/UserProfile/UserProfilePage";
+import {Provider} from "react-redux";
+import store from "./store";
 
 
 const App = () => {
 //Add the React Router And Create Routing
   return (
-      <BrowserRouter>
-        <Navbar/>
-        <Switch>
+      <Provider store={store}>
+          <BrowserRouter>
+              <Navbar/>
+              <Switch>
 
 
-            <Route exact path = "/home" component={HomePage}/>
-            <Route exact path = "/profile" component={UserProfilePage}/>
-            <Route exact path = "/login" component={LoginPage}/>
-            <Route exact path = "/registration" component={RegistrationPage}/>
-            <Route exact path = "/tutordash" component={TutorDashboard}/>
-            <Route exact path = "/admindash" component={AdminDashboard}/>
-            <Route exact path = "/navbarbuttoncomponent" component={NavBarButtonComponent}/>
-        </Switch>
-      </BrowserRouter>
+                  <Route exact path = "/home" component={HomePage}/>
+                  <Route exact path = "/profile" component={UserProfilePage}/>
+                  <Route exact path = "/login" component={LoginPage}/>
+                  <Route exact path = "/registration" component={RegistrationPage}/>
+                  <Route exact path = "/tutordash" component={TutorDashboard}/>
+                  <Route exact path = "/admindash" component={AdminDashboard}/>
+                  <Route exact path = "/navbarbuttoncomponent" component={NavBarButtonComponent}/>
+              </Switch>
+          </BrowserRouter>
+      </Provider>
+
   )
 }
 export default App;
