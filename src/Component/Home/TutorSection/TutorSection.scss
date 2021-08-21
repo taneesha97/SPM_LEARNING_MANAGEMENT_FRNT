@@ -23,13 +23,13 @@
 .tutorial-home-section-container{
   background-color: #525252;
   padding-left: 30px;
-  padding-right: 30px;
-  padding-bottom: 30px;
+  padding-right: 15px;
+  padding-bottom: 15px;
   padding-top: 90px;
     .tutorial-home-section-body {
       display: flex;
       padding-top:  40px;
-      margin-left: 120px;
+      margin-left: 45px;
       padding-bottom: 50px;
       .tutorial-home-section-body-res-layout {
         display: grid;
@@ -42,13 +42,7 @@
       }
       @media only screen and (max-width: 1750px) {
         .tutorial-home-section-body-res-layout {
-          grid-template-columns: 410px  410px;
-          grid-template-rows: 250px 250px 250px 250px;
-          grid-template-areas:
-        "tile1 tile2"
-        "tile3 tile4"
-        "tile5 tile6"
-        "tile7 tile8";
+          justify-content: center;
         }
       }
 
@@ -73,12 +67,12 @@
       .tutorial-home-section-header{
         padding: 10px;
         .main-heading{
-          font-size: 74.8px;
+          font-size: xxx-large;
           color: #ADA6CE;
           font-weight: bold;
         }
         .second-heading{
-          font-size: 37.8px;
+          font-size: x-large;
           color: #BABABA;
           font-weight: normal;
         }

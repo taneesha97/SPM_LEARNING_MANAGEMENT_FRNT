@@ -14,13 +14,12 @@ function HomeLanding() {
     return (
         <div>
             <WelcomeHeader/>
-
-            <div>
+            <div className='ash-background'>
                 <ClassSection/>
+                <TutorSection/>
             </div>
-            <TutorSection/>
+
             <button>Payment</button>
-            <p>Lol</p>
             <PaymentForm/>
             <GetUpdates/>
             <Footer/>
