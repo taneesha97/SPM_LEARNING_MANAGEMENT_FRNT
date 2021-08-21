@@ -1,3 +1,25 @@
+.tutor-dashboard-page {
+  background-color: #838383;
+  padding: 10px;
+}
 
+.section-header {
+  font-size: 30px;
+  font-weight: bolder;
+  color: white;
+  padding: 10px;
+  margin-left: 10px;
+  font-family: "Helvetica", "Verdana", serif;
+}
+.section-header.dark-header {
+  color: #525252;
+}
+
+span {
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+  font-family: "Helvetica", "Verdana", serif;
+}
 
 /*# sourceMappingURL=TutorDashboard.css.map */
