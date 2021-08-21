@@ -5,6 +5,7 @@ import AdminDashHeader from "../../Component/Admin/Header/AdminDashHeader";
 import TeacherTableComponent from "../../Component/Admin/TeachersTable/TeacherTableComponent";
 
 import ClassMgntInt from "../../Component/Admin/ClassMgntInt/ClassMgntInt";
+import ClassDetailsTable from "../../Component/Admin/ClassTable/ClassDetailsTable";
 
 
 function AdminDashboard() {
@@ -13,6 +14,7 @@ function AdminDashboard() {
             <AdminDashHeader/>
             <TeacherTableComponent/>
             <ClassMgntInt/>
+            <ClassDetailsTable/>
         </div>
 
     )
