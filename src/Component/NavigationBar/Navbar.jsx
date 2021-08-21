@@ -84,7 +84,7 @@ function Navbar () {
 
                         </li>
                     </ul>
-                    <Link to = "/adminlogin" className ="navbar-logo" onClick={closeMobileMenu}>
+                    <Link to = "/navbarbuttoncomponent" className ="navbar-logo" onClick={closeMobileMenu}>
                         <div >
                             <img src= {userIcon}  style={userIconImgCss}/>
 

@@ -3,24 +3,41 @@
   padding: 10px;
 }
 
-//Gloabl to all the component.
+//global to all the component.
 .section-header {
-  font-size: 30px;
+  font-size: 25px;
   font-weight: bolder;
   color: white;
   padding: 10px;
   margin-left: 10px;
   font-family: "Helvetica","Verdana", serif;
-
   &.dark-header {
     color: #525252;
   }
 }
 
-//Global Span for all the sub components
+.second-header {
+  font-size: 20px;
+  font-weight: bolder;
+  margin-top: -15px;
+  color: #CCAB00;
+  margin-bottom: 10px;
+  margin-left: 20px;
+  font-family: "Helvetica","Verdana", serif;
+}
+
+//global Span for all the sub components
 span {
-  font-size: 12px;
+  font-size: 16px;
   font-weight: bold;
   color: white;
   font-family: "Helvetica","Verdana", serif;
+}
+
+//make the form inheritance and input fields.
+.input-form {
+  border-radius: 8.53px;
+  border: none;
+  height: 42.34px;
+  max-width: 400px;
 }

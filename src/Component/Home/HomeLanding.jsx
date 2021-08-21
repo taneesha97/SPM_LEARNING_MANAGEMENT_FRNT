@@ -1,14 +1,18 @@
 import React from 'react'
 import "./HomeLanding.css"
+
+import ClassSection from "./ClassSection/ClassSection";
+
 import ClassTile from "../Class/ClassTile/ClassTile";
 import PaymentForm from "../Payment/PaymentForm";
+
 
 function HomeLanding() {
     return (
         <div>
             <p> This is the landing page! </p>
             <div>
-                <ClassTile/>
+                <ClassSection/>
             </div>
             <button>Payment</button>
             <p>Lol</p>
