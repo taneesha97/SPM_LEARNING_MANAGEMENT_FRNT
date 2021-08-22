@@ -1,5 +1,5 @@
 
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -12,12 +12,13 @@ import {makeStyles, TextField} from "@material-ui/core";
 import './teacherTable.css'
 import teacherDeleteimage1 from "./images/teacherDelete-image1.png";
 import {useDispatch, useSelector} from "react-redux";
-import {fetchTeachers, fetchUser} from "../../../Action/Users";
+import {deleteUsers, fetchTeachers, fetchUser} from "../../../Action/Users";
+import {useHistory} from "react-router";
 function TeacherTableComponent() {
 
 
     const dispatch = useDispatch();
-
+    const history = useHistory();
     const response = useSelector((state) => state.userDetails1.UserDetails.records.data);
     console.log(response);
 
@@ -26,7 +27,9 @@ function TeacherTableComponent() {
         dispatch(fetchTeachers());
     },[])
 
-
+    const deleteTeacher = (id) => {
+        dispatch(deleteUsers(id))
+    }
     const useStyles = makeStyles({
         table: {
             maxWidth: "710%",
@@ -42,6 +45,7 @@ function TeacherTableComponent() {
         },
     });
     const classes = useStyles();
+
 
     return (
         <div className="Teacher-table-background">
@@ -84,7 +88,11 @@ function TeacherTableComponent() {
                                     <TableCell align="center"> {row.username} </TableCell>
                                     <TableCell align="center"> {row.password} </TableCell>
                                     <TableCell align="center">
-                                        <Link> <p><img src= {teacherDeleteimage1}  className="teacherDelete-image1"/></p> </Link>
+                                        <a href="admindash"onClick={() => {
+                                            deleteTeacher(row.id)}}>
+                                            <img src= {teacherDeleteimage1}  className="teacherDelete-image1"/>
+                                        </a>
+
                                     </TableCell>
                                 </TableRow>
                             ))

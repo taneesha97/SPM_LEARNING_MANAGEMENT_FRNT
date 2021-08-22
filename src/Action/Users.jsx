@@ -77,7 +77,7 @@ export const deleteUsers = (id) => dispatch => {
                     type: DELETE_USER,
                     payload: id
                 })
-           alert("data deleted sucessfully");
+          // alert("data deleted sucessfully");
             }
 
         ).catch((err) => {

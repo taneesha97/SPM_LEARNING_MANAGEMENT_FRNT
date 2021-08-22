@@ -14,6 +14,7 @@ import studentDeleting1 from "./images/studentDelete-image1.png";
 import {deleteUsers, fetchStudents} from "../../../Action/Users";
 import teacherDeleteimage1 from "../../Admin/TeachersTable/images/teacherDelete-image1.png";
 import {useDispatch, useSelector} from "react-redux";
+import {useHistory} from "react-router";
 
 const Student = (props) => (
     console.log(props.student),
@@ -25,8 +26,8 @@ const Student = (props) => (
             <TableCell align="center"> {props.student.password} </TableCell>
             <TableCell align="center"> {props.student.type} </TableCell>
             <TableCell align="center">
-                <Link onClick={() => {
-                    props.deleteStudent(props.student.id)}}> <p><img src= {studentDeleting1}  className="studentDelete-image1"/></p> </Link>
+                <a href = "/tutordash" onClick={() => {
+                    props.deleteStudent(props.student.id)}} > <img src= {studentDeleting1}  className="studentDelete-image1"/> </a>
             </TableCell>
         </TableRow>
 )
@@ -34,7 +35,7 @@ const Student = (props) => (
 
 const StudentTableComponent = ()  => {
     const dispatch = useDispatch();
-
+    const history = useHistory();
     const response = useSelector((state) => state.userDetails1.UserDetails.records.data);
     console.log(response);
 
@@ -46,7 +47,6 @@ const StudentTableComponent = ()  => {
     const deleteStudent = (id) => {
         dispatch(deleteUsers(id))
     }
-
     const useStyles = makeStyles({
         table: {
             maxWidth: "710%",
