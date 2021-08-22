@@ -32,32 +32,43 @@ const StudentTableComponent = ()  => {
 
     const useStyles = makeStyles({
         table: {
-            minWidth: 1350,
-            borderRadius: 30
+            maxWidth: "710%",
+            borderRadius: 30,
+
         },
         editorContent: {
-            borderRadius: 30
+            borderRadius: 30,
+            maxWidth: "810%"
         },
         studentTableHeaderColumns: {
             color: 'white',
+            width: 200
         },
     });
     const classes = useStyles();
 
     return (
         <div className="Student-table-background">
+            <div className="student-table-title-header">
+                <h1 className="title-studentTable">Student Details Table</h1>
+                <div className="search-bar-student-table">
+                    <TextField
+                        id="filled-full-width"
+                        label="Search"
+                        placeholder="Search Items.."
+                        fullWidth
+                        margin="normal"
+                        variant="outlined"
+                        className="search-student"
+                        style={{backgroundColor: "#FFFFFF", width: 300, borderRadius: 2}}
+                    />
+                </div>
+            </div>
+
+
 
             <TableContainer component={Paper} className={classes.editorContent}>
-                <h1 className="title-studentTable">Student Details Table</h1>
-                <TextField
-                    id="filled-full-width"
-                    label="Search"
-                    style={{ marginLeft: 20}}
-                    placeholder="Search Items.."
-                    fullWidth
-                    margin="normal"
-                    variant="filled"
-                />
+
                 <Table className={classes.table} aria-label="simple table">
                     <TableHead className="student-table-header">
                         <TableRow >
