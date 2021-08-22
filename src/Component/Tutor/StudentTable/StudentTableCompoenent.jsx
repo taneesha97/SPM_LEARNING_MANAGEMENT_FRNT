@@ -11,7 +11,7 @@ import {Link} from "react-router-dom";
 import {makeStyles, TextField} from "@material-ui/core";
 import './studentTable.css'
 import studentDeleting1 from "./images/studentDelete-image1.png";
-import {fetchUser} from "../../../Action/Users";
+import {fetchStudents} from "../../../Action/Users";
 import teacherDeleteimage1 from "../../Admin/TeachersTable/images/teacherDelete-image1.png";
 import {useDispatch, useSelector} from "react-redux";
 
@@ -25,7 +25,7 @@ const StudentTableComponent = ()  => {
 
     useEffect(() => {
         console.log('calling')
-        dispatch(fetchUser());
+        dispatch(fetchStudents());
     },[])
 
 

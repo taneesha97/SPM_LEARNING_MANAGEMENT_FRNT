@@ -12,7 +12,7 @@ import {makeStyles, TextField} from "@material-ui/core";
 import './teacherTable.css'
 import teacherDeleteimage1 from "./images/teacherDelete-image1.png";
 import {useDispatch, useSelector} from "react-redux";
-import {fetchUser} from "../../../Action/Users";
+import {fetchTeachers, fetchUser} from "../../../Action/Users";
 function TeacherTableComponent() {
 
 
@@ -23,7 +23,7 @@ function TeacherTableComponent() {
 
     useEffect(() => {
         console.log('calling')
-        dispatch(fetchUser());
+        dispatch(fetchTeachers());
     },[])
 
 

@@ -1,9 +1,40 @@
 import {ADD_USER, GET_USER, UPDATE_USER, DELETE_USER, FETCH_USERS, VALID_USER} from "./types";
 import axios from "axios";
 import * as api from '../API'
+export const fetchStudents = () => dispatch => {
+    console.log('fetching');
+    axios.get(api.baseURL + '/students')//api.baseURL + 'deleteuser'
+        .then(response => {
+            dispatch({
+                type: FETCH_USERS,
+                payload: response
+            })}
+
+        ).catch((err) => {
+
+        console.log(err);
+    })
+}
+
+export const fetchTeachers = () => dispatch => {
+    console.log('fetching');
+    axios.get(api.baseURL + '/teachers')//api.baseURL + 'deleteuser'
+        .then(response => {
+            dispatch({
+                type: FETCH_USERS,
+                payload: response
+            })}
+
+        ).catch((err) => {
+
+        console.log(err);
+    })
+}
+
+
 export const fetchUser = () => dispatch => {
     console.log('fetching');
-    axios.get(api.baseURL + '/users')//api.baseURL + 'deleteuser'
+    axios.get(api.baseURL + '/students')//api.baseURL + 'deleteuser'
         .then(response => {
             dispatch({
                 type: FETCH_USERS,
