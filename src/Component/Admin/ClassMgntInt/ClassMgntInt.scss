@@ -1,0 +1,100 @@
+.class-component{
+  background-color: #C8C8C8;
+  margin-top: 12px;
+  border-radius: 30px;
+  //display: flex;
+  max-width: 30%;
+  .input-form-container {
+    width: 90%;
+    padding: 10px;
+    .form {
+      label{
+        font-weight: bold;
+        color: #5A5A5A;
+        padding-left: 20px;
+      }
+      .form-input {
+        width: 95%;
+        //color: #A6A6A6;
+        padding: 12px 20px;
+        margin-left: 20px;
+        margin-right: 20px;
+        display: inline-block;
+        border: 1px solid #cccccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+    }
+  }
+  .class-form {
+    .input-form {
+      font-style: italic;
+      width: 50%;
+      border: solid 1px #989898;
+      margin-left: 10px;
+      margin-bottom: 10px;
+      .input-form-field{
+        width: 100%;
+        border-radius: 8px;
+        height: 40px;
+        border: none;
+        padding: 10px;
+      }
+    }
+  }
+
+}
+
+//global to all the component.
+.class-section-header {
+  font-size: 25px;
+  font-weight: bolder;
+  color: #5A5A5A;
+  padding: 10px;
+  margin-left: 10px;
+  font-family: "Helvetica","Verdana", serif;
+  &.dark-header {
+    color: #525252;
+  }
+}
+
+.class-second-header {
+  font-size: 20px;
+  font-weight: bolder;
+  margin-top: -15px;
+  color: #FF5C5C;
+  margin-bottom: 10px;
+  margin-left: 20px;
+  font-family: "Helvetica","Verdana", serif;
+}
+
+
+@mixin base-button {
+  border-radius: 5px;
+  width: 100px;
+  color: white;
+  border: none;
+  margin-right: 20px;
+}
+
+.course-button-group {
+  padding: 10px;
+  margin-top: 10px;
+  margin-left: 10px;
+  justify-content: right;
+
+  .add-button{
+    @include base-button;
+    background-color: #5e5ee9;
+  }
+  .reset-button {
+    @include base-button;
+    background-color: #D1214B;
+  }
+
+  &.button-row {
+    justify-content: right;
+  }
+}
+
+
