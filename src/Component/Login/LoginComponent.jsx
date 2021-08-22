@@ -27,12 +27,18 @@ function LoginComponent() {
                 console.log('res1 ', response.data);
                 if (values == ""){
                     console.log("null");
+                    console.log("username ", newUser.username);
+                    console.log("usertype ", values);
                     history.push("/login");
                 }else if (values == "student"){
                     console.log("student");
+                    console.log("username ", newUser.username);
+                    console.log("usertype ", values);
                     history.push("/home");
                 }else if (values == "teacher"){
                     console.log("teacher");
+                    console.log("username ", newUser.username);
+                    console.log("usertype ", values);
                     history.push("/tutordash");
                 }
             });
