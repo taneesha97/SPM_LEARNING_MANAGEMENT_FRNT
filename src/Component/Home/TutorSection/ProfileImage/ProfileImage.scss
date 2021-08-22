@@ -1,0 +1,19 @@
+.tutor-profile-container {
+  width: auto;
+  .tutor-profile-picture {
+    border-radius: 100%;
+    width: 180px;
+    height: 180px;
+  }
+  .tutor-profile-name{
+    font-size: 20px;
+    color: #FFFFFF;
+    font-weight: bold;
+    margin-top: 5px;
+  }
+  .tutor-profile-designation{
+    font-size: 15px;
+    color: #A3A3A3;
+    font-weight: normal;
+  }
+}

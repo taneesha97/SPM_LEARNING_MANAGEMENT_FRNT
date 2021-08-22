@@ -1,11 +1,9 @@
 import React from 'react'
 import "./CustomRow.css"
 import CustomButton from "../CustomButtons/CustomButton";
-
 function CustomRow({header, description, body}) {
     return (
         <div className="custom-row-component">
-
             <div className="custom-row-component-second-column">
                 <div className="custom-row-component-first-column">
                     <div className="custom-row-component-header">
