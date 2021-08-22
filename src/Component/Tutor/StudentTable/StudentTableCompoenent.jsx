@@ -79,7 +79,6 @@ const StudentTableComponent = ()  => {
                             <TableCell align="center" className={classes.studentTableHeaderColumns}>Password</TableCell>
                             <TableCell align="center" className={classes.studentTableHeaderColumns}>type</TableCell>
                             <TableCell align="center" className={classes.studentTableHeaderColumns}>Delete</TableCell>
-                            <TableCell align="center" className={classes.studentTableHeaderColumns}>Update</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -94,9 +93,6 @@ const StudentTableComponent = ()  => {
                                     <TableCell align="center"> {row.type} </TableCell>
                                     <TableCell align="center">
                                         <Link> <p><img src= {studentDeleting1}  className="studentDelete-image1"/></p> </Link>
-                                    </TableCell>
-                                    <TableCell align="center">
-                                        <Link> <p>Update</p> </Link>
                                     </TableCell>
                                 </TableRow>
                             ))

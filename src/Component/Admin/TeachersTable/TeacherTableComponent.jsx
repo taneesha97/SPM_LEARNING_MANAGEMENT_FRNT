@@ -56,7 +56,7 @@ function TeacherTableComponent() {
                         margin="normal"
                         variant="outlined"
                         className="search-teacher"
-                        style={{backgroundColor: "#FFFFFF", width: 300, borderRadius: 2}}
+                        style={{backgroundColor: "#FFFFFF", width: 300, borderRadius: 30}}
                     />
                 </div>
 
@@ -72,7 +72,6 @@ function TeacherTableComponent() {
                             <TableCell align="center" className={classes.teacherTableHeaderColumns}>User Name</TableCell>
                             <TableCell align="center" className={classes.teacherTableHeaderColumns}>Password</TableCell>
                             <TableCell align="center" className={classes.teacherTableHeaderColumns}>Delete</TableCell>
-                            <TableCell align="center" className={classes.teacherTableHeaderColumns}>Update</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -86,9 +85,6 @@ function TeacherTableComponent() {
                                     <TableCell align="center"> {row.password} </TableCell>
                                     <TableCell align="center">
                                         <Link> <p><img src= {teacherDeleteimage1}  className="teacherDelete-image1"/></p> </Link>
-                                    </TableCell>
-                                    <TableCell align="center">
-                                        <Link> <p>Update</p> </Link>
                                     </TableCell>
                                 </TableRow>
                             ))
