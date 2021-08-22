@@ -21,16 +21,21 @@ function LoginComponent() {
         }
         console.log(newUser);
 
-        dispatch(loginUserValidation(newUser));
-        const response = useSelector((state) => state.userDetails1.loginUser);
-        console.log('res1 ', response);
-        if (response == ""){
-            console.log("null");
-        }else if (response == "student"){
-            console.log("student");
-        }else if (response == "teacher"){
-            console.log("teacher");
-        }
+        axios.post("http://localhost:8073/api/validate", newUser)
+            .then(response => {
+                let values = response.data;
+                console.log('res1 ', response.data);
+                if (values == ""){
+                    console.log("null");
+                }else if (values == "student"){
+                    console.log("student");
+                }else if (values == "teacher"){
+                    console.log("teacher");
+                }
+            });
+        // dispatch(loginUserValidation(newUser));
+        // const response = useSelector((state) => state.userDetails1.loginUser);
+
 
     }
 
