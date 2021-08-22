@@ -29,33 +29,40 @@ function TeacherTableComponent() {
 
     const useStyles = makeStyles({
         table: {
-            minWidth: 1350,
-            //marginTop: '3%',
-            borderRadius: 30
+            maxWidth: "710%",
+            borderRadius: 30,
         },
         teacherContent: {
-            borderRadius: 30
+            borderRadius: 30,
+            maxWidth: "810%"
         },
         teacherTableHeaderColumns: {
             color: 'white',
+            width: 200
         },
     });
     const classes = useStyles();
 
     return (
         <div className="Teacher-table-background">
-
-            <TableContainer component={Paper} className={classes.teacherContent}>
+            <div className="teacher-table-title-header">
                 <h1 className="title-teacherTable">Teacher Details Table</h1>
-                <TextField
-                    id="filled-full-width"
-                    label="Search"
-                    style={{ marginLeft: 20}}
-                    placeholder="Search Items.."
-                    fullWidth
-                    margin="normal"
-                    variant="filled"
-                />
+                <div className="search-bar-teacher-table">
+                    <TextField
+                        id="filled-full-width"
+                        label="Search"
+                        placeholder="Search Items.."
+                        fullWidth
+                        margin="normal"
+                        variant="outlined"
+                        className="search-teacher"
+                        style={{backgroundColor: "#FFFFFF", width: 300, borderRadius: 2}}
+                    />
+                </div>
+
+            </div>
+            <TableContainer component={Paper} className={classes.teacherContent}>
+
                 <Table className={classes.table} aria-label="simple table">
                     <TableHead className="teacher-table-header">
                         <TableRow >
