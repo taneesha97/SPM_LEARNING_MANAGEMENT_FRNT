@@ -21,24 +21,19 @@ function LoginComponent() {
             password
         }
         console.log(newUser);
-
         axios.post("http://localhost:8073/api/validate", newUser)
             .then(response => {
                 let values = response.data;
                 console.log('res1 ', response.data);
                 if (values == ""){
                     //AuthClass.logout();
-                    setName("");
-                    setPassword("");
                     history.push("/login");
-                }else if (values == "student"){
                     setName("");
                     setPassword("");
+                }else if (values == "student"){
                     AuthClass.login(username,values)
                     history.push("/home");
                 }else if (values == "teacher"){
-                    setName("");
-                    setPassword("");
                     AuthClass.login(username,values)
                     history.push("/tutordash");
                 }
@@ -69,6 +64,7 @@ function LoginComponent() {
                             <lable className="input-wrapper">Name</lable><br/>
                             <input className="input-field"
                                    placeholder="Enter Name..."
+                                   value={username}
                                    type="text"
                                    onChange = {(e) =>{
                                        setName(e.target.value);
@@ -82,6 +78,7 @@ function LoginComponent() {
                             <input className="input-field"
                                    placeholder="Enter Password..."
                                    type="password"
+                                   value={password}
                                    onChange = {(e) =>{
                                        setPassword(e.target.value);
                                    }}
