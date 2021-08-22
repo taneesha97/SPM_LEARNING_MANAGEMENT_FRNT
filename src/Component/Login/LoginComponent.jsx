@@ -4,8 +4,6 @@ import {useDispatch, useSelector} from "react-redux";
 import {fetchUser, loginUserValidation} from "../../Action/Users";
 import {useHistory} from "react-router";
 import axios from "axios";
-import { useAuth0 } from '@auth0/auth0-react';
-import AuthClass from "../../Validation/AuthClass";
 
 function LoginComponent() {
 
@@ -14,7 +12,6 @@ function LoginComponent() {
     const [password, setPassword] = useState("");
     const dispatch = useDispatch();
     const history = useHistory();
-    const { loginWithRedirect, isAuthenticated } = useAuth0();
 
     function SubmitPressed(e) {
         e.preventDefault();
@@ -59,7 +56,6 @@ function LoginComponent() {
     }
 
     return (
-        // !isAuthenticated && (
         <div>
             <form onSubmit={SubmitPressed}>
                     <div className="login-info4">
@@ -93,12 +89,8 @@ function LoginComponent() {
                             <input type="checkbox" className="input-field1" value="Remember me"/>
                             <lable className="input-wrapper">Remember me</lable><br/>
                         </div>
-
-                        {/*<div className="button-group">*/}
-                        {/*     <button className="auth-button" type="submit" onClick={() => loginWithRedirect()}>Login</button><br/>*/}
-                        {/*</div>*/}
                         <div className="button-group">
-                            <button className="auth-button" type="submit" onClick={() => loginWithRedirect()}>Login</button><br/>
+                            <button className="auth-button" type="submit">Login</button><br/>
                         </div>
 
 
@@ -112,7 +104,6 @@ function LoginComponent() {
                     </div>
             </form>
         </div>
-        // )
     )
 }
 
