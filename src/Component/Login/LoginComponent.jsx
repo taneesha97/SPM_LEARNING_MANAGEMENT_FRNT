@@ -52,6 +52,7 @@ function LoginComponent() {
     }
 
     return (
+        // !isAuthenticated && (
         <div>
             <form onSubmit={SubmitPressed}>
                     <div className="login-info4">
@@ -86,12 +87,14 @@ function LoginComponent() {
                             <lable className="input-wrapper">Remember me</lable><br/>
                         </div>
 
+                        {/*<div className="button-group">*/}
+                        {/*     <button className="auth-button" type="submit" onClick={() => loginWithRedirect()}>Login</button><br/>*/}
+                        {/*</div>*/}
                         <div className="button-group">
-                            !isAuthenticated && (
-                                <button className="auth-button" type="submit" onClick={() => loginWithRedirect()}>Login</button><br/>
-                            )
-                            <button className="auth-button" type="submit">Login</button><br/>
+                            <button className="auth-button" type="submit" onClick={() => loginWithRedirect()}>Login</button><br/>
                         </div>
+
+
                         <div className="login-info5">
                             <h2 className="login-info5-main">New to the site?</h2>
                             <h4 className="login-info5-second" onClick={NavigateToRegistration}>Sign up</h4>
@@ -102,6 +105,7 @@ function LoginComponent() {
                     </div>
             </form>
         </div>
+        // )
     )
 }
 
