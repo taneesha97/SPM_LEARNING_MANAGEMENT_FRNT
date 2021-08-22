@@ -28,11 +28,17 @@ function LoginComponent() {
                 console.log('res1 ', response.data);
                 if (values == ""){
                     //AuthClass.logout();
+                    setName("");
+                    setPassword("");
                     history.push("/login");
                 }else if (values == "student"){
+                    setName("");
+                    setPassword("");
                     AuthClass.login(username,values)
                     history.push("/home");
                 }else if (values == "teacher"){
+                    setName("");
+                    setPassword("");
                     AuthClass.login(username,values)
                     history.push("/tutordash");
                 }
@@ -67,6 +73,7 @@ function LoginComponent() {
                                    onChange = {(e) =>{
                                        setName(e.target.value);
                                    }}
+                                   required
                             />
                             <br/>
                         </div>
@@ -78,6 +85,7 @@ function LoginComponent() {
                                    onChange = {(e) =>{
                                        setPassword(e.target.value);
                                    }}
+                                   required
                             />
                         </div>
                         <div>

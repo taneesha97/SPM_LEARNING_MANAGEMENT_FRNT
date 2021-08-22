@@ -35,7 +35,7 @@ export default function (state = initialState, action){
                 ...state,
                 UserDetails: {
                     ...state.UserDetails,
-                    record: state.UserDetails.records.filter(item => item !== action.payload)
+                    record: state.UserDetails.records.data.filter(item => item !== action.payload)
                 }
             }
         case GET_USER:

@@ -11,10 +11,25 @@ import {Link} from "react-router-dom";
 import {makeStyles, TextField} from "@material-ui/core";
 import './studentTable.css'
 import studentDeleting1 from "./images/studentDelete-image1.png";
-import {fetchStudents} from "../../../Action/Users";
+import {deleteUsers, fetchStudents} from "../../../Action/Users";
 import teacherDeleteimage1 from "../../Admin/TeachersTable/images/teacherDelete-image1.png";
 import {useDispatch, useSelector} from "react-redux";
 
+const Student = (props) => (
+    console.log(props.student),
+        <TableRow>
+            <TableCell align="center"> {props.student.id} </TableCell>
+            <TableCell align="center"> {props.student.name} </TableCell>
+            <TableCell align="center"> {props.student.email} </TableCell>
+            <TableCell align="center"> {props.student.username} </TableCell>
+            <TableCell align="center"> {props.student.password} </TableCell>
+            <TableCell align="center"> {props.student.type} </TableCell>
+            <TableCell align="center">
+                <Link onClick={() => {
+                    props.deleteStudent(props.student.id)}}> <p><img src= {studentDeleting1}  className="studentDelete-image1"/></p> </Link>
+            </TableCell>
+        </TableRow>
+)
 
 
 const StudentTableComponent = ()  => {
@@ -28,7 +43,9 @@ const StudentTableComponent = ()  => {
         dispatch(fetchStudents());
     },[])
 
-
+    const deleteStudent = (id) => {
+        dispatch(deleteUsers(id))
+    }
 
     const useStyles = makeStyles({
         table: {
@@ -46,6 +63,12 @@ const StudentTableComponent = ()  => {
         },
     });
     const classes = useStyles();
+
+    const studentList = () => {
+        return response?.map(currentstudent => {
+            return <Student student = {currentstudent} deleteStudent = {deleteStudent} key ={currentstudent._id}/>;
+        })
+    }
 
     return (
         <div className="Student-table-background">
@@ -82,21 +105,7 @@ const StudentTableComponent = ()  => {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {
-                            response?.map((row) => (
-                                <TableRow key={row.id}>
-                                    <TableCell align="center"> {row.id} </TableCell>
-                                    <TableCell align="center"> {row.name} </TableCell>
-                                    <TableCell align="center"> {row.email} </TableCell>
-                                    <TableCell align="center"> {row.username} </TableCell>
-                                    <TableCell align="center"> {row.password} </TableCell>
-                                    <TableCell align="center"> {row.type} </TableCell>
-                                    <TableCell align="center">
-                                        <Link> <p><img src= {studentDeleting1}  className="studentDelete-image1"/></p> </Link>
-                                    </TableCell>
-                                </TableRow>
-                            ))
-                        }
+                        {studentList()}
                     </TableBody>
                 </Table>
             </TableContainer>
