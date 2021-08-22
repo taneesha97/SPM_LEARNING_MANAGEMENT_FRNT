@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { withStyles, Theme, createStyles, makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -12,6 +12,8 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import {green} from "@material-ui/core/colors";
 import TableFooter from '@material-ui/core/TableFooter';
 import TablePagination from '@material-ui/core/TablePagination';
+import {useDispatch, useSelector} from "react-redux";
+import {getClasses} from "../../../Action/Class";
 
 const StyledTableCell = withStyles((theme: Theme) =>
     createStyles({
@@ -69,6 +71,16 @@ function ClassDetailsTable() {
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(5);
     const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
+    const dispatch = useDispatch();
+
+    const classDetails = useSelector((state) => state.classes.classRecords.records);
+    console.log('CLASS DETAIL', classDetails);
+
+    React.useEffect(() => {
+        // setIsLoading(dataLoading);
+        dispatch(getClasses());
+    }, []);
+
 
     const handleChangePage = (event: React.MouseEvent<HTMLButtonElement> | null, newPage: number) => {
         setPage(newPage);
