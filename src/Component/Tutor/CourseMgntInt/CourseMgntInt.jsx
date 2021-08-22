@@ -20,6 +20,11 @@ function CourseMgntInt({array4}) {
         setPostData({...postData, title: "", body: "", description: "", price: ""})
     }
 
+    //Delete Item method to pass into the Custom Component.
+    const deleteItem = () => {
+        //Delete Item Method call it here.
+    }
+
     const dispatch = useDispatch();
 
     const SubmitCourse = (e) => {
@@ -42,6 +47,7 @@ function CourseMgntInt({array4}) {
                                className="form-input"
                                value={postData.title}
                                onChange={(e) => setPostData({...postData, title: e.target.value})}
+                               required={true}
                         />
 
                         <label htmlFor="lname">Description</label>
@@ -49,12 +55,14 @@ function CourseMgntInt({array4}) {
                                className="form-input"
                                value={postData.description}
                                onChange={(e) => setPostData({...postData, description: e.target.value})}
+                               required={true}
                         />
 
                         <label htmlFor="lname">Body</label>
                         <input type="text" id="body" name="lastname" placeholder="Price.." className="form-input"
                                value={postData.body}
                                onChange={(e) => setPostData({...postData, body: e.target.value})}
+                               required={true}
                         />
 
                         <label htmlFor="lname">Price</label>
@@ -62,6 +70,7 @@ function CourseMgntInt({array4}) {
                                className="form-input"
                                value={postData.price}
                                onChange={(e) => setPostData({...postData, price: e.target.value})}
+                               required={true}
 
                         />
 
