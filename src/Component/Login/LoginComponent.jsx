@@ -27,10 +27,13 @@ function LoginComponent() {
                 console.log('res1 ', response.data);
                 if (values == ""){
                     console.log("null");
+                    history.push("/login");
                 }else if (values == "student"){
                     console.log("student");
+                    history.push("/home");
                 }else if (values == "teacher"){
                     console.log("teacher");
+                    history.push("/tutordash");
                 }
             });
         // dispatch(loginUserValidation(newUser));
