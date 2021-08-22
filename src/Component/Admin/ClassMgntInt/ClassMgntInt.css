@@ -1,0 +1,89 @@
+.class-component {
+  background-color: #C8C8C8;
+  margin-top: 12px;
+  border-radius: 30px;
+  max-width: 30%;
+}
+.class-component .input-form-container {
+  width: 90%;
+  padding: 10px;
+}
+.class-component .input-form-container .form label {
+  font-weight: bold;
+  color: #5A5A5A;
+  padding-left: 20px;
+}
+.class-component .input-form-container .form .form-input {
+  width: 95%;
+  padding: 12px 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  display: inline-block;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.class-component .class-form .input-form {
+  font-style: italic;
+  width: 50%;
+  border: solid 1px #989898;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+.class-component .class-form .input-form .input-form-field {
+  width: 100%;
+  border-radius: 8px;
+  height: 40px;
+  border: none;
+  padding: 10px;
+}
+
+.class-section-header {
+  font-size: 25px;
+  font-weight: bolder;
+  color: #5A5A5A;
+  padding: 10px;
+  margin-left: 10px;
+  font-family: "Helvetica", "Verdana", serif;
+}
+.class-section-header.dark-header {
+  color: #525252;
+}
+
+.class-second-header {
+  font-size: 20px;
+  font-weight: bolder;
+  margin-top: -15px;
+  color: #FF5C5C;
+  margin-bottom: 10px;
+  margin-left: 20px;
+  font-family: "Helvetica", "Verdana", serif;
+}
+
+.course-button-group {
+  padding: 10px;
+  margin-top: 10px;
+  margin-left: 10px;
+  justify-content: right;
+}
+.course-button-group .add-button {
+  border-radius: 5px;
+  width: 100px;
+  color: white;
+  border: none;
+  margin-right: 20px;
+  background-color: #5e5ee9;
+}
+.course-button-group .reset-button {
+  border-radius: 5px;
+  width: 100px;
+  color: white;
+  border: none;
+  margin-right: 20px;
+  background-color: #D1214B;
+}
+.course-button-group.button-row {
+  justify-content: right;
+}
+
+/*# sourceMappingURL=ClassMgntInt.css.map */

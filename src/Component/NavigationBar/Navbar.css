@@ -15,16 +15,7 @@
   justify-content: center;
   align-items: center;
   height: 80px;
-  max-width: 1500px;
-}
-
-.logo-image {
-  width: 1px;
-  height: 1px;
-  margin-left: 200px;
-  border-radius: 50%;
-  overflow: hidden;
-  margin-top: -6px;
+  max-width: 9375%;
 }
 
 .fa-typo3 {
