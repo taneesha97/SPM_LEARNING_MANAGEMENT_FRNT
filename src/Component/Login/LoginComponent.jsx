@@ -4,6 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {fetchUser, loginUserValidation} from "../../Action/Users";
 import {useHistory} from "react-router";
 import axios from "axios";
+import { useAuth0 } from '@auth0/auth0-react';
 
 function LoginComponent() {
 
@@ -12,6 +13,7 @@ function LoginComponent() {
     const [password, setPassword] = useState("");
     const dispatch = useDispatch();
     const history = useHistory();
+    const { loginWithRedirect, isAuthenticated } = useAuth0();
 
     function SubmitPressed(e) {
         e.preventDefault();
@@ -85,6 +87,9 @@ function LoginComponent() {
                         </div>
 
                         <div className="button-group">
+                            !isAuthenticated && (
+                                <button className="auth-button" type="submit" onClick={() => loginWithRedirect()}>Login</button><br/>
+                            )
                             <button className="auth-button" type="submit">Login</button><br/>
                         </div>
                         <div className="login-info5">
