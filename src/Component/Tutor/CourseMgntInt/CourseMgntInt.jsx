@@ -11,8 +11,14 @@ function CourseMgntInt({array4}) {
         title: '',
         description: '',
         body: '',
-        price: ''
+        price: '',
+        status: "pending"
     });
+
+    //Method to clear the Form.
+    const clearForm = () => {
+        setPostData({...postData, title: "", body: "", description: "", price: ""})
+    }
 
     const dispatch = useDispatch();
 
@@ -39,25 +45,29 @@ function CourseMgntInt({array4}) {
                         />
 
                         <label htmlFor="lname">Description</label>
-                        <input type="text" id="lname" name="lastname" placeholder="Number of Chapters.."
+                        <input type="text" id="lname" name="lastname" placeholder="Description.."
                                className="form-input"
                                value={postData.description}
                                onChange={(e) => setPostData({...postData, description: e.target.value})}
                         />
 
                         <label htmlFor="lname">Body</label>
-                        <input type="text" id="lname" name="lastname" placeholder="Price.." className="form-input"
+                        <input type="text" id="body" name="lastname" placeholder="Price.." className="form-input"
                                value={postData.body}
                                onChange={(e) => setPostData({...postData, body: e.target.value})}
                         />
 
                         <label htmlFor="lname">Price</label>
-                        <input type="text" id="lname" name="lastname" placeholder="Description.."
-                               className="form-input"/>
+                        <input type="text" id="price" name="lastname" placeholder="Description.."
+                               className="form-input"
+                               value={postData.price}
+                               onChange={(e) => setPostData({...postData, price: e.target.value})}
+
+                        />
 
                         <div className="course-button-group button-row">
                             <button className="dark-button" type="submit"> Submit </button>
-                            <button className="light-button">Reset</button>
+                            <button className="light-button" type="reset" onClick={clearForm}>Reset</button>
                         </div>
                     </form>
                 </div>
