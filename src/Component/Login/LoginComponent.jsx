@@ -5,6 +5,7 @@ import {fetchUser, loginUserValidation} from "../../Action/Users";
 import {useHistory} from "react-router";
 import axios from "axios";
 import { useAuth0 } from '@auth0/auth0-react';
+import AuthClass from "../../Validation/AuthClass";
 
 function LoginComponent() {
 
@@ -29,12 +30,18 @@ function LoginComponent() {
                 console.log('res1 ', response.data);
                 if (values == ""){
                     console.log("null");
+                    console.log("username ", newUser.username);
+                    console.log("usertype ", values);
                     history.push("/login");
                 }else if (values == "student"){
                     console.log("student");
+                    console.log("username ", newUser.username);
+                    console.log("usertype ", values);
                     history.push("/home");
                 }else if (values == "teacher"){
                     console.log("teacher");
+                    console.log("username ", newUser.username);
+                    console.log("usertype ", values);
                     history.push("/tutordash");
                 }
             });
