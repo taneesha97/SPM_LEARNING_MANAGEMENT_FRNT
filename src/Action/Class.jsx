@@ -4,6 +4,7 @@ import axios from "axios";
 
 export const addClass = (Class) => async (dispatch) => {
     console.log('creating');
+    console.log('creating',Class);
     try{
         const { data } = await api.createClass(Class);
         dispatch({type: ADD_CLASS, payload: data });

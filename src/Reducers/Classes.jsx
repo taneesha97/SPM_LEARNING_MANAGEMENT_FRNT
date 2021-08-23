@@ -1,12 +1,9 @@
 import {
     ADD_CLASS,
-    ADD_USER,
     DELETE_CLASS,
-    DELETE_USER,
-    FETCH_USERS,
     GET_CLASS,
-    GET_USER, UPDATE_CLASS,
-    UPDATE_USER
+    UPDATE_CLASS,
+
 } from "../Action/types";
 
 const initState = {
@@ -18,20 +15,6 @@ const initState = {
     classRecords:[],
 }
 
-// export default (classes = [], action) => {
-//     switch(action.type){
-//         case 'ADD_CLASS':
-//             return [...classes, action.payload];
-//         case 'GET_CLASS':
-//             return action.payload;
-//         case "UPDATE_CLASS":
-//             return action.payload;
-//         case "DELETE_CLASS":
-//             return action.payload;
-//         default:
-//             return classes;
-//     }
-// }
 
 export default function (state = initState, action){
     switch (action.type) {
