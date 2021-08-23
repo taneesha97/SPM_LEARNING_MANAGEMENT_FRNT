@@ -14,11 +14,17 @@ import teacherDeleteimage1 from "./images/teacherDelete-image1.png";
 import {useDispatch, useSelector} from "react-redux";
 import {deleteUsers, fetchTeachers, fetchUser} from "../../../Action/Users";
 import {useHistory} from "react-router";
+import TableFooter from "@material-ui/core/TableFooter";
+import TablePagination from "@material-ui/core/TablePagination";
 function TeacherTableComponent() {
 
 
     const dispatch = useDispatch();
     const history = useHistory();
+
+    const [rowsPerPage, setRowsPerPage] = React.useState(5);
+    //const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
+
     const response = useSelector((state) => state.userDetails1.UserDetails.records.data);
     console.log(response);
 
@@ -46,6 +52,14 @@ function TeacherTableComponent() {
     });
     const classes = useStyles();
 
+
+    const handleChangePage = () => {
+
+    }
+
+    const handleChangeRowsPerPage= () => {
+
+    }
 
     return (
         <div className="Teacher-table-background">
@@ -100,6 +114,24 @@ function TeacherTableComponent() {
 
 
                     </TableBody>
+                    <TableFooter>
+                        <TableRow>
+                            <TablePagination
+                                rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
+                                colSpan={3}
+                                count={10}
+                                rowsPerPage={rowsPerPage}
+                                page={6}
+                                SelectProps={{
+                                    inputProps: { 'aria-label': 'rows per page' },
+                                    native: true,
+                                }}
+                                onPageChange={handleChangePage}
+                                onRowsPerPageChange={handleChangeRowsPerPage}
+                                // ActionsComponent={TablePaginationActions}
+                            />
+                        </TableRow>
+                    </TableFooter>
                 </Table>
             </TableContainer>
         </div>
