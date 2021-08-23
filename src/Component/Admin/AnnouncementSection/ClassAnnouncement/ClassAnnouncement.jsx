@@ -6,10 +6,10 @@ function ClassAnnouncement(){
     return (
         <div className="class-announcement-container">
             <div className="class-announcement-header">
-                <div className="class-section-header light">
+                <div className="class-announcement-section-header light">
                     Announcements
                 </div>
-                <div className="class-second-header">
+                <div className="class-announcement-second-header">
                     Latest
                 </div>
                 <div className="class-announcement-body">
