@@ -96,7 +96,7 @@ function TeacherTableComponent() {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {response.filter((val) => {
+                        {response?.filter((val) => {
                             if(searchTerm == ""){
                                 return val
                             }else if(val.name.toLowerCase().includes(searchTerm.toLowerCase())){
