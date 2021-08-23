@@ -22,14 +22,9 @@ function EmailUpdateComponent(props) {
 
                         <div className="emailupdatecomponent-bio1-info1-second">
                             <div>
-                                {/*<lable className="input-wrapper-update">Email</lable><br/>*/}
                                 <input className="input-field-updateemail"
                                        placeholder="Enter....."
                                        type="text"
-                                       // onChange = {(e) =>{
-                                       //     setEmail(e.target.value);
-                                       // }}
-
                                 />
                                 <button type="submit" className="profileemailupdatebtn"> Update </button>
                             </div>
