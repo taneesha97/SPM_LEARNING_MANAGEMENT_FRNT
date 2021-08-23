@@ -10,7 +10,7 @@ import TutorDashboard from "./Pages/TutorDashboard/TutorDashboard";
 import NavBarButtonComponent from "./Component/NavigationBar/NavBarButtonComponent";
 import AdminDashboard from "./Pages/AdminDashboard/AdminDashboard";
 import UserProfilePage from "./Pages/UserProfile/UserProfilePage";
-
+import ClassPage from "./Pages/ClassPage/ClassPage";
 import {Provider} from "react-redux";
 import store from "./store";
 import EmailUpdateComponent from "./Component/Profile/EmailUpdateComponent";
@@ -30,6 +30,7 @@ const App = () => {
                   <Route exact path = "/admindash" component={AdminDashboard}/>
                   <Route exact path = "/navbarbuttoncomponent" component={NavBarButtonComponent}/>
                   <Route exact path = "/emailupdate" component={EmailUpdateComponent}/>
+                  <Route exact path = "/class" component={ClassPage}/>
               </Switch>
           </BrowserRouter>
   )

@@ -1,0 +1,18 @@
+.all-class-section-row {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  grid-auto-rows: minmax(1px, auto);
+  justify-content: left;
+  align-items: normal;
+  grid-gap: 5%;
+}
+
+.allclassitems {
+  display: flex;
+}
+
+.home-class-container-filter {
+  margin-left: 3%;
+}
+
+/*# sourceMappingURL=ClassItems.css.map */
