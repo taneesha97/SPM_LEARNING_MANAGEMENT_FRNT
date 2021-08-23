@@ -16,6 +16,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {getClasses} from "../../../Action/Class";
 import './ClassDetails.css'
 import {TextField} from "@material-ui/core";
+import * as row from "react-file-base64";
 
 const StyledTableCell = withStyles((theme: Theme) =>
     createStyles({
@@ -39,25 +40,6 @@ const StyledTableRow = withStyles((theme: Theme) =>
     }),
 )(TableRow);
 
-const rows = [
-    // { id: 1, name: 'Grade 11', description: 'This is a grade 11 class', teacher: 'Mr.Dissanayka',image: 'Class_Image' },
-    // { id: 2, name: 'Grade 11', description: 'This is a grade 11 class', teacher: 'Mr.Dissanayka',image: 'Class_Image' },
-    // { id: 3, name: 'Grade 11', description: 'This is a grade 11 class', teacher: 'Mr.Dissanayka',image: 'Class_Image' },
-    // { id: 4, name: 'Grade 11', description: 'This is a grade 11 class', teacher: 'Mr.Dissanayka',image: 'Class_Image' },
-    // { id: 5, name: 'Grade 11', description: 'This is a grade 11 class', teacher: 'Mr.Dissanayka',image: 'Class_Image' },
-    // { id: 6, name: 'Grade 11', description: 'This is a grade 11 class', teacher: 'Mr.Dissanayka',image: 'Class_Image' },
-    // { id: 7, name: 'Grade 11', description: 'This is a grade 11 class', teacher: 'Mr.Dissanayka',image: 'Class_Image' },
-    // { id: 8, name: 'Grade 11', description: 'This is a grade 11 class', teacher: 'Mr.Dissanayka',image: 'Class_Image' },
-    // { id: 9, name: 'Grade 11', description: 'This is a grade 11 class', teacher: 'Mr.Dissanayka',image: 'Class_Image' },
-    // { id: 10, name: 'Grade 11', description: 'This is a grade 11 class', teacher: 'Mr.Dissanayka',image: 'Class_Image' },
-    // { id: 11, name: 'Grade 11', description: 'This is a grade 11 class', teacher: 'Mr.Dissanayka',image: 'Class_Image' },
-    // { id: 12, name: 'Grade 11', description: 'This is a grade 11 class', teacher: 'Mr.Dissanayka',image: 'Class_Image' },
-    // { id: 13, name: 'Grade 11', description: 'This is a grade 11 class', teacher: 'Mr.Dissanayka',image: 'Class_Image' },
-    // { id: 14, name: 'Grade 11', description: 'This is a grade 11 class', teacher: 'Mr.Dissanayka',image: 'Class_Image' },
-    // { id: 15, name: 'Grade 11', description: 'This is a grade 11 class', teacher: 'Mr.Dissanayka',image: 'Class_Image' },
-
-];
-
 const useStyles = makeStyles({
     table: {
         minWidth: 100,
@@ -73,7 +55,7 @@ function ClassDetailsTable() {
     const classes = useStyles();
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(5);
-    const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
+    // const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
     const dispatch = useDispatch();
 
     const classDetails = useSelector((state) => state.classes.classRecords.records);
@@ -117,53 +99,54 @@ function ClassDetailsTable() {
                     </div>
                 </div>
                 <TableContainer component={Paper} className={classes.editorContentClass}>
-                    <Table className={classes.table} aria-label="customized table">
-                        <TableHead>
-                            <TableRow>
-                                <TableCell align="center" className="classTablerow">Class name</TableCell>
-                                <TableCell align="center" className="classTablerow">Description</TableCell>
-                                <TableCell align="center" className="classTablerow">Teacher name</TableCell>
-                                <TableCell align="center" className="classTablerow">Image</TableCell>
-                                <TableCell align="center" className="classTablerow">Delete</TableCell>
-                                <TableCell align="center" className="classTablerow">Update</TableCell>
-                            </TableRow>
-                        </TableHead>
-                        <TableBody>
-                            {rows.map((row) => (
-                                <StyledTableRow key={row.id}>
-                                    {/*<StyledTableCell component="th" scope="row">{row.id}</StyledTableCell>*/}
-                                    <StyledTableCell align="center">{row.name}</StyledTableCell>
-                                    <StyledTableCell align="center">{row.description}</StyledTableCell>
-                                    <StyledTableCell align="center">{row.teacher}</StyledTableCell>
-                                    <StyledTableCell align="center">{row.image}</StyledTableCell>
-                                    <TableCell align="center">
-                                        <DeleteIcon color="primary" style={{fontSize: 40 }}/>
-                                    </TableCell>
-                                    <TableCell align="center">
-                                        <EditIcon style={{ color: green[500], fontSize: 40 }}/>
-                                    </TableCell>
-                                </StyledTableRow>
-                            ))}
-                        </TableBody>
-                        <TableFooter>
-                            <TableRow>
-                                <TablePagination
-                                    rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
-                                    colSpan={3}
-                                    count={rows.length}
-                                    rowsPerPage={rowsPerPage}
-                                    page={page}
-                                    SelectProps={{
-                                        inputProps: { 'aria-label': 'rows per page' },
-                                        native: true,
-                                    }}
-                                    onPageChange={handleChangePage}
-                                    onRowsPerPageChange={handleChangeRowsPerPage}
-                                    // ActionsComponent={TablePaginationActions}
-                                />
-                            </TableRow>
-                        </TableFooter>
-                    </Table>
+                        <Table className={classes.table} aria-label="customized table">
+                            <TableHead className="class-table-header">
+                                <TableRow>
+                                    <TableCell align="center" className="classTablerow">Class name</TableCell>
+                                    <TableCell align="center" className="classTablerow">Description</TableCell>
+                                    <TableCell align="center" className="classTablerow">Teacher name</TableCell>
+                                    <TableCell align="center" className="classTablerow">Image</TableCell>
+                                    <TableCell align="center" className="classTablerow">Delete</TableCell>
+                                    <TableCell align="center" className="classTablerow">Update</TableCell>
+                                </TableRow>
+                            </TableHead>
+                            <TableBody>
+                                {/*classDetails ? classDetails.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)*/}
+                                {/*    .map((row) => (*/}
+                                {/*    <StyledTableRow>*/}
+                                {/*        <StyledTableCell align="center">{row.id}</StyledTableCell>*/}
+                                {/*        <StyledTableCell align="center">{row.name}</StyledTableCell>*/}
+                                {/*        <StyledTableCell align="center">{row.description}</StyledTableCell>*/}
+                                {/*        <StyledTableCell align="center">{row.tutorName}</StyledTableCell>*/}
+                                {/*        <StyledTableCell align="center">{row.image}</StyledTableCell>*/}
+                                {/*        <TableCell align="center">*/}
+                                {/*            <DeleteIcon color="primary" style={{fontSize: 40 }}/>*/}
+                                {/*        </TableCell>*/}
+                                {/*        <TableCell align="center">*/}
+                                {/*            <EditIcon style={{ color: green[500], fontSize: 40 }}/>*/}
+                                {/*        </TableCell>*/}
+                                {/*    </StyledTableRow>*/}
+                                {/*))}*/}
+                            </TableBody>
+                            <TableFooter>
+                                <TableRow>
+                                    <TablePagination
+                                        rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
+                                        colSpan={3}
+                                        count={10}
+                                        rowsPerPage={rowsPerPage}
+                                        page={page}
+                                        SelectProps={{
+                                            inputProps: { 'aria-label': 'rows per page' },
+                                            native: true,
+                                        }}
+                                        onPageChange={handleChangePage}
+                                        onRowsPerPageChange={handleChangeRowsPerPage}
+                                        // ActionsComponent={TablePaginationActions}
+                                    />
+                                </TableRow>
+                            </TableFooter>
+                        </Table>
                 </TableContainer>
             </div>
 
