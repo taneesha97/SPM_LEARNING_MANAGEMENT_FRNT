@@ -1,6 +1,7 @@
 import React from 'react'
 import './UserProfile.css'
 import profilePic from "./images/profilePic.png";
+import EmailUpdateComponent from "../../Component/Profile/EmailUpdateComponent";
 function UserProfile() {
     return (<React.Fragment>
             <div>
@@ -18,6 +19,7 @@ function UserProfile() {
                             <div className="profitable-group">
                                 <button className="userprofile-button1">Update User Name</button><br/>
                                 <button className="userprofile-button1">Update My Email</button><br/>
+                                <EmailUpdateComponent/>
                                 <button className="userprofile-button1">Update Password</button><br/>
                                 <button className="userprofile-button1">My Transactions</button><br/>
                                 <button className="userprofile-button2">Delete My Account</button><br/>
