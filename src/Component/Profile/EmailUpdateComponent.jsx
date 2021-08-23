@@ -12,7 +12,7 @@ function EmailUpdateComponent(props) {
 
 
                         <div className="emailupdatecomponent-bio1-info2">
-                            <h2 className="emailupdatecomponent-bio1-info2-main">User {props.name} Update</h2>
+                            <h2 className="emailupdatecomponent-bio1-info2-main">User's new {props.name} Update</h2>
                             <h4 className="emailupdatecomponent-bio1-info2-second">
                                 Update Your New {props.name} Here
                                 </h4>
@@ -24,8 +24,8 @@ function EmailUpdateComponent(props) {
                             <div>
                                 {/*<lable className="input-wrapper-update">Email</lable><br/>*/}
                                 <input className="input-field-updateemail"
-                                       placeholder="Enter Email..."
-                                       type="email"
+                                       placeholder="Enter....."
+                                       type="text"
                                        // onChange = {(e) =>{
                                        //     setEmail(e.target.value);
                                        // }}

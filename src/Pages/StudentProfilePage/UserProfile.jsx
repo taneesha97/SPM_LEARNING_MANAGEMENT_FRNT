@@ -9,7 +9,15 @@ function UserProfile() {
 
     const updateUserName = () => {
         setButtonPopup(true);
-        setPopupName("User Name");
+        setPopupName("Username");
+    }
+    const updateEmail = () => {
+        setButtonPopup(true);
+        setPopupName("Email");
+    }
+    const updatePassword = () => {
+        setButtonPopup(true);
+        setPopupName("Password");
     }
 
     return (<React.Fragment>
@@ -31,9 +39,9 @@ function UserProfile() {
                         <div className="userprofile1-info">
                             <h2 className="userprofile1-info-main">Taneesha</h2>
                             <div className="profitable-group">
-                                <button className="userprofile-button1" onClick={setPopupName}>Update User Name</button><br/>
-                                <button className="userprofile-button1">Update My Email</button><br/>
-                                <button className="userprofile-button1">Update Password</button><br/>
+                                <button className="userprofile-button1" onClick={updateUserName}>Update User Name</button><br/>
+                                <button className="userprofile-button1" onClick={updateEmail}>Update My Email</button><br/>
+                                <button className="userprofile-button1" onClick={updatePassword}>Update Password</button><br/>
                                 <button className="userprofile-button1">My Transactions</button><br/>
                                 <button className="userprofile-button2">Delete My Account</button><br/>
                             </div>
