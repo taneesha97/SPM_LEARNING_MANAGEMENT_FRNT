@@ -28,21 +28,21 @@
   padding-top: 90px;
     .tutorial-home-section-body {
       display: flex;
-      padding-top:  40px;
-      margin-left: 120px;
+      padding-top: 40px;
+      margin-left: 140px;
       padding-bottom: 50px;
       .tutorial-home-section-body-res-layout {
         display: grid;
         grid-gap: 5px;
         row-gap: 130px;
         justify-content: center;
-        grid-template-columns: 320px 320px 320px 320px 320px;
+        grid-template-columns: 230px 230px 230px 230px 230px;
         grid-template-areas:
         "tile1 tile2 tile3 tile4 tile5";
       }
-      @media only screen and (max-width: 1750px) {
+      @media only screen and (max-width: 1350px) {
         .tutorial-home-section-body-res-layout {
-          grid-template-columns: 410px  410px;
+          grid-template-columns: 230px  230px;
           grid-template-rows: 250px 250px 250px 250px;
           grid-template-areas:
         "tile1 tile2"
@@ -52,9 +52,9 @@
         }
       }
 
-      @media only screen and (max-width: 966px) {
+      @media only screen and (max-width: 600px) {
         .tutorial-home-section-body-res-layout {
-          grid-template-columns: 410px;
+          grid-template-columns: 230px;
           grid-template-rows: 250px 250px 250px 250px;
           grid-template-areas:
         "tile1"
@@ -73,12 +73,12 @@
       .tutorial-home-section-header{
         padding: 10px;
         .main-heading{
-          font-size: 74.8px;
+          font-size: 30px;
           color: #ADA6CE;
           font-weight: bold;
         }
         .second-heading{
-          font-size: 37.8px;
+          font-size: 20px;
           color: #BABABA;
           font-weight: normal;
         }

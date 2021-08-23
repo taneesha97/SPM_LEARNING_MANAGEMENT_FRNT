@@ -12,9 +12,9 @@ function AdminDashboard() {
     return (
         <div className="admin-dashboard-page">
             <AdminDashHeader/>
-            <TeacherTableComponent/>
             <ClassMgntInt/>
-            <ClassDetailsTable/>
+            <ClassDetailsTable/><br/>
+            <TeacherTableComponent/>
         </div>
 
     )

@@ -50,6 +50,7 @@ function RegistrationComponent() {
                                onChange = {(e) =>{
                                    setName(e.target.value);
                                }}
+                               required
                         />
                         <br/>
                     </div>
@@ -57,10 +58,11 @@ function RegistrationComponent() {
                         <lable className="input-wrapper">Email</lable><br/>
                         <input className="input-field"
                                placeholder="Enter Email..."
-                               type="text"
+                               type="email"
                                onChange = {(e) =>{
                                    setEmail(e.target.value);
                                }}
+                               required
                         />
                     </div>
                     <div>
@@ -71,6 +73,7 @@ function RegistrationComponent() {
                                onChange = {(e) =>{
                                    setUsername(e.target.value);
                                }}
+                               required
                         />
                     </div>
                     <div>
@@ -81,6 +84,7 @@ function RegistrationComponent() {
                                onChange = {(e) =>{
                                    setPassword(e.target.value);
                                }}
+                               required
                         />
                     </div>
                     <div>

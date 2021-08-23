@@ -1,13 +1,15 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import './Login.css'
-import {useDispatch} from "react-redux";
-import {loginUserValidation} from "../../Action/Users";
+import {useDispatch, useSelector} from "react-redux";
+import {fetchUser, loginUserValidation} from "../../Action/Users";
 import {useHistory} from "react-router";
+import axios from "axios";
+import AuthClass from "../../Validation/AuthClass";
 
 function LoginComponent() {
 
 
-    const [name, setName] = useState("");
+    const [username, setName] = useState("");
     const [password, setPassword] = useState("");
     const dispatch = useDispatch();
     const history = useHistory();
@@ -15,12 +17,35 @@ function LoginComponent() {
     function SubmitPressed(e) {
         e.preventDefault();
         const newUser = {
-            name,
+            username,
             password
         }
         console.log(newUser);
-        dispatch(loginUserValidation(newUser));
+        axios.post("http://localhost:8073/api/validate", newUser)
+            .then(response => {
+                let values = response.data;
+                console.log('res1 ', response.data);
+                if (values == ""){
+                    //AuthClass.logout();
+                    history.push("/login");
+                    setName("");
+                    setPassword("");
+                }else if (values == "student"){
+                    AuthClass.login(username,values)
+                    history.push("/home");
+                }else if (values == "teacher"){
+                    AuthClass.login(username,values)
+                    history.push("/tutordash");
+                }
+            });
+        // dispatch(loginUserValidation(newUser));
+        // const response = useSelector((state) => state.userDetails1.loginUser);
+
+
     }
+
+
+
 
     const NavigateToRegistration = () => {
         history.push("/registration");
@@ -39,10 +64,12 @@ function LoginComponent() {
                             <lable className="input-wrapper">Name</lable><br/>
                             <input className="input-field"
                                    placeholder="Enter Name..."
+                                   value={username}
                                    type="text"
                                    onChange = {(e) =>{
                                        setName(e.target.value);
                                    }}
+                                   required
                             />
                             <br/>
                         </div>
@@ -51,19 +78,22 @@ function LoginComponent() {
                             <input className="input-field"
                                    placeholder="Enter Password..."
                                    type="password"
+                                   value={password}
                                    onChange = {(e) =>{
                                        setPassword(e.target.value);
                                    }}
+                                   required
                             />
                         </div>
                         <div>
                             <input type="checkbox" className="input-field1" value="Remember me"/>
                             <lable className="input-wrapper">Remember me</lable><br/>
                         </div>
-
                         <div className="button-group">
                             <button className="auth-button" type="submit">Login</button><br/>
                         </div>
+
+
                         <div className="login-info5">
                             <h2 className="login-info5-main">New to the site?</h2>
                             <h4 className="login-info5-second" onClick={NavigateToRegistration}>Sign up</h4>

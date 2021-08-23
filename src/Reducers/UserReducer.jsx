@@ -1,11 +1,12 @@
-import {ADD_USER, DELETE_USER,UPDATE_USER, GET_USER, FETCH_USERS} from "../Action/types";
+import {ADD_USER, DELETE_USER, UPDATE_USER, GET_USER, FETCH_USERS, VALID_USER} from "../Action/types";
 
 const initialState = {
     UserDetails: {
         records: [],
         record: {}
     },
-    editDetail: []
+    editDetail: [],
+    loginUser: []
 }
 
 export default function (state = initialState, action){
@@ -34,7 +35,7 @@ export default function (state = initialState, action){
                 ...state,
                 UserDetails: {
                     ...state.UserDetails,
-                    record: state.UserDetails.records.filter(item => item !== action.payload)
+                    record: state.UserDetails.records.data.filter(item => item !== action.payload)
                 }
             }
         case GET_USER:
@@ -42,7 +43,13 @@ export default function (state = initialState, action){
                 ...state,
                 editDetail: action.payload
             }
-
+        case VALID_USER:
+            console.log('reducer');
+            console.log('reducer1 ',action.payload);
+            return {
+                ...state,
+                loginUser: action.payload
+            }
         case UPDATE_USER:
             return {
                 ...state,
