@@ -19,32 +19,9 @@ function ClassMgntInt(){
         setClassData({ ...classData, teacher: [] , className: "", description: ""});
     }
 
-    const formValidation = () => {
-        console.log('calling validation')
-        if(!classData.className){
-            console.log('class name null');
-            window.alert("class name missing")
-        }else if(!classData.description){
-            console.log('class des null');
-            window.alert("class des missing")
-        }else if(!classData.teacher){
-            console.log('class teacher null');
-            window.alert("class teacher missing")
-        }else if(!classData.image){
-            console.log('class image null');
-            window.alert("class image missing")
-        }else{
-            return true;
-        }
-    }
-
-
     const handleSubmit = (e) => {
         e.preventDefault();
-        if(formValidation()){
-
-            //dispatch(addClass(classData));
-        }
+        dispatch(addClass(classData));
 
         //check print success msg
     }
@@ -67,6 +44,7 @@ function ClassMgntInt(){
                                 className="form-input"
                                 value={classData.className}
                                 onChange={(e) => setClassData({...classData, className: e.target.value})}
+                                required
                             />
 
                             <label htmlFor="description">Description</label>
@@ -78,6 +56,7 @@ function ClassMgntInt(){
                                 className="form-input"
                                 value={classData.description}
                                 onChange={(e) => setClassData({...classData, description: e.target.value})}
+                                required
                             />
 
                             <label htmlFor="lname">Teacher name</label>
@@ -86,6 +65,7 @@ function ClassMgntInt(){
                                 aria-label="Default select example"
                                 value={classData.teacher}
                                 onChange={(e) => setClassData({...classData, teacher: e.target.value})}
+                                required
                             >
                                 <option selected>Choose...</option>
                                 <option value="1">One</option>
@@ -99,6 +79,7 @@ function ClassMgntInt(){
                                     type="file"
                                     multiple={false}
                                     onDone={({base64}) => setClassData({...classData, image: base64})}
+                                    required
                                 />
                             </div>
                             <div className="course-button-group button-row">
