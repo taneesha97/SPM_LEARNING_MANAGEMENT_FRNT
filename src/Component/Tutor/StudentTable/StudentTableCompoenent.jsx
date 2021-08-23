@@ -15,6 +15,8 @@ import {deleteUsers, fetchStudents} from "../../../Action/Users";
 import teacherDeleteimage1 from "../../Admin/TeachersTable/images/teacherDelete-image1.png";
 import {useDispatch, useSelector} from "react-redux";
 import {useHistory} from "react-router";
+import TablePagination from "@material-ui/core/TablePagination";
+import TableFooter from "@material-ui/core/TableFooter";
 
 const Student = (props) => (
     console.log(props.student),
@@ -36,6 +38,9 @@ const Student = (props) => (
 const StudentTableComponent = ()  => {
     const dispatch = useDispatch();
     const history = useHistory();
+    const [rowsPerPage, setRowsPerPage] = React.useState(5);
+    //const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
+
     const response = useSelector((state) => state.userDetails1.UserDetails.records.data);
     console.log(response);
 
@@ -46,6 +51,14 @@ const StudentTableComponent = ()  => {
 
     const deleteStudent = (id) => {
         dispatch(deleteUsers(id))
+    }
+
+    const handleChangePage = () => {
+
+    }
+
+    const handleChangeRowsPerPage= () => {
+
     }
     const useStyles = makeStyles({
         table: {
@@ -107,6 +120,24 @@ const StudentTableComponent = ()  => {
                     <TableBody>
                         {studentList()}
                     </TableBody>
+                    <TableFooter>
+                        <TableRow>
+                            <TablePagination
+                                rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
+                                colSpan={3}
+                                count={10}
+                                rowsPerPage={rowsPerPage}
+                                page={6}
+                                SelectProps={{
+                                    inputProps: { 'aria-label': 'rows per page' },
+                                    native: true,
+                                }}
+                                onPageChange={handleChangePage}
+                                onRowsPerPageChange={handleChangeRowsPerPage}
+                                // ActionsComponent={TablePaginationActions}
+                            />
+                        </TableRow>
+                    </TableFooter>
                 </Table>
             </TableContainer>
         </div>
