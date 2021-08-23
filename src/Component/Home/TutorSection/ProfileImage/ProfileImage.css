@@ -1,0 +1,21 @@
+.tutor-profile-container {
+  width: auto;
+}
+.tutor-profile-container .tutor-profile-picture {
+  border-radius: 100%;
+  width: 262px;
+  height: 262px;
+}
+.tutor-profile-container .tutor-profile-name {
+  font-size: 37.8px;
+  color: #FFFFFF;
+  font-weight: bold;
+  margin-top: 5px;
+}
+.tutor-profile-container .tutor-profile-designation {
+  font-size: 25.41px;
+  color: #A3A3A3;
+  font-weight: normal;
+}
+
+/*# sourceMappingURL=ProfileImage.css.map */
