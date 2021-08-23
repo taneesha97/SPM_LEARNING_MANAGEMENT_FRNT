@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { withStyles, Theme, createStyles, makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -12,6 +12,8 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import {green} from "@material-ui/core/colors";
 import TableFooter from '@material-ui/core/TableFooter';
 import TablePagination from '@material-ui/core/TablePagination';
+import {useDispatch, useSelector} from "react-redux";
+import {getClasses} from "../../../Action/Class";
 
 const StyledTableCell = withStyles((theme: Theme) =>
     createStyles({
@@ -36,21 +38,21 @@ const StyledTableRow = withStyles((theme: Theme) =>
 )(TableRow);
 
 const rows = [
-    { id: 1, name: 'Grade 11', description: 'This is a grade 11 class', teacher: 'Mr.Dissanayka',image: 'Class_Image' },
-    { id: 2, name: 'Grade 11', description: 'This is a grade 11 class', teacher: 'Mr.Dissanayka',image: 'Class_Image' },
-    { id: 3, name: 'Grade 11', description: 'This is a grade 11 class', teacher: 'Mr.Dissanayka',image: 'Class_Image' },
-    { id: 4, name: 'Grade 11', description: 'This is a grade 11 class', teacher: 'Mr.Dissanayka',image: 'Class_Image' },
-    { id: 5, name: 'Grade 11', description: 'This is a grade 11 class', teacher: 'Mr.Dissanayka',image: 'Class_Image' },
-    { id: 6, name: 'Grade 11', description: 'This is a grade 11 class', teacher: 'Mr.Dissanayka',image: 'Class_Image' },
-    { id: 7, name: 'Grade 11', description: 'This is a grade 11 class', teacher: 'Mr.Dissanayka',image: 'Class_Image' },
-    { id: 8, name: 'Grade 11', description: 'This is a grade 11 class', teacher: 'Mr.Dissanayka',image: 'Class_Image' },
-    { id: 9, name: 'Grade 11', description: 'This is a grade 11 class', teacher: 'Mr.Dissanayka',image: 'Class_Image' },
-    { id: 10, name: 'Grade 11', description: 'This is a grade 11 class', teacher: 'Mr.Dissanayka',image: 'Class_Image' },
-    { id: 11, name: 'Grade 11', description: 'This is a grade 11 class', teacher: 'Mr.Dissanayka',image: 'Class_Image' },
-    { id: 12, name: 'Grade 11', description: 'This is a grade 11 class', teacher: 'Mr.Dissanayka',image: 'Class_Image' },
-    { id: 13, name: 'Grade 11', description: 'This is a grade 11 class', teacher: 'Mr.Dissanayka',image: 'Class_Image' },
-    { id: 14, name: 'Grade 11', description: 'This is a grade 11 class', teacher: 'Mr.Dissanayka',image: 'Class_Image' },
-    { id: 15, name: 'Grade 11', description: 'This is a grade 11 class', teacher: 'Mr.Dissanayka',image: 'Class_Image' },
+    // { id: 1, name: 'Grade 11', description: 'This is a grade 11 class', teacher: 'Mr.Dissanayka',image: 'Class_Image' },
+    // { id: 2, name: 'Grade 11', description: 'This is a grade 11 class', teacher: 'Mr.Dissanayka',image: 'Class_Image' },
+    // { id: 3, name: 'Grade 11', description: 'This is a grade 11 class', teacher: 'Mr.Dissanayka',image: 'Class_Image' },
+    // { id: 4, name: 'Grade 11', description: 'This is a grade 11 class', teacher: 'Mr.Dissanayka',image: 'Class_Image' },
+    // { id: 5, name: 'Grade 11', description: 'This is a grade 11 class', teacher: 'Mr.Dissanayka',image: 'Class_Image' },
+    // { id: 6, name: 'Grade 11', description: 'This is a grade 11 class', teacher: 'Mr.Dissanayka',image: 'Class_Image' },
+    // { id: 7, name: 'Grade 11', description: 'This is a grade 11 class', teacher: 'Mr.Dissanayka',image: 'Class_Image' },
+    // { id: 8, name: 'Grade 11', description: 'This is a grade 11 class', teacher: 'Mr.Dissanayka',image: 'Class_Image' },
+    // { id: 9, name: 'Grade 11', description: 'This is a grade 11 class', teacher: 'Mr.Dissanayka',image: 'Class_Image' },
+    // { id: 10, name: 'Grade 11', description: 'This is a grade 11 class', teacher: 'Mr.Dissanayka',image: 'Class_Image' },
+    // { id: 11, name: 'Grade 11', description: 'This is a grade 11 class', teacher: 'Mr.Dissanayka',image: 'Class_Image' },
+    // { id: 12, name: 'Grade 11', description: 'This is a grade 11 class', teacher: 'Mr.Dissanayka',image: 'Class_Image' },
+    // { id: 13, name: 'Grade 11', description: 'This is a grade 11 class', teacher: 'Mr.Dissanayka',image: 'Class_Image' },
+    // { id: 14, name: 'Grade 11', description: 'This is a grade 11 class', teacher: 'Mr.Dissanayka',image: 'Class_Image' },
+    // { id: 15, name: 'Grade 11', description: 'This is a grade 11 class', teacher: 'Mr.Dissanayka',image: 'Class_Image' },
 
 ];
 
@@ -65,10 +67,21 @@ const useStyles = makeStyles({
 });
 
 function ClassDetailsTable() {
+
     const classes = useStyles();
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(5);
     const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
+    const dispatch = useDispatch();
+
+    const classDetails = useSelector((state) => state.classes.classRecords.records);
+    console.log('CLASS DETAIL', classDetails);
+
+    React.useEffect(() => {
+        // setIsLoading(dataLoading);
+        dispatch(getClasses());
+    }, []);
+
 
     const handleChangePage = (event: React.MouseEvent<HTMLButtonElement> | null, newPage: number) => {
         setPage(newPage);
