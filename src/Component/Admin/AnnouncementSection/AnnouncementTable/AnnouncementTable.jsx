@@ -7,7 +7,7 @@ function AnnouncementTable({array}) {
         <div className="announcement-table-container">
             <div className="announcement-table-header">
                 <div className="announcement-table-section-header light">
-                    Student Feedbacks
+                    Announcements Details
                 </div>
                 <div className="announcement-table-second-header">
                     Latest

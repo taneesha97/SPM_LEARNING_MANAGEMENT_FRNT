@@ -10,6 +10,9 @@ function RowComponent({header, description}) {
                     <div className="class-announcement-custom-row-description">{description}</div>
                 </div>
                 <div className="class-announcement-custom-row-posted-time">34 mins ago</div>
+                {/*<div>*/}
+                {/*    <button>Remove</button>*/}
+                {/*</div>*/}
             </div>
             <div className="class-announcement-custom-row-container-line"/>
         </div>

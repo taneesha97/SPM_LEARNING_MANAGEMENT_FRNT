@@ -11,12 +11,12 @@ function AdminDashboard() {
 
     //Array for the announcement component.
     const array1 = [
-        {"header":"Kamal", "description":"New News Update available"},
-        {"header":"Kamal", "description":"New News Update available"},
-        {"header":"Kamal", "description":"New News Update available"},
-        {"header":"Kamal", "description":"New News Update available"},
-        {"header":"Kamal", "description":"New News Update available"},
-        {"header":"Kamal", "description":"New News Update available"}];
+        {"header":"Announcement 1", "description":"New News Update available"},
+        {"header":"Announcement 2", "description":"New News Update available"},
+        {"header":"Announcement 3", "description":"New News Update available"},
+        {"header":"Announcement 4", "description":"New News Update available"},
+        {"header":"Announcement 5", "description":"New News Update available"},
+        {"header":"Announcement 6", "description":"New News Update available"}];
 
     return (
         <div className="admin-dashboard-page">
