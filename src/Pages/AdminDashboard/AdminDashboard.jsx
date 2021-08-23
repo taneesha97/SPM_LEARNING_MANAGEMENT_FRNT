@@ -12,8 +12,11 @@ function AdminDashboard() {
     return (
         <div className="admin-dashboard-page">
             <AdminDashHeader/>
-            <ClassMgntInt/>
-            <ClassDetailsTable/><br/>
+            <div className="Class-Admin">
+                <ClassMgntInt/>
+                <ClassDetailsTable/>
+            </div>
+            <br/>
             <TeacherTableComponent/>
         </div>
 

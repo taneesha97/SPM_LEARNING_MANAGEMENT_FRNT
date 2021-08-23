@@ -14,6 +14,8 @@ import TableFooter from '@material-ui/core/TableFooter';
 import TablePagination from '@material-ui/core/TablePagination';
 import {useDispatch, useSelector} from "react-redux";
 import {getClasses} from "../../../Action/Class";
+import './ClassDetails.css'
+import {TextField} from "@material-ui/core";
 
 const StyledTableCell = withStyles((theme: Theme) =>
     createStyles({
@@ -58,10 +60,10 @@ const rows = [
 
 const useStyles = makeStyles({
     table: {
-        minWidth: 1350,
+        minWidth: 100,
         borderRadius: 50
     },
-    editorContent: {
+    editorContentClass: {
         borderRadius: 30
     },
 });
@@ -98,55 +100,73 @@ function ClassDetailsTable() {
         <React.Fragment>
             {/*<div className="class-table-component">*/}
             {/*    <div className="input-table-container">*/}
-                    <TableContainer component={Paper} className={classes.editorContent}>
-                        <Table className={classes.table} aria-label="customized table">
-                            <TableHead>
-                                <TableRow>
-                                    <TableCell align="center" >Class name</TableCell>
-                                    <TableCell align="center" >Description</TableCell>
-                                    <TableCell align="center" >Teacher name</TableCell>
-                                    <TableCell align="center" >Image</TableCell>
-                                    <TableCell align="center" >Delete</TableCell>
-                                    <TableCell align="center" >Update</TableCell>
-                                </TableRow>
-                            </TableHead>
-                            <TableBody>
-                                {rows.map((row) => (
-                                    <StyledTableRow key={row.id}>
-                                        {/*<StyledTableCell component="th" scope="row">{row.id}</StyledTableCell>*/}
-                                        <StyledTableCell align="center">{row.name}</StyledTableCell>
-                                        <StyledTableCell align="center">{row.description}</StyledTableCell>
-                                        <StyledTableCell align="center">{row.teacher}</StyledTableCell>
-                                        <StyledTableCell align="center">{row.image}</StyledTableCell>
-                                        <TableCell align="center">
-                                            <DeleteIcon color="primary" style={{fontSize: 40 }}/>
-                                        </TableCell>
-                                        <TableCell align="center">
-                                            <EditIcon style={{ color: green[500], fontSize: 40 }}/>
-                                        </TableCell>
-                                    </StyledTableRow>
-                                ))}
-                            </TableBody>
-                            <TableFooter>
-                                <TableRow>
-                                    <TablePagination
-                                        rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
-                                        colSpan={3}
-                                        count={rows.length}
-                                        rowsPerPage={rowsPerPage}
-                                        page={page}
-                                        SelectProps={{
-                                            inputProps: { 'aria-label': 'rows per page' },
-                                            native: true,
-                                        }}
-                                        onPageChange={handleChangePage}
-                                        onRowsPerPageChange={handleChangeRowsPerPage}
-                                        // ActionsComponent={TablePaginationActions}
-                                    />
-                                </TableRow>
-                            </TableFooter>
-                        </Table>
-                    </TableContainer>
+            <div className="classTableBackground">
+                <div className="class-table-title-header">
+                    <h1 className="title-classTable">Class Details Table</h1>
+                    <div className="search-bar-class-table">
+                        <TextField
+                            id="filled-full-width"
+                            label="Search"
+                            placeholder="Search Items.."
+                            fullWidth
+                            margin="normal"
+                            variant="outlined"
+                            className="search-class"
+                            style={{backgroundColor: "#FFFFFF", width: 300, borderRadius: 30}}
+                        />
+                    </div>
+                </div>
+                <TableContainer component={Paper} className={classes.editorContentClass}>
+                    <Table className={classes.table} aria-label="customized table">
+                        <TableHead>
+                            <TableRow>
+                                <TableCell align="center" className="classTablerow">Class name</TableCell>
+                                <TableCell align="center" className="classTablerow">Description</TableCell>
+                                <TableCell align="center" className="classTablerow">Teacher name</TableCell>
+                                <TableCell align="center" className="classTablerow">Image</TableCell>
+                                <TableCell align="center" className="classTablerow">Delete</TableCell>
+                                <TableCell align="center" className="classTablerow">Update</TableCell>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            {rows.map((row) => (
+                                <StyledTableRow key={row.id}>
+                                    {/*<StyledTableCell component="th" scope="row">{row.id}</StyledTableCell>*/}
+                                    <StyledTableCell align="center">{row.name}</StyledTableCell>
+                                    <StyledTableCell align="center">{row.description}</StyledTableCell>
+                                    <StyledTableCell align="center">{row.teacher}</StyledTableCell>
+                                    <StyledTableCell align="center">{row.image}</StyledTableCell>
+                                    <TableCell align="center">
+                                        <DeleteIcon color="primary" style={{fontSize: 40 }}/>
+                                    </TableCell>
+                                    <TableCell align="center">
+                                        <EditIcon style={{ color: green[500], fontSize: 40 }}/>
+                                    </TableCell>
+                                </StyledTableRow>
+                            ))}
+                        </TableBody>
+                        <TableFooter>
+                            <TableRow>
+                                <TablePagination
+                                    rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
+                                    colSpan={3}
+                                    count={rows.length}
+                                    rowsPerPage={rowsPerPage}
+                                    page={page}
+                                    SelectProps={{
+                                        inputProps: { 'aria-label': 'rows per page' },
+                                        native: true,
+                                    }}
+                                    onPageChange={handleChangePage}
+                                    onRowsPerPageChange={handleChangeRowsPerPage}
+                                    // ActionsComponent={TablePaginationActions}
+                                />
+                            </TableRow>
+                        </TableFooter>
+                    </Table>
+                </TableContainer>
+            </div>
+
             {/*    </div>*/}
             {/*</div>*/}
         </React.Fragment>
