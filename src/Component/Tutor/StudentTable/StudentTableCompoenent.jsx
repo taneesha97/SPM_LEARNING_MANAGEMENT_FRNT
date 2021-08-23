@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -15,27 +15,18 @@ import {deleteUsers, fetchStudents} from "../../../Action/Users";
 import teacherDeleteimage1 from "../../Admin/TeachersTable/images/teacherDelete-image1.png";
 import {useDispatch, useSelector} from "react-redux";
 import {useHistory} from "react-router";
+import TablePagination from "@material-ui/core/TablePagination";
+import TableFooter from "@material-ui/core/TableFooter";
 
-const Student = (props) => (
-    console.log(props.student),
-        <TableRow>
-            <TableCell align="center"> {props.student.id} </TableCell>
-            <TableCell align="center"> {props.student.name} </TableCell>
-            <TableCell align="center"> {props.student.email} </TableCell>
-            <TableCell align="center"> {props.student.username} </TableCell>
-            <TableCell align="center"> {props.student.password} </TableCell>
-            <TableCell align="center"> {props.student.type} </TableCell>
-            <TableCell align="center">
-                <a href = "/tutordash" onClick={() => {
-                    props.deleteStudent(props.student.id)}} > <img src= {studentDeleting1}  className="studentDelete-image1"/> </a>
-            </TableCell>
-        </TableRow>
-)
 
 
 const StudentTableComponent = ()  => {
     const dispatch = useDispatch();
     const history = useHistory();
+    const [searchTerm, setSearchTerm] = useState("");
+    const [rowsPerPage, setRowsPerPage] = React.useState(5);
+    //const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
+
     const response = useSelector((state) => state.userDetails1.UserDetails.records.data);
     console.log(response);
 
@@ -46,6 +37,14 @@ const StudentTableComponent = ()  => {
 
     const deleteStudent = (id) => {
         dispatch(deleteUsers(id))
+    }
+
+    const handleChangePage = () => {
+
+    }
+
+    const handleChangeRowsPerPage= () => {
+
     }
     const useStyles = makeStyles({
         table: {
@@ -64,11 +63,6 @@ const StudentTableComponent = ()  => {
     });
     const classes = useStyles();
 
-    const studentList = () => {
-        return response?.map(currentstudent => {
-            return <Student student = {currentstudent} deleteStudent = {deleteStudent} key ={currentstudent._id}/>;
-        })
-    }
 
     return (
         <div className="Student-table-background">
@@ -83,6 +77,8 @@ const StudentTableComponent = ()  => {
                         margin="normal"
                         variant="outlined"
                         className="search-student"
+                        value={searchTerm}
+                        onChange={(event) => setSearchTerm(event.target.value)}
                         style={{backgroundColor: "#FFFFFF", width: 300, borderRadius: 2}}
                     />
                 </div>
@@ -105,8 +101,47 @@ const StudentTableComponent = ()  => {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {studentList()}
+                        {response?.filter((val) => {
+                            if(searchTerm == ""){
+                                return val
+                            }else if(val.name.toLowerCase().includes(searchTerm.toLowerCase())){
+                                return val
+                            }
+                        }).map((row) => (
+                            console.log(row),
+                                <TableRow>
+                                    <TableCell align="center"> {row.id} </TableCell>
+                                    <TableCell align="center"> {row.name} </TableCell>
+                                    <TableCell align="center"> {row.email} </TableCell>
+                                    <TableCell align="center"> {row.username} </TableCell>
+                                    <TableCell align="center"> {row.password} </TableCell>
+                                    <TableCell align="center"> {row.type} </TableCell>
+                                    <TableCell align="center">
+                                        <a href = "/tutordash" onClick={() => {
+                                            deleteStudent(row.id)}} > <img src= {studentDeleting1}  className="studentDelete-image1"/> </a>
+                                    </TableCell>
+                                </TableRow>
+                        ))
+                        }
                     </TableBody>
+                    <TableFooter>
+                        <TableRow>
+                            <TablePagination
+                                rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
+                                colSpan={3}
+                                count={10}
+                                rowsPerPage={rowsPerPage}
+                                page={6}
+                                SelectProps={{
+                                    inputProps: { 'aria-label': 'rows per page' },
+                                    native: true,
+                                }}
+                                onPageChange={handleChangePage}
+                                onRowsPerPageChange={handleChangeRowsPerPage}
+                                // ActionsComponent={TablePaginationActions}
+                            />
+                        </TableRow>
+                    </TableFooter>
                 </Table>
             </TableContainer>
         </div>
