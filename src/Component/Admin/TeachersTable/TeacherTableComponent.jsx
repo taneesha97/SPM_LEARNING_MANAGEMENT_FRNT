@@ -22,6 +22,7 @@ function TeacherTableComponent() {
     const dispatch = useDispatch();
     const history = useHistory();
 
+    const [searchTerm, setSearchTerm] = useState("");
     const [rowsPerPage, setRowsPerPage] = React.useState(5);
     //const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
 
@@ -69,11 +70,13 @@ function TeacherTableComponent() {
                     <TextField
                         id="filled-full-width"
                         label="Search"
-                        placeholder="Search Items.."
+                        placeholder="Search by name.."
                         fullWidth
                         margin="normal"
                         variant="outlined"
                         className="search-teacher"
+                        value={searchTerm}
+                        onChange={(event) => setSearchTerm(event.target.value)}
                         style={{backgroundColor: "#FFFFFF", width: 300, borderRadius: 30}}
                     />
                 </div>
@@ -93,8 +96,14 @@ function TeacherTableComponent() {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {
-                            response?.map((row) => (
+                        {response.filter((val) => {
+                            if(searchTerm == ""){
+                                return val
+                            }else if(val.name.toLowerCase().includes(searchTerm.toLowerCase())){
+                                return val
+                            }
+                        }).map((row) => (
+                            console.log(row),
                                 <TableRow key={row.id}>
                                     <TableCell align="center"> {row.id} </TableCell>
                                     <TableCell align="center"> {row.name} </TableCell>
@@ -109,10 +118,8 @@ function TeacherTableComponent() {
 
                                     </TableCell>
                                 </TableRow>
-                            ))
+                        ))
                         }
-
-
                     </TableBody>
                     <TableFooter>
                         <TableRow>
