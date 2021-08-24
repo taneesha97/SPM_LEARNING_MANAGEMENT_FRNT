@@ -9,12 +9,12 @@ import WelcomeHeader from "./WelcomeHeader/WelcomeHeader";
 import Footer from "../Footer/Footer";
 import GetUpdates from "./GetUpdates/GetUpdates";
 import TutorSection from "./TutorSection/TutorSection";
+import CourseWelcomeHeader from "../WelcomeHeader-Course/CourseWelcomeHeader";
 
 function HomeLanding() {
     return (
         <div>
             <WelcomeHeader/>
-
             <div>
                 <ClassSection/>
             </div>
