@@ -9,11 +9,19 @@ import WelcomeHeader from "./WelcomeHeader/WelcomeHeader";
 import Footer from "../Footer/Footer";
 import GetUpdates from "./GetUpdates/GetUpdates";
 import TutorSection from "./TutorSection/TutorSection";
+
+import CourseWelcomeHeader from "../WelcomeHeader-Course/CourseWelcomeHeader";
+
 import PopupModel from "../PopupModel/PopupModel";
+
 
 function HomeLanding() {
     return (
         <div>
+
+            <WelcomeHeader/>
+            <div>
+                <ClassSection/>
             <div className='ash-background'>
                 <WelcomeHeader/>
                 <PaymentForm/>

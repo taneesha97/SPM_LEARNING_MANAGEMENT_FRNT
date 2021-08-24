@@ -1,5 +1,5 @@
 .admin-header-component{
-  background-color: #525252;
+  background-color: #9F9DFF;
   padding: 10px;
   border-radius: 30px;
 }
@@ -17,5 +17,13 @@
   color: white;
   padding: 10px;
 }
+
+.card-img {
+  border-radius: 0% 10% 10% 0%;
+  height: 150.2px;
+  width: 50%;
+  object-fit: cover;
+}
+
 
 

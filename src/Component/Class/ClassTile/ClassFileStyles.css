@@ -8,6 +8,12 @@
 .classtile-container .left-container {
   width: 60%;
 }
+
+
+.class {
+  max-height: 150.2px;
+  width: 302px;
+
 .classtile-container .right-container {
   width: 100%;
 }
@@ -17,6 +23,7 @@
   width: 200%;
   height: 100%;
   border-radius: 0 20px 20px 0;
+
 }
 
 /*# sourceMappingURL=ClassFileStyles.css.map */

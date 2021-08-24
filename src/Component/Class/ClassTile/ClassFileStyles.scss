@@ -1,3 +1,14 @@
+
+.card-img-top{
+  border-radius: 0% 10% 10% 0%;
+  height: 150.2px;
+  width: 50%;
+  object-fit: cover;
+}
+
+.card-deck{
+  width: fit-content;
+  height: 200.2px;
 .classtile-container{
   width: 20%;
   height: 200px;
@@ -17,6 +28,13 @@
       height: 100%;
       border-radius: 0 20px 20px 0;
 
+
+.class{
+  max-height: 150.2px;
+  width: 302px;
+}
+
     }
   }
 }
+

@@ -19,16 +19,25 @@ function RegistrationComponent() {
 
     function SubmitPressed(e) {
         e.preventDefault();
+
+        let status = "";
+        if (type == 'student'){
+            status = 'valid';
+        }
+        if(type == 'teacher'){
+            status = 'pending';
+        }
         const newUser = {
             name,
             email,
             username,
+            status,
             password,
             type,
         }
         console.log(newUser);
        dispatch(addUsers(newUser));
-       history.push("/login");
+       //history.push("/login");
     }
 
 
@@ -50,6 +59,7 @@ function RegistrationComponent() {
                                onChange = {(e) =>{
                                    setName(e.target.value);
                                }}
+                               required
                         />
                         <br/>
                     </div>
@@ -57,10 +67,11 @@ function RegistrationComponent() {
                         <lable className="input-wrapper">Email</lable><br/>
                         <input className="input-field"
                                placeholder="Enter Email..."
-                               type="text"
+                               type="email"
                                onChange = {(e) =>{
                                    setEmail(e.target.value);
                                }}
+                               required
                         />
                     </div>
                     <div>
@@ -71,6 +82,7 @@ function RegistrationComponent() {
                                onChange = {(e) =>{
                                    setUsername(e.target.value);
                                }}
+                               required
                         />
                     </div>
                     <div>
@@ -81,6 +93,7 @@ function RegistrationComponent() {
                                onChange = {(e) =>{
                                    setPassword(e.target.value);
                                }}
+                               required
                         />
                     </div>
                     <div>
