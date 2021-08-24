@@ -2,9 +2,9 @@ import React, {useState} from 'react';
 import './ClassMgntInt.css'
 import "../../../../node_modules/bootstrap/dist/css/bootstrap.css"
 import FileBase from 'react-file-base64';
-import {useDispatch} from "react-redux";
-import {addClass} from "../../../Action/Class";
-
+import {useDispatch, useSelector} from "react-redux";
+import {addClass, getClasses} from "../../../Action/Class";
+import CustomAlert from '../../CustomAlert/CustomAlert'
 function ClassMgntInt(){
 
     const [image , setImage] = useState("");
@@ -17,13 +17,36 @@ function ClassMgntInt(){
 
     const formRefresh = () => {
         console.log('form referesh calling');
-        setClassData({ ...classData, teacher: [] , className: "", description: ""});
+        setClassData({ ...classData, name:'',teacher: [] , description: ""});
     }
+
     const uploadedImage = (e) => {
         let file = e.target.files[0];
         console.log(file.name)
         setImage(file.name)//
     }
+
+
+    //Error message
+    const errorMessage = useSelector((state: any) => state.classes.classDetails.error);
+
+    const [errorDisplay, setErrorDisplay] = useState("");
+
+    React.useEffect(() => {
+        setErrorDisplay(errorMessage);
+        setTimeout(() => setErrorDisplay(""), 5000);
+    }, [errorMessage]);
+
+    //Success message after inserting leaves
+    const successMessage = useSelector((state: any) => state.classes.classDetails.success);
+
+    const [successMessageDisplay, setSuccessMessageDisplay] = useState(successMessage);
+
+    React.useEffect(() => {setSuccessMessageDisplay(successMessage);
+    setTimeout(() => setSuccessMessageDisplay(""), 4000);
+    }, [successMessage]);
+
+
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(classData);
@@ -34,8 +57,7 @@ function ClassMgntInt(){
             image: image
         }
         dispatch(addClass(postData));
-
-        //check print success msg
+        setTimeout(() => dispatch(getClasses()), 1000);
     }
 
     return(
@@ -84,6 +106,7 @@ function ClassMgntInt(){
                                 <option value="3">Three</option>
                             </select>
 
+
                             <label htmlFor="lname">Image</label>
                             <div className="mb-3" style={{marginLeft:20}}>
                                 {/*<FileBase*/}
@@ -94,6 +117,27 @@ function ClassMgntInt(){
                                 {/*/>*/}
                                 <input type="file" id="avatar"  accept="image/png, image/jpeg"
                                        onChange={uploadedImage} />
+
+                            {/*<label htmlFor="lname">Image</label>*/}
+                            {/*<div className="mb-3" style={{marginLeft:20}}>*/}
+                            {/*    <FileBase*/}
+                            {/*        type="file"*/}
+                            {/*        multiple={false}*/}
+                            {/*        onDone={({base64}) => setClassData({...classData, image: base64})}*/}
+                            {/*        // required*/}
+                            {/*    />*/}
+                            {/*</div>*/}
+                            <div>
+                                {errorDisplay ? (
+                                    <CustomAlert displayText={errorDisplay} severity="warning" />
+                                ) : null}
+                                {successMessageDisplay ? (
+                                    <CustomAlert
+                                        displayText={successMessageDisplay}
+                                        severity="success"
+                                    />
+                                ) : null}
+
                             </div>
                             <div className="course-button-group button-row">
                                 <button className="add-button" type="submit">Submit</button>
