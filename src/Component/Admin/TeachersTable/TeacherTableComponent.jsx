@@ -1,5 +1,5 @@
 
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -12,50 +12,81 @@ import {makeStyles, TextField} from "@material-ui/core";
 import './teacherTable.css'
 import teacherDeleteimage1 from "./images/teacherDelete-image1.png";
 import {useDispatch, useSelector} from "react-redux";
-import {fetchUser} from "../../../Action/Users";
+import {deleteUsers, fetchStudents, fetchTeachers, fetchUser} from "../../../Action/Users";
+import {useHistory} from "react-router";
+import TableFooter from "@material-ui/core/TableFooter";
+import TablePagination from "@material-ui/core/TablePagination";
 function TeacherTableComponent() {
 
 
     const dispatch = useDispatch();
+    const history = useHistory();
+
+    const [searchTerm, setSearchTerm] = useState("");
+    const [rowsPerPage, setRowsPerPage] = React.useState(5);
+    //const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
 
     const response = useSelector((state) => state.userDetails1.UserDetails.records.data);
     console.log(response);
 
     useEffect(() => {
         console.log('calling')
-        dispatch(fetchUser());
+        dispatch(fetchTeachers());
     },[])
 
-
+    const deleteTeacher = (id) => {
+        dispatch(deleteUsers(id))
+        setTimeout(function(){
+            dispatch(fetchTeachers());
+        }, 100);
+    }
     const useStyles = makeStyles({
         table: {
-            minWidth: 1350,
-            //marginTop: '3%',
-            borderRadius: 30
+            maxWidth: "710%",
+            borderRadius: 30,
         },
         teacherContent: {
-            borderRadius: 30
+            borderRadius: 30,
+            maxWidth: "810%"
         },
         teacherTableHeaderColumns: {
             color: 'white',
+            width: 200
         },
     });
     const classes = useStyles();
 
+
+    const handleChangePage = () => {
+
+    }
+
+    const handleChangeRowsPerPage= () => {
+
+    }
+
     return (
         <div className="Teacher-table-background">
-
-            <TableContainer component={Paper} className={classes.teacherContent}>
+            <div className="teacher-table-title-header">
                 <h1 className="title-teacherTable">Teacher Details Table</h1>
-                <TextField
-                    id="filled-full-width"
-                    label="Search"
-                    style={{ marginLeft: 20}}
-                    placeholder="Search Items.."
-                    fullWidth
-                    margin="normal"
-                    variant="filled"
-                />
+                <div className="search-bar-teacher-table">
+                    <TextField
+                        id="filled-full-width"
+                        label="Search"
+                        placeholder="Search by name.."
+                        fullWidth
+                        margin="normal"
+                        variant="outlined"
+                        className="search-teacher"
+                        value={searchTerm}
+                        onChange={(event) => setSearchTerm(event.target.value)}
+                        style={{backgroundColor: "#FFFFFF", width: 300, borderRadius: 30}}
+                    />
+                </div>
+
+            </div>
+            <TableContainer component={Paper} className={classes.teacherContent}>
+
                 <Table className={classes.table} aria-label="simple table">
                     <TableHead className="teacher-table-header">
                         <TableRow >
@@ -63,32 +94,64 @@ function TeacherTableComponent() {
                             <TableCell align="center" className={classes.teacherTableHeaderColumns}>Name</TableCell>
                             <TableCell align="center" className={classes.teacherTableHeaderColumns}>Email</TableCell>
                             <TableCell align="center" className={classes.teacherTableHeaderColumns}>User Name</TableCell>
+                            <TableCell align="center" className={classes.teacherTableHeaderColumns}>Status</TableCell>
                             <TableCell align="center" className={classes.teacherTableHeaderColumns}>Password</TableCell>
                             <TableCell align="center" className={classes.teacherTableHeaderColumns}>Delete</TableCell>
-                            <TableCell align="center" className={classes.teacherTableHeaderColumns}>Update</TableCell>
+                            <TableCell align="center" className={classes.teacherTableHeaderColumns}>Approve Teacher</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {
-                            response?.map((row) => (
+                        {response?.filter((val) => {
+                            if(searchTerm == ""){
+                                return val
+                            }else if(val.name.toLowerCase().includes(searchTerm.toLowerCase())){
+                                return val
+                            }
+                        }).map((row) => (
+                            console.log(row),
                                 <TableRow key={row.id}>
                                     <TableCell align="center"> {row.id} </TableCell>
                                     <TableCell align="center"> {row.name} </TableCell>
                                     <TableCell align="center"> {row.email} </TableCell>
                                     <TableCell align="center"> {row.username} </TableCell>
+                                    <TableCell align="center"> {row.status} </TableCell>
                                     <TableCell align="center"> {row.password} </TableCell>
                                     <TableCell align="center">
-                                        <Link> <p><img src= {teacherDeleteimage1}  className="teacherDelete-image1"/></p> </Link>
+                                        <a onClick={() => {
+                                            deleteTeacher(row.id)}}>
+                                            <img src= {teacherDeleteimage1}  className="teacherDelete-image1"/>
+                                        </a>
+
                                     </TableCell>
                                     <TableCell align="center">
-                                        <Link> <p>Update</p> </Link>
+                                        <a>update</a>
+                                        {/*<a onClick={() => {*/}
+                                        {/*    deleteTeacher(row.id)}}>*/}
+                                        {/*    <img src= {teacherDeleteimage1}  className="teacherDelete-image1"/>*/}
+                                        {/*</a>*/}
                                     </TableCell>
                                 </TableRow>
-                            ))
+                        ))
                         }
-
-
                     </TableBody>
+                    <TableFooter>
+                        <TableRow>
+                            <TablePagination
+                                rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
+                                colSpan={3}
+                                count={10}
+                                rowsPerPage={rowsPerPage}
+                                page={6}
+                                SelectProps={{
+                                    inputProps: { 'aria-label': 'rows per page' },
+                                    native: true,
+                                }}
+                                onPageChange={handleChangePage}
+                                onRowsPerPageChange={handleChangeRowsPerPage}
+                                // ActionsComponent={TablePaginationActions}
+                            />
+                        </TableRow>
+                    </TableFooter>
                 </Table>
             </TableContainer>
         </div>

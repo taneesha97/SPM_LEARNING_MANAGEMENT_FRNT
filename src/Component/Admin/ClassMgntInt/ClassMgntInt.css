@@ -2,7 +2,9 @@
   background-color: #C8C8C8;
   margin-top: 12px;
   border-radius: 30px;
+  display: inline-block;
   max-width: 30%;
+  margin-left: 1%;
 }
 .class-component .input-form-container {
   width: 90%;
