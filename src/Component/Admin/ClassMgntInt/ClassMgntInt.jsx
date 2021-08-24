@@ -7,11 +7,11 @@ import {addClass, getClasses} from "../../../Action/Class";
 import CustomAlert from '../../CustomAlert/CustomAlert'
 function ClassMgntInt(){
 
+    const [image , setImage] = useState("");
     const [classData, setClassData] = useState({
         name: '',
         description: '',
         tutorName: '',
-        image: ''
     });
     const dispatch = useDispatch();
 
@@ -19,6 +19,13 @@ function ClassMgntInt(){
         console.log('form referesh calling');
         setClassData({ ...classData, name:'',teacher: [] , description: ""});
     }
+
+    const uploadedImage = (e) => {
+        let file = e.target.files[0];
+        console.log(file.name)
+        setImage(file.name)
+    }
+
 
     //Error message
     const errorMessage = useSelector((state: any) => state.classes.classDetails.error);
@@ -39,6 +46,7 @@ function ClassMgntInt(){
     setTimeout(() => setSuccessMessageDisplay(""), 4000);
     }, [successMessage]);
 
+
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(classData);
@@ -46,7 +54,7 @@ function ClassMgntInt(){
             name : classData.name,
             description : classData.description,
             tutorName: classData.tutorName,
-            image: classData.image
+            image: image
         }
         dispatch(addClass(postData));
         setTimeout(() => dispatch(getClasses()), 1000);
@@ -98,6 +106,18 @@ function ClassMgntInt(){
                                 <option value="3">Three</option>
                             </select>
 
+
+                            <label htmlFor="lname">Image</label>
+                            <div className="mb-3" style={{marginLeft:20}}>
+                                {/*<FileBase*/}
+                                {/*    type="file"*/}
+                                {/*    multiple={false}*/}
+                                {/*    onDone={({base64}) => setClassData({...classData, image: base64})}*/}
+                                {/*    // required*/}
+                                {/*/>*/}
+                                <input type="file" id="avatar"  accept="image/png, image/jpeg"
+                                       onChange={uploadedImage} />
+
                             {/*<label htmlFor="lname">Image</label>*/}
                             {/*<div className="mb-3" style={{marginLeft:20}}>*/}
                             {/*    <FileBase*/}
@@ -117,6 +137,7 @@ function ClassMgntInt(){
                                         severity="success"
                                     />
                                 ) : null}
+
                             </div>
                             <div className="course-button-group button-row">
                                 <button className="add-button" type="submit">Submit</button>
