@@ -2,9 +2,9 @@ import React, {useState} from 'react';
 import './ClassMgntInt.css'
 import "../../../../node_modules/bootstrap/dist/css/bootstrap.css"
 import FileBase from 'react-file-base64';
-import {useDispatch} from "react-redux";
-import {addClass} from "../../../Action/Class";
-
+import {useDispatch, useSelector} from "react-redux";
+import {addClass, getClasses} from "../../../Action/Class";
+import CustomAlert from '../../CustomAlert/CustomAlert'
 function ClassMgntInt(){
 
     const [classData, setClassData] = useState({
@@ -20,6 +20,25 @@ function ClassMgntInt(){
         setClassData({ ...classData, teacher: [] , className: "", description: ""});
     }
 
+    //Error message
+    const errorMessage = useSelector((state: any) => state.classes.classDetails.error);
+
+    const [errorDisplay, setErrorDisplay] = useState("");
+
+    React.useEffect(() => {
+        setErrorDisplay(errorMessage);
+        setTimeout(() => setErrorDisplay(""), 5000);
+    }, [errorMessage]);
+
+    //Success message after inserting leaves
+    const successMessage = useSelector((state: any) => state.classes.classDetails.success);
+
+    const [successMessageDisplay, setSuccessMessageDisplay] = useState(successMessage);
+
+    React.useEffect(() => {setSuccessMessageDisplay(successMessage);
+    setTimeout(() => setSuccessMessageDisplay(""), 4000);
+    }, [successMessage]);
+
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(classData);
@@ -30,6 +49,7 @@ function ClassMgntInt(){
             image: classData.image
         }
         dispatch(addClass(postData));
+        setTimeout(() => dispatch(getClasses()), 1000);
 
         //check print success msg
     }
@@ -88,6 +108,17 @@ function ClassMgntInt(){
                                     onDone={({base64}) => setClassData({...classData, image: base64})}
                                     // required
                                 />
+                            </div>
+                            <div>
+                                {errorDisplay ? (
+                                    <CustomAlert displayText={errorDisplay} severity="warning" />
+                                ) : null}
+                                {successMessageDisplay ? (
+                                    <CustomAlert
+                                        displayText={successMessageDisplay}
+                                        severity="success"
+                                    />
+                                ) : null}
                             </div>
                             <div className="course-button-group button-row">
                                 <button className="add-button" type="submit">Submit</button>

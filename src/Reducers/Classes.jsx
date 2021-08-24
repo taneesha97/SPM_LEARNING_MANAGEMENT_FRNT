@@ -9,7 +9,9 @@ import {
 const initState = {
     classDetails: {
         records: [],
-        record: {}
+        record: {},
+        success: null,
+        error:null
     },
 
     classRecords:[],
@@ -33,7 +35,9 @@ export default function (state = initState, action){
                 ...state,
                 classDetails: {
                     ...state.classDetails,
-                    record: action.payload
+                    record: action.payload,
+                    success: "Class inserted successfully",
+                    error: null
                 }
             }
         case DELETE_CLASS:

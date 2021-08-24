@@ -86,7 +86,7 @@ function ClassDetailsTable() {
             )
         ) {
             dispatch(deleteClasses(id));
-            setTimeout(() => dispatch(getClasses()), 100);
+            setTimeout(() => dispatch(getClasses()), 1000);
             alert("approved the leave status");
         }
     }
