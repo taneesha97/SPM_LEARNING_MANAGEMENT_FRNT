@@ -7,9 +7,8 @@ function UserProfilePage() {
 
     return (
         <div>
-            <VideoComponentInterface/>
-            {/*<UserProfile />*/}
-            {/*<ProfileClassRoom/>*/}
+            <UserProfile />
+            <ProfileClassRoom/>
         </div>
     )
 }
