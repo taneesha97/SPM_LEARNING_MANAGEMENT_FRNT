@@ -17,6 +17,7 @@ import {deleteClasses, getClasses} from "../../../Action/Class";
 import './ClassDetails.css'
 import {TextField} from "@material-ui/core";
 import * as row from "react-file-base64";
+import {fetchTeachers} from "../../../Action/Users";
 
 
 const StyledTableCell = withStyles((theme: Theme) =>
@@ -43,7 +44,7 @@ const StyledTableRow = withStyles((theme: Theme) =>
 
 const useStyles = makeStyles({
     table: {
-        minWidth: 50,
+        minWidth: 40,
         borderRadius: 50
     },
     editorContentClass: {
@@ -86,9 +87,14 @@ function ClassDetailsTable() {
             )
         ) {
             dispatch(deleteClasses(id));
-            setTimeout(() => dispatch(getClasses()), 100);
-            alert("approved the leave status");
+            alert("Delete the class");
+            setTimeout(function(){
+                dispatch(getClasses());
+            }, 100);
+
         }
+
+        // setTimeout(() => dispatch(getClasses()), 1000);
     }
     return (
         <React.Fragment>
@@ -100,15 +106,16 @@ function ClassDetailsTable() {
                     <div className="search-bar-class-table">
                         <TextField
                             id="filled-full-width"
-                            label="Search"
+                            // label="Search"
                             placeholder="Search Items.."
                             fullWidth
                             margin="normal"
-                            variant="outlined"
+                            // variant="outlined"
                             className="search-class"
                             style={{backgroundColor: "#FFFFFF", width: 300, borderRadius: 30}}
                         />
                     </div>
+
                 </div>
                 <TableContainer component={Paper} className={classes.editorContentClass}>
                         <Table className={classes.table} aria-label="customized table">
@@ -117,7 +124,7 @@ function ClassDetailsTable() {
                                     <TableCell align="center" className="classTablerow">Class name</TableCell>
                                     <TableCell align="center" className="classTablerow">Description</TableCell>
                                     <TableCell align="center" className="classTablerow">Teacher name</TableCell>
-                                    <TableCell align="center" className="classTablerow">Image</TableCell>
+                                    {/*<TableCell align="center" className="classTablerow">Image</TableCell>*/}
                                     <TableCell align="center" className="classTablerow">Delete</TableCell>
                                     <TableCell align="center" className="classTablerow">Update</TableCell>
                                 </TableRow>
@@ -130,9 +137,9 @@ function ClassDetailsTable() {
                                         <StyledTableCell align="center">{row.name}</StyledTableCell>
                                         <StyledTableCell align="center">{row.description}</StyledTableCell>
                                         <StyledTableCell align="center">{row.tutorName}</StyledTableCell>
-                                        <StyledTableCell align="center">{row.image}</StyledTableCell>
+                                        {/*<StyledTableCell align="center">{row.image}</StyledTableCell>*/}
                                         <TableCell align="center">
-                                            <DeleteIcon href = "/admindash" color="primary" style={{fontSize: 35 }}
+                                            <DeleteIcon  color="primary" style={{fontSize: 35 }}
                                             onClick={() => {confirmDelete(row.id)}}/>
                                         </TableCell>
                                         <TableCell align="center">
