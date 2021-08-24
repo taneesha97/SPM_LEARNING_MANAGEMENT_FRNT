@@ -117,7 +117,7 @@ function ClassMgntInt(){
                                 {/*/>*/}
                                 <input type="file" id="avatar"  accept="image/png, image/jpeg"
                                        onChange={uploadedImage} />
-
+                            </div>
                             {/*<label htmlFor="lname">Image</label>*/}
                             {/*<div className="mb-3" style={{marginLeft:20}}>*/}
                             {/*    <FileBase*/}
