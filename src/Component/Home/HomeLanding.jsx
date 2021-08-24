@@ -21,7 +21,6 @@ function HomeLanding() {
 
             <WelcomeHeader/>
             <div>
-                <ClassSection/>
             <div className='ash-background'>
                 <WelcomeHeader/>
                 <PaymentForm/>
@@ -37,6 +36,7 @@ function HomeLanding() {
             </div>
             <GetUpdates/>
             <Footer/>
+            </div>
         </div>
     )
 }
