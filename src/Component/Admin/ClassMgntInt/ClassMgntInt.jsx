@@ -4,12 +4,13 @@ import "../../../../node_modules/bootstrap/dist/css/bootstrap.css"
 import FileBase from 'react-file-base64';
 import {useDispatch} from "react-redux";
 import {addClass} from "../../../Action/Class";
+
 function ClassMgntInt(){
 
     const [classData, setClassData] = useState({
-        className: '',
+        name: '',
         description: '',
-        teacher: '',
+        tutorName: '',
         image: ''
     });
     const dispatch = useDispatch();
@@ -21,11 +22,17 @@ function ClassMgntInt(){
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(addClass(classData));
+        console.log(classData);
+        const postData = {
+            name : classData.name,
+            description : classData.description,
+            tutorName: classData.tutorName,
+            image: classData.image
+        }
+        dispatch(addClass(postData));
 
         //check print success msg
     }
-
 
     return(
         <React.Fragment>
@@ -42,8 +49,8 @@ function ClassMgntInt(){
                                 id="name" name="classname"
                                 placeholder="class name(eg:Grade 10)"
                                 className="form-input"
-                                value={classData.className}
-                                onChange={(e) => setClassData({...classData, className: e.target.value})}
+                                value={classData.name}
+                                onChange={(e) => setClassData({...classData, name: e.target.value})}
                                 required
                             />
 
@@ -64,7 +71,7 @@ function ClassMgntInt(){
                                 className="form-input"
                                 aria-label="Default select example"
                                 value={classData.teacher}
-                                onChange={(e) => setClassData({...classData, teacher: e.target.value})}
+                                onChange={(e) => setClassData({...classData, tutorName: e.target.value})}
                                 required
                             >
                                 <option selected>Choose...</option>
@@ -79,7 +86,7 @@ function ClassMgntInt(){
                                     type="file"
                                     multiple={false}
                                     onDone={({base64}) => setClassData({...classData, image: base64})}
-                                    required
+                                    // required
                                 />
                             </div>
                             <div className="course-button-group button-row">

@@ -14,7 +14,7 @@
 .classTableBackground{
   //display: inline-block;
   //display: flex;
-  background-color: #525252;
+  background-color: #C8C8C8;
   border-radius: 30px;
   width: 67%;
   margin-left: auto;
@@ -31,16 +31,20 @@
 }
 .title-classTable{
   text-align: Left;
-  color: #C4C4C4;
-  font-weight: 700;
-  font-family: Roboto;
-  font-size: 44px;
+  color: #5A5A5A;
+  font-size: 25px;
+  font-weight: bolder;
+  font-family: "Helvetica","Verdana", serif;
   margin-top: 2%;
 }
 .search-bar-class-table{
-  margin-left: 264%;
+  margin-left: 190%;
   margin-top: -20%;
   border-radius: 30px;
   background-color: white;
+  font-size: 10px;
 }
 
+.class-table-header{
+  background-color: #CA75FF;
+}
