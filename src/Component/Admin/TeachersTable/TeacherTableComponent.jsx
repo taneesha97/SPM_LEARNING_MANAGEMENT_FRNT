@@ -12,7 +12,7 @@ import {makeStyles, TextField} from "@material-ui/core";
 import './teacherTable.css'
 import teacherDeleteimage1 from "./images/teacherDelete-image1.png";
 import {useDispatch, useSelector} from "react-redux";
-import {deleteUsers, fetchTeachers, fetchUser} from "../../../Action/Users";
+import {deleteUsers, fetchStudents, fetchTeachers, fetchUser} from "../../../Action/Users";
 import {useHistory} from "react-router";
 import TableFooter from "@material-ui/core/TableFooter";
 import TablePagination from "@material-ui/core/TablePagination";
@@ -36,6 +36,9 @@ function TeacherTableComponent() {
 
     const deleteTeacher = (id) => {
         dispatch(deleteUsers(id))
+        setTimeout(function(){
+            dispatch(fetchTeachers());
+        }, 100);
     }
     const useStyles = makeStyles({
         table: {
@@ -91,8 +94,10 @@ function TeacherTableComponent() {
                             <TableCell align="center" className={classes.teacherTableHeaderColumns}>Name</TableCell>
                             <TableCell align="center" className={classes.teacherTableHeaderColumns}>Email</TableCell>
                             <TableCell align="center" className={classes.teacherTableHeaderColumns}>User Name</TableCell>
+                            <TableCell align="center" className={classes.teacherTableHeaderColumns}>Status</TableCell>
                             <TableCell align="center" className={classes.teacherTableHeaderColumns}>Password</TableCell>
                             <TableCell align="center" className={classes.teacherTableHeaderColumns}>Delete</TableCell>
+                            <TableCell align="center" className={classes.teacherTableHeaderColumns}>Approve Teacher</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -109,13 +114,21 @@ function TeacherTableComponent() {
                                     <TableCell align="center"> {row.name} </TableCell>
                                     <TableCell align="center"> {row.email} </TableCell>
                                     <TableCell align="center"> {row.username} </TableCell>
+                                    <TableCell align="center"> {row.status} </TableCell>
                                     <TableCell align="center"> {row.password} </TableCell>
                                     <TableCell align="center">
-                                        <a href="admindash"onClick={() => {
+                                        <a onClick={() => {
                                             deleteTeacher(row.id)}}>
                                             <img src= {teacherDeleteimage1}  className="teacherDelete-image1"/>
                                         </a>
 
+                                    </TableCell>
+                                    <TableCell align="center">
+                                        <a>update</a>
+                                        {/*<a onClick={() => {*/}
+                                        {/*    deleteTeacher(row.id)}}>*/}
+                                        {/*    <img src= {teacherDeleteimage1}  className="teacherDelete-image1"/>*/}
+                                        {/*</a>*/}
                                     </TableCell>
                                 </TableRow>
                         ))

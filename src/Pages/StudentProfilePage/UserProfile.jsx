@@ -23,12 +23,9 @@ function UserProfile() {
     return (<React.Fragment>
             <div>
                 <div className="bluescreen">
-
                 </div>
 
                 <div className="bluescreen1">
-
-
                 </div>
                 <div className="userprofile">
                     <div className="userprofile1">
