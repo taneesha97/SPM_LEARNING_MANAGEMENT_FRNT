@@ -137,7 +137,7 @@ function ClassMgntInt(){
                                         severity="success"
                                     />
                                 ) : null}
-
+                            </div>
                             </div>
                             <div className="course-button-group button-row">
                                 <button className="add-button" type="submit">Submit</button>
