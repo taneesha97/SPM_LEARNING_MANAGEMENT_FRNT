@@ -94,8 +94,10 @@ function TeacherTableComponent() {
                             <TableCell align="center" className={classes.teacherTableHeaderColumns}>Name</TableCell>
                             <TableCell align="center" className={classes.teacherTableHeaderColumns}>Email</TableCell>
                             <TableCell align="center" className={classes.teacherTableHeaderColumns}>User Name</TableCell>
+                            <TableCell align="center" className={classes.teacherTableHeaderColumns}>Status</TableCell>
                             <TableCell align="center" className={classes.teacherTableHeaderColumns}>Password</TableCell>
                             <TableCell align="center" className={classes.teacherTableHeaderColumns}>Delete</TableCell>
+                            <TableCell align="center" className={classes.teacherTableHeaderColumns}>Approve Teacher</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -112,6 +114,7 @@ function TeacherTableComponent() {
                                     <TableCell align="center"> {row.name} </TableCell>
                                     <TableCell align="center"> {row.email} </TableCell>
                                     <TableCell align="center"> {row.username} </TableCell>
+                                    <TableCell align="center"> {row.status} </TableCell>
                                     <TableCell align="center"> {row.password} </TableCell>
                                     <TableCell align="center">
                                         <a onClick={() => {
@@ -119,6 +122,13 @@ function TeacherTableComponent() {
                                             <img src= {teacherDeleteimage1}  className="teacherDelete-image1"/>
                                         </a>
 
+                                    </TableCell>
+                                    <TableCell align="center">
+                                        <a>update</a>
+                                        {/*<a onClick={() => {*/}
+                                        {/*    deleteTeacher(row.id)}}>*/}
+                                        {/*    <img src= {teacherDeleteimage1}  className="teacherDelete-image1"/>*/}
+                                        {/*</a>*/}
                                     </TableCell>
                                 </TableRow>
                         ))

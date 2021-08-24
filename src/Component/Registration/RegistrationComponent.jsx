@@ -19,10 +19,19 @@ function RegistrationComponent() {
 
     function SubmitPressed(e) {
         e.preventDefault();
+
+        let status = "";
+        if (type == 'student'){
+            status = 'valid';
+        }
+        if(type == 'teacher'){
+            status = 'pending';
+        }
         const newUser = {
             name,
             email,
             username,
+            status,
             password,
             type,
         }
