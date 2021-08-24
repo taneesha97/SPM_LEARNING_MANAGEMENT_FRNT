@@ -16,10 +16,6 @@ function Login() {
                     <h4 className="login-info2-second">User1</h4>
                 </div>
                 <div className="login-info">
-                    {/*<div className="login-info3">*/}
-                    {/*    <h2 className="login-info3-main">Login</h2>*/}
-                    {/*    <h4 className="login-info3-second">Login to get access to premium features and discounts</h4>*/}
-                    {/*</div>*/}
                     <LoginComponent/>
                 </div>
             </div>

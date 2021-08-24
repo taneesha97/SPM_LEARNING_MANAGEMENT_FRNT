@@ -7,10 +7,18 @@
   border-radius: 30px;
 }
 .title-studentTable{
-  text-align: center;
+  //display: inline;
+  text-align: Left;
+  color: #C4C4C4;
+  font-weight: 700;
+  font-family: Roboto;
+  font-size: 44px;
 }
 .student-table-header{
   background-color: black;
+  width: 75%;
+  margin-left: -10%;
+  border-radius: 30px;
 }
 
 .student-table-header-columns{
@@ -18,4 +26,18 @@
 }
 .studentDelete-image1{
   height: 20px;
+}
+
+.search-bar-student-table{
+  margin-left: 387.5%;
+  margin-top: -17%;
+  border-radius: 30px;
+  background: white;
+}
+
+.student-table-title-header{
+  display: inline-block;
+}
+.search-student{
+  width: 100%;
 }

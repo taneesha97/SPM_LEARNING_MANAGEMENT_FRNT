@@ -16,13 +16,11 @@ function Navbar () {
     const userIconImgCss = {
         height: 60,
         marginTop: '-10%',
-        marginLeft: '140%'
+        marginLeft: '90%'
     }
     const navImgCss  = {
         height: 60,
         marginTop: '-15%',
-        //marginLeft: '80%'
-        // left: '0'
     }
     const showButton = () => {
         if(window.innerWidth <= 960){

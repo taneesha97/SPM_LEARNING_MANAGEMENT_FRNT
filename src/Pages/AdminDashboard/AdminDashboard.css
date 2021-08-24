@@ -1,6 +1,12 @@
 .admin-dashboard-page {
-  background-color: #838383;
+  background-color: #AEAEAE;
   padding: 10px;
+}
+
+.Class-Admin {
+  display: grid;
+  width: 100%;
+  margin: 0;
 }
 
 /*# sourceMappingURL=AdminDashboard.css.map */
