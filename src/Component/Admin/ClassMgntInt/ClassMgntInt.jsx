@@ -19,15 +19,7 @@ function ClassMgntInt(){
         console.log('form referesh calling');
         setClassData({ ...classData, teacher: [] , className: "", description: ""});
     }
-    const uploadedImage = (e) => {
-        //console.log(value)
-        const file = e.target.files[0];
-        console.log(file)
-       // const reader = new FileReader();
-        //let value = reader.readAsBinaryString(file.name);
-       // console.log('ss ',value)
 
-    }
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(classData);
@@ -92,11 +84,10 @@ function ClassMgntInt(){
                             <div className="mb-3" style={{marginLeft:20}}>
                                 <FileBase
                                     type="file"
-                                    onDone={({base64}) => uploadedImage(base64)}
+                                    multiple={false}
+                                    onDone={({base64}) => setClassData({...classData, image: base64})}
                                     // required
                                 />
-                                {/*<input type="file" id="avatar"  accept="image/png, image/jpeg"*/}
-                                {/*       onChange={uploadedImage} />*/}
                             </div>
                             <div className="course-button-group button-row">
                                 <button className="add-button" type="submit">Submit</button>
