@@ -17,7 +17,7 @@ function ClassMgntInt(){
 
     const formRefresh = () => {
         console.log('form referesh calling');
-        setClassData({ ...classData, teacher: [] , className: "", description: ""});
+        setClassData({ ...classData, name:'',teacher: [] , description: ""});
     }
 
     //Error message
@@ -50,8 +50,6 @@ function ClassMgntInt(){
         }
         dispatch(addClass(postData));
         setTimeout(() => dispatch(getClasses()), 1000);
-
-        //check print success msg
     }
 
     return(
@@ -100,15 +98,15 @@ function ClassMgntInt(){
                                 <option value="3">Three</option>
                             </select>
 
-                            <label htmlFor="lname">Image</label>
-                            <div className="mb-3" style={{marginLeft:20}}>
-                                <FileBase
-                                    type="file"
-                                    multiple={false}
-                                    onDone={({base64}) => setClassData({...classData, image: base64})}
-                                    // required
-                                />
-                            </div>
+                            {/*<label htmlFor="lname">Image</label>*/}
+                            {/*<div className="mb-3" style={{marginLeft:20}}>*/}
+                            {/*    <FileBase*/}
+                            {/*        type="file"*/}
+                            {/*        multiple={false}*/}
+                            {/*        onDone={({base64}) => setClassData({...classData, image: base64})}*/}
+                            {/*        // required*/}
+                            {/*    />*/}
+                            {/*</div>*/}
                             <div>
                                 {errorDisplay ? (
                                     <CustomAlert displayText={errorDisplay} severity="warning" />
