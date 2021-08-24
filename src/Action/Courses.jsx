@@ -1,4 +1,4 @@
-import {ADD_COURSES, FETCH_COURSES} from "./types";
+import {ADD_COURSES, DELETE_USER, FETCH_COURSES, REMOVE_COURSES} from "./types";
 
 import axios from "axios";
 import * as api from '../API'
@@ -24,6 +24,19 @@ export const addCourse = (Course) => async (dispatch) => {
     } catch (error){
         console.log(error);
     }
+}
+
+export const deleteCourses= (id) => dispatch => {
+    axios.delete(api.baseURL + 'delete/course/'+ id)
+        .then(response => {
+                dispatch({
+                    type: REMOVE_COURSES,
+                    payload: id
+                })
+            }
+        ).catch((err) => {
+        console.log(err);
+    })
 }
 
 export const deleteCourse = () => async (dispatch) => {
