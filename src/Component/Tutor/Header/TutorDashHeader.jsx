@@ -1,23 +1,19 @@
 import React from 'react'
-import "./TutorDashHeader.jsx.css"
-function TutorDashHeader() {
+import "./TutorDashHeader.css"
+import "../../../../node_modules/bootstrap/dist/css/bootstrap.css"
+import Tile1 from "./TileComponent/Tile1";
+function TutorDashHeader({array5}) {
     return (
         <React.Fragment>
             <div className="tutor-header-component">
-                <table>
-                    <tr>
-                        <td>component here!</td>
-                        <td>component here!</td>
-                        <td>component here!</td>
-                        <td>component here!</td>
-                    </tr>
-                    <tr>
-                        <td>component here!</td>
-                        <td>component here!</td>
-                        <td>component here!</td>
-                        <td>component here!</td>
-                    </tr>
-                </table>
+                <div className="section-header">Overview Dashboard.</div>
+                <div>
+                    <div className="tutor-header-component-container">
+                        {array5.map((item) => (
+                            <Tile1 name={item.header} price={item.count} image={item.image}/>
+                        ))}
+                    </div>
+                </div>
             </div>
         </React.Fragment>
     )
