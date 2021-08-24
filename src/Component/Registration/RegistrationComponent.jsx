@@ -19,16 +19,25 @@ function RegistrationComponent() {
 
     function SubmitPressed(e) {
         e.preventDefault();
+
+        let status = "";
+        if (type == 'student'){
+            status = 'valid';
+        }
+        if(type == 'teacher'){
+            status = 'pending';
+        }
         const newUser = {
             name,
             email,
             username,
+            status,
             password,
             type,
         }
         console.log(newUser);
        dispatch(addUsers(newUser));
-       history.push("/login");
+       //history.push("/login");
     }
 
 
