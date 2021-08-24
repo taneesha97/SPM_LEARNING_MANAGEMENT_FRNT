@@ -28,7 +28,7 @@ function RegistrationComponent() {
         }
         console.log(newUser);
        dispatch(addUsers(newUser));
-       history.push("/login");
+       //history.push("/login");
     }
 
 

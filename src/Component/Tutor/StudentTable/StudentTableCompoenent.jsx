@@ -37,6 +37,9 @@ const StudentTableComponent = ()  => {
 
     const deleteStudent = (id) => {
         dispatch(deleteUsers(id))
+        setTimeout(function(){
+            dispatch(fetchStudents());
+            }, 3000);
     }
 
     const handleChangePage = () => {
@@ -117,7 +120,7 @@ const StudentTableComponent = ()  => {
                                     <TableCell align="center"> {row.password} </TableCell>
                                     <TableCell align="center"> {row.type} </TableCell>
                                     <TableCell align="center">
-                                        <a href = "/tutordash" onClick={() => {
+                                        <a onClick={() => {
                                             deleteStudent(row.id)}} > <img src= {studentDeleting1}  className="studentDelete-image1"/> </a>
                                     </TableCell>
                                 </TableRow>
