@@ -2,6 +2,7 @@ import {ADD_COURSES, DELETE_USER, FETCH_COURSES, REMOVE_COURSES} from "./types";
 
 import axios from "axios";
 import * as api from '../API'
+//Axios Method to fetch items from the database.
 export const fetchCourses = () => dispatch => {
     console.log('fetching');
     axios.get(api.baseURL + 'courses/')
@@ -14,7 +15,7 @@ export const fetchCourses = () => dispatch => {
         console.log(err);
     })
 }
-
+//Axios Method to add course items to the database.
 export const addCourse = (Course) => async (dispatch) => {
     console.log(Course);
     try{
@@ -25,7 +26,7 @@ export const addCourse = (Course) => async (dispatch) => {
         console.log(error);
     }
 }
-
+//Axios Method to delete the Course Items
 export const deleteCourse = (id) => dispatch => {
     axios.delete(api.baseURL + 'delete/course/'+ id)
         .then(response => {
