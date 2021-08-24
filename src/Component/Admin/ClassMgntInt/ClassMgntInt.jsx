@@ -22,7 +22,7 @@ function ClassMgntInt(){
     const uploadedImage = (e) => {
         let file = e.target.files[0];
         console.log(file.name)
-        setImage(file.name)
+        setImage(file.name)//
     }
     const handleSubmit = (e) => {
         e.preventDefault();
