@@ -25,17 +25,28 @@ function LoginComponent() {
             .then(response => {
                 let values = response.data;
                 console.log('res1 ', response.data);
-                if (values == ""){
-                    //AuthClass.logout();
+                console.log('res1 ', values[0]);
+                if (values[1] == ""){
+                    alert('Invalid Login')
                     history.push("/login");
                     setName("");
                     setPassword("");
-                }else if (values == "student"){
+                }else if (values[1] == "student"){
+                    alert('Valid Login')
                     AuthClass.login(username,values)
                     history.push("/home");
-                }else if (values == "teacher"){
-                    AuthClass.login(username,values)
-                    history.push("/tutordash");
+                }else if (values[1] == "teacher"){
+                    if (values[0] == "valid"){
+                        alert('Valid Login')
+                        AuthClass.login(username,values)
+                        history.push("/tutordash");
+                    }else{
+                        setName("");
+                        setPassword("");
+                        alert('Teacher Status pending')
+                        history.push("/login");
+                    }
+
                 }
             });
         // dispatch(loginUserValidation(newUser));
