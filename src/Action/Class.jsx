@@ -1,5 +1,5 @@
 import * as api from "../API";
-import {ADD_CLASS,GET_CLASS} from "./types";
+import {ADD_CLASS, DELETE_CLASS, DELETE_USER, GET_CLASS} from "./types";
 import axios from "axios";
 
 export const addClass = (Class) => async (dispatch) => {
@@ -22,6 +22,21 @@ export const getClasses = () => dispatch => {
                 type: GET_CLASS,
                 payload: response.data
             })}
+        ).catch((err) => {
+        console.log(err);
+    })
+}
+
+export const deleteClasses = (id) => dispatch => {
+    console.log('creating');
+    axios.delete(api.baseURL + 'deleteclass/'+ id)
+        .then(response => {
+                dispatch({
+                    type: DELETE_CLASS,
+                    payload: id
+                })
+            }
+
         ).catch((err) => {
         console.log(err);
     })

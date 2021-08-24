@@ -45,12 +45,6 @@ export default function (state = initState, action){
                     record: state.classDetails.records.filter(item => item !== action.payload)
                 }
             }
-        // case GET_CLASS:
-        //     return {
-        //         ...state,
-        //         editDetail: action.payload
-        //     }
-
         case UPDATE_CLASS:
             return {
                 ...state,

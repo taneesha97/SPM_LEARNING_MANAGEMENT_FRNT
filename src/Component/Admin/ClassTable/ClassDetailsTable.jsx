@@ -13,10 +13,11 @@ import {green} from "@material-ui/core/colors";
 import TableFooter from '@material-ui/core/TableFooter';
 import TablePagination from '@material-ui/core/TablePagination';
 import {useDispatch, useSelector} from "react-redux";
-import {getClasses} from "../../../Action/Class";
+import {deleteClasses, getClasses} from "../../../Action/Class";
 import './ClassDetails.css'
 import {TextField} from "@material-ui/core";
 import * as row from "react-file-base64";
+
 
 const StyledTableCell = withStyles((theme: Theme) =>
     createStyles({
@@ -78,6 +79,17 @@ function ClassDetailsTable() {
         setPage(0);
     };
 
+    const confirmDelete = (id) => {
+        if (
+            window.confirm(
+                "Are you sure you want to delete the class? This action cannot be undone"
+            )
+        ) {
+            dispatch(deleteClasses(id));
+            setTimeout(() => dispatch(getClasses()), 100);
+            alert("approved the leave status");
+        }
+    }
     return (
         <React.Fragment>
             {/*<div className="class-table-component">*/}
@@ -120,7 +132,8 @@ function ClassDetailsTable() {
                                         <StyledTableCell align="center">{row.tutorName}</StyledTableCell>
                                         <StyledTableCell align="center">{row.image}</StyledTableCell>
                                         <TableCell align="center">
-                                            <DeleteIcon color="primary" style={{fontSize: 35 }}/>
+                                            <DeleteIcon href = "/admindash" color="primary" style={{fontSize: 35 }}
+                                            onClick={() => {confirmDelete(row.id)}}/>
                                         </TableCell>
                                         <TableCell align="center">
                                             <EditIcon style={{ color: green[500], fontSize: 35 }}/>

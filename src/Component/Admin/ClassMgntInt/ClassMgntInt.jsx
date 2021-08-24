@@ -34,7 +34,6 @@ function ClassMgntInt(){
         //check print success msg
     }
 
-
     return(
         <React.Fragment>
                 <div className="class-component">
