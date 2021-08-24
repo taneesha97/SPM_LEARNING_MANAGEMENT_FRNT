@@ -3,7 +3,7 @@ import "./CourseMgntInt.css";
 import "../../../../node_modules/bootstrap/dist/css/bootstrap.css";
 import CustomRow from "./CustomRow/CustomRow";
 import {useDispatch} from "react-redux";
-import {addCourse} from "../../../Action/Courses";
+import {addCourse, deleteCourse} from "../../../Action/Courses";
 
 function CourseMgntInt({array4}) {
 
@@ -21,8 +21,8 @@ function CourseMgntInt({array4}) {
     }
 
     //Delete Item method to pass into the Custom Component.
-    const deleteItem = () => {
-        //Delete Item Method call it here.
+    const deleteItem = (id) => {
+        dispatch(deleteCourse(id))
     }
 
     const dispatch = useDispatch();
@@ -84,7 +84,8 @@ function CourseMgntInt({array4}) {
                     <div className="section-header dark-header"> Active Courses</div>
                     <div id="style-1" className="course-table-body-scrollable">
                         {array4?.map((item) => (
-                            <CustomRow header={item.title} description={item.description} body={item.body}/>
+                            <CustomRow header={item.title} description={item.description} body={item.body}
+                                       delete={deleteCourse}/>
                         ))}
                     </div>
                 </div>

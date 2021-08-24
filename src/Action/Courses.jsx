@@ -25,3 +25,7 @@ export const addCourse = (Course) => async (dispatch) => {
         console.log(error);
     }
 }
+
+export const deleteCourse = () => async (dispatch) => {
+
+}
