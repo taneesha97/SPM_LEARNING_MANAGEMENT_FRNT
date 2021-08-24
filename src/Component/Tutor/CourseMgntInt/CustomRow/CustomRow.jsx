@@ -1,7 +1,13 @@
 import React from 'react'
 import "./CustomRow.css"
 import CustomButton from "../CustomButtons/CustomButton";
-function CustomRow({header, description, body, delete}) {
+function CustomRow({id, header, description, body, deleteMethod}) {
+
+    //Delete the Item When click on the button.
+    const reinvokingDelete = () => {
+        deleteMethod(id);
+    }
+
     return (
         <div className="custom-row-component">
             <div className="custom-row-component-second-column">
@@ -20,7 +26,7 @@ function CustomRow({header, description, body, delete}) {
             <div className="custom-row-component-three-column">
                 {/*Custom Button Stack*/}
                 <div className="custom-row-button-group">
-                    <CustomButton name={"Delete"} color={"#FF5050"}/>
+                    <CustomButton name={"Delete"} color={"#FF5050"} deleteMethod={reinvokingDelete}/>
                     <CustomButton name={"Revoke"} color={"#E4BF5E"}/>
                     <CustomButton name={"Publish"} color={"#50C972"}/>
                 </div>

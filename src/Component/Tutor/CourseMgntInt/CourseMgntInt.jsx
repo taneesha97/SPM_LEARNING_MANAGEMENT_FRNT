@@ -84,8 +84,8 @@ function CourseMgntInt({array4}) {
                     <div className="section-header dark-header"> Active Courses</div>
                     <div id="style-1" className="course-table-body-scrollable">
                         {array4?.map((item) => (
-                            <CustomRow header={item.title} description={item.description} body={item.body}
-                                       delete={deleteCourse}/>
+                            <CustomRow id={item.id} header={item.title} description={item.description} body={item.body}
+                                       deleteMethod={deleteCourse}/>
                         ))}
                     </div>
                 </div>
