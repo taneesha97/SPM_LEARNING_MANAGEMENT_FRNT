@@ -10,7 +10,6 @@ function EmailUpdateComponent(props) {
                         <a><img src= {cancel}  className="EmailCancelLogo-image1" onClick={ () => props.setTrigger(false)}/></a>
                         <img src= {profilePic}  className="profilePic-emailUpdate"/>
 
-
                         <div className="emailupdatecomponent-bio1-info2">
                             <h2 className="emailupdatecomponent-bio1-info2-main">User's new {props.name} Update</h2>
                             <h4 className="emailupdatecomponent-bio1-info2-second">

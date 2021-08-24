@@ -1,14 +1,16 @@
 .welcome-container-course {
-  position: fixed;
+  position: absolute;
   width: 100%;
   background-color: #162365;
   border-radius: 0px 0px 0px 130px;
   height: 697px;
+  margin-top: 3%;
 }
 
 .welcomebackground-surface-course {
+  position: absolute;
   width: 35%;
-  margin-top: 9%;
+  margin-top: 11%;
   margin-left: 6%;
 }
 
@@ -31,7 +33,7 @@
   width: 918.97px;
   height: 458px;
   margin-left: 50%;
-  margin-top: -6%;
+  margin-top: 3%;
 }
 
 .button1 {
@@ -45,7 +47,7 @@
 
 .button1-position {
   position: absolute;
-  margin-top: 9%;
+  margin-top: 30%;
   margin-left: 66%;
 }
 

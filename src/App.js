@@ -14,6 +14,7 @@ import ClassPage from "./Pages/ClassPage/ClassPage";
 import {Provider} from "react-redux";
 import store from "./store";
 import EmailUpdateComponent from "./Component/Profile/EmailUpdateComponent";
+import SingleClassView from "./Pages/SingleClass/SingleClassView";
 
 
 const App = () => {
@@ -31,6 +32,7 @@ const App = () => {
                   <Route exact path = "/navbarbuttoncomponent" component={NavBarButtonComponent}/>
                   <Route exact path = "/emailupdate" component={EmailUpdateComponent}/>
                   <Route exact path = "/class" component={ClassPage}/>
+                  <Route exact path = "/singleclassview" component={SingleClassView}/>
               </Switch>
           </BrowserRouter>
   )
