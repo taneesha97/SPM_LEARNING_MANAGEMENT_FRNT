@@ -7,11 +7,11 @@ import {addClass} from "../../../Action/Class";
 
 function ClassMgntInt(){
 
+    const [image , setImage] = useState("");
     const [classData, setClassData] = useState({
         name: '',
         description: '',
         tutorName: '',
-        image: ''
     });
     const dispatch = useDispatch();
 
@@ -19,7 +19,11 @@ function ClassMgntInt(){
         console.log('form referesh calling');
         setClassData({ ...classData, teacher: [] , className: "", description: ""});
     }
-
+    const uploadedImage = (e) => {
+        let file = e.target.files[0];
+        console.log(file.name)
+        setImage(file.name)
+    }
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(classData);
@@ -27,7 +31,7 @@ function ClassMgntInt(){
             name : classData.name,
             description : classData.description,
             tutorName: classData.tutorName,
-            image: classData.image
+            image: image
         }
         dispatch(addClass(postData));
 
@@ -82,12 +86,14 @@ function ClassMgntInt(){
 
                             <label htmlFor="lname">Image</label>
                             <div className="mb-3" style={{marginLeft:20}}>
-                                <FileBase
-                                    type="file"
-                                    multiple={false}
-                                    onDone={({base64}) => setClassData({...classData, image: base64})}
-                                    // required
-                                />
+                                {/*<FileBase*/}
+                                {/*    type="file"*/}
+                                {/*    multiple={false}*/}
+                                {/*    onDone={({base64}) => setClassData({...classData, image: base64})}*/}
+                                {/*    // required*/}
+                                {/*/>*/}
+                                <input type="file" id="avatar"  accept="image/png, image/jpeg"
+                                       onChange={uploadedImage} />
                             </div>
                             <div className="course-button-group button-row">
                                 <button className="add-button" type="submit">Submit</button>
