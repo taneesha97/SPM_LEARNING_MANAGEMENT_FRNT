@@ -1,5 +1,6 @@
 import React from 'react'
-import Iframe from "react-iframe";
+import ClassTile from "../Class/ClassTile/ClassTile";
+import './style.css'
 
 function DownloadFile() {
     const rows = [
@@ -17,7 +18,7 @@ function DownloadFile() {
                     <div className="all-DownloadFileinterface-section-row">
                         {rows.slice(0,50).map((row)=> (
                             <div className="col-md-4">
-
+                                <ClassTile/>
                             </div>
                         ))}
                     </div>
