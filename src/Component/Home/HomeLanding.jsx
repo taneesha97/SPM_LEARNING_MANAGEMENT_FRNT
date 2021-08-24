@@ -9,6 +9,7 @@ import WelcomeHeader from "./WelcomeHeader/WelcomeHeader";
 import Footer from "../Footer/Footer";
 import GetUpdates from "./GetUpdates/GetUpdates";
 import TutorSection from "./TutorSection/TutorSection";
+import PopupModel from "../PopupModel/PopupModel";
 
 function HomeLanding() {
     return (
@@ -16,6 +17,7 @@ function HomeLanding() {
             <div className='ash-background'>
                 <WelcomeHeader/>
                 <PaymentForm/>
+                <PopupModel/>
                 <CustomizeSection main_topic={'Top Courses'} sub_topic={'Latest and Best selling courses, Enroll now for the full life time access.'} backgroundcl={'#D6D6D6'} btn_text={'View All'} btn_color={'#8340F4'}>
                     <ClassTile/>
 
