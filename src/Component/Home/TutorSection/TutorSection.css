@@ -21,8 +21,8 @@
 .tutorial-home-section-container {
   background-color: #525252;
   padding-left: 30px;
-  padding-right: 30px;
-  padding-bottom: 30px;
+  padding-right: 15px;
+  padding-bottom: 15px;
   padding-top: 90px;
 }
 .tutorial-home-section-container .tutorial-home-section-body {
@@ -49,17 +49,6 @@
 @media only screen and (max-width: 600px) {
   .tutorial-home-section-container .tutorial-home-section-body .tutorial-home-section-body-res-layout {
     grid-template-columns: 230px;
-  grid-template-columns: 320px 320px 320px 320px 320px;
-  grid-template-areas: "tile1 tile2 tile3 tile4 tile5";
-}
-@media only screen and (max-width: 1750px) {
-  .tutorial-home-section-container .tutorial-home-section-body .tutorial-home-section-body-res-layout {
-    justify-content: center;
-  }
-}
-@media only screen and (max-width: 966px) {
-  .tutorial-home-section-container .tutorial-home-section-body .tutorial-home-section-body-res-layout {
-    grid-template-columns: 410px;
     grid-template-rows: 250px 250px 250px 250px;
     grid-template-areas: "tile1" "tile2" "tile3" "tile4" "tile5";
   }
@@ -74,13 +63,12 @@
   padding: 10px;
 }
 .tutorial-home-section-container .tutorial-display-flex .tutorial-home-section-header .main-heading {
-  font-size: xxx-large;
-
+  font-size: 30px;
   color: #ADA6CE;
   font-weight: bold;
 }
 .tutorial-home-section-container .tutorial-display-flex .tutorial-home-section-header .second-heading {
-  font-size: x-large;
+  font-size: 20px;
   color: #BABABA;
   font-weight: normal;
 }

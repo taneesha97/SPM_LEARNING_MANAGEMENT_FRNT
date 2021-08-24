@@ -2,6 +2,7 @@ import React from 'react';
 import "../../../../node_modules/bootstrap/dist/css/bootstrap.css"
 import classImage from './Images/MA-English-Literature1.svg'
 import './ClassFileStyles.css'
+
 const ClassTile = () => {
 
     return(
