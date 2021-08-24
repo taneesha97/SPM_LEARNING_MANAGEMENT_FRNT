@@ -41,10 +41,11 @@
   margin-top: -20%;
   border-radius: 30px;
   background-color: white;
+  font-size: 10px;
 }
 
 .class-table-header {
-  background-color: #8f54a0;
+  background-color: #CA75FF;
 }
 
 /*# sourceMappingURL=ClassDetails.css.map */

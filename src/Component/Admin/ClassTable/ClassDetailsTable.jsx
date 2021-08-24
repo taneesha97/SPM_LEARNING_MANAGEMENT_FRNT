@@ -42,7 +42,7 @@ const StyledTableRow = withStyles((theme: Theme) =>
 
 const useStyles = makeStyles({
     table: {
-        minWidth: 100,
+        minWidth: 50,
         borderRadius: 50
     },
     editorContentClass: {
@@ -111,22 +111,22 @@ function ClassDetailsTable() {
                                 </TableRow>
                             </TableHead>
                             <TableBody>
-                                {/*classDetails ? classDetails.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)*/}
-                                {/*    .map((row) => (*/}
-                                {/*    <StyledTableRow>*/}
-                                {/*        <StyledTableCell align="center">{row.id}</StyledTableCell>*/}
-                                {/*        <StyledTableCell align="center">{row.name}</StyledTableCell>*/}
-                                {/*        <StyledTableCell align="center">{row.description}</StyledTableCell>*/}
-                                {/*        <StyledTableCell align="center">{row.tutorName}</StyledTableCell>*/}
-                                {/*        <StyledTableCell align="center">{row.image}</StyledTableCell>*/}
-                                {/*        <TableCell align="center">*/}
-                                {/*            <DeleteIcon color="primary" style={{fontSize: 40 }}/>*/}
-                                {/*        </TableCell>*/}
-                                {/*        <TableCell align="center">*/}
-                                {/*            <EditIcon style={{ color: green[500], fontSize: 40 }}/>*/}
-                                {/*        </TableCell>*/}
-                                {/*    </StyledTableRow>*/}
-                                {/*))}*/}
+                                {classDetails && classDetails.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                                    .map((row) => (
+                                    <StyledTableRow key={row.id}>
+                                        {/*<StyledTableCell align="center">{row.id}</StyledTableCell>*/}
+                                        <StyledTableCell align="center">{row.name}</StyledTableCell>
+                                        <StyledTableCell align="center">{row.description}</StyledTableCell>
+                                        <StyledTableCell align="center">{row.tutorName}</StyledTableCell>
+                                        <StyledTableCell align="center">{row.image}</StyledTableCell>
+                                        <TableCell align="center">
+                                            <DeleteIcon color="primary" style={{fontSize: 35 }}/>
+                                        </TableCell>
+                                        <TableCell align="center">
+                                            <EditIcon style={{ color: green[500], fontSize: 35 }}/>
+                                        </TableCell>
+                                    </StyledTableRow>
+                                ))}
                             </TableBody>
                             <TableFooter>
                                 <TableRow>
