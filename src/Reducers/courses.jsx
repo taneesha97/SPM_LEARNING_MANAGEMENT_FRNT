@@ -14,7 +14,7 @@ export default (courses = [], action) => {
         case "UPDATE_COURSE":
             return action.payload;
         case "DELETE_COURSE":
-            return [...courses, courses.filter(item => item !== action.payload)];
+            return courses.filter(item => item.id !== action.payload);
         default:
             return courses;
     }

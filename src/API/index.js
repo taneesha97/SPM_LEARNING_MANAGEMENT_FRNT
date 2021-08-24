@@ -7,7 +7,7 @@ export const validateUser = (user) => axios.post(url + "validate", user);
 //export URL
 export const baseURL = url
 //Add new Course
-export const createCourse = (course) => axios.post(url + "course", course);
+export const createCourse = (course) => axios.post("http://localhost:8073/api/course", course);
 /**
  * Get Course Directly Called from the URL export.
  * **/

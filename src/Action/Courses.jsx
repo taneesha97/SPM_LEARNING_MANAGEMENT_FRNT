@@ -16,7 +16,7 @@ export const fetchCourses = () => dispatch => {
 }
 
 export const addCourse = (Course) => async (dispatch) => {
-    console.log('creating');
+    console.log(Course);
     try{
         const { data } = await api.createCourse(Course);
         dispatch({type: ADD_COURSES, payload: data });
@@ -26,7 +26,7 @@ export const addCourse = (Course) => async (dispatch) => {
     }
 }
 
-export const deleteCourses= (id) => dispatch => {
+export const deleteCourse = (id) => dispatch => {
     axios.delete(api.baseURL + 'delete/course/'+ id)
         .then(response => {
                 dispatch({
@@ -37,8 +37,4 @@ export const deleteCourses= (id) => dispatch => {
         ).catch((err) => {
         console.log(err);
     })
-}
-
-export const deleteCourse = () => async (dispatch) => {
-
 }

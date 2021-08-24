@@ -1,11 +1,11 @@
 import React from 'react'
 import "./CustomButton.css"
 
-function CustomButton({name, color, deleteMethod}) {
+function CustomButton({name, color, revokeMethod}) {
     const buttonStyle = {backgroundColor: color};
     return (
         <div className="custom-button-container">
-            <button onClick={() =>deleteMethod} style={buttonStyle} className="custom-button">{name}</button>
+            <button onClick={()=>revokeMethod()} style={buttonStyle} className="custom-button">{name}</button>
         </div>
     )
 }

@@ -1,11 +1,16 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import "./CourseMgntInt.css";
 import "../../../../node_modules/bootstrap/dist/css/bootstrap.css";
 import CustomRow from "./CustomRow/CustomRow";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {addCourse, deleteCourse} from "../../../Action/Courses";
 
 function CourseMgntInt({array4}) {
+    //To refresh the page when delete the file.
+    const courses = useSelector((state) => state.courses);
+    useEffect(()=> {
+
+    }, [courses])
 
     const [postData, setPostData] = useState({
         title: '',
@@ -22,7 +27,8 @@ function CourseMgntInt({array4}) {
 
     //Delete Item method to pass into the Custom Component.
     const deleteItem = (id) => {
-        dispatch(deleteCourse(id))
+        dispatch(deleteCourse(id));
+        console.log('Parent Delete Method');
     }
 
     const dispatch = useDispatch();
@@ -85,7 +91,7 @@ function CourseMgntInt({array4}) {
                     <div id="style-1" className="course-table-body-scrollable">
                         {array4?.map((item) => (
                             <CustomRow id={item.id} header={item.title} description={item.description} body={item.body}
-                                       deleteMethod={deleteCourse}/>
+                                       deleteMethod={deleteItem}/>
                         ))}
                     </div>
                 </div>
