@@ -6,7 +6,7 @@ import LoginComponent from "./LoginComponent";
 function Login() {
     return (
         <div>
-            <h1>Login page</h1>
+            <br/><br/><br/>
             <div className="login">
                 <div>
                     <img src= {LoginLogo}  className="login-image1"/>
