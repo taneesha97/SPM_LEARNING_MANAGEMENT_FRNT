@@ -43,6 +43,98 @@ export default function CourseContent() {
                         id="panel1bh-header"
                     >
                         <Typography className={classes.heading}>English-Course</Typography>
+                        <Typography className={classes.secondaryHeading}>Click Here display the tutors name for the english class</Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                        <Typography>
+                            <h7>T.K.T.A.CHNADRASENA</h7><br/>
+                            <h7>T.K.T.A.CHNADRASENA</h7><br/>
+                            <h7>T.K.T.A.CHNADRASENA</h7><br/>
+                            <h7>T.K.T.A.CHNADRASENA</h7>
+                        </Typography>
+                    </AccordionDetails>
+                </Accordion>
+                <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
+                    <AccordionSummary
+                        expandIcon={<ExpandMoreIcon  className="icon"/>}
+                        aria-controls="panel2bh-content"
+                        id="panel2bh-header"
+                    >
+                        <Typography className={classes.heading}>Maths-Course</Typography>
+                        <Typography className={classes.secondaryHeading}>Click Here display the tutors name for the maths class</Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                        <Typography>
+                            <h7>T.K.T.A.CHNADRASENA</h7><br/>
+                            <h7>T.K.T.A.CHNADRASENA</h7><br/>
+                            <h7>T.K.T.A.CHNADRASENA</h7><br/>
+                            <h7>T.K.T.A.CHNADRASENA</h7>
+                        </Typography>
+                    </AccordionDetails>
+                </Accordion>
+                <Accordion expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
+                    <AccordionSummary
+                        expandIcon={<ExpandMoreIcon className="icon"/>}
+                        aria-controls="panel3bh-content"
+                        id="panel3bh-header"
+                    >
+                        <Typography className={classes.heading}>Music-Course</Typography>
+                        <Typography className={classes.secondaryHeading}>Click Here display the tutors name for the music class</Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                        <Typography>
+                            <h7>T.K.T.A.CHNADRASENA</h7><br/>
+                            <h7>T.K.T.A.CHNADRASENA</h7><br/>
+                            <h7>T.K.T.A.CHNADRASENA</h7><br/>
+                            <h7>T.K.T.A.CHNADRASENA</h7>
+                        </Typography>
+                    </AccordionDetails>
+                </Accordion>
+                <Accordion expanded={expanded === 'panel4'} onChange={handleChange('panel4')}>
+                    <AccordionSummary
+                        expandIcon={<ExpandMoreIcon className="icon"/>}
+                        aria-controls="panel4bh-content"
+                        id="panel4bh-header"
+                    >
+                        <Typography className={classes.heading}>History-Course</Typography>
+                        <Typography className={classes.secondaryHeading}>Click Here display the tutors name for the history class</Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                        <Typography>
+                            <h7>T.K.T.A.CHNADRASENA</h7><br/>
+                            <h7>T.K.T.A.CHNADRASENA</h7><br/>
+                            <h7>T.K.T.A.CHNADRASENA</h7><br/>
+                            <h7>T.K.T.A.CHNADRASENA</h7>
+                        </Typography>
+                    </AccordionDetails>
+                </Accordion>
+                <Accordion expanded={expanded === 'panel5'} onChange={handleChange('panel5')}>
+                    <AccordionSummary
+                        expandIcon={<ExpandMoreIcon className="icon"/>}
+                        aria-controls="panel5bh-content"
+                        id="panel5bh-header"
+                    >
+                        <Typography className={classes.heading}>Physics-Course</Typography>
+                        <Typography className={classes.secondaryHeading}>Click Here display the tutors name for the physics class</Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                        <Typography>
+                            <h7>T.K.T.A.CHNADRASENA</h7><br/>
+                            <h7>T.K.T.A.CHNADRASENA</h7><br/>
+                            <h7>T.K.T.A.CHNADRASENA</h7><br/>
+                            <h7>T.K.T.A.CHNADRASENA</h7>
+                        </Typography>
+                    </AccordionDetails>
+                </Accordion>
+            </div>
+            <div className={classes.root}>
+                <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')} >
+                    <AccordionSummary
+                        expandIcon={<ExpandMoreIcon className="icon"/>}
+                        aria-controls="panel1bh-content"
+                        id="panel1bh-header"
+                    >
+                        <Typography className={classes.heading}>English-Course</Typography>
                          <Typography className={classes.secondaryHeading}>Click Here display the tutors name for the english class</Typography>
                     </AccordionSummary>
                     <AccordionDetails>

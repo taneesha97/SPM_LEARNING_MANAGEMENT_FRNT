@@ -8,20 +8,28 @@
 .card-deck {
   width: fit-content;
   height: 200.2px;
+}
+.card-deck .classtile-container {
+  width: 20%;
+  height: 200px;
+  background-color: #FFFFFF;
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-end;
-  margin: 10px;
+  border-radius: 20px;
 }
-
-.card-body {
-  background: linear-gradient(to top, #8221FE, #2D61FD);
-  border-radius: 10% 0% 0% 10%;
-  width: 50%;
+.card-deck .classtile-container .left-container {
+  width: 60%;
 }
-
-.class {
+.card-deck .classtile-container .right-container {
+  width: 100%;
+}
+.card-deck .classtile-container .right-container img {
+  position: absolute;
+  z-index: -1;
+  width: 200%;
+  height: 100%;
+  border-radius: 0 20px 20px 0;
+}
+.card-deck .classtile-container .right-container img .class {
   max-height: 150.2px;
   width: 302px;
 }

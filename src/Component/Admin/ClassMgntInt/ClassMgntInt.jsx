@@ -23,12 +23,13 @@ function ClassMgntInt(){
     const uploadedImage = (e) => {
         let file = e.target.files[0];
         console.log(file.name)
-        setImage(file.name)
+        setImage(file.name)//
     }
 
 
     //Error message
     const errorMessage = useSelector((state: any) => state.classes.classDetails.error);
+
 
     const [errorDisplay, setErrorDisplay] = useState("");
 
@@ -131,14 +132,14 @@ function ClassMgntInt(){
                                 {errorDisplay ? (
                                     <CustomAlert displayText={errorDisplay} severity="warning" />
                                 ) : null}
-                                {successMessageDisplay ? (
+                                 {successMessageDisplay ? (
                                     <CustomAlert
                                         displayText={successMessageDisplay}
                                         severity="success"
                                     />
                                 ) : null}
-
                             </div>
+
                             <div className="course-button-group button-row">
                                 <button className="add-button" type="submit">Submit</button>
                                 <button className="reset-button" onClick={formRefresh}>Reset</button>
