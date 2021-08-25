@@ -1,7 +1,13 @@
 import React from 'react'
 import './styles.css'
+import {useHistory} from "react-router";
 
-const CustomizeSection = ({main_topic, sub_topic, backgroundcl, btn_text, btn_color, textcolor, children}) => {
+const CustomizeSection = ({main_topic, sub_topic, backgroundcl, btn_text, btn_color, textcolor, children,navigationPath}) => {
+
+    const history = useHistory();
+    const setPath = () => {
+        history.push(`/${navigationPath}`);
+    }
 
     const backgroundStyle = {backgroundColor: backgroundcl};
     const textparagraphcolor = {color: textcolor};
@@ -14,7 +20,7 @@ const CustomizeSection = ({main_topic, sub_topic, backgroundcl, btn_text, btn_co
                     <div className='main-topic'>{main_topic}</div>
                     <div className='sub-topic' style={textparagraphcolor}>{sub_topic}</div>
                 </div>
-                <button className='view-all-btn' style={buttonStyle}>{btn_text}</button>
+                <button className='view-all-btn' style={buttonStyle} onClick={setPath}>{btn_text}</button>
             </div>
             <div className='section-body'>
                 {children}
