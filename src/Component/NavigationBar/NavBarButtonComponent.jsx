@@ -20,6 +20,7 @@ function NavBarButtonComponent() {
 
     const Logout = () => {
         history.push('/login');
+
     }
 
     return (
