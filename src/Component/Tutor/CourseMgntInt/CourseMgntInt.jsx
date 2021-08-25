@@ -81,7 +81,7 @@ function CourseMgntInt({array4}) {
                         />
 
                         <div className="course-button-group button-row">
-                            <button className="dark-button" type="submit"> Submit </button>
+                            <button className="add-button" type="submit"> Submit </button>
                             <button className="light-button" type="reset" onClick={clearForm}>Reset</button>
                         </div>
                     </form>

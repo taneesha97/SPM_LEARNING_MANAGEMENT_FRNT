@@ -3,7 +3,7 @@ import "./InqPopUpMenu.css"
 function InqPopUpMenu({body, trigger, setTrigger, children, triggerHeader}) {
     return (trigger) ? (
         <div className="inquiry-popup-menu-container">
-            <div className="inquiry-popup-menu-header">
+            <div className="inquiry-popup-container-header">
                 Student Inquiries.
             </div>
             <div className="inquiry-popup-menu-body">
@@ -15,8 +15,20 @@ function InqPopUpMenu({body, trigger, setTrigger, children, triggerHeader}) {
                 </div>
             </div>
             <div className="inquiry-popup-menu-form">
-                Form.
-                <button className="close-btn" onClick={() => setTrigger(false)}>Close</button>
+               <form>
+                   <label className="label-dark" htmlFor="fname">Title</label>
+                   <input type="text" id="fname" name="firstname" placeholder="Your name.."
+                          className="form-input"
+                   />
+
+                   <label className="label-dark" htmlFor="lname">Description</label>
+                   <input type="text" id="lname" name="lastname" placeholder="Description.."
+                          className="form-input"
+                   />
+                   <button className="close-btn"> Send </button>
+                   <button className="close-btn" onClick={() => setTrigger(false)}>Close</button>
+               </form>
+
                 {children}
             </div>
 
