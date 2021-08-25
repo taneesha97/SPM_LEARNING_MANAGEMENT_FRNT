@@ -25,6 +25,22 @@ function ClassAnnouncement(){
                             <textarea type="text" id="fname" name="firstname" placeholder="Announcement body comes here..."
                                       className="form-area"/>
                             </div>
+                            {/*<div className="form-input">*/}
+                            {/*    <select*/}
+                            {/*        className="form-input"*/}
+                            {/*        aria-label="Default select example"*/}
+                            {/*        // value={classData.teacher}*/}
+                            {/*        //onChange={(e) => setClassData({...classData, tutorName: e.target.value})}*/}
+                            {/*        required*/}
+                            {/*    >*/}
+                            {/*        <option selected>Choose...</option>*/}
+                            {/*        <option value="1">D.K.L.WEERSINGHE</option>*/}
+                            {/*        <option value="2">T.K.L.CHANDRASENA</option>*/}
+                            {/*        <option value="3">M.N.V.RATHNAYAKA</option>*/}
+                            {/*        <option value="4">H.K.L.VEERSINGHE</option>*/}
+                            {/*        <option value="5">K.N.V.PERERA</option>*/}
+                            {/*    </select>*/}
+                            {/*</div >*/}
                             <div className="class-announcement-body-button-group">
                                 <div className="class-announcement-button">
                                     <CustomButton name={"Discard"} color={"#FF5050"}/>

@@ -5,12 +5,16 @@ import {fetchUser, loginUserValidation} from "../../Action/Users";
 import {useHistory} from "react-router";
 import axios from "axios";
 import AuthClass from "../../Validation/AuthClass";
+import SucessPopUp from "../PopupModel/SucessPopUp";
 
 function LoginComponent() {
 
 
     const [username, setName] = useState("");
     const [password, setPassword] = useState("");
+    const [buttonPopup, setButtonPopup] = useState(false);
+    const [popupName, setPopupName] = useState("");
+    const [popupLocation, setPopupLocaion] = useState("");
     const dispatch = useDispatch();
     const history = useHistory();
 
@@ -27,19 +31,22 @@ function LoginComponent() {
                 console.log('res1 ', response.data);
                 console.log('res1 ', values[0]);
                 if (values[1] == ""){
-                    alert('Invalid Login')
+                    alert('Invalid login')
                     history.push("/login");
                     setName("");
                     setPassword("");
                 }else if (values[1] == "student"){
-                    alert('Valid Login')
                     AuthClass.login(username,values)
-                    history.push("/home");
+                    setPopupName("login");
+                    setPopupLocaion("/home");
+                    setButtonPopup(true);
                 }else if (values[1] == "teacher"){
                     if (values[0] == "valid"){
-                        alert('Valid Login')
                         AuthClass.login(username,values)
-                        history.push("/tutordash");
+                        setPopupName("login");
+                        setPopupLocaion("/tutordash");
+                        setButtonPopup(true);
+                        //history.push();
                     }else{
                         setName("");
                         setPassword("");
@@ -51,19 +58,16 @@ function LoginComponent() {
             });
         // dispatch(loginUserValidation(newUser));
         // const response = useSelector((state) => state.userDetails1.loginUser);
-
-
     }
-
-
-
-
     const NavigateToRegistration = () => {
         history.push("/registration");
     }
 
     return (
         <div>
+            <div className="login-component-1">
+                <SucessPopUp trigger={buttonPopup} setTrigger = {setButtonPopup} name1 = {popupName} name2 = {popupLocation}></SucessPopUp>
+            </div>
             <form onSubmit={SubmitPressed}>
                     <div className="login-info4">
                         <h2 className="login-info4-main">Login</h2>
