@@ -68,6 +68,7 @@
 }
 
 .login-component-1 {
+  position: absolute;
   margin-left: -260%;
   margin-top: -15%;
 }

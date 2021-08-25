@@ -7,7 +7,8 @@ import SucessPopUp from "../../Component/PopupModel/SucessPopUp";
 
 function ClassPage() {
     return (
-        <div >
+     
+        <div style={{backgroundColor:'#D6D6D6'}}>
             {/*<SucessPopUp/>*/}
             <ClassSearch/>
             <ClassItems/><br/><br/><br/>
@@ -16,4 +17,4 @@ function ClassPage() {
     )
 }
 
-export default ClassPage
+export default ClassPage;
