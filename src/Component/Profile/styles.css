@@ -1,15 +1,21 @@
 .background-userUpdate {
   position: absolute;
   margin-top: -20px;
-  filter: drop-shadow(0px 5px 20px rgba(0, 0, 0, 0.25)) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-  box-sizing: border-box;
+  position: relative;
+  width: fit-content;
+  height: fit-content;
 }
 
-background-userUpdate-1 {
+.background-userUpdate-1 {
   position: fixed;
-  background-color: black;
-  width: 2000%;
-  height: 2000%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .emailupdatecomponent-bio {
