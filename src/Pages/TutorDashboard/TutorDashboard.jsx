@@ -8,6 +8,15 @@ import StudentTableComponent from "../../Component/Tutor/StudentTable/StudentTab
 import { useDispatch, useSelector } from "react-redux";
 import {fetchCourses} from "../../Action/Courses";
 import InqPopUpMenu from "../../Component/Tutor/InqFeedInt/Inquiry/InqPopUpMenu/InqPopUpMenu";
+import { faUserFriends } from "@fortawesome/free-solid-svg-icons";
+import { faCommentAlt } from "@fortawesome/free-solid-svg-icons";
+import { faBookOpen } from "@fortawesome/free-solid-svg-icons";
+import { faSchool } from "@fortawesome/free-solid-svg-icons";
+import { faDollarSign } from "@fortawesome/free-solid-svg-icons";
+import { faPencilRuler } from "@fortawesome/free-solid-svg-icons";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
+
 function TutorDashboard() {
 
     //State to hold the popup menu.
@@ -59,14 +68,14 @@ function TutorDashboard() {
 
     //JSON object for the headers
     const array4 = [
-        {"header":"Course Count", "count":"5K"},
-        {"header":"Material Count", "count":"5K"},
-        {"header":"Student Count", "count":"5K"},
-        {"header":"Student Count", "count":"5K"},
-        {"header":"Student Count", "count":"5K"},
-        {"header":"Student Count", "count":"5K"},
-        {"header":"Student Count", "count":"5K"},
-        {"header":"Student Count", "count":"5K"}
+        {"header":"Total Student:", "count":"50", "image": faUserFriends},
+        {"header":"Feedback", "count":"3", "image": faCommentAlt},
+        {"header":"Courses", "count":"6", "image": faBookOpen},
+        {"header":"Class", "count":"5", "image": faSchool},
+        {"header":"Income", "count":"LKR 1256.23", "image": faDollarSign},
+        {"header":"Materials", "count":"10", "image": faPencilRuler},
+        {"header":"Active Students", "count":"23", "image": faUser},
+        {"header":"Disabled Courses", "count":"6", "image": faTimes}
     ];
 
     console.log(courses);
