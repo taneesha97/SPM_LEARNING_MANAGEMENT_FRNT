@@ -52,9 +52,9 @@ function   RegistrationComponent() {
 
     return (
         <div>
-            {/*<div className="registration">*/}
-            {/*    <SucessPopUp trigger={buttonPopup} setTrigger = {setButtonPopup} name1 = {popupName} name2 = {popupLocation}></SucessPopUp>*/}
-            {/*</div>*/}
+            <div className="registration">
+                <SucessPopUp trigger={buttonPopup} setTrigger = {setButtonPopup} name1 = {popupName} name2 = {popupLocation}></SucessPopUp>
+            </div>
             <form onSubmit={SubmitPressed}>
                 <div className="registration-info4">
                     <h2 className="registration-info4-main">Registration</h2>
