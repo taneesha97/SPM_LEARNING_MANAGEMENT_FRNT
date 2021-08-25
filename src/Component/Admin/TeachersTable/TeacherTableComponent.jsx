@@ -16,6 +16,8 @@ import {deleteUsers, fetchStudents, fetchTeachers, fetchUser} from "../../../Act
 import {useHistory} from "react-router";
 import TableFooter from "@material-ui/core/TableFooter";
 import TablePagination from "@material-ui/core/TablePagination";
+import SucessPopUp from "../../PopupModel/SucessPopUp";
+import PopUpTeacherStatusComponent from "../../PopupModel/TeacherStatus/PopUpTeacherStatusComponent";
 function TeacherTableComponent() {
 
 
@@ -24,6 +26,9 @@ function TeacherTableComponent() {
 
     const [searchTerm, setSearchTerm] = useState("");
     const [rowsPerPage, setRowsPerPage] = React.useState(5);
+    const [buttonPopup, setButtonPopup] = useState(false);
+    const [popupName, setPopupName] = useState("");
+    const [popupLocation, setPopupLocaion] = useState("");
     //const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
 
     const response = useSelector((state) => state.userDetails1.UserDetails.records.data);
@@ -65,6 +70,10 @@ function TeacherTableComponent() {
 
     }
 
+    const buttonStatus = () => {
+        setButtonPopup(true);
+    }
+
     return (
         <div className="Teacher-table-background">
             <div className="teacher-table-title-header">
@@ -85,6 +94,9 @@ function TeacherTableComponent() {
                 </div>
 
             </div>
+            <div className="login-component-4">
+                <PopUpTeacherStatusComponent trigger={buttonPopup} setTrigger = {setButtonPopup} name1 = {popupName} name2 = {popupLocation}/>
+            </div>
             <TableContainer component={Paper} className={classes.teacherContent}>
 
                 <Table className={classes.table} aria-label="simple table">
@@ -94,6 +106,7 @@ function TeacherTableComponent() {
                             <TableCell align="center" className={classes.teacherTableHeaderColumns}>Name</TableCell>
                             <TableCell align="center" className={classes.teacherTableHeaderColumns}>Email</TableCell>
                             <TableCell align="center" className={classes.teacherTableHeaderColumns}>User Name</TableCell>
+
                             <TableCell align="center" className={classes.teacherTableHeaderColumns}>Status</TableCell>
                             <TableCell align="center" className={classes.teacherTableHeaderColumns}>Password</TableCell>
                             <TableCell align="center" className={classes.teacherTableHeaderColumns}>Delete</TableCell>
@@ -124,7 +137,7 @@ function TeacherTableComponent() {
 
                                     </TableCell>
                                     <TableCell align="center">
-                                        <a>update</a>
+                                        <button type="button" onClick={buttonStatus} className="btn btn-info">Update</button>
                                         {/*<a onClick={() => {*/}
                                         {/*    deleteTeacher(row.id)}}>*/}
                                         {/*    <img src= {teacherDeleteimage1}  className="teacherDelete-image1"/>*/}
