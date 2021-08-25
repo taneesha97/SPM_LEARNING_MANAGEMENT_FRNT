@@ -39,7 +39,7 @@ function HomeLanding() {
                 </CustomizeSection>
             </div>
             <div className='dark-ash-background'>
-                <CustomizeSection main_topic={'Classes'} sub_topic={'Latest Classes, Enroll now for the full life time access.'} backgroundcl={'#ADA6CE'} btn_text={'View All'} btn_color={'#8340F4'}>
+                <CustomizeSection main_topic={'Classes'} sub_topic={'Latest Classes, Enroll now for the full life time access.'} backgroundcl={'#ADA6CE'} btn_text={'View All'} btn_color={'#8340F4'} navigationPath={'class'}>
                     <ClassTile/>
                     <ClassTile/>
                     <ClassTile/>
