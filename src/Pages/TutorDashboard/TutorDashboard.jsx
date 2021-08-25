@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import "./TutorDashboard.css"
 import TutorDashHeader from "../../Component/Tutor/Header/TutorDashHeader";
 import CourseMgntInt from "../../Component/Tutor/CourseMgntInt/CourseMgntInt";
@@ -9,6 +9,9 @@ import { useDispatch, useSelector } from "react-redux";
 import {fetchCourses} from "../../Action/Courses";
 import InqPopUpMenu from "../../Component/Tutor/InqFeedInt/Inquiry/InqPopUpMenu/InqPopUpMenu";
 function TutorDashboard() {
+
+    //State to hold the popup menu.
+    const [trigger, setTrigger] = useState(true);
 
     const courses = useSelector((state) => state.courses);
     const dispatch = useDispatch();
@@ -69,7 +72,7 @@ function TutorDashboard() {
             <FileAttachInt array4={array4}/>
             <InqFeedInt array1={array1} array2={array2}/>
             <StudentTableComponent/>
-            <InqPopUpMenu trigger={false}/>
+            <InqPopUpMenu trigger={trigger} setTrigger={setTrigger}/>
         </div>
     )
 }
