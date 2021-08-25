@@ -49,7 +49,7 @@ function Navbar () {
         <React.Fragment>
             <nav className= "navbar">
                 <div className= "navbar-container">
-                    <Link to = "/login" className ="navbar-logo" onClick={closeMobileMenu}>
+                    <Link to = "/home" className ="navbar-logo" onClick={closeMobileMenu}>
                         <div >
                             <img src= {navImg}  style={navImgCss}/>
 
