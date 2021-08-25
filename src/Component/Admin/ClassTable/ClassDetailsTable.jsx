@@ -106,7 +106,7 @@ function ClassDetailsTable() {
                     <div className="search-bar-class-table">
                         <TextField
                             id="filled-full-width"
-                            label="Search"
+                            label="Search by class name"
                             placeholder="Search by name.."
                             fullWidth
                             margin="normal"
