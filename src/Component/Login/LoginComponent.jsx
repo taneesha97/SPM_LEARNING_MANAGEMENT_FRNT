@@ -31,23 +31,28 @@ function LoginComponent() {
                 console.log('res1 ', response.data);
                 console.log('res1 ', values[0]);
                 if (values[1] == ""){
+                    console.log('111')
                     alert('Invalid login')
                     history.push("/login");
                     setName("");
                     setPassword("");
                 }else if (values[1] == "student"){
+                    console.log('1112')
                     AuthClass.login(username,values)
+                    setButtonPopup(true);
                     setPopupName("login");
                     setPopupLocaion("/home");
-                    setButtonPopup(true);
+
                 }else if (values[1] == "teacher"){
                     if (values[0] == "valid"){
+                        console.log('111w')
                         AuthClass.login(username,values)
                         setPopupName("login");
                         setPopupLocaion("/tutordash");
                         setButtonPopup(true);
                         //history.push();
                     }else{
+                        console.log('111s')
                         setName("");
                         setPassword("");
                         alert('Teacher Status pending')
@@ -65,7 +70,7 @@ function LoginComponent() {
 
     return (
         <div>
-            <div className="login-component-1">
+            <div className="login-component-11">
                 <SucessPopUp trigger={buttonPopup} setTrigger = {setButtonPopup} name1 = {popupName} name2 = {popupLocation}></SucessPopUp>
             </div>
             <form onSubmit={SubmitPressed}>
