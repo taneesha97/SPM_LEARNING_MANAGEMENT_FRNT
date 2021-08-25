@@ -131,7 +131,7 @@ function ClassMgntInt(){
                                 {errorDisplay ? (
                                     <CustomAlert displayText={errorDisplay} severity="warning" />
                                 ) : null}
-                                {successMessageDisplay ? (
+                                 {successMessageDisplay ? (
                                     <CustomAlert
                                         displayText={successMessageDisplay}
                                         severity="success"
