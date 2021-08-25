@@ -16,6 +16,7 @@ import store from "./store";
 import EmailUpdateComponent from "./Component/Profile/EmailUpdateComponent";
 import SingleClassView from "./Pages/SingleClass/SingleClassView";
 import ClassCourseview from "./Pages/ClassCourseview/ClassCourseview";
+import DownloadFile from "./Component/Downloads/DownloadFile";
 
 
 const App = () => {
@@ -35,6 +36,7 @@ const App = () => {
                   <Route exact path = "/class" component={ClassPage}/>
                   <Route exact path = "/ClassCourseview" component={ClassCourseview}/>
                   <Route exact path = "/singleclassview" component={SingleClassView}/>
+                  <Route exact path = "/download" component={DownloadFile}/>
               </Switch>
           </BrowserRouter>
   )
