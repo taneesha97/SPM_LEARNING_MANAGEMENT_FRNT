@@ -81,13 +81,12 @@ const StyledTableCell = withStyles((theme) => ({
 const useStyles = makeStyles({
     root: {
         width: "100%",
-        borderRadius: 30,
         display: "block",
         overflow: "hidden",
-        backgroundColor: red
+        borderBottomLeftRadius: 30,
+        borderBottomRightRadius: 30,
     },
     container: {
-        borderRadius: 30,
         overflow: "scroll",
         scrollbarWidth: "none" /* Firefox */,
         maxHeight: 420,
