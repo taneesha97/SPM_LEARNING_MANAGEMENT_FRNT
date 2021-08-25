@@ -4,6 +4,10 @@
   width: fit-content;
 }
 
+.popupinterface {
+  margin-top: -4%;
+}
+
 .background-background {
   margin-top: -1%;
   background-color: #E5E5E5;

@@ -29,7 +29,12 @@ function NavBarButtonComponent() {
     }
 
     return (
+
         <div className="background-background">
+            <div className="popupinterface">
+                <SucessPopUp trigger={buttonPopup} setTrigger = {setButtonPopup} name1 = {popupName} name2 = {popupLocation}></SucessPopUp>
+            </div>
+
             <div className="background">
                 <div className="background1">
                     <br/>
@@ -39,7 +44,7 @@ function NavBarButtonComponent() {
                         <hr className="correction"/>
                     </div>
                     <div className="login-component-1">
-                        <SucessPopUp trigger={buttonPopup} setTrigger = {setButtonPopup} name1 = {popupName} name2 = {popupLocation}></SucessPopUp>
+
                     </div>
                     <div className="background1-info1" onClick={Dashboard}>
                         <h2 className="background1-info1-main">Dashboard</h2>
