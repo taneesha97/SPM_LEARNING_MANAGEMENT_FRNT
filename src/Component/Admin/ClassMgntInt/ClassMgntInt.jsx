@@ -30,6 +30,7 @@ function ClassMgntInt(){
     //Error message
     const errorMessage = useSelector((state: any) => state.classes.classDetails.error);
 
+
     const [errorDisplay, setErrorDisplay] = useState("");
 
     React.useEffect(() => {
