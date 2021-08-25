@@ -9,30 +9,35 @@ import TableHead from "@material-ui/core/TableHead";
 import TablePagination from "@material-ui/core/TablePagination";
 import TableRow from "@material-ui/core/TableRow";
 import { red } from "@material-ui/core/colors";
+import {Button, IconButton} from "@material-ui/core";
+import {sanitizeHtml} from "bootstrap/js/src/util/sanitizer";
+import DeleteIcon from "@material-ui/icons/Delete";
+import DownloadFile from "../../../Downloads/DownloadFile";
+import {CloudDownload} from "@material-ui/icons";
 
 const columns = [
-    { id: "name", label: "Name", minWidth: 170 },
-    { id: "code", label: "ISO\u00a0Code", minWidth: 100 },
+    { id: "FileName", label: "File Name", minWidth: 170 },
+    { id: "Description", label: "Course Name", minWidth: 100 },
     {
-        id: "population",
-        label: "Population",
+        id: "Course",
+        label: "Medium",
         minWidth: 170,
         align: "right",
         format: (value) => value.toLocaleString("en-US")
     },
     {
-        id: "size",
-        label: "Size\u00a0(km\u00b2)",
-        minWidth: 170,
-        align: "right",
-        format: (value) => value.toLocaleString("en-US")
-    },
-    {
-        id: "density",
-        label: "Density",
+        id: "FileSize",
+        label: "File Size",
         minWidth: 170,
         align: "right",
         format: (value) => value.toFixed(2)
+    },
+    {
+        id: "density",
+        label: "Download Link",
+        minWidth: 170,
+        align: "right",
+        format: sanitizeHtml
     }
 ];
 
@@ -41,7 +46,20 @@ function createData(name, code, population, size) {
     return { name, code, population, size, density };
 }
 
+function courseData(FileName, Description, Course, FileSize, DownloadButton) {
+    return { FileName, Description, Course, FileSize, DownloadButton };
+}
+
 const rows = [
+    courseData("Tutorial 3", "English", "English", 301340),
+    courseData("Tutorial 3", "English", "English", 301340),
+    courseData("Tutorial 3", "English", "English", 301340),
+    courseData("Tutorial 3", "English", "English", 301340),
+    courseData("Tutorial 3", "English", "English", 301340),
+    courseData("Tutorial 3", "English", "English", 301340),
+];
+
+const rows1 = [
     createData("India", "IN", 1324171354, 301340),
     createData("China", "CN", 1403500365, 9596961),
     createData("Italy", "IT", 60483973, 301340),
@@ -74,7 +92,8 @@ const StyledTableCell = withStyles((theme) => ({
         fontWeight: 600
     },
     body: {
-        fontSize: 15
+        fontSize: 15,
+
     }
 }))(TableCell);
 
@@ -85,10 +104,12 @@ const useStyles = makeStyles({
         overflow: "hidden",
         borderBottomLeftRadius: 30,
         borderBottomRightRadius: 30,
+        fontWeight: 600
     },
     container: {
         overflow: "scroll",
         scrollbarWidth: "none" /* Firefox */,
+        fontWeight: 600,
         maxHeight: 420,
         "&::-webkit-scrollbar": {
             display: "none"
@@ -100,7 +121,7 @@ const useStyles = makeStyles({
 export default function FileAttachmentTable() {
     const classes = useStyles();
     const [page, setPage] = React.useState(0);
-    const [rowsPerPage, setRowsPerPage] = React.useState(7);
+    const [rowsPerPage, setRowsPerPage] = React.useState(20);
 
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
@@ -143,9 +164,13 @@ export default function FileAttachmentTable() {
                                             const value = row[column.id];
                                             return (
                                                 <TableCell key={column.id} align={column.align}>
-                                                    {column.format && typeof value === "number"
-                                                        ? column.format(value)
-                                                        : value}
+                                                    {column.id === "density" ?
+                                                        <IconButton color="#000"
+                                                        aria-label="delete"
+                                                        className={classes.margin}><CloudDownload htmlColor="#7364B9" /></IconButton>
+                                                        :
+                                                        value
+                                                    }
                                                 </TableCell>
                                             );
                                         })}
