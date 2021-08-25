@@ -66,17 +66,17 @@ function Navbar () {
                             </Link>
                         </li>
                         <li className= "nav-item">
-                            <Link to= '/login' className ="nav-links" onClick={closeMobileMenu}>
+                            <Link to= '/class' className ="nav-links" onClick={closeMobileMenu}>
                                 CLASS
                             </Link>
                         </li>
                         <li className= "nav-item">
-                            <Link to= '/registration' className ="nav-links" onClick={closeMobileMenu}>
+                            <Link to= '' className ="nav-links" onClick={closeMobileMenu}>
                                 ABOUT US
                             </Link>
                         </li>
                         <li className= "nav-item">
-                            <Link to= '/register' className ="nav-links" onClick={closeMobileMenu}>
+                            <Link to= '' className ="nav-links" onClick={closeMobileMenu}>
                                 CONTACT US
                             </Link>
                         </li>
