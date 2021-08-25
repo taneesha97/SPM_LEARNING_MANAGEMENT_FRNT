@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import { withStyles, Theme, createStyles, makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -59,7 +59,7 @@ function ClassDetailsTable() {
     const [rowsPerPage, setRowsPerPage] = React.useState(5);
     // const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
     const dispatch = useDispatch();
-
+    const [searchTerm, setSearchTerm] = useState("");
     const classDetails = useSelector((state) => state.classes.classRecords.records);
     console.log('CLASS DETAIL', classDetails);
 
@@ -106,12 +106,14 @@ function ClassDetailsTable() {
                     <div className="search-bar-class-table">
                         <TextField
                             id="filled-full-width"
-                            // label="Search"
-                            placeholder="Search Items.."
+                            label="Search"
+                            placeholder="Search by name.."
                             fullWidth
                             margin="normal"
-                            // variant="outlined"
-                            className="search-class"
+                            variant="outlined"
+                            className="search-teacher"
+                            value={searchTerm}
+                            onChange={(event) => setSearchTerm(event.target.value)}
                             style={{backgroundColor: "#FFFFFF", width: 300, borderRadius: 30}}
                         />
                     </div>
@@ -130,7 +132,14 @@ function ClassDetailsTable() {
                                 </TableRow>
                             </TableHead>
                             <TableBody>
-                                {classDetails && classDetails.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                                {classDetails?.filter((val) => {
+                                    if(searchTerm == ""){
+                                        return val
+                                    }else if(val.name.toLowerCase().includes(searchTerm.toLowerCase())){
+                                        return val
+                                    }
+                                })
+                                // slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                                     .map((row) => (
                                     <StyledTableRow key={row.id}>
                                         {/*<StyledTableCell align="center">{row.id}</StyledTableCell>*/}
