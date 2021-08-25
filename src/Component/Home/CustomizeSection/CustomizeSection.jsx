@@ -1,5 +1,4 @@
 import React from 'react'
-import ClassTile from "../../Class/ClassTile/ClassTile";
 import './styles.css'
 import {useHistory} from "react-router";
 

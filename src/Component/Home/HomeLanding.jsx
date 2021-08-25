@@ -12,7 +12,11 @@ import TutorSection from "./TutorSection/TutorSection";
 import CourseWelcomeHeader from "../WelcomeHeader-Course/CourseWelcomeHeader";
 
 import PopupModel from "../PopupModel/PopupModel";
+import CourseTile from "../Class/CourseTile/CourseTile";
 
+import Booksontop from '../Class/CourseTile/Image/booksonTop.svg'
+import Book2 from '../Class/CourseTile/Image/book2.svg'
+import Book6 from '../Class/CourseTile/Image/books6.svg'
 
 
 
@@ -24,18 +28,24 @@ function HomeLanding() {
         <div>
             <div className='ash-background'>
                 <WelcomeHeader/>
-                <button onClick={() => setshow(true)}>Popup Modal</button>
-                <PaymentForm/>
-                <PopupModel show={show}>
-                    <WelcomeHeader/>
-                </PopupModel>
-
-
                 <CustomizeSection main_topic={'Top Courses'} sub_topic={'Latest and Best selling courses, Enroll now for the full life time access.'} textcolor={'#717171'}backgroundcl={'#D6D6D6'} btn_text={'View All'} btn_color={'#8340F4'}>
+                    <CourseTile image={Booksontop}/>
+                    <CourseTile image={Book2}/>
+                    <CourseTile image={Book6}/>
+                    <CourseTile image={Booksontop}/>
+                    <CourseTile image={Book6}/>
+                    <CourseTile image={Book2}/>
+                    <CourseTile image={Booksontop}/>
                 </CustomizeSection>
             </div>
             <div className='dark-ash-background'>
-                <CustomizeSection path = {"/class"} main_topic={'Classes'} sub_topic={'Latest Classes, Enroll now for the full life time access.'} backgroundcl={'#ADA6CE'} btn_text={'View All'} btn_color={'#8340F4'}/>
+                <CustomizeSection main_topic={'Classes'} sub_topic={'Latest Classes, Enroll now for the full life time access.'} backgroundcl={'#ADA6CE'} btn_text={'View All'} btn_color={'#8340F4'}>
+                    <ClassTile/>
+                    <ClassTile/>
+                    <ClassTile/>
+                    <ClassTile/>
+                    <ClassTile/>
+                </CustomizeSection>
                 <TutorSection/>
             </div>
             <GetUpdates/>

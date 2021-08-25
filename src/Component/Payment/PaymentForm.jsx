@@ -6,14 +6,14 @@ import Paypal from './paypal.svg'
 import Amex from './amex.svg'
 import Visa from './visa.svg'
 
-function PaymentForm() {
+function PaymentForm({row}) {
 
     const [show, setShow] = useState(false);
 
     const handleModal = () =>{ setShow(!show)}
     return(
         <div>
-            <button onClick={() => handleModal()}>Trigger Modal</button>
+            <button className='payment-enroll-btn' onClick={() => handleModal()}>Buy</button>
             <ReactModal
                 isOpen={show}
                 contentLabel="Minimal Modal Example"
@@ -27,9 +27,9 @@ function PaymentForm() {
                         <div className='MainClassContainer'>
                             <img className='MainImage' src={classImage}/>
                             <div className='Textcontainer'>
-                                <div className='heading-text'>Grade 10</div>
-                                <div className='sub-text'>Class</div>
-                                <div className='sub-text'>Description</div>
+                                <div className='heading-text'>{row.CName}</div>
+                                <div className='sub-text'>{row.Teacher}</div>
+                                <div className='sub-text'>{row.Description}</div>
                             </div>
                         </div>
                         <div className='MainMethodContainer'>
@@ -37,16 +37,16 @@ function PaymentForm() {
                             <hr></hr>
                             <div className='value-container'>
                                 <div className='Sub-heading'>Amount :</div>
-                                <div className='Sub-heading'>99.99$</div>
+                                <div className='Sub-heading'>{row.Amount}</div>
                             </div>
                             <div className='value-container'>
                                 <div className='Sub-heading'>Discount :</div>
-                                <div className='Sub-heading'>9.99$</div>
+                                <div className='Sub-heading'>{row.Amount}</div>
                             </div>
                             <hr></hr>
                             <div className='value-container'>
                                 <div className='Sub-heading'>Total Amount :</div>
-                                <div className='Sub-heading'>90.00$</div>
+                                <div className='Sub-heading'>{row.Amount}</div>
                             </div>
 
                             <hr/><hr/>
