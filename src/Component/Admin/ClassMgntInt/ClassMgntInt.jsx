@@ -102,23 +102,24 @@ function ClassMgntInt(){
                                 required
                             >
                                 <option selected>Choose...</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                                <option value="1">D.K.L.WEERSINGHE</option>
+                                <option value="2">T.K.L.CHANDRASENA</option>
+                                <option value="3">M.N.V.RATHNAYAKA</option>
+                                <option value="4">H.K.L.VEERSINGHE</option>
+                                <option value="5">K.N.V.PERERA</option>
                             </select>
 
 
-                            <label htmlFor="lname">Image</label>
-                            <div className="mb-3" style={{marginLeft:20}}>
-                                {/*<FileBase*/}
-                                {/*    type="file"*/}
-                                {/*    multiple={false}*/}
-                                {/*    onDone={({base64}) => setClassData({...classData, image: base64})}*/}
-                                {/*    // required*/}
-                                {/*/>*/}
-                                <input type="file" id="avatar"  accept="image/png, image/jpeg"
-                                       onChange={uploadedImage} />
-                            </div>
+                            {/*<label htmlFor="lname">Image</label>*/}
+                            {/*<div className="mb-3" style={{marginLeft:20}}>*/}
+                            {/*    /!*<FileBase*!/*/}
+                            {/*    /!*    type="file"*!/*/}
+                            {/*    /!*    multiple={false}*!/*/}
+                            {/*    /!*    onDone={({base64}) => setClassData({...classData, image: base64})}*!/*/}
+                            {/*    /!*    // required*!/*/}
+                            {/*    <input type="file" id="avatar"  accept="image/png, image/jpeg"*/}
+                            {/*           onChange={uploadedImage} />*/}
+                            {/*</div>*/}
                             {/*<label htmlFor="lname">Image</label>*/}
                             {/*<div className="mb-3" style={{marginLeft:20}}>*/}
                             {/*    <FileBase*/}
