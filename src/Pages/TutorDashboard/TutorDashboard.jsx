@@ -11,7 +11,12 @@ import InqPopUpMenu from "../../Component/Tutor/InqFeedInt/Inquiry/InqPopUpMenu/
 function TutorDashboard() {
 
     //State to hold the popup menu.
-    const [trigger, setTrigger] = useState(true);
+    const [trigger, setTrigger] = useState(false);
+
+    const [triggerData, setTriggerData] = useState({
+        header: 'No Data',
+        description: 'No Data'
+    });
 
     const courses = useSelector((state) => state.courses);
     const dispatch = useDispatch();
@@ -70,9 +75,16 @@ function TutorDashboard() {
             <TutorDashHeader array5={array4}/>
             <CourseMgntInt array4={courses} />
             <FileAttachInt array4={array4}/>
-            <InqFeedInt array1={array1} array2={array2}/>
+            <InqFeedInt array1={array1}
+                        array2={array2}
+                        setTrigger={setTrigger}
+                        setTriggerData={setTriggerData}
+                        triggerData={triggerData}/>
             <StudentTableComponent/>
-            <InqPopUpMenu trigger={trigger} setTrigger={setTrigger}/>
+            <InqPopUpMenu trigger={trigger}
+                          setTrigger={setTrigger}
+                          triggerHeader={triggerData}
+            />
         </div>
     )
 }
