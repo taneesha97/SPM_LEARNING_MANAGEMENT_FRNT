@@ -1,5 +1,4 @@
 import React from 'react'
-import ClassTile from "../../Class/ClassTile/ClassTile";
 import './styles.css'
 
 const CustomizeSection = ({main_topic, sub_topic, backgroundcl, btn_text, btn_color, textcolor, children}) => {

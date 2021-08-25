@@ -1,35 +1,31 @@
-.class-tile-container{
-  width:300px;
+.course-tile-container{
+  width: 200px;
   height: 200px;
-  display: flex;
   background-color: #7D75A4;
   border-radius: 30px;
   margin: 1.5%;
+  position: relative;
 
-
-  .left-container{
+  .top-container{
     color: #FFFFFF;
-    width: 150px;
     padding: 10px;
+   text-align: right;
     .main-heading{
       font-size: larger;
       font-weight: bold;
-
     }
     .sub-heading{
       font-size: small;
-
-
     }
   }
-
-  }
-  .right-container{
-    overflow: hidden;
-    border-radius: 0 30px 30px 0;
+  .image-container{
+    position: absolute;
+    margin-left: 10px;
+    margin-top: 28px;
     img{
-      width: fit-content;
-      height: 200px;
+      width: 100px;
+
     }
 
   }
+}
