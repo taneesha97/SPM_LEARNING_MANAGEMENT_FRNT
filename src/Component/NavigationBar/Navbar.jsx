@@ -82,7 +82,7 @@ function Navbar () {
                         </li>
                     </ul>
                     <Link to = "/navbarbuttoncomponent" className ="navbar-logo" onClick={closeMobileMenu}>
-                        <div >
+                        <div>
                             <img src= {userIcon}  style={userIconImgCss}/>
 
                         </div>

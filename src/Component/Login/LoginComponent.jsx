@@ -6,6 +6,7 @@ import {useHistory} from "react-router";
 import axios from "axios";
 import AuthClass from "../../Validation/AuthClass";
 import SucessPopUp from "../PopupModel/SucessPopUp";
+import PopupModel from "../PopupModel/PopupModel";
 
 function LoginComponent() {
 
@@ -69,11 +70,15 @@ function LoginComponent() {
     }
 
     return (
-        <div>
-            <div className="login-component-11">
-                <SucessPopUp trigger={buttonPopup} setTrigger = {setButtonPopup} name1 = {popupName} name2 = {popupLocation}></SucessPopUp>
+        <div className="loginbackground">
+            <div className="login-component-111">
+                <PopupModel show={buttonPopup} buttondisble = {false}>
+                    <SucessPopUp trigger={buttonPopup} setTrigger = {setButtonPopup} name1 = {popupName} name2 = {popupLocation}></SucessPopUp>
+                </PopupModel>
+
             </div>
-            <form onSubmit={SubmitPressed}>
+            <div className="">
+                <form onSubmit={SubmitPressed}>
                     <div className="login-info4">
                         <h2 className="login-info4-main">Login</h2>
                         <h4 className="login-info4-second">Login to get access to premium features and discounts</h4>
@@ -122,7 +127,9 @@ function LoginComponent() {
                             <h2 className="login-info6-main">Forgot Password?</h2>
                         </div>
                     </div>
-            </form>
+                </form>
+            </div>
+
         </div>
     )
 }
