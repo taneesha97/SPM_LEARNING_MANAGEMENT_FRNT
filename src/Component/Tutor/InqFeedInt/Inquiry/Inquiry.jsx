@@ -15,7 +15,7 @@ function Inquiry({array}) {
             </div>
             <div className="inquiry-body">
                 {array.map((item) => (
-                    <InquiryCustomRow header={item.header} description={item.description}/>
+                    <InquiryCustomRow header={item.header} description={item.description} />
                 ))}
             </div>
         </div>

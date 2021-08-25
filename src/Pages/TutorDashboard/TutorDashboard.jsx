@@ -7,6 +7,7 @@ import InqFeedInt from "../../Component/Tutor/InqFeedInt/InqFeedInt";
 import StudentTableComponent from "../../Component/Tutor/StudentTable/StudentTableCompoenent";
 import { useDispatch, useSelector } from "react-redux";
 import {fetchCourses} from "../../Action/Courses";
+import InqPopUpMenu from "../../Component/Tutor/InqFeedInt/Inquiry/InqPopUpMenu/InqPopUpMenu";
 function TutorDashboard() {
 
     const courses = useSelector((state) => state.courses);
@@ -68,6 +69,7 @@ function TutorDashboard() {
             <FileAttachInt array4={array4}/>
             <InqFeedInt array1={array1} array2={array2}/>
             <StudentTableComponent/>
+            <InqPopUpMenu trigger={false}/>
         </div>
     )
 }
