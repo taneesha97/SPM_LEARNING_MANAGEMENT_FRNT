@@ -30,7 +30,7 @@ function   RegistrationComponent() {
             status = 'valid';
         }
         if(type == 'teacher'){
-            status = 'pending';
+            status = 'valid';
         }
         const newUser = {
             name,
