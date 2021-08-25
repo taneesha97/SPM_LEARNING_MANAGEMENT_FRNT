@@ -8,10 +8,10 @@ import SucessPopUp from "../../Component/PopupModel/SucessPopUp";
 function ClassPage() {
     return (
         <div >
-            <SucessPopUp/>
-            {/*<ClassSearch/>*/}
-            {/*<ClassItems/><br/><br/><br/>*/}
-            {/*<Footer/>*/}
+            {/*<SucessPopUp/>*/}
+            <ClassSearch/>
+            <ClassItems/><br/><br/><br/>
+            <Footer/>
         </div>
     )
 }
