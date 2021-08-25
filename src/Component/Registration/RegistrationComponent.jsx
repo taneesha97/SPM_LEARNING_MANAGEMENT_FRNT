@@ -4,6 +4,8 @@ import {useDispatch, useSelector} from "react-redux";
 import {addUsers, loginUserValidation} from "../../Action/Users";
 import {useHistory} from "react-router";
 import CustomAlert from "../CustomAlert/CustomAlert";
+import EmailUpdateComponent from "../Profile/EmailUpdateComponent";
+import SucessPopUp from "../PopupModel/SucessPopUp";
 
 function   RegistrationComponent() {
 
@@ -13,26 +15,11 @@ function   RegistrationComponent() {
     const [username, setUsername] = useState("");
     const [type, setType] = useState('teacher');
     const [password, setPassword] = useState();
-
+    const [buttonPopup, setButtonPopup] = useState(false);
+    const [popupName, setPopupName] = useState("");
+    const [popupLocation, setPopupLocaion] = useState("");
     const dispatch = useDispatch();
     const history = useHistory();
-    //Error message
-    const errorMessage = useSelector((state: any) => state.userDetails1.UserDetails.error);
-   console.log('err ', errorMessage)
-    const [errorDisplay, setErrorDisplay] = useState("");
-
-    React.useEffect(() => {
-        setErrorDisplay(errorMessage);
-        setTimeout(() => setErrorDisplay(""), 5000);
-    }, [errorMessage]);
-
-   const successMessage = useSelector((state) => state.userDetails1.UserDetails.success);
-   console.log('sucess ', successMessage)
-   const [successMessageDisplay, setSuccessMessageDisplay] = useState(successMessage);
-
-    React.useEffect(() => {setSuccessMessageDisplay(successMessage);
-        setTimeout(() => setSuccessMessageDisplay(""), 4000);
-    }, [successMessage]);
 
 
     function SubmitPressed(e) {
@@ -55,13 +42,19 @@ function   RegistrationComponent() {
         }
         console.log(newUser);
        dispatch(addUsers(newUser));
-       // /history.push("/login");
+        setPopupName("register");
+       setPopupLocaion("/login");
+        setButtonPopup(true);
+
     }
 
 
 
     return (
         <div>
+            {/*<div className="registration">*/}
+            {/*    <SucessPopUp trigger={buttonPopup} setTrigger = {setButtonPopup} name1 = {popupName} name2 = {popupLocation}></SucessPopUp>*/}
+            {/*</div>*/}
             <form onSubmit={SubmitPressed}>
                 <div className="registration-info4">
                     <h2 className="registration-info4-main">Registration</h2>
@@ -113,17 +106,6 @@ function   RegistrationComponent() {
                                }}
                                required
                         />
-                    </div>
-                    <div>
-                        {errorDisplay ? (
-                            <CustomAlert displayText={errorDisplay} severity="warning" />
-                        ) : null}
-                        {successMessageDisplay ? (
-                            <CustomAlert
-                                displayText={successMessageDisplay}
-                                severity="success"
-                            />
-                        ) : null}
                     </div>
                     <div>
                         <lable className="input-wrapper">User Type</lable><br/>
