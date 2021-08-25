@@ -16,6 +16,7 @@ import store from "./store";
 import EmailUpdateComponent from "./Component/Profile/EmailUpdateComponent";
 import SingleClassView from "./Pages/SingleClass/SingleClassView";
 import DownloadFile from "./Component/Downloads/DownloadFile";
+import PopUpTeacherStatusComponent from "./Component/PopupModel/TeacherStatus/PopUpTeacherStatusComponent";
 
 const App = () => {
 //Add the React Router And Create Routing
@@ -34,6 +35,7 @@ const App = () => {
                   <Route exact path = "/class" component={ClassPage}/>
                   <Route exact path = "/singleclassview" component={SingleClassView}/>
                   <Route exact path = "/download" component={DownloadFile}/>
+                  <Route exact path = "/teacherstatuspopup" component={PopUpTeacherStatusComponent}/>
               </Switch>
           </BrowserRouter>
   )
