@@ -7,6 +7,7 @@ import SucessPopUp from "../../Component/PopupModel/SucessPopUp";
 
 function ClassPage() {
     return (
+     
         <div style={{backgroundColor:'#D6D6D6'}}>
             {/*<SucessPopUp/>*/}
             <ClassSearch/>
