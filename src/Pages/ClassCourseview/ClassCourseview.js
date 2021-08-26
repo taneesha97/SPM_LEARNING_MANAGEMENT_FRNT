@@ -44,8 +44,9 @@ function ClassCourseview() {
 
                 ))}
             </table>
+            <div>
 
-
+            </div>
         </div>
     )
 }

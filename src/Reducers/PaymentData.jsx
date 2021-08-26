@@ -27,7 +27,7 @@ export default function (state = initialState, action){
                 UserDetails: {
                     ...state.UserDetails,
                     record: action.payload,
-                    success: "Class inserted successfully",
+                    success: "payment inserted successfully",
                     error: null
                 }
             }

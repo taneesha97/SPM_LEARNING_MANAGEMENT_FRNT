@@ -5,27 +5,24 @@ import classImage from './5 9.svg'
 import Paypal from './paypal.svg'
 import Amex from './amex.svg'
 import Visa from './visa.svg'
+import {addPayment} from "../../Action/Payment";
+import {useDispatch} from "react-redux";
+
 
 function PaymentForm({row}) {
 
     const [show, setShow] = useState(false);
 
-    const [courseid, setCourseid] = useState('');
-    const [date, setDate] = useState('');
-    const [amount, setAmount] = useState('');
-    const [description, setDescription] = useState('');
-    const [doneby, setDoneby] = useState('');
-    const [type, setType] = useState('');
+    const [courseid, setCourseid] = useState(row.CID);
+    const [date, setDate] = useState(new Date());
+    const [amount, setAmount] = useState(row.Amount);
+    const [description, setDescription] = useState('course enrollment');
+    const [doneby, setDoneby] = useState('STU001');
+    const [type, setType] = useState('income');
+    const dispatch = useDispatch();
+
 
     function SubmitPaymentRecord () {
-        setCourseid(row.CID)
-        setAmount(row.Amount)
-        var today = new Date(), date1 = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-        setDate(date1);
-        setDescription('course enrollment');
-        setDoneby('STU001');
-        setType('income');
-
         const newPayment ={
             amount,
             courseid,
@@ -35,6 +32,7 @@ function PaymentForm({row}) {
             type
         }
         console.log(newPayment);
+        dispatch(addPayment(newPayment));
     }
 
 
@@ -100,24 +98,25 @@ function PaymentForm({row}) {
 
                         </div>
 
-                        <form  onSubmit={SubmitPaymentRecord} >
                             <div className='input-field-container'>
-                                <input className='input-field' type='text' placeholder='Card Number' required/>
+                                <input className='input-field' type='text' placeholder='Card Number' />
                                 <div className='PaymentSubContainer'>
-                                    <input className='input-field' type='text' placeholder='CVC' required/>
+                                    <input className='input-field' type='text' placeholder='CVC' />
                                     <input className='input-field' type='month' placeholder='Exdate'/>
                                 </div>
-                                <input className='input-field' type='text' placeholder='Name on Card' required/>
-                                <input className='input-field' type='email' placeholder='Email Address' required/>
+                                <input className='input-field' type='text' placeholder='Name on Card' />
+                                <input className='input-field' type='email' placeholder='Email Address' />
                             </div>
                             <div className='input-button-container'>
-                                <button className='input-button' type="submit">Pay Now</button>
+                                <button className='input-button' type="submit" onClick={SubmitPaymentRecord}>Pay Now</button>
                                 <button className='input-button' onClick={handleModal}>Cancel</button>
                             </div>
-                        </form>
+
 
                     </div>
                 </div>
+
+
             </ReactModal>
         </div>
     )
