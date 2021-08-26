@@ -5,9 +5,9 @@ import  './styles.css'
 function ClassCourseview() {
 
     const rows = [
-        {"CName": 'English',"Teacher": 'Salitha Ekanayake',"Description": 'Spoken English',"Syllabus": '2012',"Duration": '48hr',"Amount": '99.99$'},
-        {"CName": 'Maths',"Teacher": 'Akash Anwarathe',"Description": 'Combine maths grade 12/13',"Syllabus": '2016',"Duration": '48hr',"Amount": '99.99$'},
-        {"CName": 'Sinhala',"Teacher": 'Taneesha Chandrasena',"Description": 'Sinhala language grade 1',"Syllabus": '2020',"Duration": '48hr',"Amount": '99.99$'}
+        {"CID": 'C00E1',"CName": 'English',"Teacher": 'Salitha Ekanayake',"Description": 'Spoken English',"Syllabus": '2012',"Duration": '48hr',"Amount": '99.99$'},
+        {"CID": 'C00M1',"CName": 'Maths',"Teacher": 'Akash Anwarathe',"Description": 'Combine maths grade 12/13',"Syllabus": '2016',"Duration": '48hr',"Amount": '99.99$'},
+        {"CID": 'C00S1',"CName": 'Sinhala',"Teacher": 'Taneesha Chandrasena',"Description": 'Sinhala language grade 1',"Syllabus": '2020',"Duration": '48hr',"Amount": '99.99$'}
     ];
 
 // des character 25
@@ -32,7 +32,7 @@ function ClassCourseview() {
                     <th className='table-head-row-col'>Enroll</th>
                 </tr>
                 {rows.map((row,index) => (
-                    <tr className='course-table-data'>
+                    <tr className='course-table-data' key={index}>
                         <td className='table-data-row-col'>{row.CName}</td>
                         <td className='table-data-row-col'>{row.Teacher}</td>
                         <td className='table-data-row-col text-align'>{row.Description}</td>

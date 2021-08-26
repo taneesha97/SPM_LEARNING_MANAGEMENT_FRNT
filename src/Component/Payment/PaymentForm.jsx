@@ -10,6 +10,34 @@ function PaymentForm({row}) {
 
     const [show, setShow] = useState(false);
 
+    const [courseid, setCourseid] = useState('');
+    const [date, setDate] = useState('');
+    const [amount, setAmount] = useState('');
+    const [description, setDescription] = useState('');
+    const [doneby, setDoneby] = useState('');
+    const [type, setType] = useState('');
+
+    function SubmitPaymentRecord () {
+        setCourseid(row.CID)
+        setAmount(row.Amount)
+        var today = new Date(), date1 = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+        setDate(date1);
+        setDescription('course enrollment');
+        setDoneby('STU001');
+        setType('income');
+
+        const newPayment ={
+            amount,
+            courseid,
+            date,
+            description,
+            doneby,
+            type
+        }
+        console.log(newPayment);
+    }
+
+
     const handleModal = () =>{ setShow(!show)}
     return(
         <div>
@@ -72,19 +100,22 @@ function PaymentForm({row}) {
 
                         </div>
 
-                        <div className='input-field-container'>
-                            <input className='input-field' type='text' placeholder='Card Number'/>
-                            <div className='PaymentSubContainer'>
-                                <input className='input-field' type='text' placeholder='CVC'/>
-                                <input className='input-field' type='month' placeholder='Exdate'/>
+                        <form  onSubmit={SubmitPaymentRecord} >
+                            <div className='input-field-container'>
+                                <input className='input-field' type='text' placeholder='Card Number' required/>
+                                <div className='PaymentSubContainer'>
+                                    <input className='input-field' type='text' placeholder='CVC' required/>
+                                    <input className='input-field' type='month' placeholder='Exdate'/>
+                                </div>
+                                <input className='input-field' type='text' placeholder='Name on Card' required/>
+                                <input className='input-field' type='email' placeholder='Email Address' required/>
                             </div>
-                            <input className='input-field' type='text' placeholder='Name on Card'/>
-                            <input className='input-field' type='text' placeholder='Email Address'/>
-                        </div>
-                        <div className='input-button-container'>
-                            <button className='input-button'>Pay Now</button>
-                            <button className='input-button' onClick={handleModal}>Cancel</button>
-                        </div>
+                            <div className='input-button-container'>
+                                <button className='input-button' type="submit">Pay Now</button>
+                                <button className='input-button' onClick={handleModal}>Cancel</button>
+                            </div>
+                        </form>
+
                     </div>
                 </div>
             </ReactModal>

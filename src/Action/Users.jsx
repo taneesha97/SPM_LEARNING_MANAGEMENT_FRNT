@@ -40,9 +40,7 @@ export const fetchUser = () => dispatch => {
                 type: FETCH_USERS,
                 payload: response
             })}
-
         ).catch((err) => {
-
         console.log(err);
     })
 }
