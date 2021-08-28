@@ -1,10 +1,13 @@
 import React, {useState} from 'react'
 import './Registration.css'
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {addUsers, loginUserValidation} from "../../Action/Users";
 import {useHistory} from "react-router";
+import CustomAlert from "../CustomAlert/CustomAlert";
+import EmailUpdateComponent from "../Profile/EmailUpdateComponent";
+import SucessPopUp from "../PopupModel/SucessPopUp";
 
-function RegistrationComponent() {
+function   RegistrationComponent() {
 
 
     const [name, setName] = useState("");
@@ -12,7 +15,9 @@ function RegistrationComponent() {
     const [username, setUsername] = useState("");
     const [type, setType] = useState('teacher');
     const [password, setPassword] = useState();
-
+    const [buttonPopup, setButtonPopup] = useState(false);
+    const [popupName, setPopupName] = useState("");
+    const [popupLocation, setPopupLocaion] = useState("");
     const dispatch = useDispatch();
     const history = useHistory();
 
@@ -25,7 +30,7 @@ function RegistrationComponent() {
             status = 'valid';
         }
         if(type == 'teacher'){
-            status = 'pending';
+            status = 'valid';
         }
         const newUser = {
             name,
@@ -37,13 +42,19 @@ function RegistrationComponent() {
         }
         console.log(newUser);
        dispatch(addUsers(newUser));
-       //history.push("/login");
+        setPopupName("register");
+       setPopupLocaion("/login");
+        setButtonPopup(true);
+
     }
 
 
 
     return (
         <div>
+            <div className="registration">
+                <SucessPopUp trigger={buttonPopup} setTrigger = {setButtonPopup} name1 = {popupName} name2 = {popupLocation}></SucessPopUp>
+            </div>
             <form onSubmit={SubmitPressed}>
                 <div className="registration-info4">
                     <h2 className="registration-info4-main">Registration</h2>
