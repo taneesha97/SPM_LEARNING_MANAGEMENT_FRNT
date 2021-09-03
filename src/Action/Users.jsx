@@ -93,6 +93,8 @@ export const getUserByID = (data) => dispatch => {
     })
 }
 
+
+
 export const upDateUser = (PostData, id) => dispatch => {
     axios.put(api.baseURL + 'updateuser/' + id , PostData)
         .then(response => {

@@ -31,7 +31,7 @@ function LoginComponent() {
                 let values = response.data;
                 console.log('res1 ', response.data);
                 console.log('res1 ', values[0]);
-                if (values[1] == ""){
+                if (values[1] == null){
                     console.log('111')
                     alert('Invalid login')
                     history.push("/login");
