@@ -106,15 +106,29 @@ function ClassDetailsTable() {
                     <div className="search-bar-class-table">
                         <TextField
                             id="filled-full-width"
-                            // label="Search"
-                            placeholder="Search Items.."
+                            label="Search"
+                            placeholder="Search by name.."
                             fullWidth
                             margin="normal"
-                            // variant="outlined"
+                            variant="outlined"
                             className="search-class"
+                            //value={searchTerm}
+                           // onChange={(event) => setSearchTerm(event.target.value)}
                             style={{backgroundColor: "#FFFFFF", width: 300, borderRadius: 30}}
                         />
                     </div>
+                    {/*<div className="search-bar-class-table">*/}
+                    {/*    <TextField*/}
+                    {/*        id="filled-full-width"*/}
+                    {/*        // label="Search"*/}
+                    {/*        placeholder="Search Items.."*/}
+                    {/*        fullWidth*/}
+                    {/*        margin="normal"*/}
+                    {/*        // variant="outlined"*/}
+                    {/*        className="search-class"*/}
+                    {/*        style={{backgroundColor: "#FFFFFF", width: 300, height: 30, borderRadius: 30}}*/}
+                    {/*    />*/}
+                    {/*</div>*/}
 
                 </div>
                 <TableContainer component={Paper} className={classes.editorContentClass}>

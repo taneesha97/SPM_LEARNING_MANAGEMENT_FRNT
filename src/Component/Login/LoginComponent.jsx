@@ -5,12 +5,17 @@ import {fetchUser, loginUserValidation} from "../../Action/Users";
 import {useHistory} from "react-router";
 import axios from "axios";
 import AuthClass from "../../Validation/AuthClass";
+import SucessPopUp from "../PopupModel/SucessPopUp";
+import PopupModel from "../PopupModel/PopupModel";
 
 function LoginComponent() {
 
 
     const [username, setName] = useState("");
     const [password, setPassword] = useState("");
+    const [buttonPopup, setButtonPopup] = useState(false);
+    const [popupName, setPopupName] = useState("");
+    const [popupLocation, setPopupLocaion] = useState("");
     const dispatch = useDispatch();
     const history = useHistory();
 
@@ -27,20 +32,28 @@ function LoginComponent() {
                 console.log('res1 ', response.data);
                 console.log('res1 ', values[0]);
                 if (values[1] == ""){
-                    alert('Invalid Login')
+                    console.log('111')
+                    alert('Invalid login')
                     history.push("/login");
                     setName("");
                     setPassword("");
                 }else if (values[1] == "student"){
-                    alert('Valid Login')
+                    console.log('1112')
                     AuthClass.login(username,values)
-                    history.push("/home");
+                    setButtonPopup(true);
+                    setPopupName("login");
+                    setPopupLocaion("/home");
+
                 }else if (values[1] == "teacher"){
                     if (values[0] == "valid"){
-                        alert('Valid Login')
+                        console.log('111w')
                         AuthClass.login(username,values)
-                        history.push("/tutordash");
+                        setPopupName("login");
+                        setPopupLocaion("/tutordash");
+                        setButtonPopup(true);
+                        //history.push();
                     }else{
+                        console.log('111s')
                         setName("");
                         setPassword("");
                         alert('Teacher Status pending')
@@ -51,20 +64,21 @@ function LoginComponent() {
             });
         // dispatch(loginUserValidation(newUser));
         // const response = useSelector((state) => state.userDetails1.loginUser);
-
-
     }
-
-
-
-
     const NavigateToRegistration = () => {
         history.push("/registration");
     }
 
     return (
-        <div>
-            <form onSubmit={SubmitPressed}>
+        <div className="loginbackground">
+            <div className="login-component-111">
+                <PopupModel show={buttonPopup} buttondisble = {false}>
+                    <SucessPopUp trigger={buttonPopup} setTrigger = {setButtonPopup} name1 = {popupName} name2 = {popupLocation}></SucessPopUp>
+                </PopupModel>
+
+            </div>
+            <div className="">
+                <form onSubmit={SubmitPressed}>
                     <div className="login-info4">
                         <h2 className="login-info4-main">Login</h2>
                         <h4 className="login-info4-second">Login to get access to premium features and discounts</h4>
@@ -113,7 +127,9 @@ function LoginComponent() {
                             <h2 className="login-info6-main">Forgot Password?</h2>
                         </div>
                     </div>
-            </form>
+                </form>
+            </div>
+
         </div>
     )
 }

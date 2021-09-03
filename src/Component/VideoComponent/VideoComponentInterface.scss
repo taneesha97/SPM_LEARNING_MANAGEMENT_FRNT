@@ -1,5 +1,7 @@
 .VideoComponentInterface{
   display: flex;
+  padding-top: 1%;
+  padding-bottom: 1%;
 }
 
 
@@ -12,6 +14,15 @@
   grid-template-columns: auto auto auto auto auto;
   grid-auto-rows: minmax(1px, auto);
   justify-content: left;
-  align-items: normal;
+  //align-items: normal;
   grid-gap: 5%;
+}
+
+.videocontent-background{
+  background-color: #AEAEAE;
+  height: 200%;
+}
+
+.title{
+  margin-left: 3%;
 }
