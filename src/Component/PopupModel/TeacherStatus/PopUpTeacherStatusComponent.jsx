@@ -11,6 +11,12 @@ function PopUpTeacherStatusComponent(props) {
         props.setTrigger(false)
     }
     return (props.trigger) ? (
+            // <div className="Popupout">
+            //     <div className="Popupin">
+            //         <AiOutlineClose onClick={() => props.setTrigger(false)} className="closeIcone"/>
+            //         {(props.setCard)?(<AddCardForm delivery={props.delivery} />):(<AddNoForm delivery={props.delivery}/>)}
+            //     </div>
+            // </div>
         <div className="modal-confirm-4">
             <div className="class-component-2">
                 <div className="input-form-container">
