@@ -8,7 +8,7 @@ import AuthClass from "../../Validation/AuthClass";
 import SucessPopUp from "../PopupModel/SucessPopUp";
 import PopupModel from "../PopupModel/PopupModel";
 
-function LoginComponent() {
+function LoginComponent(props) {
 
 
     const [username, setName] = useState("");
@@ -73,7 +73,7 @@ function LoginComponent() {
         <div className="loginbackground">
             <div className="login-component-111">
                 <PopupModel show={buttonPopup} buttondisble = {false}>
-                    <SucessPopUp trigger={buttonPopup} setTrigger = {setButtonPopup} name1 = {popupName} name2 = {popupLocation}></SucessPopUp>
+                    <SucessPopUp setBackground={props.setBackground} trigger={buttonPopup} setTrigger = {setButtonPopup} name1 = {popupName} name2 = {popupLocation}></SucessPopUp>
                 </PopupModel>
 
             </div>
