@@ -12,7 +12,6 @@
   text-align: Left;
   color: #C4C4C4;
   font-weight: 700;
-  font-family: Roboto;
   font-size: 44px;
 }
 
@@ -21,6 +20,10 @@
   width: 75%;
   margin-left: -10%;
   border-radius: 30px;
+}
+
+.login-component-4 {
+  margin: auto;
 }
 
 .student-table-header-columns {
@@ -32,7 +35,7 @@
 }
 
 .search-bar-teacher-table {
-  margin-left: 387.5%;
+  margin-left: 357.5%;
   margin-top: -17%;
   border-radius: 30px;
   background-color: white;

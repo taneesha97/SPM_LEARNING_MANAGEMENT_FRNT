@@ -17,6 +17,8 @@ import EmailUpdateComponent from "./Component/Profile/EmailUpdateComponent";
 import SingleClassView from "./Pages/SingleClass/SingleClassView";
 import ClassCourseview from "./Pages/ClassCourseview/ClassCourseview";
 import DownloadFile from "./Component/Downloads/DownloadFile";
+import PopUpTeacherStatusComponent from "./Component/PopupModel/TeacherStatus/PopUpTeacherStatusComponent";
+import VideoComponentInterface from "./Component/VideoComponent/VideoComponentInterface";
 
 
 const App = () => {
@@ -37,6 +39,8 @@ const App = () => {
                   <Route exact path = "/ClassCourseview" component={ClassCourseview}/>
                   <Route exact path = "/singleclassview" component={SingleClassView}/>
                   <Route exact path = "/download" component={DownloadFile}/>
+                  <Route exact path = "/teacherstatuspopup" component={PopUpTeacherStatusComponent}/>
+                  <Route exact path = "/videocomponent" component={VideoComponentInterface}/>
               </Switch>
           </BrowserRouter>
   )
