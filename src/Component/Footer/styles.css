@@ -1,0 +1,82 @@
+.footer-container {
+  background-color: #252525;
+  width: 100%;
+  padding-top: 5px;
+}
+.footer-container .row {
+  color: #FFFFFF;
+  margin: 5px;
+}
+.footer-container .row .col-md-3 {
+  min-width: 32%;
+  margin: 10px 5px;
+  padding: 10px;
+  background-color: #1E1E1E;
+}
+.footer-container .row .col-md-3 .footer-main-header {
+  margin-left: 5px;
+  font-size: x-large;
+}
+.footer-container .row .col-md-3 .text-area-continer {
+  color: #FFFFFF;
+  margin-left: 30px;
+}
+.footer-container .row .col-md-3 .footer-btn-wrapper {
+  margin: 10px;
+  margin-top: 30px;
+  text-align: center;
+}
+.footer-container .row .col-md-3 .footer-btn-wrapper .register-now-btn {
+  padding: 5px;
+  width: 150px;
+  color: #FFFFFF;
+  border: none;
+  height: 50px;
+  border-radius: 12px;
+  background-color: #8886FF;
+}
+.footer-container .row .col-md-3 .link-warpper {
+  display: flex;
+  flex-direction: row;
+  margin-left: 30px;
+}
+.footer-container .row .col-md-3 .link-warpper ul {
+  margin-left: 40px;
+}
+.footer-container .row .col-md-3 .link-warpper ul li {
+  padding: 2px;
+}
+.footer-container .sub-footerx {
+  text-align: center;
+  background: #1E1E1E;
+  width: 100%;
+  margin: 0 0 10px 0;
+  padding: 5px 0;
+  justify-content: center;
+  color: gray;
+  font-size: 15px;
+  color: #FFFFFF;
+}
+.footer-container .sub-footerx .social-media-container img {
+  width: 40px;
+  margin: 3px;
+  padding: 2px;
+}
+.footer-container .sub-footer {
+  text-align: center;
+  background: #000;
+  width: 100%;
+  margin: 0 0 10px 0;
+  padding: 5px 0;
+  justify-content: center;
+  color: gray;
+  font-size: 15px;
+  color: #FFFFFF;
+}
+.footer-container .sub-footer .social-media-container img {
+  width: 40px;
+  margin: 3px;
+  padding: 2px;
+}
+
+/*# sourceMappingURL=styles.css.map */

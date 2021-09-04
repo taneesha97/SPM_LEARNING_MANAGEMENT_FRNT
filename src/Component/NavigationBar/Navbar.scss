@@ -15,19 +15,18 @@
   justify-content: center;
   align-items: center;
   height: 80px;
-  max-width: 1500px;
+  max-width: 9375%;
 }
 
-.navbar-logo {
-  color: #fff;
-  justify-self: start;
-  margin-left: 20px;
-  cursor: pointer;
-  text-decoration: none;
-  font-size: 2rem;
-  display: flex;
-  align-items: center;
-}
+
+//.logo-image{
+//  width: 1px;
+//  height: 1px;
+//  margin-left: 200px;
+//  border-radius: 50%;
+//  overflow: hidden;
+//  margin-top: -6px;
+//}
 
 .fa-typo3 {
   margin-left: 0.5rem;
@@ -114,11 +113,12 @@
   }
 
   .navbar-logo {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
-    transform: translate(25%, 50%);
+    transform: translate(100%, 50%);
   }
+
 
   .menu-icon {
     display: block;
