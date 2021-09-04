@@ -28,8 +28,9 @@
   font-weight: bold;
 }
 .section-main-wrapper .section-body {
+  overflow: hidden;
   display: flex;
-  height: 250px;
+  height: 300px;
 }
 
 /*# sourceMappingURL=styles.css.map */

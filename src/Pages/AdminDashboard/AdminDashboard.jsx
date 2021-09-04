@@ -5,6 +5,7 @@ import TeacherTableComponent from "../../Component/Admin/TeachersTable/TeacherTa
 import ClassMgntInt from "../../Component/Admin/ClassMgntInt/ClassMgntInt";
 import ClassDetailsTable from "../../Component/Admin/ClassTable/ClassDetailsTable";
 import AnnouncementSection from "../../Component/Admin/AnnouncementSection/AnnouncementSection";
+import AllTransations from "../../Component/Admin/AllTransations/AllTransations";
 
 
 function AdminDashboard() {
@@ -28,6 +29,7 @@ function AdminDashboard() {
             <br/>
             <TeacherTableComponent/>
             <AnnouncementSection array1={array1}/>
+            <AllTransations/>
         </div>
 
     )
