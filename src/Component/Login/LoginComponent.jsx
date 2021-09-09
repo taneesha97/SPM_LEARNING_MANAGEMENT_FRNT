@@ -71,21 +71,17 @@ function LoginComponent(props) {
 
     return (
         <div className="loginbackground">
-            <div className="login-component-111">
                 <PopupModel show={buttonPopup} buttondisble = {false}>
                     <SucessPopUp setBackground={props.setBackground} trigger={buttonPopup} setTrigger = {setButtonPopup} name1 = {popupName} name2 = {popupLocation}></SucessPopUp>
                 </PopupModel>
-
-            </div>
-            <div className="">
-                <form onSubmit={SubmitPressed}>
+                <form onSubmit={SubmitPressed} className="form-login">
                     <div className="login-info4">
                         <h2 className="login-info4-main">Login</h2>
                         <h4 className="login-info4-second">Login to get access to premium features and discounts</h4>
                     </div>
 
                     <div className="login-body">
-                        <div>
+                        <div className="input-field-login">
                             <lable className="input-wrapper">Name</lable><br/>
                             <input className="input-field"
                                    placeholder="Enter Name..."
@@ -98,7 +94,7 @@ function LoginComponent(props) {
                             />
                             <br/>
                         </div>
-                        <div>
+                        <div className="input-field-login">
                             <lable className="input-wrapper">Password</lable><br/>
                             <input className="input-field"
                                    placeholder="Enter Password..."
@@ -110,7 +106,7 @@ function LoginComponent(props) {
                                    required
                             />
                         </div>
-                        <div>
+                        <div className="input-field-login">
                             <input type="checkbox" className="input-field1" value="Remember me"/>
                             <lable className="input-wrapper">Remember me</lable><br/>
                         </div>
@@ -128,7 +124,6 @@ function LoginComponent(props) {
                         </div>
                     </div>
                 </form>
-            </div>
 
         </div>
     )
