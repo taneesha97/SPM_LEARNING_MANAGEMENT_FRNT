@@ -74,12 +74,11 @@ function LoginComponent(props) {
                 <PopupModel show={buttonPopup} buttondisble = {false}>
                     <SucessPopUp setBackground={props.setBackground} trigger={buttonPopup} setTrigger = {setButtonPopup} name1 = {popupName} name2 = {popupLocation}></SucessPopUp>
                 </PopupModel>
+                <div className="login-info4">
+                    <h2 className="login-info4-main">Login</h2>
+                    <h4 className="login-info4-second">Login to get access to premium features and discounts</h4>
+                </div>
                 <form onSubmit={SubmitPressed} className="form-login">
-                    <div className="login-info4">
-                        <h2 className="login-info4-main">Login</h2>
-                        <h4 className="login-info4-second">Login to get access to premium features and discounts</h4>
-                    </div>
-
                     <div className="login-body">
                         <div className="input-field-login">
                             <lable className="input-wrapper">Name</lable><br/>
