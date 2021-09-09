@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   margin: auto;
-  height: 520px;
+  height: fit-content;
   width: 40%;
   border-radius: 20px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
@@ -26,7 +26,7 @@
 }
 .login .leftLogin .login-info2 .login-info2-main {
   color: white;
-  font-size: 40px;
+  font-size: 2vw;
   font-weight: bold;
 }
 .login .login-info {
@@ -34,30 +34,26 @@
   width: 50%;
   margin-left: 50%;
   border-radius: 0px 20px 20px 0px;
-  height: 100%;
-}
-.login .login-info .loginbackground {
-  height: 100%;
 }
 .login .login-info .loginbackground .login-info4 {
   margin-left: 1%;
   max-width: fit-content;
-  height: fit-content;
 }
 .login .login-info .loginbackground .login-info4 .login-info4-main {
   color: black;
   font-weight: 700;
-  size: 40px;
+  font-size: 2vw;
 }
 .login .login-info .loginbackground .login-info4 .login-info4-second {
   color: #8D8D8D;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 0.8vw;
 }
 .login .login-info .loginbackground .form-login {
   height: 75%;
 }
 .login .login-info .loginbackground .form-login .login-body {
+  border-radius: 20px;
   padding: 20px;
   margin-top: 10%;
   background-color: white;
@@ -75,7 +71,7 @@
 }
 .login .login-info .loginbackground .form-login .login-body .input-field-login .input-wrapper {
   font-weight: 700;
-  font-size: 19px;
+  font-size: 0.9vw;
 }
 .login .login-info .loginbackground .form-login .login-body .input-field-login .input-field1 {
   margin-right: 2%;
@@ -103,12 +99,12 @@
 .login .login-info .loginbackground .form-login .login-body .login-info5 .login-info5-main {
   color: #8D8D8D;
   font-weight: 400;
-  font-size: 15px;
+  font-size: 0.9vw;
 }
 .login .login-info .loginbackground .form-login .login-body .login-info5 .login-info5-second {
   color: #35C1ED;
   font-weight: 700;
-  font-size: 15px;
+  font-size: 0.9vw;
 }
 .login .login-info .loginbackground .form-login .login-body .login-info6 {
   margin-top: -22%;
@@ -118,7 +114,7 @@
 .login .login-info .loginbackground .form-login .login-body .login-info6 .login-info6-main {
   color: #8D8D8D;
   font-weight: 400;
-  font-size: 15px;
+  font-size: 0.9vw;
 }
 
 .login-info3 {
