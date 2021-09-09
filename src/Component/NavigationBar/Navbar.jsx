@@ -15,12 +15,14 @@ function Navbar () {
 
     const userIconImgCss = {
         height: 60,
-        marginTop: '-10%',
-        marginLeft: '90%'
+        width: 300,
+        marginTop: "-6%",
+        left: 0,
+        background: "white"
     }
     const navImgCss  = {
         height: 60,
-        marginTop: '-15%',
+        marginTop: "-10%",
     }
     const showButton = () => {
         if(window.innerWidth <= 960){
@@ -48,14 +50,15 @@ function Navbar () {
     return (
         <React.Fragment>
             <nav className= "navbar">
-                <div className= "navbar-container">
+                <div className="navImg1">
                     <Link to = "/home" className ="navbar-logo" onClick={closeMobileMenu}>
                         <div >
                             <img src= {navImg}  style={navImgCss}/>
 
                         </div>
                     </Link>
-
+                </div>
+                <div className= "navbar-container">
                     <div className = "menu-icon" onClick={handleClick}>
                         <i className={click ? 'fas fa-times' : 'fas fa-bars'}/>
                     </div>
@@ -81,14 +84,15 @@ function Navbar () {
                             </Link>
                         </li>
                     </ul>
-                    <Link to = "/navbarbuttoncomponent" className ="navbar-logo" onClick={closeMobileMenu}>
-                        <div>
-                            <img src= {userIcon}  style={userIconImgCss}/>
 
-                        </div>
-                    </Link>
 
                 </div>
+                <div className="navImg2">
+                    <Link to = "/navbarbuttoncomponent" className ="navbar-logo1" onClick={closeMobileMenu}>
+                        <img src= {userIcon}  style={userIconImgCss} className="userIconImgCss1"/>
+                    </Link>
+                </div>
+
             </nav>
         </React.Fragment>
     )

@@ -15,7 +15,16 @@
   justify-content: center;
   align-items: center;
   height: 80px;
-  max-width: 9375%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -0.55%;
+  background: chartreuse;
+}
+
+.navImg2 {
+  position: relative;
+  margin-left: auto;
+  margin-right: 0;
 }
 
 .fa-typo3 {
@@ -64,6 +73,10 @@
   display: none;
 }
 
+.navImg1 {
+  margin-left: 1%;
+}
+
 @media screen and (max-width: 960px) {
   .NavbarItems {
     position: relative;
@@ -100,13 +113,6 @@
     background-color: #fff;
     color: #242424;
     border-radius: 0;
-  }
-
-  .navbar-logo {
-    position: fixed;
-    top: 0;
-    left: 0;
-    transform: translate(100%, 50%);
   }
 
   .menu-icon {
