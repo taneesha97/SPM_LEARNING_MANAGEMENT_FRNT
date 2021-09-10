@@ -14,7 +14,7 @@ function Navbar () {
     const dispatch = useDispatch();
 
     const userIconImgCss = {
-        height: "3.5vw",
+        height: "4vw",
         marginLeft: "-1%",
         marginTop: "-1.5%",
         left: 0,
@@ -22,8 +22,8 @@ function Navbar () {
         borderRadius: 8
     }
     const navImgCss  = {
-        height: 60,
-        marginTop: "-10%",
+        height: "4vw",
+        marginTop: "-3%",
     }
     const showButton = () => {
         if(window.innerWidth <= 960){
