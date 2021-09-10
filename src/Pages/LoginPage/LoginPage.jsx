@@ -9,8 +9,6 @@ function LoginPage() {
     return (
         <div style={{backgroundColor:background}}  className="background-log">
             <Login setBackground = {setBackground}/>
-            <ClassTile/>
-
         </div>
     )
 }

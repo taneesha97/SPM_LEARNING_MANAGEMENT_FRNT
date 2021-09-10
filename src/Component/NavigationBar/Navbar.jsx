@@ -14,11 +14,12 @@ function Navbar () {
     const dispatch = useDispatch();
 
     const userIconImgCss = {
-        height: 60,
-        width: 300,
-        marginTop: "-6%",
+        height: "3.5vw",
+        marginLeft: "-1%",
+        marginTop: "-1.5%",
         left: 0,
-        background: "white"
+        background: "white",
+        borderRadius: 8
     }
     const navImgCss  = {
         height: 60,
