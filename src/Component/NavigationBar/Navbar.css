@@ -32,15 +32,15 @@
 }
 .loggedUserComponent .loggedUserNameTile {
   display: flex;
-  justify-content: left;
   margin-right: 7%;
   width: 40%;
 }
 .loggedUserComponent .loggedUserNameTile .title-component-1 {
-  padding: 2%;
+  justify-content: center;
+  margin-top: 0;
 }
 .loggedUserComponent .loggedUserNameTile .title-component-1 .title-component-main-1 {
-  font-size: 2vw;
+  font-size: 1.5vw;
 }
 .loggedUserComponent .loggedUserNameTile .title-component-1 .title-component-sub-1 {
   font-size: 0.8vw;

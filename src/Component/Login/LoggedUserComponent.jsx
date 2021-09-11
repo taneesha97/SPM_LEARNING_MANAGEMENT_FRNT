@@ -8,8 +8,8 @@ function LoggedUserComponent() {
         <div className= "loggedUserComponent">
             <div className="loggedUserNameTile">
                 <div className="title-component-1">
-                    <h1 className="title-component-main-1">value1</h1>
-                    <h2 className="title-component-sub-1">value2</h2>
+                    <h1 className="title-component-main-1">User1</h1>
+                    <h2 className="title-component-sub-1">s@gmail.com</h2>
                 </div>
             </div>
             <div className="loggedUserImage">
