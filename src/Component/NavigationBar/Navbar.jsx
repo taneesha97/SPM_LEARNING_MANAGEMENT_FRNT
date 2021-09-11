@@ -4,7 +4,7 @@ import './Navbar.css';
 import {useDispatch} from "react-redux";
 import navImg from './Images/navImg.png';
 import userIcon from './Images/Picture2.png';
-import LoggedUserComponent from "../Login/LoggedUserComponent";
+import LoggedUserComponent from "./LoggedUserComponent";
 
 function Navbar () {
     const [click, setClick] = useState(false);

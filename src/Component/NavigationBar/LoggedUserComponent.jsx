@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
-import '../NavigationBar/Navbar.css'
-import navImg from "../NavigationBar/Images/Picture2.png";
-import navImg1 from "../NavigationBar/Images/notification.png";
+import './Navbar.css'
+import navImg from "./Images/Picture2.png";
+import navImg1 from "./Images/notification.png";
 
 function LoggedUserComponent() {
     const [selected , setSelected] = useState(false)

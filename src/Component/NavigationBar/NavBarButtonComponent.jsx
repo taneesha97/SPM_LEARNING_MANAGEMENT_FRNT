@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import './NavBarButtonComponent.css'
 import {useHistory} from "react-router";
 import SucessPopUp from "../PopupModel/SucessPopUp";
-function NavBarButtonComponent() {
+function NavBarButtonComponent(props) {
     const [buttonPopup, setButtonPopup] = useState(false);
     const [popupName, setPopupName] = useState("");
     const [popupLocation, setPopupLocaion] = useState("");
@@ -26,7 +26,7 @@ function NavBarButtonComponent() {
 
     }
 
-    return (
+    return (props.trigger) ? (
 
         <div className="background-background">
             <div className="popupinterface">
@@ -62,7 +62,7 @@ function NavBarButtonComponent() {
             </div>
         </div>
 
-    )
+    ) : <div></div>;
 }
 
 export default NavBarButtonComponent
