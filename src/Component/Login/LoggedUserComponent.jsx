@@ -1,9 +1,13 @@
-import React from 'react'
+import React, {useState} from 'react'
 import '../NavigationBar/Navbar.css'
 import navImg from "../NavigationBar/Images/Picture2.png";
 import navImg1 from "../NavigationBar/Images/notification.png";
 
 function LoggedUserComponent() {
+    const [selected , setSelected] = useState(false)
+    const logNav = () => {
+        setSelected(!selected)
+    }
     return (
         <div className= "loggedUserComponent">
             <div className="loggedUserNameTile">
@@ -12,7 +16,8 @@ function LoggedUserComponent() {
                     <h2 className="title-component-sub-1">s@gmail.com</h2>
                 </div>
             </div>
-            <div className="loggedUserImage">
+            {/*<div className="loggedUserImage + (selected ? "expand" : "")" onClick={logNav}>*/}
+            <div className="loggedUserImage" onClick={logNav}>
                 <img src= {navImg} className ="navbar-logo"/>
                 <div>
 
