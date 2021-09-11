@@ -1,6 +1,7 @@
 import React from 'react'
 import '../NavigationBar/Navbar.css'
 import navImg from "../NavigationBar/Images/Picture2.png";
+import navImg1 from "../NavigationBar/Images/notification.png";
 
 function LoggedUserComponent() {
     return (
@@ -15,7 +16,7 @@ function LoggedUserComponent() {
                 <img src= {navImg} className ="navbar-logo"/>
             </div>
             <div className="loggedUserNotification">
-                {/*<h1 className= "title">loggedUserNametile</h1>*/}
+                <img src= {navImg1} className ="navbar-logo"/>
             </div>
         </div>
     )
