@@ -138,7 +138,7 @@ function TeacherTableComponent() {
 
                                     </TableCell>
                                     <TableCell align="center">
-                                        <button type="button" onClick={buttonStatus()} className="btn btn-info">Update</button>
+                                        <button type="button" onClick={buttonStatus} className="btn btn-info">Update</button>
                                         {/*<a onClick={() => {*/}
                                         {/*    deleteTeacher(row.id)}}>*/}
                                         {/*    <img src= {teacherDeleteimage1}  className="teacherDelete-image1"/>*/}
