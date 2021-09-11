@@ -6,24 +6,55 @@
   align-items: center;
   font-size: 1.2rem;
   position: sticky;
-  top: 0;
   z-index: 999;
 }
 
 .navbar-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 80px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: -0.55%;
+  float: left;
+  width: 70%;
 }
 
 .navImg2 {
-  position: relative;
-  margin-left: auto;
-  margin-right: 0;
+  background: white;
+  width: 20%;
+  clear: both;
+  margin-top: -0.4%;
+  height: 80px;
+  border-radius: 0px 0px 20px 20px;
+  padding-left: 1%;
+}
+
+.loggedUserComponent {
+  display: flex;
+  width: fit-content;
+}
+.loggedUserComponent .loggedUserNameTile {
+  display: flex;
+  justify-content: left;
+  width: 50%;
+}
+.loggedUserComponent .loggedUserNameTile .title-component-main-1 {
+  font-size: 2vw;
+}
+.loggedUserComponent .loggedUserNameTile .title-component-sub-1 {
+  font-size: 0.8vw;
+  margin-top: -1%;
+}
+.loggedUserComponent .loggedUserImage {
+  display: flex;
+  justify-content: center;
+  width: 25%;
+}
+.loggedUserComponent .loggedUserImage .title {
+  font-size: 1vw;
+}
+.loggedUserComponent .loggedUserNotification {
+  display: flex;
+  justify-content: center;
+  width: 25%;
+}
+.loggedUserComponent .loggedUserNotification .title {
+  font-size: 1vw;
 }
 
 .fa-typo3 {
@@ -40,10 +71,6 @@
   width: 60vw;
   justify-content: center;
   margin-right: 2rem;
-}
-
-.nav-item {
-  height: 80px;
 }
 
 .nav-links {
@@ -73,7 +100,14 @@
 }
 
 .navImg1 {
-  margin-left: 1%;
+  margin-top: -0.5%;
+  float: left;
+  width: 10%;
+}
+.navImg1 .navbar-logo {
+  background: cadetblue;
+  height: 100%;
+  width: 100%;
 }
 
 @media screen and (max-width: 960px) {
@@ -85,9 +119,7 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 90vh;
     position: absolute;
-    top: 80px;
     left: -100%;
     opacity: 1;
     transition: all 0.5s ease;

@@ -4,6 +4,7 @@ import './Navbar.css';
 import {useDispatch} from "react-redux";
 import navImg from './Images/navImg.png';
 import userIcon from './Images/userIcon.png';
+import LoggedUserComponent from "../Login/LoggedUserComponent";
 
 function Navbar () {
     const [click, setClick] = useState(false);
@@ -22,7 +23,7 @@ function Navbar () {
         borderRadius: 8
     }
     const navImgCss  = {
-        height: "4vw",
+
         marginTop: "-3%",
     }
     const showButton = () => {
@@ -52,9 +53,9 @@ function Navbar () {
         <React.Fragment>
             <nav className= "navbar">
                 <div className="navImg1">
-                    <Link to = "/home" className ="navbar-logo" onClick={closeMobileMenu}>
+                    <Link to = "/home"  onClick={closeMobileMenu}>
                         <div >
-                            <img src= {navImg}  style={navImgCss}/>
+                            <img src= {navImg} className ="navbar-logo"/>
 
                         </div>
                     </Link>
@@ -89,9 +90,7 @@ function Navbar () {
 
                 </div>
                 <div className="navImg2">
-                    <Link to = "/navbarbuttoncomponent" className ="navbar-logo1" onClick={closeMobileMenu}>
-                        <img src= {userIcon}  style={userIconImgCss} className="userIconImgCss1"/>
-                    </Link>
+                    <LoggedUserComponent/>
                 </div>
 
             </nav>
