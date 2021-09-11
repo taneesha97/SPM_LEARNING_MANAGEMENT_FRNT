@@ -8,6 +8,7 @@ import UserProfile from "./Pages/StudentProfilePage/UserProfile";
 import RegistrationPage from "./Pages/Registration/RegistrationPage";
 import TutorDashboard from "./Pages/TutorDashboard/TutorDashboard";
 import NavBarButtonComponent from "./Component/NavigationBar/NavBarButtonComponent";
+import NavBarButtonComponent2 from "./Component/NavigationBar/NavBarButtonComponent2";
 import AdminDashboard from "./Pages/AdminDashboard/AdminDashboard";
 import UserProfilePage from "./Pages/UserProfile/UserProfilePage";
 
@@ -41,6 +42,7 @@ const App = () => {
                   {/*<Route exact path = "/tutordash" component={TutorDashboard}/>*/}
                   <Route exact path = "/admindash" component={AdminDashboard}/>
                   <Route exact path = "/navbarbuttoncomponent" component={NavBarButtonComponent}/>
+                  <Route exact path = "/navbarbuttoncomponent2" component={NavBarButtonComponent2}/>
                   <Route exact path = "/emailupdate" component={EmailUpdateComponent}/>
                   <Route exact path = "/class" component={ClassPage}/>
                   <Route exact path = "/ClassCourseview" component={ClassCourseview}/>

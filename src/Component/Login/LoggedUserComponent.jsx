@@ -14,6 +14,9 @@ function LoggedUserComponent() {
             </div>
             <div className="loggedUserImage">
                 <img src= {navImg} className ="navbar-logo"/>
+                <div>
+
+                </div>
                 {/*<Dropdown>*/}
                 {/*    <Dropdown.Toggle variant="success" id="dropdown-basic">*/}
                 {/*        Dropdown Button*/}
