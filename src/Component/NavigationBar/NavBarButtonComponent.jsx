@@ -20,21 +20,20 @@ function NavBarButtonComponent(props) {
     }
 
     const Logout = () => {
-        setPopupName("logout");
-        setPopupLocaion("/login");
-        setButtonPopup(true);
+        // setPopupName("logout");
+        // setPopupLocaion("/login");
+        // setButtonPopup(true);
+        history.push('/login');
 
     }
 
     return (props.trigger) ? (
 
         // <div className="background-background">
-        //     <div className="popupinterface">
-        //         <SucessPopUp trigger={buttonPopup} setTrigger = {setButtonPopup} name1 = {popupName} name2 = {popupLocation}></SucessPopUp>
-        //     </div>
+
 
             <div className="background">
-                <SucessPopUp trigger={buttonPopup} setTrigger = {setButtonPopup} name1 = {popupName} name2 = {popupLocation}></SucessPopUp>
+                    {/*<SucessPopUp trigger={buttonPopup} setTrigger = {setButtonPopup} name1 = {popupName} name2 = {popupLocation}></SucessPopUp>*/}
                 <div className="background1">
                     <div className="background1-info1" onClick={profile}>
                         <h2 className="background1-info1-main">My Profile</h2>
@@ -59,6 +58,7 @@ function NavBarButtonComponent(props) {
                         <h4 className="background1-info1-second">See you again...!!</h4>
                     </div>
                 </div>
+                {/*<SucessPopUp trigger={buttonPopup} setTrigger = {setButtonPopup} name1 = {popupName} name2 = {popupLocation}></SucessPopUp>*/}
             </div>
         // </div>
 
