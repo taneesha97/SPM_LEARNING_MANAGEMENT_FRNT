@@ -2,9 +2,11 @@ import React, {useState} from 'react'
 import './Navbar.css'
 import navImg from "./Images/Picture2.png";
 import navImg1 from "./Images/notification.png";
+import NavBarButtonComponent from "./NavBarButtonComponent";
 
 function LoggedUserComponent() {
     const [selected , setSelected] = useState(false)
+    //const [buttonPopup, setButtonPopup] = useState(false);
     const logNav = () => {
         setSelected(!selected)
     }
@@ -19,21 +21,8 @@ function LoggedUserComponent() {
             {/*<div className="loggedUserImage + (selected ? "expand" : "")" onClick={logNav}>*/}
             <div className="loggedUserImage" onClick={logNav}>
                 <img src= {navImg} className ="navbar-logo"/>
-                <div>
-
-                </div>
-                {/*<Dropdown>*/}
-                {/*    <Dropdown.Toggle variant="success" id="dropdown-basic">*/}
-                {/*        Dropdown Button*/}
-                {/*    </Dropdown.Toggle>*/}
-
-                {/*    <Dropdown.Menu>*/}
-                {/*        /!*<Dropdown.Item href="#/action-1">Action</Dropdown.Item>*!/*/}
-                {/*        /!*<Dropdown.Item href="#/action-2">Another action</Dropdown.Item>*!/*/}
-                {/*        /!*<Dropdown.Item href="#/action-3">Something else</Dropdown.Item>*!/*/}
-                {/*    </Dropdown.Menu>*/}
-                {/*</Dropdown>*/}
             </div>
+            {/*<NavBarButtonComponent trigger={selected} setTrigger = {setSelected}/>*/}
             <div className="loggedUserNotification">
                 <img src= {navImg1} className ="navbar-logo"/>
             </div>
