@@ -14,6 +14,17 @@ function LoggedUserComponent() {
             </div>
             <div className="loggedUserImage">
                 <img src= {navImg} className ="navbar-logo"/>
+                {/*<Dropdown>*/}
+                {/*    <Dropdown.Toggle variant="success" id="dropdown-basic">*/}
+                {/*        Dropdown Button*/}
+                {/*    </Dropdown.Toggle>*/}
+
+                {/*    <Dropdown.Menu>*/}
+                {/*        /!*<Dropdown.Item href="#/action-1">Action</Dropdown.Item>*!/*/}
+                {/*        /!*<Dropdown.Item href="#/action-2">Another action</Dropdown.Item>*!/*/}
+                {/*        /!*<Dropdown.Item href="#/action-3">Something else</Dropdown.Item>*!/*/}
+                {/*    </Dropdown.Menu>*/}
+                {/*</Dropdown>*/}
             </div>
             <div className="loggedUserNotification">
                 <img src= {navImg1} className ="navbar-logo"/>
