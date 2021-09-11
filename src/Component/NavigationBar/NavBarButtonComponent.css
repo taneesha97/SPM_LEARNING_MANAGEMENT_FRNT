@@ -5,6 +5,13 @@
   margin-left: -17vw;
 }
 
+.background-2nd {
+  position: absolute;
+  z-index: 1;
+  margin-top: 5.1vw;
+  margin-left: 5vw;
+}
+
 .popupinterface {
   margin-top: -4%;
 }

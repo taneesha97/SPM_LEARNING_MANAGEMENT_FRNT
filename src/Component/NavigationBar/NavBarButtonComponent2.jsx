@@ -4,7 +4,7 @@ import greencurve from "./Images/greencurve.png";
 import './NavBarButtonComponent.css'
 function NavBarButtonComponent2(props) {
     return (props.trigger) ? (
-        <div className="background">
+        <div className="background-2nd">
             <div className="background2">
                 <div className="background1-info1">
                     <h2 className="background1-info1-main">Payment Successed</h2>
