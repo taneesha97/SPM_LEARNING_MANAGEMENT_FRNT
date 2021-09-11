@@ -35,19 +35,20 @@
 .background2{
   display: flex;
   flex-direction: column;
-  margin-left: 79%;
-  margin-top: 1%;
-  height: 270px;
-  width: 270px;
+  background: white;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  height: fit-content;
+  width: fit-content;
   border-radius: 18px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
-  background-color: white;
+
 }
 
 .background1-info1{
   margin-left: 5%;
   margin-top: -3%;
-
+  padding-right: 5%;
 }
 .background1-info1-main{
   color: black;
@@ -65,9 +66,12 @@
   color: #000000;
 }
 .recurve-image1{
-  position: absolute;
+
   width: 20px;
   height: 20px;
-  margin-top: -0.9%;
-  margin-left: 11.8%;
+  //margin-top: -0.9%;
+  //margin-left: 11.8%;
+  margin-top: auto;
+  margin-bottom: auto;
+  float: right;
 }

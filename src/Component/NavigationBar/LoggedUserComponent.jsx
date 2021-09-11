@@ -3,12 +3,17 @@ import './Navbar.css'
 import navImg from "./Images/Picture2.png";
 import navImg1 from "./Images/notification.png";
 import NavBarButtonComponent from "./NavBarButtonComponent";
+import NavBarButtonComponent2 from "./NavBarButtonComponent2";
 
 function LoggedUserComponent() {
     const [selected , setSelected] = useState(false)
+    const [selected1 , setSelected1] = useState(false)
     //const [buttonPopup, setButtonPopup] = useState(false);
     const logNav = () => {
         setSelected(!selected)
+    }
+    const logNav2 = () => {
+        setSelected1(!selected1)
     }
     return (
         <div className= "loggedUserComponent">
@@ -23,10 +28,11 @@ function LoggedUserComponent() {
                 <img src= {navImg} className ="navbar-logo"/>
             </div>
 
-            <div className="loggedUserNotification">
+            <div className="loggedUserNotification" onClick={logNav2}>
                 <img src= {navImg1} className ="navbar-logo"/>
             </div>
             <NavBarButtonComponent trigger={selected} setTrigger = {setSelected}/>
+            <NavBarButtonComponent2 trigger={selected1} setTrigger = {setSelected1}/>
         </div>
     )
 }
