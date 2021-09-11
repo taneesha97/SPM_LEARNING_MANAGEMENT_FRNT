@@ -2,10 +2,9 @@ import React from 'react'
 import redcurve from "./Images/redcurve.png";
 import greencurve from "./Images/greencurve.png";
 import './NavBarButtonComponent.css'
-function NavBarButtonComponent2() {
-    return (
+function NavBarButtonComponent2(props) {
+    return (props.trigger) ? (
         <div className="background2">
-            <br/>
             <div className="background1-info1">
                 <h2 className="background1-info1-main">Payment Successed</h2>
                 <img src= {redcurve}  className="recurve-image1"/>
@@ -32,7 +31,7 @@ function NavBarButtonComponent2() {
                 <h4 className="background1-info1-second">Your Refund Request RF1009 Has......</h4>
             </div>
         </div>
-    )
+    ) : <div></div>;
 }
 
 export default NavBarButtonComponent2
