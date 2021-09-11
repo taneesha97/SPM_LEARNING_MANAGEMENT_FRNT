@@ -29,6 +29,7 @@ function TeacherTableComponent() {
     const [buttonPopup, setButtonPopup] = useState(false);
     const [popupName, setPopupName] = useState("");
     const [popupLocation, setPopupLocaion] = useState("");
+    // const [popupName, setPopupName] = useState("");
     //const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
 
     const response = useSelector((state) => state.userDetails1.UserDetails.records.data);
@@ -71,6 +72,7 @@ function TeacherTableComponent() {
     }
 
     const buttonStatus = () => {
+        //console.log(value)
         setButtonPopup(true);
     }
 
@@ -121,7 +123,6 @@ function TeacherTableComponent() {
                                 return val
                             }
                         }).map((row) => (
-                            console.log(row),
                                 <TableRow key={row.id}>
                                     <TableCell align="center"> {row.id} </TableCell>
                                     <TableCell align="center"> {row.name} </TableCell>
@@ -137,7 +138,7 @@ function TeacherTableComponent() {
 
                                     </TableCell>
                                     <TableCell align="center">
-                                        <button type="button" onClick={buttonStatus} className="btn btn-info">Update</button>
+                                        <button type="button" onClick={buttonStatus()} className="btn btn-info">Update</button>
                                         {/*<a onClick={() => {*/}
                                         {/*    deleteTeacher(row.id)}}>*/}
                                         {/*    <img src= {teacherDeleteimage1}  className="teacherDelete-image1"/>*/}

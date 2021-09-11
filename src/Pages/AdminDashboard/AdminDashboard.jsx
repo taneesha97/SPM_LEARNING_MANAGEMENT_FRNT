@@ -29,7 +29,7 @@ function AdminDashboard() {
             <br/>
             <TeacherTableComponent/>
             <AnnouncementSection array1={array1}/>
-            <AllTransations/>
+            {/*<AllTransations/>*/}
         </div>
 
     )
