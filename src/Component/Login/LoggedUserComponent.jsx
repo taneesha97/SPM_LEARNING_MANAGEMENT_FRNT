@@ -1,5 +1,6 @@
 import React from 'react'
 import '../NavigationBar/Navbar.css'
+import navImg from "../NavigationBar/Images/Picture2.png";
 
 function LoggedUserComponent() {
     return (
@@ -11,7 +12,7 @@ function LoggedUserComponent() {
                 </div>
             </div>
             <div className="loggedUserImage">
-                <h1 className= "title">loggedUserNametile</h1>
+                <img src= {navImg} className ="navbar-logo"/>
             </div>
             <div className="loggedUserNotification">
                 {/*<h1 className= "title">loggedUserNametile</h1>*/}

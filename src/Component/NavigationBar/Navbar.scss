@@ -44,11 +44,15 @@
   }
   .loggedUserImage{
     display: flex;
-    justify-content: center;
+    justify-content: left;
     //float: left;
     width: 25%;
-    .title{
-      font-size: 1vw;
+    height: 100%;
+    margin: auto;
+    .navbar-logo{
+
+      height: 80%;
+      width: 80%;
     }
   }
   .loggedUserNotification{

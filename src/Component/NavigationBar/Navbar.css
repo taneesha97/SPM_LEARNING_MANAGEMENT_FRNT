@@ -42,11 +42,14 @@
 }
 .loggedUserComponent .loggedUserImage {
   display: flex;
-  justify-content: center;
+  justify-content: left;
   width: 25%;
+  height: 100%;
+  margin: auto;
 }
-.loggedUserComponent .loggedUserImage .title {
-  font-size: 1vw;
+.loggedUserComponent .loggedUserImage .navbar-logo {
+  height: 80%;
+  width: 80%;
 }
 .loggedUserComponent .loggedUserNotification {
   display: flex;
