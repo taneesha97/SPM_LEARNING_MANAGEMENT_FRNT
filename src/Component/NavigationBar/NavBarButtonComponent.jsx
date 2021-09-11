@@ -28,14 +28,14 @@ function NavBarButtonComponent(props) {
 
     return (props.trigger) ? (
 
-        <div className="background-background">
-            <div className="popupinterface">
-                <SucessPopUp trigger={buttonPopup} setTrigger = {setButtonPopup} name1 = {popupName} name2 = {popupLocation}></SucessPopUp>
-            </div>
+        // <div className="background-background">
+        //     <div className="popupinterface">
+        //         <SucessPopUp trigger={buttonPopup} setTrigger = {setButtonPopup} name1 = {popupName} name2 = {popupLocation}></SucessPopUp>
+        //     </div>
 
             <div className="background">
+                <SucessPopUp trigger={buttonPopup} setTrigger = {setButtonPopup} name1 = {popupName} name2 = {popupLocation}></SucessPopUp>
                 <div className="background1">
-                    <br/>
                     <div className="background1-info1" onClick={profile}>
                         <h2 className="background1-info1-main">My Profile</h2>
                         <h4 className="background1-info1-second">Edit your porfile here</h4>
@@ -60,7 +60,7 @@ function NavBarButtonComponent(props) {
                     </div>
                 </div>
             </div>
-        </div>
+        // </div>
 
     ) : <div></div>;
 }

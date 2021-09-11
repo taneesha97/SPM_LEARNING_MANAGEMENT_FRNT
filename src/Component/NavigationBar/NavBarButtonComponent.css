@@ -1,7 +1,8 @@
 .background {
-  background-color: #E5E5E5;
-  margin-left: 40%;
-  width: fit-content;
+  position: absolute;
+  z-index: 1;
+  margin-top: 5vw;
+  margin-left: -17vw;
 }
 
 .popupinterface {
@@ -10,7 +11,6 @@
 
 .background-background {
   margin-top: -1%;
-  background-color: #E5E5E5;
   padding-top: 5%;
   padding-bottom: 200%;
   position: absolute;
@@ -26,6 +26,7 @@
   border-radius: 18px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
   background-color: white;
+  padding-top: 8%;
 }
 
 .background2 {

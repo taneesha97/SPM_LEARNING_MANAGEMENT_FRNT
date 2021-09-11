@@ -22,10 +22,11 @@ function LoggedUserComponent() {
             <div className="loggedUserImage" onClick={logNav}>
                 <img src= {navImg} className ="navbar-logo"/>
             </div>
-            {/*<NavBarButtonComponent trigger={selected} setTrigger = {setSelected}/>*/}
+
             <div className="loggedUserNotification">
                 <img src= {navImg1} className ="navbar-logo"/>
             </div>
+            <NavBarButtonComponent trigger={selected} setTrigger = {setSelected}/>
         </div>
     )
 }
