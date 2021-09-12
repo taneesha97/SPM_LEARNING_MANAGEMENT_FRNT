@@ -2,11 +2,25 @@ import React, {useState} from 'react'
 import './styles.css'
 import CustomAlert from "../../CustomAlert/CustomAlert";
 import {InputLabel, MenuItem, Select, Typography} from "@material-ui/core";
+import {useDispatch} from "react-redux";
+import {deleteUsers, fetchTeachers, upDateUser} from "../../../Action/Users";
 function PopUpTeacherStatusComponent(props) {
 
-    const [selectedStatus, setSelectedStatus] = useState(props.name2);
+    const [status, setSelectedStatus] = useState(props.name2);
+    const dispatch = useDispatch();
+
     const popupView = () => {
-        props.setTrigger(false)
+        const newUser = {
+            status
+        }
+        console.log(props.name1, newUser)
+        console.log(props.name2)
+        dispatch(upDateUser(props.name1, newUser))
+        // setTimeout(function(){
+        //     dispatch(fetchTeachers());
+        //     props.setTrigger(false)
+        // }, 100);
+
     }
 
     const popupView1 = () => {
@@ -23,8 +37,7 @@ function PopUpTeacherStatusComponent(props) {
         <div className="modal-confirm-4">
             <div className="class-component-2">
                 <div className="input-form-container">
-                    {/*<div className="modal-content">*/}
-                        <form className="form p-5" onSubmit={popupView}>
+                    <div className="form p-5">
                             <div className="success-main-2">
                                 <h1 className="success-main-3 modal-title ">Teacher Status Update</h1>
                             </div>
@@ -33,30 +46,24 @@ function PopUpTeacherStatusComponent(props) {
                                 <Select
                                     className="form-input"
                                     aria-label="Default select example"
-                                    value={selectedStatus}
+                                    value={status}
                                     onChange={ (e) => SelectedStatus(e.target.value)}
                                     >
                                     <MenuItem value="valid">Approve</MenuItem>
                                     <MenuItem  value="invalid">Reject</MenuItem>
                                     <MenuItem value="pending">Pending</MenuItem>
-                                    {/*<option className="w-25" selected>Choose...</option>*/}
-                                    {/*<option className="w-25" value="valid">Approve</option>*/}
-                                    {/*<option className="w-25" value="invalid">Reject</option>*/}
-                                    {/*<option className="w-25" value="pending">Pending</option>*/}
-                                    {/*<option value="3">Three</option>*/}
                                 </Select>
                             </div>
 
 
                             <div className="modal-footer-1">
-                                <button type="submit" className="btn btn-success btn-block w-100">OK</button>
+                                <button className="btn btn-success btn-block w-100" onClick={popupView}>OK</button>
                             </div>
                             <br/>
                             <div className="modal-footer-1">
                                 <button className="btn btn-danger btn-block w-100" onClick={popupView1}>Cancel</button>
                             </div>
-                        </form>
-                    {/*</div>*/}
+                    </div>
 
                 </div>
             </div>
