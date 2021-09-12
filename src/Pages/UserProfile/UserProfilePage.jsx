@@ -8,7 +8,7 @@ function UserProfilePage() {
     return (
         <div>
             <UserProfile />
-            <ProfileClassRoom/>
+            {/*<ProfileClassRoom/>*/}
         </div>
     )
 }
