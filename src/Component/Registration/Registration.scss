@@ -22,10 +22,11 @@
   background-color: white;
 }
 
-//.Outer-Registration{
-//  height: 1080px;
-//  //width: 100%;
-//}
+.Outer-Registration{
+  height: 100%;
+  width: 100%;
+  background: chartreuse;
+}
 
 .RegisterLogo-image1{
  // position: absolute;
@@ -35,9 +36,9 @@
   margin-left: 10%;
 }
 .registration{
-  float: left;
-  margin-left: -337%;
-  margin-top: -24%;
+  //float: left;
+  //margin-left: -337%;
+  //margin-top: -24%;
 }
 .registration-info4{
   margin-left: 5%;

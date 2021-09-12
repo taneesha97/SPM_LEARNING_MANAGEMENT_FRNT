@@ -44,9 +44,9 @@ function   RegistrationComponent() {
        dispatch(addUsers(newUser));
        // const response = useSelector((state) => state.userDetails1.UserDetails);
        // console.log(response);
-       //  setPopupName("register");
-       // setPopupLocaion("/login");
-       //  setButtonPopup(true);
+        setPopupName("register");
+       setPopupLocaion("/login");
+        setButtonPopup(true);
 
     }
 
@@ -54,9 +54,7 @@ function   RegistrationComponent() {
 
     return (
         <div>
-            <div className="registration">
-                <SucessPopUp trigger={buttonPopup} setTrigger = {setButtonPopup} name1 = {popupName} name2 = {popupLocation}></SucessPopUp>
-            </div>
+            <SucessPopUp trigger={buttonPopup} setTrigger = {setButtonPopup} name1 = {popupName} name2 = {popupLocation}></SucessPopUp>
             <form onSubmit={SubmitPressed}>
                 <div className="registration-info4">
                     <h2 className="registration-info4-main">Registration</h2>
