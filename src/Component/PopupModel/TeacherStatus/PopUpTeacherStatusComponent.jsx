@@ -1,8 +1,10 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './styles.css'
 import CustomAlert from "../../CustomAlert/CustomAlert";
 import {InputLabel, MenuItem, Select} from "@material-ui/core";
 function PopUpTeacherStatusComponent(props) {
+
+    const [selectedStatus, setSelectedStatus] = useState(props.name2);
     const popupView = () => {
         props.setTrigger(false)
     }
@@ -13,6 +15,7 @@ function PopUpTeacherStatusComponent(props) {
     }
 
     const SelectedStatus = (value) =>{
+        setSelectedStatus(value)
         console.log(value)
     }
 
@@ -36,7 +39,7 @@ function PopUpTeacherStatusComponent(props) {
                                 <Select
                                     className="form-input"
                                     aria-label="Default select example"
-                                    value={props.name2}
+                                    value={selectedStatus}
                                     onChange={ (e) => SelectedStatus(e.target.value)}
                                     >
                                     <MenuItem selected>Option 1</MenuItem>
