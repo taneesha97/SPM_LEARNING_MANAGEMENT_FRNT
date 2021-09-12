@@ -12,9 +12,9 @@ function PopUpTeacherStatusComponent(props) {
         props.setTrigger(false)
     }
 
-    // const SelectedStatus = (value) =>{
-    //     console.log(value)
-    // }
+    const SelectedStatus = (value) =>{
+        console.log(value)
+    }
 
     return (props.trigger) ? (
             // <div className="Popupout">
