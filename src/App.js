@@ -4,7 +4,7 @@ import './App.css';
 import Navbar from "./Component/NavigationBar/Navbar";
 import HomePage from "./Pages/HomePage/HomePage";
 import LoginPage from "./Pages/LoginPage/LoginPage";
-import UserProfile from "./Pages/StudentProfilePage/UserProfile";
+import UserProfile from "./Pages/ProfilePage/UserProfile";
 import RegistrationPage from "./Pages/Registration/RegistrationPage";
 import TutorDashboard from "./Pages/TutorDashboard/TutorDashboard";
 import NavBarButtonComponent from "./Component/NavigationBar/NavBarButtonComponent";

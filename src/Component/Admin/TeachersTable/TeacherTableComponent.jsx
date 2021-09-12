@@ -29,6 +29,7 @@ function TeacherTableComponent() {
     const [buttonPopup, setButtonPopup] = useState(false);
     const [popupId, setPopupId] = useState("");
     const [popupStatus, setPopupStatus] = useState("");
+    const [page, setPage] = React.useState(0);
     // const [popupName, setPopupName] = useState("");
     //const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
 
@@ -63,13 +64,16 @@ function TeacherTableComponent() {
     const classes = useStyles();
 
 
-    const handleChangePage = () => {
+    const handleChangePage = (event: React.MouseEvent<HTMLButtonElement> | null, newPage: number) => {
+        setPage(newPage);
+    };
 
-    }
-
-    const handleChangeRowsPerPage= () => {
-
-    }
+    const handleChangeRowsPerPage = (
+        event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    ) => {
+        setRowsPerPage(parseInt(event.target.value, 10));
+        setPage(0);
+    };
 
     const buttonStatus = (id, status) => {
         //console.log(value)
@@ -157,7 +161,7 @@ function TeacherTableComponent() {
                                 colSpan={3}
                                 count={10}
                                 rowsPerPage={rowsPerPage}
-                                page={6}
+                                page={page}
                                 SelectProps={{
                                     inputProps: { 'aria-label': 'rows per page' },
                                     native: true,

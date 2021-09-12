@@ -1,17 +1,18 @@
 .bluescreen3{
-  height: 119px;
+  height: 13vw;
   //position: absolute;
   background-color: #162365;
  // margin-top: 200%;
-  margin-top: 27%;
+  justify-content: center;
+  vertical-align: middle;
+  padding-top: 1%;
+  margin-top: 2%;
+
 }
 .bluescreen4{
-   height: 1909px;
-   //position: absolute;
+   height: fit-content;
+    display: flex;
    background-color:rgba(159, 157, 255, 1);
-
-   // margin-top: 200%;
-   //margin-top: 27%;
  }
 .bluescreen5{
   height: 1909px;
@@ -32,8 +33,13 @@
 }
 
 .collapseList{
-  position: absolute;
-  margin-left: 960px;
   margin-top: 1%;
+  position: absolute;
+  width: fit-content;
+  height: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
 }
 

@@ -1,19 +1,19 @@
 .userprofile{
   display: flex;
   flex-direction: column;
-  height: 1137px;
-  width: 546px;
+  height: 70.0vw;
+  width:  35.5vw;
   border-radius: 30px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
   background-color: #FFFFFF;
-  margin-top: -68%;
+  margin-top: -5vw;
   margin-left: 1%;
 }
 .userprofile1{
   display: flex;
   flex-direction: column;
-  height: 387px;
-  width: 546px;
+  height: 25.2vw;
+  width: 35.5vw;
   border-radius: 30px;
   background-color: #4A6CF4;
 
@@ -26,22 +26,23 @@
     margin-top: 20%;
 }
 .bluescreen{
-  height: 328px;
+  height: 15vw;
   background-color: rgba(24, 38, 108, 1);
 }
 
 .bluescreen1{
-  height: 999px;
-  width: 420.3px;
+  height: 65.03vw;
+  width: 27.3vw;
   background-color: #9F9DFF;
-  margin-left: 77.85%;
+  //margin-left: 77.85%;
+  float: right;
   border-radius: 30px 0px 0px 30px;
 }
 .profilePic{
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 275px;
+  width: 17.9vw;
   margin-top:35%;
 }
 
@@ -53,13 +54,13 @@
 .userprofile1-info-main{
   color: rgba(0, 0, 0, 1);
   font-weight: 400;
-  font-size: 48px;
+  font-size: 3.125vw;
 }
 .userprofile-button1 {
   margin-left: auto;
   margin-right: auto;
   width: 90%;
-  height: 80px;
+  height: 5.208333333333333vw;
   box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.25);
   border-radius: 30px 30px 30px 30px;
   background-color:  #FFFFFF;
@@ -69,7 +70,7 @@
   margin-left: auto;
   margin-right: auto;
   width: 90%;
-  height: 80px;
+  height: 5.208333333333333vw;
   box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.25);
   border-radius: 30px 30px 30px 30px;
   background-color:  rgba(255, 92, 92, 1);
@@ -86,10 +87,13 @@
 .userprofile-bio{
   display: flex;
   flex-direction: column;
-  height: 355px;
-  width: 1275px;
-  margin-left: 587px;
-  margin-top: -820px;
+  height:  23.1vw;
+  width: 62vw;
+  float: right;
+  padding: 20px;
+  margin-top: 1vw;
+  //margin-left: 587px;
+  //margin-top: -820px;
   border-radius: 30px;
   background-color: #E5E5E5;
   //filter: blur(20px) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
@@ -98,8 +102,8 @@
 .userprofile-bio1{
   flex-direction: column;
   margin: auto;
-  height: 305px;
-  width: 1240px;
+  height: 100%;
+  width: 100%;
   border-radius: 30px;
   background-color:rgba(229, 228, 255, 1);
 }
@@ -111,11 +115,11 @@
 .userprofile-bio1-info1-main{
   color:rgba(0, 0, 0, 1);
   font-weight: 400;
-  font-size: 48px;
+  font-size: 3.125vw;
 }
 
 .userprofile-bio1-info1-second{
   color: rgba(0, 0, 0, 1);
   font-weight: 400;
-  font-size: 28px;
+  font-size: 1.8229166666666667vw;
 }

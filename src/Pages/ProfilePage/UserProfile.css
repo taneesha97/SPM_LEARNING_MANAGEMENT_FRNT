@@ -1,20 +1,20 @@
 .userprofile {
   display: flex;
   flex-direction: column;
-  height: 1137px;
-  width: 546px;
+  height: 70vw;
+  width: 35.5vw;
   border-radius: 30px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
   background-color: #FFFFFF;
-  margin-top: -68%;
+  margin-top: -5vw;
   margin-left: 1%;
 }
 
 .userprofile1 {
   display: flex;
   flex-direction: column;
-  height: 387px;
-  width: 546px;
+  height: 25.2vw;
+  width: 35.5vw;
   border-radius: 30px;
   background-color: #4A6CF4;
 }
@@ -27,15 +27,15 @@
 }
 
 .bluescreen {
-  height: 328px;
+  height: 15vw;
   background-color: #18266c;
 }
 
 .bluescreen1 {
-  height: 999px;
-  width: 420.3px;
+  height: 65.03vw;
+  width: 27.3vw;
   background-color: #9F9DFF;
-  margin-left: 77.85%;
+  float: right;
   border-radius: 30px 0px 0px 30px;
 }
 
@@ -43,7 +43,7 @@
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 275px;
+  width: 17.9vw;
   margin-top: 35%;
 }
 
@@ -55,14 +55,14 @@
 .userprofile1-info-main {
   color: black;
   font-weight: 400;
-  font-size: 48px;
+  font-size: 3.125vw;
 }
 
 .userprofile-button1 {
   margin-left: auto;
   margin-right: auto;
   width: 90%;
-  height: 80px;
+  height: 5.2083333333vw;
   box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.25);
   border-radius: 30px 30px 30px 30px;
   background-color: #FFFFFF;
@@ -73,7 +73,7 @@
   margin-left: auto;
   margin-right: auto;
   width: 90%;
-  height: 80px;
+  height: 5.2083333333vw;
   box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.25);
   border-radius: 30px 30px 30px 30px;
   background-color: #ff5c5c;
@@ -89,10 +89,11 @@
 .userprofile-bio {
   display: flex;
   flex-direction: column;
-  height: 355px;
-  width: 1275px;
-  margin-left: 587px;
-  margin-top: -820px;
+  height: 23.1vw;
+  width: 62vw;
+  float: right;
+  padding: 20px;
+  margin-top: 1vw;
   border-radius: 30px;
   background-color: #E5E5E5;
 }
@@ -100,8 +101,8 @@
 .userprofile-bio1 {
   flex-direction: column;
   margin: auto;
-  height: 305px;
-  width: 1240px;
+  height: 100%;
+  width: 100%;
   border-radius: 30px;
   background-color: #e5e4ff;
 }
@@ -113,13 +114,13 @@
 .userprofile-bio1-info1-main {
   color: black;
   font-weight: 400;
-  font-size: 48px;
+  font-size: 3.125vw;
 }
 
 .userprofile-bio1-info1-second {
   color: black;
   font-weight: 400;
-  font-size: 28px;
+  font-size: 1.8229166667vw;
 }
 
 /*# sourceMappingURL=UserProfile.css.map */
