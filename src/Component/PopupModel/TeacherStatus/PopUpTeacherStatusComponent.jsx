@@ -1,6 +1,7 @@
 import React from 'react'
 import './styles.css'
 import CustomAlert from "../../CustomAlert/CustomAlert";
+import {InputLabel, MenuItem, Select} from "@material-ui/core";
 function PopUpTeacherStatusComponent(props) {
     const popupView = () => {
         props.setTrigger(false)
@@ -10,6 +11,11 @@ function PopUpTeacherStatusComponent(props) {
         console.log('coll')
         props.setTrigger(false)
     }
+
+    // const SelectedStatus = (value) =>{
+    //     console.log(value)
+    // }
+
     return (props.trigger) ? (
             // <div className="Popupout">
             //     <div className="Popupin">
@@ -26,18 +32,23 @@ function PopUpTeacherStatusComponent(props) {
                                 <h1 className="success-main-3 modal-title ">Teacher Status Update</h1>
                             </div>
                             <div className="pb-5">
-                                <label htmlFor="lname">Teacher name</label>
-                                <select
+                                <InputLabel id="label">Teacher Status</InputLabel>
+                                <Select
                                     className="form-input"
                                     aria-label="Default select example"
                                     value={props.name2}
+                                    onChange={ (e) => SelectedStatus(e.target.value)}
                                     >
-                                    <option className="w-25" selected>Choose...</option>
-                                    <option className="w-25" value="valid">Approve</option>
-                                    <option className="w-25" value="invalid">Reject</option>
-                                    <option className="w-25" value="pending">Pending</option>
+                                    <MenuItem selected>Option 1</MenuItem>
+                                    <MenuItem value="valid">Approve</MenuItem>
+                                    <MenuItem  value="invalid">Reject</MenuItem>
+                                    <MenuItem value="pending">Pending</MenuItem>
+                                    {/*<option className="w-25" selected>Choose...</option>*/}
+                                    {/*<option className="w-25" value="valid">Approve</option>*/}
+                                    {/*<option className="w-25" value="invalid">Reject</option>*/}
+                                    {/*<option className="w-25" value="pending">Pending</option>*/}
                                     {/*<option value="3">Three</option>*/}
-                                </select>
+                                </Select>
                             </div>
 
 
