@@ -24,7 +24,7 @@ function PopUpTeacherStatusComponent(props) {
             <div className="class-component-2">
                 <div className="input-form-container">
                     {/*<div className="modal-content">*/}
-                        <form className="form p-5">
+                        <form className="form p-5" onSubmit={popupView}>
                             <div className="success-main-2">
                                 <h1 className="success-main-3 modal-title ">Teacher Status Update</h1>
                             </div>
@@ -36,7 +36,6 @@ function PopUpTeacherStatusComponent(props) {
                                     value={selectedStatus}
                                     onChange={ (e) => SelectedStatus(e.target.value)}
                                     >
-                                    <MenuItem selected>Option 1</MenuItem>
                                     <MenuItem value="valid">Approve</MenuItem>
                                     <MenuItem  value="invalid">Reject</MenuItem>
                                     <MenuItem value="pending">Pending</MenuItem>
@@ -50,7 +49,7 @@ function PopUpTeacherStatusComponent(props) {
 
 
                             <div className="modal-footer-1">
-                                <button className="btn btn-success btn-block w-100" onClick={popupView}>OK</button>
+                                <button type="submit" className="btn btn-success btn-block w-100">OK</button>
                             </div>
                             <br/>
                             <div className="modal-footer-1">
