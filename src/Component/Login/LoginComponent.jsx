@@ -8,7 +8,7 @@ import AuthClass from "../../Validation/AuthClass";
 import SucessPopUp from "../PopupModel/SucessPopUp";
 import PopupModel from "../PopupModel/PopupModel";
 
-function LoginComponent() {
+function LoginComponent(props) {
 
 
     const [username, setName] = useState("");
@@ -31,7 +31,7 @@ function LoginComponent() {
                 let values = response.data;
                 console.log('res1 ', response.data);
                 console.log('res1 ', values[0]);
-                if (values[1] == ""){
+                if (values[1] == null){
                     console.log('111')
                     alert('Invalid login')
                     history.push("/login");
@@ -71,21 +71,16 @@ function LoginComponent() {
 
     return (
         <div className="loginbackground">
-            <div className="login-component-111">
                 <PopupModel show={buttonPopup} buttondisble = {false}>
-                    <SucessPopUp trigger={buttonPopup} setTrigger = {setButtonPopup} name1 = {popupName} name2 = {popupLocation}></SucessPopUp>
+                    <SucessPopUp setBackground={props.setBackground} trigger={buttonPopup} setTrigger = {setButtonPopup} name1 = {popupName} name2 = {popupLocation}></SucessPopUp>
                 </PopupModel>
-
-            </div>
-            <div className="">
-                <form onSubmit={SubmitPressed}>
-                    <div className="login-info4">
-                        <h2 className="login-info4-main">Login</h2>
-                        <h4 className="login-info4-second">Login to get access to premium features and discounts</h4>
-                    </div>
-
+                <div className="login-info4">
+                    <h2 className="login-info4-main">Login</h2>
+                    <h4 className="login-info4-second">Login to get access to premium features and discounts</h4>
+                </div>
+                <form onSubmit={SubmitPressed} className="form-login">
                     <div className="login-body">
-                        <div>
+                        <div className="input-field-login">
                             <lable className="input-wrapper">Name</lable><br/>
                             <input className="input-field"
                                    placeholder="Enter Name..."
@@ -98,7 +93,7 @@ function LoginComponent() {
                             />
                             <br/>
                         </div>
-                        <div>
+                        <div className="input-field-login">
                             <lable className="input-wrapper">Password</lable><br/>
                             <input className="input-field"
                                    placeholder="Enter Password..."
@@ -110,7 +105,7 @@ function LoginComponent() {
                                    required
                             />
                         </div>
-                        <div>
+                        <div className="input-field-login">
                             <input type="checkbox" className="input-field1" value="Remember me"/>
                             <lable className="input-wrapper">Remember me</lable><br/>
                         </div>
@@ -128,7 +123,6 @@ function LoginComponent() {
                         </div>
                     </div>
                 </form>
-            </div>
 
         </div>
     )

@@ -29,8 +29,9 @@
     }
   }
   .section-body{
+    overflow: hidden;
     display: flex;
-    height: 250px;
+    height: 300px;
   }
 
 }

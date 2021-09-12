@@ -82,7 +82,7 @@ const StudentTableComponent = ()  => {
                         className="search-student"
                         value={searchTerm}
                         onChange={(event) => setSearchTerm(event.target.value)}
-                        style={{backgroundColor: "#FFFFFF", width: 300, borderRadius: 2}}
+                        style={{backgroundColor: "#FFFFFF", width: 300, borderRadius:30}}
                     />
                 </div>
             </div>

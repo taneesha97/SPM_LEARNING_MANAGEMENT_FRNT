@@ -2,47 +2,120 @@
   display: flex;
   flex-direction: column;
   margin: auto;
-  height: 520px;
-  width: 762.5px;
+  height: fit-content;
+  width: 40%;
   border-radius: 20px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
   background-color: #9F9DFF;
 }
-
-.login-info {
-  display: flex;
-  background-color: white;
-  background-image: url("./../Login/Images/loginBackground.png");
+.login .leftLogin {
   width: 50%;
-  margin-left: 50%;
-  border-radius: 0px 20px 20px 0px;
-  height: 100%;
 }
-
-.login-image1 {
+.login .leftLogin .login-image1 {
   position: absolute;
   width: 15%;
-  margin-top: -1%;
-  margin-left: -1%;
+  margin-top: -0.5%;
+  margin-left: -0.6%;
 }
-
-.login-info2 {
+.login .leftLogin .login-info2 {
   position: absolute;
   width: 15%;
   margin-top: 8%;
   margin-left: 1%;
+  padding: 3%;
 }
-
-.login-info2-main {
+.login .leftLogin .login-info2 .login-info2-main {
   color: white;
-  font-weight: 700;
-  size: 40px;
+  font-size: 2vw;
+  font-weight: bold;
 }
-
-.login-info2-second {
+.login .login-info {
+  background-color: white;
+  width: 50%;
+  margin-left: 50%;
+  border-radius: 0px 20px 20px 0px;
+  padding-bottom: 100px;
+}
+.login .login-info .loginbackground .login-info4 {
+  margin-left: 1%;
+  max-width: fit-content;
+}
+.login .login-info .loginbackground .login-info4 .login-info4-main {
   color: black;
+  font-weight: 700;
+  font-size: 2vw;
+}
+.login .login-info .loginbackground .login-info4 .login-info4-second {
+  color: #8D8D8D;
   font-weight: 400;
-  size: 19px;
+  font-size: 0.8vw;
+}
+.login .login-info .loginbackground .form-login {
+  height: 75%;
+}
+.login .login-info .loginbackground .form-login .login-body {
+  border-radius: 20px;
+  padding: 20px;
+  margin-top: 10%;
+  background-color: white;
+  height: 100%;
+}
+.login .login-info .loginbackground .form-login .login-body .input-field-login .input-field {
+  border-radius: 8.38px;
+  height: 45px;
+  width: 95%;
+  padding: 8px;
+  font-weight: normal;
+  background-color: #DBDBDB;
+  border-color: white;
+  color: black;
+}
+.login .login-info .loginbackground .form-login .login-body .input-field-login .input-wrapper {
+  font-weight: 700;
+  font-size: 0.9vw;
+}
+.login .login-info .loginbackground .form-login .login-body .input-field-login .input-field1 {
+  margin-right: 2%;
+}
+.login .login-info .loginbackground .form-login .login-body .button-group {
+  margin-top: 20px;
+  align-content: center;
+  width: 95%;
+}
+.login .login-info .loginbackground .form-login .login-body .button-group .auth-button {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  height: 48px;
+  border-radius: 4.65px;
+  background-color: #35C1ED;
+  margin-bottom: 10px;
+  border: none;
+  color: white;
+}
+.login .login-info .loginbackground .form-login .login-body .login-info5 {
+  margin-left: 1%;
+  width: 30%;
+}
+.login .login-info .loginbackground .form-login .login-body .login-info5 .login-info5-main {
+  color: #8D8D8D;
+  font-weight: 400;
+  font-size: 0.9vw;
+}
+.login .login-info .loginbackground .form-login .login-body .login-info5 .login-info5-second {
+  color: #35C1ED;
+  font-weight: 700;
+  font-size: 0.9vw;
+}
+.login .login-info .loginbackground .form-login .login-body .login-info6 {
+  margin-top: -22%;
+  margin-left: 60%;
+  width: 50%;
+}
+.login .login-info .loginbackground .form-login .login-body .login-info6 .login-info6-main {
+  color: #8D8D8D;
+  font-weight: 400;
+  font-size: 0.9vw;
 }
 
 .login-info3 {
@@ -68,104 +141,11 @@
   margin-top: -19%;
 }
 
-.login-info4 {
-  margin-left: 1%;
-}
-
-.loginbackground {
-  position: relative;
-}
-
-.login-info4-main {
-  color: black;
-  font-weight: 700;
-  size: 40px;
-}
-
-.login-info4-second {
-  color: #8D8D8D;
-  font-weight: 400;
-  font-size: 16px;
-}
-
-.login-info5 {
-  margin-left: 1%;
-  width: 30%;
-}
-
-.login-info5-main {
-  color: #8D8D8D;
-  font-weight: 400;
-  font-size: 15px;
-}
-
-.login-info5-second {
-  color: #35C1ED;
-  font-weight: 700;
-  font-size: 15px;
-}
-
-.login-info6 {
-  margin-top: -22%;
-  margin-left: 60%;
-  width: 50%;
-}
-
-.login-info6-main {
-  color: #8D8D8D;
-  font-weight: 400;
-  font-size: 15px;
-}
-
 .login-component {
   background-color: #D7D8DD;
   border-radius: 20px;
   width: 395.76px;
   height: 418px;
-}
-
-.login-body {
-  margin-left: 20px;
-  padding: 20px;
-  margin-top: 10%;
-}
-
-.login-body .input-field {
-  border-radius: 8.38px;
-  height: 45px;
-  width: 305px;
-  padding: 8px;
-  font-weight: normal;
-  background-color: #DBDBDB;
-  border-color: white;
-  color: black;
-}
-
-.login-body .input-wrapper {
-  font-weight: 700;
-  font-size: 19px;
-}
-
-.login-body .input-field1 {
-  margin-right: 2%;
-}
-
-.button-group {
-  margin-top: 20px;
-  align-content: center;
-  width: 100%;
-}
-
-.auth-button {
-  margin-left: auto;
-  margin-right: auto;
-  width: 290px;
-  height: 48px;
-  border-radius: 4.65px;
-  background-color: #35C1ED;
-  margin-bottom: 10px;
-  border: none;
-  color: white;
 }
 
 /*# sourceMappingURL=Login.css.map */
