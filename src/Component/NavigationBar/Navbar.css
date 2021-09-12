@@ -1,6 +1,6 @@
 .navbar {
   background: linear-gradient(90deg, #0038ff 0%, #0038ff 100%);
-  height: 80px;
+  height: 5.2vw;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,14 +12,17 @@
 .navbar-container {
   float: left;
   width: 70%;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .navImg2 {
   background: white;
   width: 20%;
   clear: both;
-  margin-top: -0.4%;
-  height: 80px;
+  margin-top: auto;
+  margin-bottom: auto;
+  height: 4.2vw;
   border-radius: 0px 0px 20px 20px;
   padding-left: 1%;
   padding-right: 1%;
@@ -37,14 +40,12 @@
 }
 .loggedUserComponent .loggedUserNameTile .title-component-1 {
   justify-content: center;
-  margin-top: 0;
 }
 .loggedUserComponent .loggedUserNameTile .title-component-1 .title-component-main-1 {
   font-size: 1.5vw;
 }
 .loggedUserComponent .loggedUserNameTile .title-component-1 .title-component-sub-1 {
   font-size: 0.8vw;
-  margin-top: -1%;
 }
 .loggedUserComponent .loggedUserImage {
   display: flex;
@@ -116,7 +117,8 @@
 }
 
 .navImg1 {
-  margin-top: -0.5%;
+  margin-top: auto;
+  margin-bottom: auto;
   float: left;
   width: 10%;
 }
