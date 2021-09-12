@@ -111,7 +111,7 @@ function ClassDetailsTable() {
                             fullWidth
                             margin="normal"
                             variant="outlined"
-                            className="search-teacher"
+                            className="search-class"
                             value={searchTerm}
                             onChange={(event) => setSearchTerm(event.target.value)}
                             style={{backgroundColor: "#FFFFFF", width: 300, borderRadius: 30}}
