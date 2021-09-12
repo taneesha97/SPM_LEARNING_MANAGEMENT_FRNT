@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import './styles.css'
 import CustomAlert from "../../CustomAlert/CustomAlert";
-import {InputLabel, MenuItem, Select} from "@material-ui/core";
+import {InputLabel, MenuItem, Select, Typography} from "@material-ui/core";
 function PopUpTeacherStatusComponent(props) {
 
     const [selectedStatus, setSelectedStatus] = useState(props.name2);
@@ -20,12 +20,6 @@ function PopUpTeacherStatusComponent(props) {
     }
 
     return (props.trigger) ? (
-            // <div className="Popupout">
-            //     <div className="Popupin">
-            //         <AiOutlineClose onClick={() => props.setTrigger(false)} className="closeIcone"/>
-            //         {(props.setCard)?(<AddCardForm delivery={props.delivery} />):(<AddNoForm delivery={props.delivery}/>)}
-            //     </div>
-            // </div>
         <div className="modal-confirm-4">
             <div className="class-component-2">
                 <div className="input-form-container">
