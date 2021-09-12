@@ -16,10 +16,10 @@ function PopUpTeacherStatusComponent(props) {
         console.log(props.name1, newUser)
         console.log(props.name2)
         dispatch(upDateUser(props.name1, newUser))
-        // setTimeout(function(){
-        //     dispatch(fetchTeachers());
-        //     props.setTrigger(false)
-        // }, 100);
+        setTimeout(function(){
+            dispatch(fetchTeachers());
+            props.setTrigger(false)
+        }, 100);
 
     }
 
