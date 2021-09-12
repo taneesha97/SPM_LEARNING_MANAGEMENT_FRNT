@@ -1,11 +1,14 @@
 .bluescreen3 {
-  height: 119px;
+  height: 13vw;
   background-color: #162365;
-  margin-top: 27%;
+  justify-content: center;
+  vertical-align: middle;
+  padding-top: 1%;
+  margin-top: 2%;
 }
 
 .bluescreen4 {
-  height: 1909px;
+  height: fit-content;
   background-color: #9f9dff;
 }
 
@@ -13,7 +16,6 @@
   height: 1909px;
   width: 725px;
   border-radius: 0px 30px 30px 0px;
-  background-color: #8221fe;
 }
 
 .title-profileClassRoom {
@@ -29,9 +31,10 @@
 }
 
 .collapseList {
-  position: absolute;
-  margin-left: 960px;
+  background: chartreuse;
+  align-items: center;
   margin-top: 1%;
+  padding-left: 1000px;
 }
 
 /*# sourceMappingURL=ProfileClassRoom.css.map */

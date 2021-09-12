@@ -1,23 +1,23 @@
 .bluescreen3{
-  height: 119px;
+  height: 13vw;
   //position: absolute;
   background-color: #162365;
  // margin-top: 200%;
-  margin-top: 27%;
+  justify-content: center;
+  vertical-align: middle;
+  padding-top: 1%;
+  margin-top: 2%;
 }
 .bluescreen4{
-   height: 1909px;
+   height: fit-content;
    //position: absolute;
    background-color:rgba(159, 157, 255, 1);
-
-   // margin-top: 200%;
-   //margin-top: 27%;
  }
 .bluescreen5{
   height: 1909px;
   width: 725px;
   border-radius: 0px 30px 30px 0px;
-  background-color:rgba(130, 33, 254, 1);
+  //background-color:rgba(130, 33, 254, 1);
 }
 .title-profileClassRoom{
   color: rgba(255, 255, 255, 1);
@@ -32,8 +32,9 @@
 }
 
 .collapseList{
-  position: absolute;
-  margin-left: 960px;
+  background: chartreuse;
+  align-items: center;
   margin-top: 1%;
+  padding-left: 1000px;
 }
 
