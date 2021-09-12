@@ -30,6 +30,7 @@ function PopUpTeacherStatusComponent(props) {
                                 <select
                                     className="form-input"
                                     aria-label="Default select example"
+                                    value={props.name2}
                                     >
                                     <option className="w-25" selected>Choose...</option>
                                     <option className="w-25" value="valid">Approve</option>

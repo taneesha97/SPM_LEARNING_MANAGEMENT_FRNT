@@ -27,8 +27,8 @@ function TeacherTableComponent() {
     const [searchTerm, setSearchTerm] = useState("");
     const [rowsPerPage, setRowsPerPage] = React.useState(5);
     const [buttonPopup, setButtonPopup] = useState(false);
-    const [popupName, setPopupName] = useState("");
-    const [popupLocation, setPopupLocaion] = useState("");
+    const [popupId, setPopupId] = useState("");
+    const [popupStatus, setPopupStatus] = useState("");
     // const [popupName, setPopupName] = useState("");
     //const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
 
@@ -71,8 +71,10 @@ function TeacherTableComponent() {
 
     }
 
-    const buttonStatus = () => {
+    const buttonStatus = (id, status) => {
         //console.log(value)
+        setPopupId(id);
+        setPopupStatus(status);
         setButtonPopup(true);
     }
 
@@ -97,7 +99,7 @@ function TeacherTableComponent() {
 
             </div>
             <div className="login-component-4">
-                <PopUpTeacherStatusComponent trigger={buttonPopup} setTrigger = {setButtonPopup} name1 = {popupName} name2 = {popupLocation}/>
+                <PopUpTeacherStatusComponent trigger={buttonPopup} setTrigger = {setButtonPopup} name1 = {popupId} name2 = {popupStatus}/>
             </div>
             <TableContainer component={Paper} className={classes.teacherContent}>
 
@@ -138,7 +140,7 @@ function TeacherTableComponent() {
 
                                     </TableCell>
                                     <TableCell align="center">
-                                        <button type="button" onClick={buttonStatus} className="btn btn-info">Update</button>
+                                        <button type="button" onClick={() => {buttonStatus(row.id, row.status)}} className="btn btn-info">Update</button>
                                         {/*<a onClick={() => {*/}
                                         {/*    deleteTeacher(row.id)}}>*/}
                                         {/*    <img src= {teacherDeleteimage1}  className="teacherDelete-image1"/>*/}
