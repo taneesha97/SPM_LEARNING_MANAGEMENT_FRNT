@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import UserProfile from "../StudentProfilePage/UserProfile";
+import UserProfile from "../ProfilePage/UserProfile";
 import ProfileClassRoom from "../../Component/ProfileClassRoom/ProfileClassRoom";
 
 

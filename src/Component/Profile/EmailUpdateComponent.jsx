@@ -1,7 +1,7 @@
 import React from 'react'
 import './styles.css'
 import cancel from "./images/cancel (1).png";
-import profilePic from "../../Pages/StudentProfilePage/images/profilePic.png";
+import profilePic from "../../Pages/ProfilePage/images/profilePic.png";
 function EmailUpdateComponent(props) {
     return (props.trigger) ? (
         <div className="background-userUpdate-1">
