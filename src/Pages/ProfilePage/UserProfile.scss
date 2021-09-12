@@ -1,7 +1,7 @@
 .userprofile{
   display: flex;
   flex-direction: column;
-  height: 74.0vw;
+  height: 70.0vw;
   width:  35.5vw;
   border-radius: 30px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
@@ -88,9 +88,12 @@
   display: flex;
   flex-direction: column;
   height:  23.1vw;
-  width: 83.0078125vw;
-  margin-left: 587px;
-  margin-top: -820px;
+  width: 62vw;
+  float: right;
+  padding: 20px;
+  margin-top: 1vw;
+  //margin-left: 587px;
+  //margin-top: -820px;
   border-radius: 30px;
   background-color: #E5E5E5;
   //filter: blur(20px) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
@@ -99,8 +102,8 @@
 .userprofile-bio1{
   flex-direction: column;
   margin: auto;
-  height: 19.85vw;
-  width: 80.72vw;
+  height: 100%;
+  width: 100%;
   border-radius: 30px;
   background-color:rgba(229, 228, 255, 1);
 }
