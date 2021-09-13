@@ -8,8 +8,10 @@ function UserProfile() {
     const dispatch = useDispatch();
     const [buttonPopup, setButtonPopup] = useState(false);
     const [popupName, setPopupName] = useState("");
-    // const user = localStorage.getItem("user")
-    // console.log(user)
+    let userObject = localStorage.getItem("user")
+    //console.log(user)
+    let user = JSON.parse(userObject)
+    console.log('retrievedObject: ', user);
     const updateUserName = () => {
         setButtonPopup(true);
         setPopupName("Username");

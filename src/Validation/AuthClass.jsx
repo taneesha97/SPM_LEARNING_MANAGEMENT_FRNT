@@ -12,7 +12,8 @@ class Auth {
         localStorage.setItem('flag', true);
         localStorage.setItem('username', values.username);
         localStorage.setItem('usertype', values.type);
-        localStorage.setItem('user', values);
+        //localStorage.setItem('user', values);
+        localStorage.setItem('user', JSON.stringify(values));
 
         this.authenicated = true;
     }
