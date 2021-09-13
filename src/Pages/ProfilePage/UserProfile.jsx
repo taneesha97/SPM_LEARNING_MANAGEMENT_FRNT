@@ -53,38 +53,38 @@ function UserProfile() {
                                                 <h6 className="mb-0">{user.name}</h6>
                                             </div>
                                         </div>
-                                    <div className="row mb-3">
-                                        <div className="col">
-                                            <h6 className="mb-0">Email</h6>
+                                        <div className="row mb-3">
+                                            <div className="col">
+                                                <h6 className="mb-0">Email</h6>
+                                            </div>
+                                            <div className="col">
+                                                <h6 className="mb-0">{user.email}</h6>
+                                            </div>
                                         </div>
-                                        <div className="col">
-                                            <h6 className="mb-0">{user.email}</h6>
+                                        <div className="row mb-3">
+                                            <div className="col">
+                                                <h6 className="mb-0">Age</h6>
+                                            </div>
+                                            <div className="col">
+                                                <h6 className="mb-0">{user.age}</h6>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div className="row mb-3">
-                                        <div className="col">
-                                            <h6 className="mb-0">Age</h6>
+                                        <div className="row mb-3">
+                                            <div className="col">
+                                                <h6 className="mb-0">Position</h6>
+                                            </div>
+                                            <div className="col">
+                                                <h6 className="mb-0">{user.type}</h6>
+                                            </div>
                                         </div>
-                                        <div className="col">
-                                            <h6 className="mb-0">{user.age}</h6>
+                                        <div className="row mb-3">
+                                            <div className="col">
+                                                <h6 className="mb-0">Username</h6>
+                                            </div>
+                                            <div className="col">
+                                                <h6 className="mb-0">{user.username}</h6>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div className="row mb-3">
-                                        <div className="col">
-                                            <h6 className="mb-0">Position</h6>
-                                        </div>
-                                        <div className="col">
-                                            <h6 className="mb-0">{user.type}</h6>
-                                        </div>
-                                    </div>
-                                    <div className="row mb-3">
-                                        <div className="col">
-                                            <h6 className="mb-0">Username</h6>
-                                        </div>
-                                        <div className="col">
-                                            <h6 className="mb-0">{user.username}</h6>
-                                        </div>
-                                    </div>
                                 </div>
                                 {/*<h4 className="userprofile-bio1-info1-second">*/}
                                 {/*    Lorem ipsum dolor sit amet, consectetur adipiscing elit.*/}
