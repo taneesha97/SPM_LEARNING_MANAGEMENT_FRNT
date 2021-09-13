@@ -30,13 +30,14 @@ function TeacherTableComponent() {
     const [popupId, setPopupId] = useState("");
     const [popupStatus, setPopupStatus] = useState("");
     const [page, setPage] = React.useState(0);
-    // const [popupName, setPopupName] = useState("");
-    //const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
+
 
     const response = useSelector((state) => state.userDetails1.UserDetails.records.data);
     console.log(response);
+    const [filteredData, setFilteredData] = useState(response);
 
     useEffect(() => {
+        setPage(0);
         console.log('calling')
         dispatch(fetchTeachers());
     },[])
@@ -58,22 +59,34 @@ function TeacherTableComponent() {
         },
         teacherTableHeaderColumns: {
             color: 'white',
-            width: 200
+            width: '200px',
+
         },
+        ul: {
+            "& .MuiPaginationItem-root": {
+                color: "green"
+            },
+            width: '200px'
+        }
     });
     const classes = useStyles();
 
 
-    const handleChangePage = (event: React.MouseEvent<HTMLButtonElement> | null, newPage: number) => {
+    // const handleChangePage = (event: React.MouseEvent<HTMLButtonElement> | null, newPage: number) => {
+    //     setPage(newPage);
+    // };
+    const handleChangePage = (event: unknown, newPage: number) => {
         setPage(newPage);
     };
 
     const handleChangeRowsPerPage = (
-        event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+        event: React.ChangeEvent<HTMLInputElement>
     ) => {
-        setRowsPerPage(parseInt(event.target.value, 10));
+        setRowsPerPage(+event.target.value);
+
         setPage(0);
     };
+
 
     const buttonStatus = (id, status) => {
         //console.log(value)
@@ -122,13 +135,16 @@ function TeacherTableComponent() {
                         </TableRow>
                     </TableHead>
                     <TableBody>
+
                         {response?.filter((val) => {
                             if(searchTerm == ""){
                                 return val
                             }else if(val.name.toLowerCase().includes(searchTerm.toLowerCase())){
                                 return val
                             }
-                        }).map((row) => (
+                        })
+                            .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                            .map((row) => (
                                 <TableRow key={row.id}>
                                     <TableCell align="center"> {row.id} </TableCell>
                                     <TableCell align="center"> {row.name} </TableCell>
@@ -154,25 +170,25 @@ function TeacherTableComponent() {
                         ))
                         }
                     </TableBody>
-                    <TableFooter>
-                        <TableRow>
-                            <TablePagination
-                                rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
-                                colSpan={3}
-                                count={10}
-                                rowsPerPage={rowsPerPage}
-                                page={page}
-                                SelectProps={{
-                                    inputProps: { 'aria-label': 'rows per page' },
-                                    native: true,
-                                }}
-                                onPageChange={handleChangePage}
-                                onRowsPerPageChange={handleChangeRowsPerPage}
-                                // ActionsComponent={TablePaginationActions}
-                            />
-                        </TableRow>
-                    </TableFooter>
                 </Table>
+                <TableRow>
+                    <TablePagination
+                        rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
+                        colSpan={3}
+                        count={filteredData ? filteredData.length : 1}
+                        rowsPerPage={rowsPerPage}
+                        page={page}
+                        classes={{ ul: classes.ul }}
+                        SelectProps={{
+                            inputProps: { 'aria-label': 'rows per page' },
+                            native: true,
+                        }}
+                        color="secondary"
+                        component="div"
+                        onPageChange={handleChangePage}
+                        onRowsPerPageChange={handleChangeRowsPerPage}
+                    />
+                </TableRow>
             </TableContainer>
         </div>
     )
