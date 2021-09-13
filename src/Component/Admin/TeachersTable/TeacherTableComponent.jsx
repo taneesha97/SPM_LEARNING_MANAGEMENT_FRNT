@@ -8,7 +8,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import {Link} from "react-router-dom";
-import {makeStyles, styled, TextField} from "@material-ui/core";
+import {createTheme, makeStyles, styled, TextField} from "@material-ui/core";
 import './teacherTable.css'
 import teacherDeleteimage1 from "./images/teacherDelete-image1.png";
 import {useDispatch, useSelector} from "react-redux";
@@ -18,6 +18,7 @@ import TableFooter from "@material-ui/core/TableFooter";
 import TablePagination from "@material-ui/core/TablePagination";
 import SucessPopUp from "../../PopupModel/SucessPopUp";
 import PopUpTeacherStatusComponent from "../../PopupModel/TeacherStatus/PopUpTeacherStatusComponent";
+import {purple} from "@material-ui/core/colors";
 function TeacherTableComponent() {
 
 
@@ -68,10 +69,18 @@ function TeacherTableComponent() {
         }
     });
 
-    const MyTablePagination = styled(TablePagination)(theme => ({
-        backgroundColor: theme.palette.secondary.dark,
-        color: theme.palette.common.white,
-    }));
+    const theme = createTheme({
+        palette: {
+            primary: {
+                // Purple and green play nicely together.
+                main: purple[500],
+            },
+            secondary: {
+                // This is green.A700 as hex.
+                main: '#11cb5f',
+            },
+        },
+    });
     const classes = useStyles();
 
 
@@ -191,7 +200,8 @@ function TeacherTableComponent() {
                     component="div"
                     onPageChange={handleChangePage}
                     onRowsPerPageChange={handleChangeRowsPerPage}
-                    classes={MyTablePagination}
+                    classes={theme.palette.primary}
+
                 />
             </div>
         </React.Fragment>
