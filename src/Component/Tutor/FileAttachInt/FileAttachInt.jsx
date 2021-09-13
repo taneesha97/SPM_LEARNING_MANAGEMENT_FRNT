@@ -11,6 +11,14 @@ function FileAttachInt({array4}) {
     const [file, setFile] = useState(0);
     const [downloadUri, setDownloadUri] = useState(0);
 
+    //File attachment logic, saved the file in state.
+    const onDrop = React.useCallback((selectedFile) => {
+        const fileDropped = selectedFile[0];
+        setFile(fileDropped);
+        setSuccess(false);
+        setProgress(0);
+    })
+
 
     return (
         <div>
