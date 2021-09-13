@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react'
+import axios from "axios";
 import "./FileAttachInt.css"
 import FileAttachmentTable from "./FileAttachmentTable/FileAttachmentTable";
 import {LinearProgress} from "@material-ui/core";
@@ -8,8 +9,8 @@ function FileAttachInt({array4}) {
 
     //Progress Tracking State.
     const [progress, setProgress] = useState(0);
-    const [loading, setLoading] = useState(0);
-    const [success, setSuccess] = useState(0);
+    const [loading, setLoading] = useState(false);
+    const [success, setSuccess] = useState(false);
     const [file, setFile] = useState(0);
     const [downloadUri, setDownloadUri] = useState(0);
 
@@ -25,6 +26,31 @@ function FileAttachInt({array4}) {
         setSuccess(false);
         setProgress(0);
     })
+
+    //File Uploading method.
+    const uploadFiles = async () => {
+        try {
+            setSuccess(false);
+            setLoading(true)
+            const formData = new FormData();
+            formData.append("file", file);
+            const API_URL = "#";
+            const response = await axios.put(API_URL, formData, {
+                onUploadProgress: (progressEvent) => {
+                    const percentCompleted = Math.round(
+                        (progressEvent.loaded * 100) / progressEvent.total
+                    );
+                    setProgress(percentCompleted);
+                },
+            });
+            setDownloadUri(response.data.fileDownloadUri);
+            setSuccess(true);
+            setLoading(false);
+
+        } catch (error) {
+            alert(error.message);
+        }
+    };
 
 
     return (
