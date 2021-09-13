@@ -31,6 +31,10 @@
   background-color: #18266c;
 }
 
+.card {
+  padding: 2%;
+}
+
 .bluescreen1 {
   height: 65.03vw;
   width: 27.3vw;
@@ -108,7 +112,13 @@
 }
 
 .userprofile-bio1-info1 {
-  margin-left: 2%;
+  padding: 2%;
+}
+
+.userprofile-bio1-info1-main-inside {
+  margin-right: auto;
+  margin-left: auto;
+  background: chocolate;
 }
 
 .userprofile-bio1-info1-main {

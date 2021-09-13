@@ -8,7 +8,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import {Link} from "react-router-dom";
-import {makeStyles, styled, TextField} from "@material-ui/core";
+import {createTheme, makeStyles, styled, TextField} from "@material-ui/core";
 import './teacherTable.css'
 import teacherDeleteimage1 from "./images/teacherDelete-image1.png";
 import {useDispatch, useSelector} from "react-redux";
@@ -18,6 +18,7 @@ import TableFooter from "@material-ui/core/TableFooter";
 import TablePagination from "@material-ui/core/TablePagination";
 import SucessPopUp from "../../PopupModel/SucessPopUp";
 import PopUpTeacherStatusComponent from "../../PopupModel/TeacherStatus/PopUpTeacherStatusComponent";
+import {purple} from "@material-ui/core/colors";
 function TeacherTableComponent() {
 
 
@@ -62,22 +63,19 @@ function TeacherTableComponent() {
             width: '200px',
 
         },
-        ul: {
-            color: "green",
-            width: '200px'
-        }
+
+        // export const useStyle = makeStyles((theme) => ({
+        //     root: {
+        //         "& .MuiFormControl-root": {
+        //             width: "80%",
+        //             margin: theme.spacing(1),
+        //         },
+        //     },
+        // }));
     });
 
-    const MyTablePagination = styled(TablePagination)(theme => ({
-        backgroundColor: theme.palette.secondary.dark,
-        color: theme.palette.common.white,
-    }));
     const classes = useStyles();
 
-
-    // const handleChangePage = (event: React.MouseEvent<HTMLButtonElement> | null, newPage: number) => {
-    //     setPage(newPage);
-    // };
     const handleChangePage = (event: unknown, newPage: number) => {
         setPage(newPage);
     };
@@ -191,7 +189,7 @@ function TeacherTableComponent() {
                     component="div"
                     onPageChange={handleChangePage}
                     onRowsPerPageChange={handleChangeRowsPerPage}
-                    classes={MyTablePagination}
+                    //className={classes.table}
                 />
             </div>
         </React.Fragment>

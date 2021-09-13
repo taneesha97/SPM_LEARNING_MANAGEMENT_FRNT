@@ -6,7 +6,8 @@ function UserProfile() {
 
     const [buttonPopup, setButtonPopup] = useState(false);
     const [popupName, setPopupName] = useState("");
-
+    const id = localStorage.getItem("userId")
+    console.log(id)
     const updateUserName = () => {
         setButtonPopup(true);
         setPopupName("Username");
@@ -29,11 +30,56 @@ function UserProfile() {
                     <div className="userprofile-bio">
                         <div className="userprofile-bio1">
                             <div className="userprofile-bio1-info1">
-                                <h2 className="userprofile-bio1-info1-main">Bio</h2><br/>
-                                <h4 className="userprofile-bio1-info1-second">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                    Curabitur nec dignissim sem. Donec sed justo rutrum, vehicula elit a, pulvinar sem. Proin convallis,
-                                    orci vel blandit luctus, massa lectus blandit neque,
-                                    sit amet pharetra libero lacus et arcu. Donec placerat lacinia nunc vel faucibus.</h4>
+                                <div className="text-center">
+                                    <h2 className="userprofile-bio1-info1-main">Personal Details</h2>
+                                </div>
+                                <div className="card">
+                                        <div className="row mb-3">
+                                            <div className="col">
+                                                <h6 className="mb-0">Full Name</h6>
+                                            </div>
+                                            <div className="col">
+                                                <h6 className="mb-0">Taneesha Ayeshmanthi</h6>
+                                            </div>
+                                        </div>
+                                    <div className="row mb-3">
+                                        <div className="col">
+                                            <h6 className="mb-0">Email</h6>
+                                        </div>
+                                        <div className="col">
+                                            <h6 className="mb-0">Taneesha@gmail.com</h6>
+                                        </div>
+                                    </div>
+                                    <div className="row mb-3">
+                                        <div className="col">
+                                            <h6 className="mb-0">Age</h6>
+                                        </div>
+                                        <div className="col">
+                                            <h6 className="mb-0">24</h6>
+                                        </div>
+                                    </div>
+                                    <div className="row mb-3">
+                                        <div className="col">
+                                            <h6 className="mb-0">Position</h6>
+                                        </div>
+                                        <div className="col">
+                                            <h6 className="mb-0">Student</h6>
+                                        </div>
+                                    </div>
+                                    <div className="row mb-3">
+                                        <div className="col">
+                                            <h6 className="mb-0">Username</h6>
+                                        </div>
+                                        <div className="col">
+                                            <h6 className="mb-0">taneesha</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                {/*<h4 className="userprofile-bio1-info1-second">*/}
+                                {/*    Lorem ipsum dolor sit amet, consectetur adipiscing elit.*/}
+                                {/*    Curabitur nec dignissim sem. Donec sed justo rutrum, vehicula elit a, pulvinar sem. Proin convallis,*/}
+                                {/*    orci vel blandit luctus, massa lectus blandit neque,*/}
+                                {/*    sit amet pharetra libero lacus et arcu. Donec placerat lacinia nunc vel faucibus.</h4>*/}
                             </div>
 
                         </div>

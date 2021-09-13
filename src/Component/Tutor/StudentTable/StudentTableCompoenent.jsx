@@ -25,12 +25,15 @@ const StudentTableComponent = ()  => {
     const history = useHistory();
     const [searchTerm, setSearchTerm] = useState("");
     const [rowsPerPage, setRowsPerPage] = React.useState(5);
+    const [page, setPage] = React.useState(0);
     //const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
 
     const response = useSelector((state) => state.userDetails1.UserDetails.records.data);
     console.log(response);
+    const [filteredData, setFilteredData] = useState(response);
 
     useEffect(() => {
+        setPage(0);
         console.log('calling')
         dispatch(fetchStudents());
     },[])
@@ -42,13 +45,17 @@ const StudentTableComponent = ()  => {
             }, 3000);
     }
 
-    const handleChangePage = () => {
+    const handleChangePage = (event: unknown, newPage: number) => {
+        setPage(newPage);
+    };
 
-    }
+    const handleChangeRowsPerPage = (
+        event: React.ChangeEvent<HTMLInputElement>
+    ) => {
+        setRowsPerPage(+event.target.value);
 
-    const handleChangeRowsPerPage= () => {
-
-    }
+        setPage(0);
+    };
     const useStyles = makeStyles({
         table: {
             maxWidth: "710%",
@@ -110,7 +117,9 @@ const StudentTableComponent = ()  => {
                             }else if(val.name.toLowerCase().includes(searchTerm.toLowerCase())){
                                 return val
                             }
-                        }).map((row) => (
+                        })
+                            .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                            .map((row) => (
                             console.log(row),
                                 <TableRow>
                                     <TableCell align="center"> {row.id} </TableCell>
@@ -127,26 +136,24 @@ const StudentTableComponent = ()  => {
                         ))
                         }
                     </TableBody>
-                    <TableFooter>
-                        <TableRow>
-                            <TablePagination
-                                rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
-                                colSpan={3}
-                                count={10}
-                                rowsPerPage={rowsPerPage}
-                                page={6}
-                                SelectProps={{
-                                    inputProps: { 'aria-label': 'rows per page' },
-                                    native: true,
-                                }}
-                                onPageChange={handleChangePage}
-                                onRowsPerPageChange={handleChangeRowsPerPage}
-                                // ActionsComponent={TablePaginationActions}
-                            />
-                        </TableRow>
-                    </TableFooter>
                 </Table>
             </TableContainer>
+            <TablePagination
+                rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
+                colSpan={3}
+                count={filteredData ? filteredData.length : 1}
+                rowsPerPage={rowsPerPage}
+                page={page}
+                //classes={{ ul: classes.ul }}
+                SelectProps={{
+                    inputProps: { 'aria-label': 'rows per page' },
+                    native: true,
+                }}
+                component="div"
+                onPageChange={handleChangePage}
+                onRowsPerPageChange={handleChangeRowsPerPage}
+                //className={classes.table}
+            />
         </div>
     )
 }
