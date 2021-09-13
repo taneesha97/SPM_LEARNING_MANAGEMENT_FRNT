@@ -31,6 +31,7 @@ function LoginComponent(props) {
                 let values = response.data;
                 console.log('res1 ', response.data);
                 console.log('res1 ', values[0]);
+                console.log('res3 ', values[2]);
                 if (values[1] == null){
                     console.log('111')
                     alert('Invalid login')
@@ -39,7 +40,7 @@ function LoginComponent(props) {
                     setPassword("");
                 }else if (values[1] == "student"){
                     console.log('1112')
-                    AuthClass.login(username,values)
+                    AuthClass.login(username,values[1], values[2])
                     setButtonPopup(true);
                     setPopupName("login");
                     setPopupLocaion("/home");
@@ -47,13 +48,14 @@ function LoginComponent(props) {
                 }else if (values[1] == "teacher"){
                     if (values[0] == "valid"){
                         console.log('111w')
-                        AuthClass.login(username,values)
+                        AuthClass.login(username,values[1], values[2])
                         setPopupName("login");
                         setPopupLocaion("/tutordash");
                         setButtonPopup(true);
                         //history.push();
                     }else{
                         console.log('111s')
+                        AuthClass.login(username,values[1], values[2])
                         setName("");
                         setPassword("");
                         alert('Teacher Status pending')
