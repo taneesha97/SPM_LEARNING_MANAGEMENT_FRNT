@@ -8,7 +8,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import {Link} from "react-router-dom";
-import {makeStyles, TextField} from "@material-ui/core";
+import {makeStyles, styled, TextField} from "@material-ui/core";
 import './teacherTable.css'
 import teacherDeleteimage1 from "./images/teacherDelete-image1.png";
 import {useDispatch, useSelector} from "react-redux";
@@ -63,12 +63,15 @@ function TeacherTableComponent() {
 
         },
         ul: {
-            "& .MuiPaginationItem-root": {
-                color: "green"
-            },
+            color: "green",
             width: '200px'
         }
     });
+
+    const MyTablePagination = styled(TablePagination)(theme => ({
+        backgroundColor: theme.palette.secondary.dark,
+        color: theme.palette.common.white,
+    }));
     const classes = useStyles();
 
 
@@ -96,101 +99,103 @@ function TeacherTableComponent() {
     }
 
     return (
-        <div className="Teacher-table-background">
-            <div className="teacher-table-title-header">
-                <h1 className="title-teacherTable">Teacher Details Table</h1>
-                <div className="search-bar-teacher-table">
-                    <TextField
-                        id="filled-full-width"
-                        label="Search"
-                        placeholder="Search by name.."
-                        fullWidth
-                        margin="normal"
-                        variant="outlined"
-                        className="search-teacher"
-                        value={searchTerm}
-                        onChange={(event) => setSearchTerm(event.target.value)}
-                        style={{backgroundColor: "#FFFFFF", width: 300, borderRadius: 30}}
-                    />
+        <React.Fragment>
+            <div className="Teacher-table-background">
+                <div className="teacher-table-title-header">
+                    <h1 className="title-teacherTable">Teacher Details Table</h1>
+                    <div className="search-bar-teacher-table">
+                        <TextField
+                            id="filled-full-width"
+                            label="Search"
+                            placeholder="Search by name.."
+                            fullWidth
+                            margin="normal"
+                            variant="outlined"
+                            className="search-teacher"
+                            value={searchTerm}
+                            onChange={(event) => setSearchTerm(event.target.value)}
+                            style={{backgroundColor: "#FFFFFF", width: 300, borderRadius: 30}}
+                        />
+                    </div>
+
                 </div>
+                <div className="login-component-4">
+                    <PopUpTeacherStatusComponent trigger={buttonPopup} setTrigger = {setButtonPopup} name1 = {popupId} name2 = {popupStatus}/>
+                </div>
+                <TableContainer component={Paper} className={classes.teacherContent}>
 
-            </div>
-            <div className="login-component-4">
-                <PopUpTeacherStatusComponent trigger={buttonPopup} setTrigger = {setButtonPopup} name1 = {popupId} name2 = {popupStatus}/>
-            </div>
-            <TableContainer component={Paper} className={classes.teacherContent}>
+                    <Table className={classes.table} aria-label="simple table">
+                        <TableHead className="teacher-table-header">
+                            <TableRow >
+                                <TableCell align="center" className={classes.teacherTableHeaderColumns}>id</TableCell>
+                                <TableCell align="center" className={classes.teacherTableHeaderColumns}>Name</TableCell>
+                                <TableCell align="center" className={classes.teacherTableHeaderColumns}>Email</TableCell>
+                                <TableCell align="center" className={classes.teacherTableHeaderColumns}>User Name</TableCell>
 
-                <Table className={classes.table} aria-label="simple table">
-                    <TableHead className="teacher-table-header">
-                        <TableRow >
-                            <TableCell align="center" className={classes.teacherTableHeaderColumns}>id</TableCell>
-                            <TableCell align="center" className={classes.teacherTableHeaderColumns}>Name</TableCell>
-                            <TableCell align="center" className={classes.teacherTableHeaderColumns}>Email</TableCell>
-                            <TableCell align="center" className={classes.teacherTableHeaderColumns}>User Name</TableCell>
+                                <TableCell align="center" className={classes.teacherTableHeaderColumns}>Status</TableCell>
+                                <TableCell align="center" className={classes.teacherTableHeaderColumns}>Password</TableCell>
+                                <TableCell align="center" className={classes.teacherTableHeaderColumns}>Delete</TableCell>
+                                <TableCell align="center" className={classes.teacherTableHeaderColumns}>Approve Teacher</TableCell>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
 
-                            <TableCell align="center" className={classes.teacherTableHeaderColumns}>Status</TableCell>
-                            <TableCell align="center" className={classes.teacherTableHeaderColumns}>Password</TableCell>
-                            <TableCell align="center" className={classes.teacherTableHeaderColumns}>Delete</TableCell>
-                            <TableCell align="center" className={classes.teacherTableHeaderColumns}>Approve Teacher</TableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
+                            {response?.filter((val) => {
+                                if(searchTerm == ""){
+                                    return val
+                                }else if(val.name.toLowerCase().includes(searchTerm.toLowerCase())){
+                                    return val
+                                }
+                            })
+                                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                                .map((row) => (
+                                    <TableRow key={row.id}>
+                                        <TableCell align="center"> {row.id} </TableCell>
+                                        <TableCell align="center"> {row.name} </TableCell>
+                                        <TableCell align="center"> {row.email} </TableCell>
+                                        <TableCell align="center"> {row.username} </TableCell>
+                                        <TableCell align="center"> {row.status} </TableCell>
+                                        <TableCell align="center"> {row.password} </TableCell>
+                                        <TableCell align="center">
+                                            <a onClick={() => {
+                                                deleteTeacher(row.id)}}>
+                                                <img src= {teacherDeleteimage1}  className="teacherDelete-image1"/>
+                                            </a>
 
-                        {response?.filter((val) => {
-                            if(searchTerm == ""){
-                                return val
-                            }else if(val.name.toLowerCase().includes(searchTerm.toLowerCase())){
-                                return val
+                                        </TableCell>
+                                        <TableCell align="center">
+                                            <button type="button" onClick={() => {buttonStatus(row.id, row.status)}} className="btn btn-info">Update</button>
+                                            {/*<a onClick={() => {*/}
+                                            {/*    deleteTeacher(row.id)}}>*/}
+                                            {/*    <img src= {teacherDeleteimage1}  className="teacherDelete-image1"/>*/}
+                                            {/*</a>*/}
+                                        </TableCell>
+                                    </TableRow>
+                                ))
                             }
-                        })
-                            .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                            .map((row) => (
-                                <TableRow key={row.id}>
-                                    <TableCell align="center"> {row.id} </TableCell>
-                                    <TableCell align="center"> {row.name} </TableCell>
-                                    <TableCell align="center"> {row.email} </TableCell>
-                                    <TableCell align="center"> {row.username} </TableCell>
-                                    <TableCell align="center"> {row.status} </TableCell>
-                                    <TableCell align="center"> {row.password} </TableCell>
-                                    <TableCell align="center">
-                                        <a onClick={() => {
-                                            deleteTeacher(row.id)}}>
-                                            <img src= {teacherDeleteimage1}  className="teacherDelete-image1"/>
-                                        </a>
+                        </TableBody>
+                    </Table>
 
-                                    </TableCell>
-                                    <TableCell align="center">
-                                        <button type="button" onClick={() => {buttonStatus(row.id, row.status)}} className="btn btn-info">Update</button>
-                                        {/*<a onClick={() => {*/}
-                                        {/*    deleteTeacher(row.id)}}>*/}
-                                        {/*    <img src= {teacherDeleteimage1}  className="teacherDelete-image1"/>*/}
-                                        {/*</a>*/}
-                                    </TableCell>
-                                </TableRow>
-                        ))
-                        }
-                    </TableBody>
-                </Table>
-                <TableRow>
-                    <TablePagination
-                        rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
-                        colSpan={3}
-                        count={filteredData ? filteredData.length : 1}
-                        rowsPerPage={rowsPerPage}
-                        page={page}
-                        classes={{ ul: classes.ul }}
-                        SelectProps={{
-                            inputProps: { 'aria-label': 'rows per page' },
-                            native: true,
-                        }}
-                        color="secondary"
-                        component="div"
-                        onPageChange={handleChangePage}
-                        onRowsPerPageChange={handleChangeRowsPerPage}
-                    />
-                </TableRow>
-            </TableContainer>
-        </div>
+                </TableContainer>
+                <TablePagination
+                    rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
+                    colSpan={3}
+                    count={filteredData ? filteredData.length : 1}
+                    rowsPerPage={rowsPerPage}
+                    page={page}
+                    //classes={{ ul: classes.ul }}
+                    SelectProps={{
+                        inputProps: { 'aria-label': 'rows per page' },
+                        native: true,
+                    }}
+                    component="div"
+                    onPageChange={handleChangePage}
+                    onRowsPerPageChange={handleChangeRowsPerPage}
+                    classes={MyTablePagination}
+                />
+            </div>
+        </React.Fragment>
+
     )
 }
 
