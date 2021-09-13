@@ -11,7 +11,7 @@ import {Link} from "react-router-dom";
 import {makeStyles, TextField} from "@material-ui/core";
 import './studentTable.css'
 import studentDeleting1 from "./images/studentDelete-image1.png";
-import {deleteUsers, fetchStudents} from "../../../Action/Users";
+import {deleteUsers, fetchStudents, getUserByID} from "../../../Action/Users";
 import teacherDeleteimage1 from "../../Admin/TeachersTable/images/teacherDelete-image1.png";
 import {useDispatch, useSelector} from "react-redux";
 import {useHistory} from "react-router";

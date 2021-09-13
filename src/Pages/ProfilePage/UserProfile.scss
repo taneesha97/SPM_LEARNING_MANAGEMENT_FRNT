@@ -31,7 +31,8 @@
 }
 
 .card{
-  padding: 2%
+  padding: 2%;
+  width: 100%;
 }
 
 .bluescreen1{
@@ -91,7 +92,6 @@
 .userprofile-bio{
   display: flex;
   flex-direction: column;
-  height:  23.1vw;
   width: 62vw;
   float: right;
   padding: 20px;
@@ -106,7 +106,6 @@
 .userprofile-bio1{
   flex-direction: column;
   margin: auto;
-  height: 100%;
   width: 100%;
   border-radius: 30px;
   background-color:rgba(229, 228, 255, 1);
@@ -114,6 +113,8 @@
 
 .userprofile-bio1-info1{
   padding: 2%;
+  height: fit-content;
+  width: 100%;
 }
 .userprofile-bio1-info1-main-inside{
   margin-right: auto;

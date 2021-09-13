@@ -6,12 +6,14 @@ import {useHistory} from "react-router";
 import CustomAlert from "../CustomAlert/CustomAlert";
 import EmailUpdateComponent from "../Profile/EmailUpdateComponent";
 import SucessPopUp from "../PopupModel/SucessPopUp";
+import PopupModel from "../PopupModel/PopupModel";
 
 function   RegistrationComponent() {
 
 
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
+    const [age, setAge] = useState("");
     const [username, setUsername] = useState("");
     const [type, setType] = useState('teacher');
     const [password, setPassword] = useState();
@@ -35,6 +37,7 @@ function   RegistrationComponent() {
         const newUser = {
             name,
             email,
+            age,
             username,
             status,
             password,
@@ -54,7 +57,10 @@ function   RegistrationComponent() {
 
     return (
         <div>
-            <SucessPopUp trigger={buttonPopup} setTrigger = {setButtonPopup} name1 = {popupName} name2 = {popupLocation}></SucessPopUp>
+            <PopupModel show={buttonPopup} buttondisble = {false}>
+                <SucessPopUp trigger={buttonPopup} setTrigger = {setButtonPopup} name1 = {popupName} name2 = {popupLocation}></SucessPopUp>
+            </PopupModel>
+
             <form onSubmit={SubmitPressed}>
                 <div className="registration-info4">
                     <h2 className="registration-info4-main">Registration</h2>
@@ -81,6 +87,17 @@ function   RegistrationComponent() {
                                type="email"
                                onChange = {(e) =>{
                                    setEmail(e.target.value);
+                               }}
+                               required
+                        />
+                    </div>
+                    <div>
+                        <lable className="input-wrapper">Age</lable><br/>
+                        <input className="input-field"
+                               placeholder="Enter Age..."
+                               type="number"
+                               onChange = {(e) =>{
+                                   setAge(e.target.value);
                                }}
                                required
                         />
