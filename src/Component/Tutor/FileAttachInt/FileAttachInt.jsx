@@ -1,8 +1,10 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import "./FileAttachInt.css"
 import FileAttachmentTable from "./FileAttachmentTable/FileAttachmentTable";
 import {LinearProgress} from "@material-ui/core";
 function FileAttachInt({array4}) {
+
+
 
     //Progress Tracking State.
     const [progress, setProgress] = useState(0);
@@ -11,10 +13,14 @@ function FileAttachInt({array4}) {
     const [file, setFile] = useState(0);
     const [downloadUri, setDownloadUri] = useState(0);
 
+    useEffect(()=> {
+
+    }, [file])
+
     //File attachment logic, saved the file in state.
     const onDrop = React.useCallback((selectedFile) => {
-        const fileDropped = selectedFile[0];
-        setFile(fileDropped);
+        let files = selectedFile.target.files;
+        setFile(files);
         console.log(file);
         setSuccess(false);
         setProgress(0);
