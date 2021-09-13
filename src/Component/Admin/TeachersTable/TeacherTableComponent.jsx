@@ -63,30 +63,19 @@ function TeacherTableComponent() {
             width: '200px',
 
         },
-        ul: {
-            color: "green",
-            width: '200px'
-        }
+
+        // export const useStyle = makeStyles((theme) => ({
+        //     root: {
+        //         "& .MuiFormControl-root": {
+        //             width: "80%",
+        //             margin: theme.spacing(1),
+        //         },
+        //     },
+        // }));
     });
 
-    const theme = createTheme({
-        palette: {
-            primary: {
-                // Purple and green play nicely together.
-                main: purple[500],
-            },
-            secondary: {
-                // This is green.A700 as hex.
-                main: '#11cb5f',
-            },
-        },
-    });
     const classes = useStyles();
 
-
-    // const handleChangePage = (event: React.MouseEvent<HTMLButtonElement> | null, newPage: number) => {
-    //     setPage(newPage);
-    // };
     const handleChangePage = (event: unknown, newPage: number) => {
         setPage(newPage);
     };
@@ -200,8 +189,7 @@ function TeacherTableComponent() {
                     component="div"
                     onPageChange={handleChangePage}
                     onRowsPerPageChange={handleChangeRowsPerPage}
-                    classes={theme.palette.primary}
-
+                    //className={classes.table}
                 />
             </div>
         </React.Fragment>
