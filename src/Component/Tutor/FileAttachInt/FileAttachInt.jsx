@@ -3,8 +3,13 @@ import "./FileAttachInt.css"
 import FileAttachmentTable from "./FileAttachmentTable/FileAttachmentTable";
 import {LinearProgress} from "@material-ui/core";
 function FileAttachInt({array4}) {
+
     //Progress Tracking State.
     const [progress, setProgress] = useState(0);
+    const [loading, setLoading] = useState(0);
+    const [success, setSuccess] = useState(0);
+    const [file, setFile] = useState(0);
+    const [downloadUri, setDownloadUri] = useState(0);
 
 
     return (
