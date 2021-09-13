@@ -1,9 +1,11 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import './UserProfile.css'
 import profilePic from "./images/profilePic.png";
 import EmailUpdateComponent from "../../Component/Profile/EmailUpdateComponent";
+import {fetchStudents} from "../../Action/Users";
+import {useDispatch} from "react-redux";
 function UserProfile() {
-
+    const dispatch = useDispatch();
     const [buttonPopup, setButtonPopup] = useState(false);
     const [popupName, setPopupName] = useState("");
     const id = localStorage.getItem("userId")
@@ -20,6 +22,12 @@ function UserProfile() {
         setButtonPopup(true);
         setPopupName("Password");
     }
+    useEffect(() => {
+        setPage(0);
+        console.log('calling')
+        dispatch(fetchStudents());
+    },[])
+
 
     return (<React.Fragment>
             <div>

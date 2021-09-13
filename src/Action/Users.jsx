@@ -84,10 +84,18 @@ export const deleteUsers = (id) => dispatch => {
 }
 
 
-export const getUserByID = (data) => dispatch => {
-    dispatch({
-        type: GET_USER,
-        payload: data
+export const getUserByID = (id) => dispatch => {
+    console.log('get user by id');
+    axios.get(api.baseURL + 'getsingleuser/'+ id)
+        .then(response => {
+                dispatch({
+                    type: GET_USER,
+                    payload: response
+                })
+            }
+
+        ).catch((err) => {
+        console.log(err);
     })
 }
 
