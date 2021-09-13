@@ -33,6 +33,7 @@
 
 .card {
   padding: 2%;
+  width: 100%;
 }
 
 .bluescreen1 {
@@ -114,7 +115,7 @@
 .userprofile-bio1-info1 {
   padding: 2%;
   height: fit-content;
-  width: fit-content;
+  width: 100%;
 }
 
 .userprofile-bio1-info1-main-inside {
