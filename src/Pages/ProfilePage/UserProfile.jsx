@@ -2,8 +2,8 @@ import React, {useEffect, useState} from 'react'
 import './UserProfile.css'
 import profilePic from "./images/profilePic.png";
 import EmailUpdateComponent from "../../Component/Profile/EmailUpdateComponent";
-import {fetchStudents} from "../../Action/Users";
-import {useDispatch} from "react-redux";
+import {fetchStudents, getUserByID} from "../../Action/Users";
+import {useDispatch, useSelector} from "react-redux";
 function UserProfile() {
     const dispatch = useDispatch();
     const [buttonPopup, setButtonPopup] = useState(false);
@@ -23,11 +23,12 @@ function UserProfile() {
         setPopupName("Password");
     }
     useEffect(() => {
-        setPage(0);
         console.log('calling')
-        dispatch(fetchStudents());
+        dispatch(getUserByID(122));
     },[])
 
+    const response = useSelector((state) => state.userDetails1.editDetail.data);
+    console.log(response);
 
     return (<React.Fragment>
             <div>
