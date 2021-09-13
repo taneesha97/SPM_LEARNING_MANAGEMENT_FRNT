@@ -10,14 +10,16 @@ function ProfileClassRoom() {
             <div className="bluescreen4">
                 <div className="bluescreen5">
                     <div className="collapseList">
-                        <CollapsComponent/><br/>
-                        <CollapsComponent/><br/>
-                        <CollapsComponent/><br/>
-                        <CollapsComponent/><br/>
-                        <CollapsComponent/><br/>
+                        <CollapsComponent/>
+                        {/*<CollapsComponent/>*/}
+                        {/*<CollapsComponent/>*/}
+                        {/*<CollapsComponent/>*/}
+                        {/*<CollapsComponent/>*/}
                     </div>
-
                 </div>
+
+
+
 
             </div>
         </div>

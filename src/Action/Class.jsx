@@ -1,5 +1,5 @@
 import * as api from "../API";
-import {ADD_CLASS, DELETE_CLASS, DELETE_USER, GET_CLASS} from "./types";
+import {ADD_CLASS, DELETE_CLASS, GET_CLASS} from "./types";
 import axios from "axios";
 
 export const addClass = (Class) => async (dispatch) => {
@@ -8,7 +8,7 @@ export const addClass = (Class) => async (dispatch) => {
     try{
         const { data } = await api.createClass(Class);
         dispatch({type: ADD_CLASS, payload: data });
-        alert("data added successfully");
+        // alert("data added successfully");
     } catch (error){
         console.log(error);
     }

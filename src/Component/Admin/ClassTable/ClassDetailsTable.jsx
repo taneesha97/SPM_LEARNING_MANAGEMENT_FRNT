@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import { withStyles, Theme, createStyles, makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -17,6 +17,7 @@ import {deleteClasses, getClasses} from "../../../Action/Class";
 import './ClassDetails.css'
 import {TextField} from "@material-ui/core";
 import * as row from "react-file-base64";
+import {fetchTeachers} from "../../../Action/Users";
 
 
 const StyledTableCell = withStyles((theme: Theme) =>
@@ -43,7 +44,7 @@ const StyledTableRow = withStyles((theme: Theme) =>
 
 const useStyles = makeStyles({
     table: {
-        minWidth: 50,
+        minWidth: 40,
         borderRadius: 50
     },
     editorContentClass: {
@@ -58,7 +59,7 @@ function ClassDetailsTable() {
     const [rowsPerPage, setRowsPerPage] = React.useState(5);
     // const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
     const dispatch = useDispatch();
-
+    const [searchTerm, setSearchTerm] = useState("");
     const classDetails = useSelector((state) => state.classes.classRecords.records);
     console.log('CLASS DETAIL', classDetails);
 
@@ -86,9 +87,14 @@ function ClassDetailsTable() {
             )
         ) {
             dispatch(deleteClasses(id));
-            setTimeout(() => dispatch(getClasses()), 100);
-            alert("approved the leave status");
+            alert("Delete the class");
+            setTimeout(function(){
+                dispatch(getClasses());
+            }, 100);
+
         }
+
+        // setTimeout(() => dispatch(getClasses()), 1000);
     }
     return (
         <React.Fragment>
@@ -101,14 +107,29 @@ function ClassDetailsTable() {
                         <TextField
                             id="filled-full-width"
                             label="Search"
-                            placeholder="Search Items.."
+                            placeholder="Search by name.."
                             fullWidth
                             margin="normal"
                             variant="outlined"
                             className="search-class"
+                            value={searchTerm}
+                            onChange={(event) => setSearchTerm(event.target.value)}
                             style={{backgroundColor: "#FFFFFF", width: 300, borderRadius: 30}}
                         />
                     </div>
+                    {/*<div className="search-bar-class-table">*/}
+                    {/*    <TextField*/}
+                    {/*        id="filled-full-width"*/}
+                    {/*        // label="Search"*/}
+                    {/*        placeholder="Search Items.."*/}
+                    {/*        fullWidth*/}
+                    {/*        margin="normal"*/}
+                    {/*        // variant="outlined"*/}
+                    {/*        className="search-class"*/}
+                    {/*        style={{backgroundColor: "#FFFFFF", width: 300, height: 30, borderRadius: 30}}*/}
+                    {/*    />*/}
+                    {/*</div>*/}
+
                 </div>
                 <TableContainer component={Paper} className={classes.editorContentClass}>
                         <Table className={classes.table} aria-label="customized table">
@@ -117,22 +138,29 @@ function ClassDetailsTable() {
                                     <TableCell align="center" className="classTablerow">Class name</TableCell>
                                     <TableCell align="center" className="classTablerow">Description</TableCell>
                                     <TableCell align="center" className="classTablerow">Teacher name</TableCell>
-                                    <TableCell align="center" className="classTablerow">Image</TableCell>
+                                    {/*<TableCell align="center" className="classTablerow">Image</TableCell>*/}
                                     <TableCell align="center" className="classTablerow">Delete</TableCell>
                                     <TableCell align="center" className="classTablerow">Update</TableCell>
                                 </TableRow>
                             </TableHead>
                             <TableBody>
-                                {classDetails && classDetails.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                                {classDetails?.filter((val) => {
+                                    if(searchTerm == ""){
+                                        return val
+                                    }else if(val.name.toLowerCase().includes(searchTerm.toLowerCase())){
+                                        return val
+                                    }
+                                })
+                                // slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                                     .map((row) => (
                                     <StyledTableRow key={row.id}>
                                         {/*<StyledTableCell align="center">{row.id}</StyledTableCell>*/}
                                         <StyledTableCell align="center">{row.name}</StyledTableCell>
                                         <StyledTableCell align="center">{row.description}</StyledTableCell>
                                         <StyledTableCell align="center">{row.tutorName}</StyledTableCell>
-                                        <StyledTableCell align="center">{row.image}</StyledTableCell>
+                                        {/*<StyledTableCell align="center">{row.image}</StyledTableCell>*/}
                                         <TableCell align="center">
-                                            <DeleteIcon href = "/admindash" color="primary" style={{fontSize: 35 }}
+                                            <DeleteIcon  color="primary" style={{fontSize: 35 }}
                                             onClick={() => {confirmDelete(row.id)}}/>
                                         </TableCell>
                                         <TableCell align="center">

@@ -40,9 +40,7 @@ export const fetchUser = () => dispatch => {
                 type: FETCH_USERS,
                 payload: response
             })}
-
         ).catch((err) => {
-
         console.log(err);
     })
 }
@@ -86,21 +84,31 @@ export const deleteUsers = (id) => dispatch => {
 }
 
 
-export const getUserByID = (data) => dispatch => {
-    dispatch({
-        type: GET_USER,
-        payload: data
+export const getUserByID = (id) => dispatch => {
+    console.log('get user by id');
+    axios.get(api.baseURL + 'getsingleuser/'+ id)
+        .then(response => {
+                dispatch({
+                    type: GET_USER,
+                    payload: response
+                })
+            }
+
+        ).catch((err) => {
+        console.log(err);
     })
 }
 
-export const upDateUser = (PostData, id) => dispatch => {
+
+
+export const upDateUser = (id, PostData) => dispatch => {
     axios.put(api.baseURL + 'updateuser/' + id , PostData)
         .then(response => {
                 dispatch({
                     type: UPDATE_USER,
                     payload: response.data
                 })
-                alert("data updated successfully");
+                //alert("data updated successfully");
             }
 
         ).catch((err) => {

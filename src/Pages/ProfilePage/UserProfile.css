@@ -1,0 +1,137 @@
+.userprofile {
+  display: flex;
+  flex-direction: column;
+  height: 70vw;
+  width: 35.5vw;
+  border-radius: 30px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+  background-color: #FFFFFF;
+  margin-top: -5vw;
+  margin-left: 1%;
+}
+
+.userprofile1 {
+  display: flex;
+  flex-direction: column;
+  height: 25.2vw;
+  width: 35.5vw;
+  border-radius: 30px;
+  background-color: #4A6CF4;
+}
+
+.popupInterfaceUpdateEmail {
+  position: absolute;
+  background-color: cornflowerblue;
+  margin-left: 10%;
+  margin-top: 20%;
+}
+
+.bluescreen {
+  height: 15vw;
+  background-color: #18266c;
+}
+
+.card {
+  padding: 2%;
+  width: 100%;
+}
+
+.bluescreen1 {
+  height: 65.03vw;
+  width: 27.3vw;
+  background-color: #9F9DFF;
+  float: right;
+  border-radius: 30px 0px 0px 30px;
+}
+
+.profilePic {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 17.9vw;
+  margin-top: 35%;
+}
+
+.userprofile1-info {
+  display: block;
+  text-align: center;
+}
+
+.userprofile1-info-main {
+  color: black;
+  font-weight: 400;
+  font-size: 3.125vw;
+}
+
+.userprofile-button1 {
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  height: 5.2083333333vw;
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.25);
+  border-radius: 30px 30px 30px 30px;
+  background-color: #FFFFFF;
+  margin-bottom: 10px;
+}
+
+.userprofile-button2 {
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  height: 5.2083333333vw;
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.25);
+  border-radius: 30px 30px 30px 30px;
+  background-color: #ff5c5c;
+  margin-bottom: 10px;
+}
+
+.profitable-group {
+  margin-top: 20px;
+  align-content: center;
+  width: 100%;
+}
+
+.userprofile-bio {
+  display: flex;
+  flex-direction: column;
+  width: 62vw;
+  float: right;
+  padding: 20px;
+  margin-top: 1vw;
+  border-radius: 30px;
+  background-color: #E5E5E5;
+}
+
+.userprofile-bio1 {
+  flex-direction: column;
+  margin: auto;
+  width: 100%;
+  border-radius: 30px;
+  background-color: #e5e4ff;
+}
+
+.userprofile-bio1-info1 {
+  padding: 2%;
+  height: fit-content;
+  width: 100%;
+}
+
+.userprofile-bio1-info1-main-inside {
+  margin-right: auto;
+  margin-left: auto;
+  background: chocolate;
+}
+
+.userprofile-bio1-info1-main {
+  color: black;
+  font-weight: 400;
+  font-size: 3.125vw;
+}
+
+.userprofile-bio1-info1-second {
+  color: black;
+  font-weight: 400;
+  font-size: 1.8229166667vw;
+}
+
+/*# sourceMappingURL=UserProfile.css.map */

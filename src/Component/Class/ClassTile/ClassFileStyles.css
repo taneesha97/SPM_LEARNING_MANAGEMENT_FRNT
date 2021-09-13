@@ -1,3 +1,33 @@
+.class-tile-container {
+  width: 300px;
+  height: 200px;
+  display: flex;
+  background-color: #7D75A4;
+  border-radius: 30px;
+  margin: 1.5%;
+}
+.class-tile-container .left-container {
+  color: #FFFFFF;
+  width: 150px;
+  padding: 10px;
+}
+.class-tile-container .left-container .main-heading {
+  font-size: larger;
+  font-weight: bold;
+}
+.class-tile-container .left-container .sub-heading {
+  font-size: small;
+}
+
+.right-container {
+  overflow: hidden;
+  border-radius: 0 30px 30px 0;
+}
+.right-container img {
+  width: fit-content;
+  height: 200px;
+}
+
 .card-img-top {
   border-radius: 0% 10% 10% 0%;
   height: 150.2px;
@@ -8,28 +38,20 @@
 .card-deck {
   width: fit-content;
   height: 200.2px;
-}
-.card-deck .classtile-container {
-  width: 20%;
-  height: 200px;
-  background-color: #FFFFFF;
   display: flex;
-  border-radius: 20px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 10px;
 }
-.card-deck .classtile-container .left-container {
-  width: 60%;
+
+.card-body {
+  background: linear-gradient(to top, #8221FE, #2D61FD);
+  border-radius: 10% 0% 0% 10%;
+  width: 50%;
 }
-.card-deck .classtile-container .right-container {
-  width: 100%;
-}
-.card-deck .classtile-container .right-container img {
-  position: absolute;
-  z-index: -1;
-  width: 200%;
-  height: 100%;
-  border-radius: 0 20px 20px 0;
-}
-.card-deck .classtile-container .right-container img .class {
+
+.class {
   max-height: 150.2px;
   width: 302px;
 }
