@@ -15,6 +15,7 @@ function FileAttachInt({array4}) {
     const onDrop = React.useCallback((selectedFile) => {
         const fileDropped = selectedFile[0];
         setFile(fileDropped);
+        console.log(file);
         setSuccess(false);
         setProgress(0);
     })
@@ -43,7 +44,7 @@ function FileAttachInt({array4}) {
                                className="form-input"/>
 
                         <label htmlFor="lname">Attach the File</label>
-                        <input type="file" id="lname" name="lastname" placeholder="Number of Chapters.."
+                        <input style={{height: "30px", fontSize: "10px", paddingBottom: "30px", color: "white", fontWeight: "bold"}} onChange={onDrop}  type="file" id="lname" name="lastname" placeholder="Number of Chapters.."
                                className="form-input"/>
 
                         <div className="course-button-group button-row">
@@ -51,8 +52,9 @@ function FileAttachInt({array4}) {
                             <button className="light-button">Reset</button>
                         </div>
                     </form>
-                    <div>
-                        <LinearProgress value={}/>
+                    <div style={{marginLeft:"19px", marginRight: "10px"}}>
+                        <label style={{color: "white", fontWeight: "bold"}} htmlFor="lname">File Uploading Progress</label>
+                        <LinearProgress  variant={"determinate"} value={progress}/>
                     </div>
                 </div>
                 <div className="file-table">
