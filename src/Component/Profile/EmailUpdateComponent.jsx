@@ -1,10 +1,23 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './styles.css'
 import cancel from "./images/cancel (1).png";
 import profilePic from "../../Pages/ProfilePage/images/profilePic.png";
 function EmailUpdateComponent(props) {
 
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [age, setAge] = useState("");
+    const [username, setUsername] = useState("");
 
+    const handleSubmit = () => {
+        const user = {
+            name,
+            email,
+            age,
+            username
+        }
+        console.log(user)
+    }
 
 
     return (props.trigger) ? (
@@ -22,16 +35,37 @@ function EmailUpdateComponent(props) {
                                 </div>
                         </div>
                         <div className="emailupdatecomponent-bio1-info1-second">
-                            <form>
                                 <div className="form-group mt-2">
-                                    <label htmlFor="exampleInputUsername">{props.name}</label>
+                                    <label htmlFor="exampleInputUsername">Name</label>
                                     <input type="text" className="form-control" id="exampleInputUsername"
-                                           aria-describedby="emailHelp"/>
+                                           aria-describedby="emailHelp"
+                                           onChange={(e) => setName(e.target.value)}
+                                    />
                                 </div>
+                                <div className="form-group mt-2">
+                                    <label htmlFor="exampleInputUsername">Email</label>
+                                    <input type="text" className="form-control" id="exampleInputUsername"
+                                           aria-describedby="emailHelp"
+                                           onChange={(e) => setEmail(e.target.value)}
+                                    />
+                                </div>
+                                <div className="form-group mt-2">
+                                    <label htmlFor="exampleInputUsername">Age</label>
+                                    <input type="Number" className="form-control" id="exampleInputUsername"
+                                           aria-describedby="emailHelp"
+                                           onChange={(e) => setAge(e.target.value)}
+                                    />
+                                </div>
+                            <div className="form-group mt-2">
+                                <label htmlFor="exampleInputUsername">Username</label>
+                                <input type="text" className="form-control" id="exampleInputUsername"
+                                       aria-describedby="emailHelp"
+                                       onChange={(e) => setUsername(e.target.value)}
+                                />
+                            </div>
                                 <div className="button-container mt-2">
-                                    <button type="submit" className="btnpopup btn btn-primary mt-2">Submit</button>
+                                    <button type="submit" className="btnpopup btn btn-primary mt-2" onClick={handleSubmit}>Submit</button>
                                 </div>
-                            </form>
 
                         </div>
                     </div>
