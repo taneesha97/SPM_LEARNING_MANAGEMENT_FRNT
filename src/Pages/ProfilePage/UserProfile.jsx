@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import './UserProfile.css'
 import profilePic from "./images/profilePic.png";
-import EmailUpdateComponent from "../../Component/Profile/EmailUpdateComponent";
+import UserDetailsUpdateComponent from "../../Component/Profile/UserDetailsUpdateComponent";
 import {fetchStudents, getUserByID} from "../../Action/Users";
 import {useDispatch, useSelector} from "react-redux";
 function UserProfile() {
@@ -95,12 +95,11 @@ function UserProfile() {
                     <div className="userprofile1">
                         <img src= {profilePic}  className="profilePic"/>
                         <div className="popupInterfaceUpdateEmail">
-                            <EmailUpdateComponent trigger={buttonPopup} setTrigger = {setButtonPopup} name = {popupName}></EmailUpdateComponent>
+                            <UserDetailsUpdateComponent trigger={buttonPopup} setTrigger = {setButtonPopup} name = {popupName}></UserDetailsUpdateComponent>
                         </div>
                         <div className="userprofile1-info">
                             <h2 className="userprofile1-info-main">Taneesha</h2>
                             <div className="profitable-group">
-                                <button className="userprofile-button1" onClick={updateUserName}>Update User Name</button><br/>
                                 <button className="userprofile-button1" onClick={updateEmail}>Update My Personal Details</button><br/>
                                 <button className="userprofile-button1" onClick={updatePassword}>Update Password</button><br/>
                                 <button className="userprofile-button1">My Transactions</button><br/>

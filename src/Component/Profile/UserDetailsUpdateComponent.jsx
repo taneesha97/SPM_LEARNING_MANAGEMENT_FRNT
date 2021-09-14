@@ -2,12 +2,15 @@ import React, {useState} from 'react'
 import './styles.css'
 import cancel from "./images/cancel (1).png";
 import profilePic from "../../Pages/ProfilePage/images/profilePic.png";
-function EmailUpdateComponent(props) {
-
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
-    const [age, setAge] = useState("");
-    const [username, setUsername] = useState("");
+function UserDetailsUpdateComponent(props) {
+    let userObject = localStorage.getItem("user")
+    //console.log(user)
+    let user = JSON.parse(userObject)
+    console.log('retrievedObject: ', user);
+    const [name, setName] = useState(user.name);
+    const [email, setEmail] = useState(user.email);
+    const [age, setAge] = useState(user.age);
+    const [username, setUsername] = useState(user.username);
 
     const handleSubmit = () => {
         const user = {
@@ -39,6 +42,7 @@ function EmailUpdateComponent(props) {
                                     <label htmlFor="exampleInputUsername">Name</label>
                                     <input type="text" className="form-control" id="exampleInputUsername"
                                            aria-describedby="emailHelp"
+                                           value={name}
                                            onChange={(e) => setName(e.target.value)}
                                     />
                                 </div>
@@ -46,6 +50,7 @@ function EmailUpdateComponent(props) {
                                     <label htmlFor="exampleInputUsername">Email</label>
                                     <input type="text" className="form-control" id="exampleInputUsername"
                                            aria-describedby="emailHelp"
+                                           value={email}
                                            onChange={(e) => setEmail(e.target.value)}
                                     />
                                 </div>
@@ -53,6 +58,7 @@ function EmailUpdateComponent(props) {
                                     <label htmlFor="exampleInputUsername">Age</label>
                                     <input type="Number" className="form-control" id="exampleInputUsername"
                                            aria-describedby="emailHelp"
+                                           value={age}
                                            onChange={(e) => setAge(e.target.value)}
                                     />
                                 </div>
@@ -60,7 +66,9 @@ function EmailUpdateComponent(props) {
                                 <label htmlFor="exampleInputUsername">Username</label>
                                 <input type="text" className="form-control" id="exampleInputUsername"
                                        aria-describedby="emailHelp"
+                                       value={username}
                                        onChange={(e) => setUsername(e.target.value)}
+                                       disabled={true}
                                 />
                             </div>
                                 <div className="button-container mt-2">
@@ -76,4 +84,4 @@ function EmailUpdateComponent(props) {
     ) : "";
 }
 
-export default EmailUpdateComponent
+export default UserDetailsUpdateComponent

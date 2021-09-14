@@ -4,7 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {addUsers, loginUserValidation} from "../../Action/Users";
 import {useHistory} from "react-router";
 import CustomAlert from "../CustomAlert/CustomAlert";
-import EmailUpdateComponent from "../Profile/EmailUpdateComponent";
+import UserDetailsUpdateComponent from "../Profile/UserDetailsUpdateComponent";
 import SucessPopUp from "../PopupModel/SucessPopUp";
 import PopupModel from "../PopupModel/PopupModel";
 
