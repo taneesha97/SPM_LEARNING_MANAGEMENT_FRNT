@@ -3,6 +3,7 @@ import './styles.css'
 import cancel from "./images/cancel (1).png";
 import profilePic from "../../Pages/ProfilePage/images/profilePic.png";
 function EmailUpdateComponent(props) {
+
     return (props.trigger) ? (
         <div className="background-userUpdate-1">
             <div className="background-userUpdate">
@@ -21,13 +22,21 @@ function EmailUpdateComponent(props) {
 
 
                         <div className="emailupdatecomponent-bio1-info1-second">
-                            <div>
-                                <input className="input-field-updateemail"
-                                       placeholder="Enter....."
-                                       type="text"
-                                />
-                                <button type="submit" className="profileemailupdatebtn"> Update </button>
-                            </div>
+                            <form>
+                                <div className="form-group mt-2">
+                                    <label htmlFor="exampleInputEmail1">Email address</label>
+                                    <input type="email" className="form-control" id="exampleInputEmail1"
+                                           aria-describedby="emailHelp" placeholder="Enter email"/>
+                                </div>
+                                <div className="form-group mt-2">
+                                    <label htmlFor="exampleInputPassword1">Password</label>
+                                    <input type="password" className="form-control" id="exampleInputPassword1"
+                                           placeholder="Password"/>
+                                </div>
+                                <div className="button-container mt-2">
+                                    <button type="submit" className="btn btn-primary">Submit</button>
+                                </div>
+                            </form>
 
                         </div>
                     </div>

@@ -22,7 +22,10 @@ function   RegistrationComponent() {
     const [popupLocation, setPopupLocaion] = useState("");
     const dispatch = useDispatch();
     const history = useHistory();
-
+    // const passwordHash = require('password-hash');
+    // const hashedPassword = passwordHash.generate('password123');
+    //
+    // console.log(hashedPassword);
 
     function SubmitPressed(e) {
         e.preventDefault();
@@ -52,6 +55,7 @@ function   RegistrationComponent() {
         setButtonPopup(true);
 
     }
+
 
 
 
