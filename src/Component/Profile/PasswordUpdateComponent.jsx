@@ -7,17 +7,12 @@ function PasswordUpdateComponent(props) {
     //console.log(user)
     let user = JSON.parse(userObject)
     console.log('retrievedObject: ', user);
-    const [name, setName] = useState(user.name);
-    const [email, setEmail] = useState(user.email);
-    const [age, setAge] = useState(user.age);
-    const [username, setUsername] = useState(user.username);
+    const [password, setPassword] = useState();
+    const [password1, setPassword1] = useState();
 
     const handleSubmit = () => {
         const user = {
-            name,
-            email,
-            age,
-            username
+            password
         }
         console.log(user)
     }
@@ -39,36 +34,17 @@ function PasswordUpdateComponent(props) {
                     </div>
                     <div className="emailupdatecomponent-bio1-info1-second">
                         <div className="form-group mt-2">
-                            <label htmlFor="exampleInputUsername">Name</label>
+                            <label htmlFor="exampleInputUsername">Password</label>
                             <input type="text" className="form-control" id="exampleInputUsername"
                                    aria-describedby="emailHelp"
-                                   value={name}
-                                   onChange={(e) => setName(e.target.value)}
+                                   onChange={(e) => setPassword(e.target.value)}
                             />
                         </div>
                         <div className="form-group mt-2">
-                            <label htmlFor="exampleInputUsername">Email</label>
+                            <label htmlFor="exampleInputUsername">Re Enter Password</label>
                             <input type="text" className="form-control" id="exampleInputUsername"
                                    aria-describedby="emailHelp"
-                                   value={email}
-                                   onChange={(e) => setEmail(e.target.value)}
-                            />
-                        </div>
-                        <div className="form-group mt-2">
-                            <label htmlFor="exampleInputUsername">Age</label>
-                            <input type="Number" className="form-control" id="exampleInputUsername"
-                                   aria-describedby="emailHelp"
-                                   value={age}
-                                   onChange={(e) => setAge(e.target.value)}
-                            />
-                        </div>
-                        <div className="form-group mt-2">
-                            <label htmlFor="exampleInputUsername">Username</label>
-                            <input type="text" className="form-control" id="exampleInputUsername"
-                                   aria-describedby="emailHelp"
-                                   value={username}
-                                   onChange={(e) => setUsername(e.target.value)}
-                                   disabled={true}
+                                   onChange={(e) => setPassword1(e.target.value)}
                             />
                         </div>
                         <div className="button-container mt-2">
