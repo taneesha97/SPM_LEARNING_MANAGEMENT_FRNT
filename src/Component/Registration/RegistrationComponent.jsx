@@ -37,10 +37,11 @@ function   RegistrationComponent() {
             status = 'valid';
         }
         if(type == 'teacher'){
-            status = 'valid';
+            status = 'pending';
         }
 
-        let password = crypto.createHash('sha1').update(password1).digest(password1);
+        let password = crypto.createHash('sha1').update(password1).digest('hex');
+
         console.log(password);
 
         const newUser = {
@@ -54,8 +55,6 @@ function   RegistrationComponent() {
         }
         console.log(newUser);
        dispatch(addUsers(newUser));
-       // const response = useSelector((state) => state.userDetails1.UserDetails);
-       // console.log(response);
         setPopupName("register");
        setPopupLocaion("/login");
         setButtonPopup(true);

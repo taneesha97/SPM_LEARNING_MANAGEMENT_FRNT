@@ -4,6 +4,15 @@ import cancel from "./images/cancel (1).png";
 import profilePic from "../../Pages/ProfilePage/images/profilePic.png";
 function EmailUpdateComponent(props) {
 
+    const crypto = require('crypto'),
+        hash = crypto.getHashes();
+    let password = crypto.createHash('sha1').update('value').digest('hex');
+    console.log(password);
+    async function compareIt(password){
+       // const validPassword = await crypto.;
+        return password;
+    }
+    console.log(compareIt("value"));
     return (props.trigger) ? (
         <div className="background-userUpdate-1">
             <div className="background-userUpdate">
