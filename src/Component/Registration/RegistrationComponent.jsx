@@ -16,12 +16,14 @@ function   RegistrationComponent() {
     const [age, setAge] = useState("");
     const [username, setUsername] = useState("");
     const [type, setType] = useState('teacher');
-    const [password, setPassword] = useState();
+    const [password1, setPassword] = useState();
     const [buttonPopup, setButtonPopup] = useState(false);
     const [popupName, setPopupName] = useState("");
     const [popupLocation, setPopupLocaion] = useState("");
     const dispatch = useDispatch();
     const history = useHistory();
+    const crypto = require('crypto'),
+        hash = crypto.getHashes();
     // const passwordHash = require('password-hash');
     // const hashedPassword = passwordHash.generate('password123');
     //
@@ -37,6 +39,10 @@ function   RegistrationComponent() {
         if(type == 'teacher'){
             status = 'valid';
         }
+
+        let password = crypto.createHash('sha1').update(x).digest(password1);
+        console.log(password);
+
         const newUser = {
             name,
             email,
