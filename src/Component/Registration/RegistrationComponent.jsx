@@ -40,7 +40,7 @@ function   RegistrationComponent() {
             status = 'valid';
         }
 
-        let password = crypto.createHash('sha1').update(x).digest(password1);
+        let password = crypto.createHash('sha1').update(password1).digest(password1);
         console.log(password);
 
         const newUser = {
