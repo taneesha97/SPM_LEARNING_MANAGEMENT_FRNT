@@ -8,8 +8,10 @@ import PasswordUpdateComponent from "../../Component/Profile/PasswordUpdateCompo
 function UserProfile() {
     const dispatch = useDispatch();
     const [buttonPopup, setButtonPopup] = useState(false);
+    const [buttonPopup2, setButtonPopup2] = useState(false);
     const [buttonPopup1, setButtonPopup1] = useState(false);
     const [popupName, setPopupName] = useState("");
+
     let userObject = localStorage.getItem("user")
     //console.log(user)
     let user = JSON.parse(userObject)
@@ -27,9 +29,14 @@ function UserProfile() {
         dispatch(getUserByID(user.id));
     },[])
 
+    // useEffect(() => {
+    //     console.log('calling')
+    //     dispatch(getUserByID(user.id));
+    // },[buttonPopup2])
+
     const response = useSelector((state) => state.userDetails1?.editDetail?.data);
     console.log(response);
-
+    const [result, setResult] = useState(response);
     return (<React.Fragment>
             <div>
                 <div className="bluescreen">
@@ -93,7 +100,7 @@ function UserProfile() {
                     <div className="userprofile1">
                         <img src= {profilePic}  className="profilePic"/>
                         <div className="popupInterfaceUpdateEmail">
-                            <UserDetailsUpdateComponent trigger={buttonPopup} setTrigger = {setButtonPopup} name = {response} name1 = {popupName}></UserDetailsUpdateComponent>
+                            <UserDetailsUpdateComponent trigger={buttonPopup} setTrigger = {setButtonPopup} name = {result} name1 = {popupName} buttonPopup2 = {buttonPopup2} setButtonPopup2 = {setButtonPopup2}></UserDetailsUpdateComponent>
                             <PasswordUpdateComponent trigger={buttonPopup1} setTrigger = {setButtonPopup1} name = {popupName}></PasswordUpdateComponent>
                         </div>
                         <div className="userprofile1-info">
