@@ -127,6 +127,7 @@ function TeacherTableComponent() {
                             <TableRow >
                                 <TableCell align="center" className={classes.teacherTableHeaderColumns}>Name</TableCell>
                                 <TableCell align="center" className={classes.teacherTableHeaderColumns}>Email</TableCell>
+                                <TableCell align="center" className={classes.teacherTableHeaderColumns}>Age</TableCell>
                                 <TableCell align="center" className={classes.teacherTableHeaderColumns}>User Name</TableCell>
                                 <TableCell align="center" className={classes.teacherTableHeaderColumns}>Status</TableCell>
                                 <TableCell align="center" className={classes.teacherTableHeaderColumns}>Delete</TableCell>
@@ -147,6 +148,7 @@ function TeacherTableComponent() {
                                     <TableRow key={row.id}>
                                         <TableCell align="center"> {row.name} </TableCell>
                                         <TableCell align="center"> {row.email} </TableCell>
+                                        <TableCell align="center"> {row.age} </TableCell>
                                         <TableCell align="center"> {row.username} </TableCell>
                                         <TableCell align="center"> {row.status} </TableCell>
                                         <TableCell align="center">

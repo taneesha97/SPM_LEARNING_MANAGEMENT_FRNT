@@ -101,11 +101,10 @@ const StudentTableComponent = ()  => {
                 <Table className={classes.table} aria-label="simple table">
                     <TableHead className="student-table-header">
                         <TableRow >
-                            <TableCell align="center" className={classes.studentTableHeaderColumns}>id</TableCell>
                             <TableCell align="center" className={classes.studentTableHeaderColumns}>Name</TableCell>
                             <TableCell align="center" className={classes.studentTableHeaderColumns}>Email</TableCell>
+                            <TableCell align="center" className={classes.studentTableHeaderColumns}>Age</TableCell>
                             <TableCell align="center" className={classes.studentTableHeaderColumns}>User Name</TableCell>
-                            <TableCell align="center" className={classes.studentTableHeaderColumns}>Password</TableCell>
                             <TableCell align="center" className={classes.studentTableHeaderColumns}>type</TableCell>
                             <TableCell align="center" className={classes.studentTableHeaderColumns}>Delete</TableCell>
                         </TableRow>
@@ -122,11 +121,10 @@ const StudentTableComponent = ()  => {
                             .map((row) => (
                             console.log(row),
                                 <TableRow>
-                                    <TableCell align="center"> {row.id} </TableCell>
                                     <TableCell align="center"> {row.name} </TableCell>
                                     <TableCell align="center"> {row.email} </TableCell>
+                                    <TableCell align="center"> {row.age} </TableCell>
                                     <TableCell align="center"> {row.username} </TableCell>
-                                    <TableCell align="center"> {row.password} </TableCell>
                                     <TableCell align="center"> {row.type} </TableCell>
                                     <TableCell align="center">
                                         <a onClick={() => {
