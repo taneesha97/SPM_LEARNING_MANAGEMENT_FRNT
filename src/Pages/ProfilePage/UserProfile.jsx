@@ -1,27 +1,25 @@
 import React, {useEffect, useState} from 'react'
 import './UserProfile.css'
 import profilePic from "./images/profilePic.png";
-import EmailUpdateComponent from "../../Component/Profile/EmailUpdateComponent";
+import UserDetailsUpdateComponent from "../../Component/Profile/UserDetailsUpdateComponent";
 import {fetchStudents, getUserByID} from "../../Action/Users";
 import {useDispatch, useSelector} from "react-redux";
+import PasswordUpdateComponent from "../../Component/Profile/PasswordUpdateComponent";
 function UserProfile() {
     const dispatch = useDispatch();
     const [buttonPopup, setButtonPopup] = useState(false);
+    const [buttonPopup1, setButtonPopup1] = useState(false);
     const [popupName, setPopupName] = useState("");
     let userObject = localStorage.getItem("user")
     //console.log(user)
     let user = JSON.parse(userObject)
     console.log('retrievedObject: ', user);
-    const updateUserName = () => {
-        setButtonPopup(true);
-        setPopupName("Username");
-    }
     const updateEmail = () => {
         setButtonPopup(true);
         setPopupName("Email");
     }
     const updatePassword = () => {
-        setButtonPopup(true);
+        setButtonPopup1(true);
         setPopupName("Password");
     }
     useEffect(() => {
@@ -86,11 +84,6 @@ function UserProfile() {
                                             </div>
                                         </div>
                                 </div>
-                                {/*<h4 className="userprofile-bio1-info1-second">*/}
-                                {/*    Lorem ipsum dolor sit amet, consectetur adipiscing elit.*/}
-                                {/*    Curabitur nec dignissim sem. Donec sed justo rutrum, vehicula elit a, pulvinar sem. Proin convallis,*/}
-                                {/*    orci vel blandit luctus, massa lectus blandit neque,*/}
-                                {/*    sit amet pharetra libero lacus et arcu. Donec placerat lacinia nunc vel faucibus.</h4>*/}
                             </div>
 
                         </div>
@@ -100,13 +93,13 @@ function UserProfile() {
                     <div className="userprofile1">
                         <img src= {profilePic}  className="profilePic"/>
                         <div className="popupInterfaceUpdateEmail">
-                            <EmailUpdateComponent trigger={buttonPopup} setTrigger = {setButtonPopup} name = {popupName}></EmailUpdateComponent>
+                            <UserDetailsUpdateComponent trigger={buttonPopup} setTrigger = {setButtonPopup} name = {popupName}></UserDetailsUpdateComponent>
+                            <PasswordUpdateComponent trigger={buttonPopup1} setTrigger = {setButtonPopup1} name = {popupName}></PasswordUpdateComponent>
                         </div>
                         <div className="userprofile1-info">
                             <h2 className="userprofile1-info-main">Taneesha</h2>
                             <div className="profitable-group">
-                                <button className="userprofile-button1" onClick={updateUserName}>Update User Name</button><br/>
-                                <button className="userprofile-button1" onClick={updateEmail}>Update My Email</button><br/>
+                                <button className="userprofile-button1" onClick={updateEmail}>Update My Personal Details</button><br/>
                                 <button className="userprofile-button1" onClick={updatePassword}>Update Password</button><br/>
                                 <button className="userprofile-button1">My Transactions</button><br/>
                                 <button className="userprofile-button2">Delete My Account</button><br/>
