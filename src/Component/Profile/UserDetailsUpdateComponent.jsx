@@ -2,6 +2,8 @@ import React, {useState} from 'react'
 import './styles.css'
 import cancel from "./images/cancel (1).png";
 import profilePic from "../../Pages/ProfilePage/images/profilePic.png";
+import {addUsers, upDateUser} from "../../Action/Users";
+import {useDispatch} from "react-redux";
 function UserDetailsUpdateComponent(props) {
     let userObject = localStorage.getItem("user")
     //console.log(user)
@@ -11,6 +13,7 @@ function UserDetailsUpdateComponent(props) {
     const [email, setEmail] = useState(user.email);
     const [age, setAge] = useState(user.age);
     const [username, setUsername] = useState(user.username);
+    const dispatch = useDispatch();
 
     const handleSubmit = () => {
         const user = {
@@ -20,6 +23,7 @@ function UserDetailsUpdateComponent(props) {
             username
         }
         console.log(user)
+        //dispatch(upDateUser(user.id, user));
     }
 
 
