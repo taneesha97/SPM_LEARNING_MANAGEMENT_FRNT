@@ -13,11 +13,11 @@ function UserProfilePage() {
     let usertype = localStorage.getItem("usertype")
     console.log(usertype)
 
-   if(usertype === "null" ){
-       navigation()
-   } else {
-       console.log("hiii")
-    }
+   // if(usertype === "" ){
+   //     navigation()
+   // } else {
+   //     console.log("hiii")
+   //  }
 
     return (
         <div>

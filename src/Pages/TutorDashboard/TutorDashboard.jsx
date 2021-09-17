@@ -19,6 +19,17 @@ import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 function TutorDashboard() {
 
+    let usertype = localStorage.getItem("usertype")
+    console.log(usertype)
+
+    useEffect(()=> {
+        if(usertype != "teacher"){
+            window.location.href='/login';
+        } else {
+            //setFlag(true);
+        }
+    }, [])
+
     //State to hold the popup menu.
     const [trigger, setTrigger] = useState(false);
 
