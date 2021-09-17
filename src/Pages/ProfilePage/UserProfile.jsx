@@ -24,11 +24,11 @@ function UserProfile() {
     }
     useEffect(() => {
         console.log('calling')
-        //dispatch(getUserByID(122));
+        dispatch(getUserByID(user.id));
     },[])
 
-    // const response = useSelector((state) => state.userDetails1.editDetail.data);
-    // console.log(response);
+    const response = useSelector((state) => state.userDetails1?.editDetail?.data);
+    console.log(response);
 
     return (<React.Fragment>
             <div>
@@ -48,7 +48,7 @@ function UserProfile() {
                                                 <h6 className="mb-0">Full Name</h6>
                                             </div>
                                             <div className="col">
-                                                <h6 className="mb-0">{user.name}</h6>
+                                                <h6 className="mb-0">{response?.name}</h6>
                                             </div>
                                         </div>
                                         <div className="row mb-3">
@@ -56,7 +56,7 @@ function UserProfile() {
                                                 <h6 className="mb-0">Email</h6>
                                             </div>
                                             <div className="col">
-                                                <h6 className="mb-0">{user.email}</h6>
+                                                <h6 className="mb-0">{response?.email}</h6>
                                             </div>
                                         </div>
                                         <div className="row mb-3">
@@ -64,7 +64,7 @@ function UserProfile() {
                                                 <h6 className="mb-0">Age</h6>
                                             </div>
                                             <div className="col">
-                                                <h6 className="mb-0">{user.age}</h6>
+                                                <h6 className="mb-0">{response?.age}</h6>
                                             </div>
                                         </div>
                                         <div className="row mb-3">
@@ -72,7 +72,7 @@ function UserProfile() {
                                                 <h6 className="mb-0">Position</h6>
                                             </div>
                                             <div className="col">
-                                                <h6 className="mb-0">{user.type}</h6>
+                                                <h6 className="mb-0">{response?.type}</h6>
                                             </div>
                                         </div>
                                         <div className="row mb-3">
@@ -80,7 +80,7 @@ function UserProfile() {
                                                 <h6 className="mb-0">Username</h6>
                                             </div>
                                             <div className="col">
-                                                <h6 className="mb-0">{user.username}</h6>
+                                                <h6 className="mb-0">{response?.username}</h6>
                                             </div>
                                         </div>
                                 </div>
@@ -93,7 +93,7 @@ function UserProfile() {
                     <div className="userprofile1">
                         <img src= {profilePic}  className="profilePic"/>
                         <div className="popupInterfaceUpdateEmail">
-                            <UserDetailsUpdateComponent trigger={buttonPopup} setTrigger = {setButtonPopup} name = {popupName}></UserDetailsUpdateComponent>
+                            <UserDetailsUpdateComponent trigger={buttonPopup} setTrigger = {setButtonPopup} name = {response} name1 = {popupName}></UserDetailsUpdateComponent>
                             <PasswordUpdateComponent trigger={buttonPopup1} setTrigger = {setButtonPopup1} name = {popupName}></PasswordUpdateComponent>
                         </div>
                         <div className="userprofile1-info">

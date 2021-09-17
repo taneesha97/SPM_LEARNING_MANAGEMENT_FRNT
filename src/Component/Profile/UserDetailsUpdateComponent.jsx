@@ -7,12 +7,10 @@ import {useDispatch} from "react-redux";
 function UserDetailsUpdateComponent(props) {
     let userObject = localStorage.getItem("user")
     //console.log(user)
-    let user = JSON.parse(userObject)
-    console.log('retrievedObject: ', user);
-    const [name, setName] = useState(user.name);
-    const [email, setEmail] = useState(user.email);
-    const [age, setAge] = useState(user.age);
-    const [username, setUsername] = useState(user.username);
+    const [name, setName] = useState(props.name.name);
+    const [email, setEmail] = useState(props.name.email);
+    const [age, setAge] = useState(props.name.age);
+    const [username, setUsername] = useState(props.name.username);
     const dispatch = useDispatch();
 
     const handleSubmit = () => {
@@ -34,13 +32,13 @@ function UserDetailsUpdateComponent(props) {
                         <a><img src= {cancel}  className="EmailCancelLogo-image1" onClick={ () => props.setTrigger(false)}/></a>
                         <img src= {profilePic}  className="profilePic-emailUpdate"/>
                         <div className="emailupdatecomponent-bio1-info2">
-                                <h2 className="emailupdatecomponent-bio1-info2-main text-white">{props.name} Update</h2>
+                                <h2 className="emailupdatecomponent-bio1-info2-main text-white">{props.name1} Update</h2>
                                 <div className="emailupdatecomponent-bio1-info2-main1 row mb-3 mt-2">
                                     <div className="col">
-                                        <h6 className="emailupdatecomponent-bio1-info2-second1">Current Name: {name}</h6>
-                                        <h6 className="emailupdatecomponent-bio1-info2-second1">Current Email: {email}</h6>
-                                        <h6 className="emailupdatecomponent-bio1-info2-second1">Current Age: {age}</h6>
-                                        <h6 className="emailupdatecomponent-bio1-info2-second1">Current Username: {username}</h6>
+                                        <h6 className="emailupdatecomponent-bio1-info2-second1">Current Name: {props.name.name}</h6>
+                                        <h6 className="emailupdatecomponent-bio1-info2-second1">Current Email: {props.name.email}</h6>
+                                        <h6 className="emailupdatecomponent-bio1-info2-second1">Current Age: {props.name.age}</h6>
+                                        <h6 className="emailupdatecomponent-bio1-info2-second1">Current Username: {props.name.username}</h6>
                                     </div>
                                 </div>
                         </div>
