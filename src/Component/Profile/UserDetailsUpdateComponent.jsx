@@ -1,16 +1,16 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import './styles.css'
 import cancel from "./images/cancel (1).png";
 import profilePic from "../../Pages/ProfilePage/images/profilePic.png";
-import {addUsers, upDateUser} from "../../Action/Users";
+import {addUsers, getUserByID, upDateUser} from "../../Action/Users";
 import {useDispatch} from "react-redux";
 function UserDetailsUpdateComponent(props) {
     let userObject = localStorage.getItem("user")
     //console.log(user)
-    const [name, setName] = useState(props.name.name);
-    const [email, setEmail] = useState(props.name.email);
-    const [age, setAge] = useState(props.name.age);
-    const [username, setUsername] = useState(props.name.username);
+    const [name, setName] = useState(props.name?.name);
+    const [email, setEmail] = useState(props.name?.email);
+    const [age, setAge] = useState(props.name?.age);
+    const [username, setUsername] = useState(props.name?.username);
     const dispatch = useDispatch();
 
     const handleSubmit = () => {
@@ -21,8 +21,11 @@ function UserDetailsUpdateComponent(props) {
             username
         }
         console.log(user)
-        //dispatch(upDateUser(user.id, user));
+        dispatch(upDateUser(props.name.id, user));
+
+        props.setTrigger(false)
     }
+
 
 
     return (props.trigger) ? (
