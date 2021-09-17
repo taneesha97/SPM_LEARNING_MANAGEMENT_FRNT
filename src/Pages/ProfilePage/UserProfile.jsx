@@ -15,7 +15,7 @@ function UserProfile() {
     let userObject = localStorage.getItem("user")
     //console.log(user)
     let user = JSON.parse(userObject)
-    console.log('retrievedObject: ', user);
+    // console.log('retrievedObject: ', user);
     const updateEmail = () => {
         setButtonPopup(true);
         setPopupName("Email");
