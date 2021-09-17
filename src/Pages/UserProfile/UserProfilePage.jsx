@@ -5,19 +5,12 @@ import {useHistory} from "react-router";
 
 
 function UserProfilePage() {
-    const history = useHistory();
-    const navigation = () => {
-        history.push('/login');
-    }
 
-    let usertype = localStorage.getItem("usertype")
-    console.log(usertype)
 
-   // if(usertype === "" ){
-   //     navigation()
-   // } else {
-   //     console.log("hiii")
-   //  }
+    // let usertype = localStorage.getItem("usertype")
+    // console.log(usertype)
+
+
 
     return (
         <div>
