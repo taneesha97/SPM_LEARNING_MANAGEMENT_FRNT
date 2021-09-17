@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import './NavBarButtonComponent.css'
 import {useHistory} from "react-router";
 import SucessPopUp from "../PopupModel/SucessPopUp";
+import AuthClass from "../../Validation/AuthClass";
 function NavBarButtonComponent(props) {
     const [buttonPopup, setButtonPopup] = useState(false);
     const [popupName, setPopupName] = useState("");
@@ -23,6 +24,7 @@ function NavBarButtonComponent(props) {
         // setPopupName("logout");
         // setPopupLocaion("/login");
         // setButtonPopup(true);
+        AuthClass.logout()
         history.push('/login');
 
     }
