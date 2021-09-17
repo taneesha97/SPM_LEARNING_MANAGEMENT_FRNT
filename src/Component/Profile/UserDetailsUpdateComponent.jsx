@@ -33,7 +33,10 @@ function UserDetailsUpdateComponent(props) {
                                 <h2 className="emailupdatecomponent-bio1-info2-main text-white">{props.name} Update</h2>
                                 <div className="emailupdatecomponent-bio1-info2-main1 row mb-3 mt-2">
                                     <div className="col">
-                                        <h6 className="emailupdatecomponent-bio1-info2-second">Current {props.name}: Salitha1</h6>
+                                        <h6 className="emailupdatecomponent-bio1-info2-second1">Current {props.name}: Salitha1</h6>
+                                        <h6 className="emailupdatecomponent-bio1-info2-second1">Current {props.name}: Salitha1</h6>
+                                        <h6 className="emailupdatecomponent-bio1-info2-second1">Current {props.name}: Salitha1</h6>
+                                        <h6 className="emailupdatecomponent-bio1-info2-second1">Current {props.name}: Salitha1</h6>
                                     </div>
                                 </div>
                         </div>
