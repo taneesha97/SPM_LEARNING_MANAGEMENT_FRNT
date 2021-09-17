@@ -34,24 +34,23 @@ function LoginComponent(props) {
             .then(response => {
                 let values = response.data;
                 console.log('res1 ', response.data);
-                console.log('res1 ', response.data);
                 // console.log('res1 ', values[0]);
                 // console.log('res3 ', values[2]);
-                if (values[1] == null){
+                if (values.type == null){
                     console.log('111')
                     alert('Invalid login')
                     history.push("/login");
                     setName("");
                     setPassword("");
-                }else if (values[1] == "student"){
+                }else if (values.type == "student"){
                     console.log('1112')
                     AuthClass.login(values)
                     setButtonPopup(true);
                     setPopupName("login");
                     setPopupLocaion("/home");
 
-                }else if (values[1] == "teacher"){
-                    if (values[0] == "valid"){
+                }else if (values.type == "teacher"){
+                    if (values.status == "valid"){
                         console.log('111w')
                         AuthClass.login(values)
                         setPopupName("login");
