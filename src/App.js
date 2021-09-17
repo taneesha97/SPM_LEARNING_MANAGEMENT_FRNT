@@ -36,7 +36,7 @@ const App = () => {
                       <TutorDashboard/>
                   </ProtectedRoute>
                   <Route exact path = "/home" component={HomePage}/>
-                  <Route exact path = "/profile" component={UserProfilePage}/>
+                  <ProtectedRoute exact path = "/profile" component={UserProfilePage}/>
                   <Route exact path = "/login" component={LoginPage}/>
                   <Route exact path = "/registration" component={RegistrationPage}/>
                   {/*<Route exact path = "/tutordash" component={TutorDashboard}/>*/}

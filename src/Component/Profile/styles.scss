@@ -95,7 +95,7 @@
 
 .profilePic-emailUpdate{
   margin-left: 3%;
-  width: 140px;
+  width: 160px;
   margin-top:5%;
 }
 
@@ -104,13 +104,13 @@
   position: absolute;
   right: 0;
   margin-right: 9%;
-  margin-top: -17%;
+  margin-top: -23%;
   width: 55%;
 }
 
 .emailupdatecomponent-bio1-info2-main{
   color: black;
-  font-size: 3vw;
+  font-size: 2vw;
   //margin-right: auto;
   text-align: center;
 }
@@ -121,6 +121,13 @@
 .emailupdatecomponent-bio1-info2-second{
   color: white;
   font-weight: 400;
-  font-size: 2vw;
+  font-size: 1.5vw;
+  text-align: center;
+}
+
+.emailupdatecomponent-bio1-info2-second1{
+  color: white;
+  font-weight: 400;
+  font-size: 1.0vw;
   text-align: center;
 }

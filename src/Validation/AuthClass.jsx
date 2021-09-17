@@ -18,9 +18,12 @@ class Auth {
         this.authenicated = true;
     }
 
-    logout(cb) {
+    logout() {
         //Clear the Flag upon pressing log
         localStorage.setItem('flag', false);
+        localStorage.setItem('username', "");
+        localStorage.setItem('usertype', "");
+        localStorage.setItem('user', "");
         this.authenticated = false;
     }
 

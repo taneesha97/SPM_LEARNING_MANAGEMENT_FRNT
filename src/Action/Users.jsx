@@ -1,6 +1,10 @@
 import {ADD_USER, GET_USER, UPDATE_USER, DELETE_USER, FETCH_USERS, VALID_USER} from "./types";
 import axios from "axios";
 import * as api from '../API'
+import {useDispatch} from "react-redux";
+
+
+
 export const fetchStudents = () => dispatch => {
     console.log('fetching');
     axios.get(api.baseURL + 'students')
@@ -82,6 +86,22 @@ export const deleteUsers = (id) => dispatch => {
         console.log(err);
     })
 }
+
+// export const getUserByID = async (id) => {
+//     const dispatch = useDispatch();
+//     console.log('get user by id');
+//     try {
+//         const response = await axios.get(api.baseURL + 'getsingleuser/' + id)
+//
+//         dispatch({
+//             type: GET_USER,
+//             payload: response
+//         })
+//     }catch(err) {
+//         console.log(err);
+//     }
+// }
+
 
 
 export const getUserByID = (id) => dispatch => {

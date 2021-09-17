@@ -42,6 +42,7 @@ function LoginComponent(props) {
                     history.push("/login");
                     setName("");
                     setPassword("");
+                    AuthClass.logout()
                 }else if (values.type == "student"){
                     console.log('1112')
                     AuthClass.login(values)
