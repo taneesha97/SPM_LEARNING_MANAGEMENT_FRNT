@@ -96,13 +96,13 @@
   position: absolute;
   right: 0;
   margin-right: 9%;
-  margin-top: -17%;
+  margin-top: -20%;
   width: 55%;
 }
 
 .emailupdatecomponent-bio1-info2-main {
   color: black;
-  font-size: 3vw;
+  font-size: 2vw;
   text-align: center;
 }
 
@@ -113,7 +113,7 @@
 .emailupdatecomponent-bio1-info2-second {
   color: white;
   font-weight: 400;
-  font-size: 2vw;
+  font-size: 1.5vw;
   text-align: center;
 }
 
