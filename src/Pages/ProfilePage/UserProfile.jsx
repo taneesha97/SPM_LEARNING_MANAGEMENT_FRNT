@@ -4,24 +4,22 @@ import profilePic from "./images/profilePic.png";
 import UserDetailsUpdateComponent from "../../Component/Profile/UserDetailsUpdateComponent";
 import {fetchStudents, getUserByID} from "../../Action/Users";
 import {useDispatch, useSelector} from "react-redux";
+import PasswordUpdateComponent from "../../Component/Profile/PasswordUpdateComponent";
 function UserProfile() {
     const dispatch = useDispatch();
     const [buttonPopup, setButtonPopup] = useState(false);
+    const [buttonPopup1, setButtonPopup1] = useState(false);
     const [popupName, setPopupName] = useState("");
     let userObject = localStorage.getItem("user")
     //console.log(user)
     let user = JSON.parse(userObject)
     console.log('retrievedObject: ', user);
-    const updateUserName = () => {
-        setButtonPopup(true);
-        setPopupName("Username");
-    }
     const updateEmail = () => {
         setButtonPopup(true);
         setPopupName("Email");
     }
     const updatePassword = () => {
-        setButtonPopup(true);
+        setButtonPopup1(true);
         setPopupName("Password");
     }
     useEffect(() => {
@@ -96,6 +94,7 @@ function UserProfile() {
                         <img src= {profilePic}  className="profilePic"/>
                         <div className="popupInterfaceUpdateEmail">
                             <UserDetailsUpdateComponent trigger={buttonPopup} setTrigger = {setButtonPopup} name = {popupName}></UserDetailsUpdateComponent>
+                            <PasswordUpdateComponent trigger={buttonPopup1} setTrigger = {setButtonPopup1} name = {popupName}></PasswordUpdateComponent>
                         </div>
                         <div className="userprofile1-info">
                             <h2 className="userprofile1-info-main">Taneesha</h2>

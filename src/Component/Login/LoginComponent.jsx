@@ -12,15 +12,19 @@ function LoginComponent(props) {
 
 
     const [username, setName] = useState("");
-    const [password, setPassword] = useState("");
+    const [password1, setPassword] = useState("");
     const [buttonPopup, setButtonPopup] = useState(false);
     const [popupName, setPopupName] = useState("");
     const [popupLocation, setPopupLocaion] = useState("");
     const dispatch = useDispatch();
     const history = useHistory();
+    const crypto = require('crypto'),
+        hash = crypto.getHashes();
 
     function SubmitPressed(e) {
         e.preventDefault();
+
+        let password = crypto.createHash('sha1').update(password1).digest('hex');
         const newUser = {
             username,
             password
@@ -30,23 +34,24 @@ function LoginComponent(props) {
             .then(response => {
                 let values = response.data;
                 console.log('res1 ', response.data);
+                console.log('res1 ', response.data);
                 // console.log('res1 ', values[0]);
                 // console.log('res3 ', values[2]);
-                if (values.type == null){
+                if (values[1] == null){
                     console.log('111')
                     alert('Invalid login')
                     history.push("/login");
                     setName("");
                     setPassword("");
-                }else if (values.type == "student"){
+                }else if (values[1] == "student"){
                     console.log('1112')
                     AuthClass.login(values)
                     setButtonPopup(true);
                     setPopupName("login");
                     setPopupLocaion("/home");
 
-                }else if (values.type == "teacher"){
-                    if (values.status == "valid"){
+                }else if (values[1] == "teacher"){
+                    if (values[0] == "valid"){
                         console.log('111w')
                         AuthClass.login(values)
                         setPopupName("login");
@@ -100,7 +105,7 @@ function LoginComponent(props) {
                             <input className="input-field"
                                    placeholder="Enter Password..."
                                    type="password"
-                                   value={password}
+                                   value={password1}
                                    onChange = {(e) =>{
                                        setPassword(e.target.value);
                                    }}
