@@ -23,7 +23,7 @@ function TutorDashboard() {
     console.log(usertype)
 
     useEffect(()=> {
-        if(usertype != "teacher"){
+        if(usertype != "teacher" && usertype != "admin"){
             window.location.href='/login';
         } else {
             //setFlag(true);
