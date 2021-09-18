@@ -5,6 +5,10 @@ import FileAttachmentTable from "./FileAttachmentTable/FileAttachmentTable";
 import {LinearProgress} from "@material-ui/core";
 function FileAttachInt({array4}) {
 
+    //Creating state for storing the meta information.
+    const [name, setName] = useState("")
+    const [price, setPrice] = useState(0)
+    const [description, setDescription] = useState("");
 
 
     //Progress Tracking State.
@@ -28,7 +32,8 @@ function FileAttachInt({array4}) {
     })
 
     //File Uploading method.
-    const uploadFiles = async () => {
+    const uploadFiles = async (e) => {
+        e.preventDefault();
         try {
             setSuccess(false);
             setLoading(true)
@@ -57,7 +62,7 @@ function FileAttachInt({array4}) {
         <div>
             <div className="file-component">
                 <div className="input-form-container">
-                    <form className="form">
+                    <form className="form" onSubmit={uploadFiles}>
                         <div className="course-component-header">
                             <div className="section-header">Course Form</div>
                             <div className="second-header">Course Form</div>
@@ -80,7 +85,7 @@ function FileAttachInt({array4}) {
                                className="form-input"/>
 
                         <div className="course-button-group button-row">
-                            <button className="add-button" onClick={() => uploadFiles}>Add</button>
+                            <button className="add-button" type={"submit"}>Add</button>
                             <button className="light-button">Reset</button>
                         </div>
                     </form>
