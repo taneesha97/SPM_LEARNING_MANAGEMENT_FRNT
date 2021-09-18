@@ -21,17 +21,12 @@ function FileAttachInt({array4}) {
 
     //React Select
     const options = [
-        { value: "The Crownlands" },
-        { value: "Iron Islands" },
-        { value: "The North" },
-        { value: "The Reach" },
-        { value: "The Riverlands" },
-        { value: "The Vale" },
-        { value: "The Westerlands" },
-        { value: "The Stormlands" }
+        { value: 'chocolate', label: 'Chocolate' },
+        { value: 'strawberry', label: 'Strawberry' },
+        { value: 'vanilla', label: 'Vanilla' }
     ];
     const [region, setRegion] = useState(options[0]);
-    const [currentCountry, setCurrentCountry] = useState(options);
+    const [currentCountry, setCurrentCountry] = useState(null);
     const onchangeSelect = (item) => {
         setCurrentCountry(null);
         setRegion(item);
@@ -104,7 +99,8 @@ function FileAttachInt({array4}) {
                                className="form-input"/>
 
                         <label htmlFor="lname">Course</label>
-                        <Select options={options} />
+                        <div className="form-input"><Select options={options} menuPlacement="auto" menuPosition="fixed"/></div>
+
 
 
                         <label htmlFor="lname">Attach the File</label>
