@@ -1,4 +1,4 @@
-import {ADD_USER, GET_USER, UPDATE_USER, DELETE_USER, FETCH_USERS, VALID_USER} from "./types";
+import {ADD_USER, GET_USER, UPDATE_USER, DELETE_USER, FETCH_USERS, VALID_USER, ERROR_USER} from "./types";
 import axios from "axios";
 import * as api from '../API'
 import {useDispatch} from "react-redux";
@@ -53,9 +53,10 @@ export const addUsers = (PostData) => async (dispatch) => {
     console.log('creating');
     try{
         const { data } = await api.createUser(PostData);
-        dispatch({type: ADD_USER, payload: data }, {type: ADD_USER, payload: data});
+        dispatch({type: ADD_USER, payload: data }, {type: ERROR_USER, payload: {}});
     } catch (error){
         console.log(error);
+        dispatch({type: ERROR_USER, payload: error.response.data});
     }
 }
 
