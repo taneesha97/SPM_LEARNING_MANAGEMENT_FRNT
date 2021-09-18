@@ -24,6 +24,7 @@ import ClassCourseview from "./Pages/ClassCourseview/ClassCourseview";
 import DownloadFile from "./Component/Downloads/DownloadFile";
 import PopUpTeacherStatusComponent from "./Component/PopupModel/TeacherStatus/PopUpTeacherStatusComponent";
 import VideoComponentInterface from "./Component/VideoComponent/VideoComponentInterface";
+import CustomVideoPlayerComponent from "./Component/Tutor/CustomVideoPlayerComponent/CustomVideoPlayerComponent";
 
 
 const App = () => {
@@ -39,7 +40,6 @@ const App = () => {
                   <Route exact path = "/profile" component={UserProfilePage}/>
                   <Route exact path = "/login" component={LoginPage}/>
                   <Route exact path = "/registration" component={RegistrationPage}/>
-                  {/*<Route exact path = "/tutordash" component={TutorDashboard}/>*/}
                   <Route exact path = "/admindash" component={AdminDashboard}/>
                   <Route exact path = "/navbarbuttoncomponent" component={NavBarButtonComponent}/>
                   <Route exact path = "/navbarbuttoncomponent2" component={NavBarButtonComponent2}/>
@@ -50,6 +50,7 @@ const App = () => {
                   <Route exact path = "/download" component={DownloadFile}/>
                   <Route exact path = "/teacherstatuspopup" component={PopUpTeacherStatusComponent}/>
                   <Route exact path = "/videocomponent" component={VideoComponentInterface}/>
+                  <Route exact path = "/customvideoplayer" component={CustomVideoPlayerComponent}/>
               </Switch>
           </BrowserRouter>
   )

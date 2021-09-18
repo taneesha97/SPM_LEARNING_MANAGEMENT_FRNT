@@ -10,10 +10,9 @@ import IconButton from "@material-ui/core/IconButton";
 import FastRewindIcon from "@material-ui/icons/FastRewind";
 import FastForwardIcon from "@material-ui/icons/FastForward";
 import PlayArrowIcon from "@material-ui/icons/PlayArrow";
-import PauseIcon from "@material-ui/icons/Pause";
 import {withStyles} from "@material-ui/styles";
-import VolumeUpIcon from "@material-ui/icons/VolumeUp"
-import FullScreenButton from "@material-ui/icons/Fullscreen"
+import VolumeUpIcon from "@material-ui/icons/VolumeUp";
+import FullScreenButton from "@material-ui/icons/Fullscreen";
 import Popover from '@material-ui/core/Popover';
 
 const useStyles = makeStyles({

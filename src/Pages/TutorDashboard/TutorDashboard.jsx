@@ -40,7 +40,7 @@ function TutorDashboard() {
 
     //Data Arrays.
     //Array for the announcement component.
-    const array1 = [
+    const array1 =[
         {"header":"Kamal", "description":"New News Update available"},
         {"header":"Kamal", "description":"New News Update available"},
         {"header":"Kamal", "description":"New News Update available"},
@@ -49,7 +49,7 @@ function TutorDashboard() {
         {"header":"Kamal", "description":"New News Update available"}];
 
     //Array for the inquiry component.
-    const array2 = [
+    const array2 =[
         {"header":"Kamal", "description":"New News Update available"},
         {"header":"Nimal", "description":"New News Update available"},
         {"header":"Kamal", "description":"New News Update available"},
@@ -58,7 +58,7 @@ function TutorDashboard() {
         {"header":"Kamal", "description":"New News Update available"}];
 
     //Array for the courses. course table.
-    const array3 = [
+    const array3 =[
         {"header":"Kamal", "description":"New News Update available", "body":"This is the subject body"},
         {"header":"Kamal", "description":"New News Update available", "body":"This is the subject body"},
         {"header":"Kamal", "description":"New News Update available", "body":"This is the subject body"},
@@ -67,7 +67,7 @@ function TutorDashboard() {
         {"header":"Kamal", "description":"New News Update available", "body":"This is the subject body"}];
 
     //JSON object for the headers
-    const array4 = [
+    const array4 =[
         {"header":"Total Student:", "count":"50", "image": faUserFriends},
         {"header":"Feedback", "count":"3", "image": faCommentAlt},
         {"header":"Courses", "count":"6", "image": faBookOpen},
@@ -75,7 +75,7 @@ function TutorDashboard() {
         {"header":"Income", "count":"LKR 1256.23", "image": faDollarSign},
         {"header":"Materials", "count":"10", "image": faPencilRuler},
         {"header":"Active Students", "count":"23", "image": faUser},
-        {"header":"Disabled Courses", "count":"6", "image": faTimes}
+        {"header":"Disabled Courses", "count":"6", "image": faTimes},
     ];
 
     console.log(courses);
