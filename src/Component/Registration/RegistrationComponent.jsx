@@ -54,10 +54,9 @@ function   RegistrationComponent() {
             type,
         }
         console.log(newUser);
-        //const response = useSelector((state) => state.userDetails1?.UserDetails?.record);
-        //console.log(response);
        dispatch(addUsers(newUser));
-
+        // const response = useSelector((state) => state.errors);
+        // console.log(response);
         setPopupName("register");
        setPopupLocaion("/login");
         setButtonPopup(true);
