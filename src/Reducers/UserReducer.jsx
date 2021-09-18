@@ -13,6 +13,8 @@ const initialState = {
 }
 
 export default function (state = initialState, action){
+    console.log('reducer', action.payload);
+
     switch (action.type) {
         case FETCH_USERS:
             console.log('reducer');
@@ -58,6 +60,7 @@ export default function (state = initialState, action){
                 loginUser: action.payload
             }
         case UPDATE_USER:
+            console.log('reducer', action.payload);
             return {
                 ...state,
                 UserDetails: {

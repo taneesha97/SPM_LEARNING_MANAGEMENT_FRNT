@@ -9,6 +9,13 @@ function LoggedUserComponent() {
     const [selected , setSelected] = useState(false)
     const [selected1 , setSelected1] = useState(false)
     //const [buttonPopup, setButtonPopup] = useState(false);
+
+    let userObject = localStorage.getItem("username")
+
+    // let user = JSON.parse(userObject)
+    // // console.log('retrievedObject: ', user);
+    // console.log(user)
+
     const logNav = () => {
         setSelected(!selected)
     }
@@ -19,7 +26,7 @@ function LoggedUserComponent() {
         <div className= "loggedUserComponent">
             <div className="loggedUserNameTile">
                 <div className="title-component-1">
-                    <h1 className="title-component-main-1">User1</h1>
+                    <h1 className="title-component-main-1">{userObject}</h1>
                     <h2 className="title-component-sub-1">s@gmail.com</h2>
                 </div>
             </div>

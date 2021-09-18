@@ -11,6 +11,8 @@ class Auth {
         console.log(values);
         localStorage.setItem('flag', true);
         localStorage.setItem('username', values.username);
+        localStorage.setItem('email', values.email);
+        localStorage.setItem('userid', values.id);
         localStorage.setItem('usertype', values.type);
         //localStorage.setItem('user', values);
         localStorage.setItem('user', JSON.stringify(values));
@@ -23,6 +25,7 @@ class Auth {
         localStorage.setItem('flag', false);
         localStorage.setItem('username', "");
         localStorage.setItem('usertype', "");
+        localStorage.setItem('email', "");
         localStorage.setItem('user', "");
         this.authenticated = false;
     }

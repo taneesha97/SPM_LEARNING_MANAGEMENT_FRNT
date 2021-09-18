@@ -40,13 +40,13 @@ const App = () => {
                   <Route exact path = "/login" component={LoginPage}/>
                   <Route exact path = "/registration" component={RegistrationPage}/>
                   {/*<Route exact path = "/tutordash" component={TutorDashboard}/>*/}
-                  <Route exact path = "/admindash" component={AdminDashboard}/>
+                  <ProtectedRoute exact path = "/admindash" component={AdminDashboard}/>
                   <Route exact path = "/navbarbuttoncomponent" component={NavBarButtonComponent}/>
                   <Route exact path = "/navbarbuttoncomponent2" component={NavBarButtonComponent2}/>
                   <Route exact path = "/emailupdate" component={UserDetailsUpdateComponent}/>
-                  <Route exact path = "/class" component={ClassPage}/>
+                  <ProtectedRoute exact path = "/class" component={ClassPage}/>
                   <Route exact path = "/ClassCourseview" component={ClassCourseview}/>
-                  <Route exact path = "/singleclassview" component={SingleClassView}/>
+                  <ProtectedRoute exact path = "/singleclassview" component={SingleClassView}/>
                   <Route exact path = "/download" component={DownloadFile}/>
                   <Route exact path = "/teacherstatuspopup" component={PopUpTeacherStatusComponent}/>
                   <Route exact path = "/videocomponent" component={VideoComponentInterface}/>

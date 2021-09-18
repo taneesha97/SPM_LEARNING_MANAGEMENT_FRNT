@@ -53,7 +53,7 @@ export const addUsers = (PostData) => async (dispatch) => {
     console.log('creating');
     try{
         const { data } = await api.createUser(PostData);
-        dispatch({type: ADD_USER, payload: data }, {type: ERROR_USER, payload: {}});
+        dispatch({type: ADD_USER, payload: data });
     } catch (error){
         console.log(error);
         dispatch({type: ERROR_USER, payload: error.response.data});
@@ -125,14 +125,24 @@ export const getUserByID = (id) => dispatch => {
 export const upDateUser = (id, PostData) => dispatch => {
     axios.put(api.baseURL + 'updateuser/' + id , PostData)
         .then(response => {
-                dispatch({
-                    type: UPDATE_USER,
-                    payload: response.data
+            console.log(response)
+                    if(response.status === 200){
+                        console.log(response.data)
+                        dispatch({
+                            type: UPDATE_USER,
+                            payload: response.data
+                        })
+                    }
+                    else{
+                        console.log('error123')
+                    }
                 })
-                //alert("data updated successfully");
-            }
 
-        ).catch((err) => {
-        console.log(err);
+
+                //alert("data updated successfully");
+
+
+        .catch((err) => {
+            console.log(err);
     })
 }
