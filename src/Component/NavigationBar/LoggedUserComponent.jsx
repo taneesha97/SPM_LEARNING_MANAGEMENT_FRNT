@@ -4,13 +4,14 @@ import navImg from "./Images/Picture2.png";
 import navImg1 from "./Images/notification.png";
 import NavBarButtonComponent from "./NavBarButtonComponent";
 import NavBarButtonComponent2 from "./NavBarButtonComponent2";
+import {useSelector} from "react-redux";
 
 function LoggedUserComponent() {
     const [selected , setSelected] = useState(false)
     const [selected1 , setSelected1] = useState(false)
     //const [buttonPopup, setButtonPopup] = useState(false);
 
-    let userObject = localStorage.getItem("username")
+    const user1 = useSelector((store) => store.userDetails1?.loginUser);
 
     // let user = JSON.parse(userObject)
     // // console.log('retrievedObject: ', user);
@@ -26,8 +27,8 @@ function LoggedUserComponent() {
         <div className= "loggedUserComponent">
             <div className="loggedUserNameTile">
                 <div className="title-component-1">
-                    <h1 className="title-component-main-1">{userObject}</h1>
-                    <h2 className="title-component-sub-1">s@gmail.com</h2>
+                    <h1 className="title-component-main-1">{user1?.name}</h1>
+                    <h2 className="title-component-sub-1">{user1?.email}</h2>
                 </div>
             </div>
             {/*<div className="loggedUserImage + (selected ? "expand" : "")" onClick={logNav}>*/}

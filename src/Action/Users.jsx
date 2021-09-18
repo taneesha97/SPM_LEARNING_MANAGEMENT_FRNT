@@ -35,7 +35,7 @@ export const fetchTeachers = () => dispatch => {
     })
 }
 
-
+// const { user } = useSelector((store) => store?.user);
 export const fetchUser = () => dispatch => {
     console.log('fetching');
     axios.get(api.baseURL + '/students')//api.baseURL + 'deleteuser'
@@ -60,16 +60,16 @@ export const addUsers = (PostData) => async (dispatch) => {
     }
 }
 
-export const loginUserValidation = (user) => async (dispatch) => {
-    console.log('creating');
-    try {
-        const data= await api.validateUser(user);
-        console.log('data ', data);
-        dispatch({type: VALID_USER, payload: data });
-    } catch (error) {
-        console.log(error);
-    }
-}
+// export const loginUserValidation = (user) => async (dispatch) => {
+//     console.log('creating');
+//     try {
+//         const data= await api.validateUser(user);
+//         console.log('data ', data);
+//         dispatch({type: VALID_USER, payload: data });
+//     } catch (error) {
+//         console.log(error);
+//     }
+// }
 
 
 export const deleteUsers = (id) => dispatch => {
@@ -120,7 +120,9 @@ export const getUserByID = (id) => dispatch => {
     })
 }
 
-
+export const loggedUser = (PostData) => dispatch => {
+    dispatch({type: VALID_USER, payload: PostData });
+}
 
 export const upDateUser = (id, PostData) => dispatch => {
     axios.put(api.baseURL + 'updateuser/' + id , PostData)

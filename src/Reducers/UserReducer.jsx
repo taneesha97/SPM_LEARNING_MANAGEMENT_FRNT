@@ -8,7 +8,7 @@ const initialState = {
         error: null
     },
     editDetail: [],
-    loginUser: [],
+    loginUser: {},
     error: null
 }
 

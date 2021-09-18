@@ -13,7 +13,6 @@ function UserProfile() {
     const [popupName, setPopupName] = useState("");
 
     let userObject = localStorage.getItem("user")
-    console.log(userObject)
     let user = JSON.parse(userObject)
     // console.log('retrievedObject: ', user);
     const updateEmail = () => {
@@ -25,17 +24,12 @@ function UserProfile() {
         setPopupName("Password");
     }
     useEffect(() => {
-        console.log('calling')
         dispatch(getUserByID(user.id));
     },[])
 
-    // useEffect(() => {
-    //     console.log('calling')
-    //     dispatch(getUserByID(user.id));
-    // },[buttonPopup2])
-
+    const user1 = useSelector((store) => store.userDetails1?.loginUser);
+    console.log('12333', user1)
     const response = useSelector((state) => state.userDetails1?.editDetail?.data);
-    console.log(response);
     const [result, setResult] = useState(response);
     return (<React.Fragment>
             <div>
@@ -55,7 +49,7 @@ function UserProfile() {
                                                 <h6 className="mb-0">Full Name</h6>
                                             </div>
                                             <div className="col">
-                                                <h6 className="mb-0">{response?.name}</h6>
+                                                <h6 className="mb-0">{user1?.name}</h6>
                                             </div>
                                         </div>
                                         <div className="row mb-3">
@@ -63,7 +57,7 @@ function UserProfile() {
                                                 <h6 className="mb-0">Email</h6>
                                             </div>
                                             <div className="col">
-                                                <h6 className="mb-0">{response?.email}</h6>
+                                                <h6 className="mb-0">{user1?.email}</h6>
                                             </div>
                                         </div>
                                         <div className="row mb-3">
@@ -71,7 +65,7 @@ function UserProfile() {
                                                 <h6 className="mb-0">Age</h6>
                                             </div>
                                             <div className="col">
-                                                <h6 className="mb-0">{response?.age}</h6>
+                                                <h6 className="mb-0">{user1?.age}</h6>
                                             </div>
                                         </div>
                                         <div className="row mb-3">
@@ -79,7 +73,7 @@ function UserProfile() {
                                                 <h6 className="mb-0">Position</h6>
                                             </div>
                                             <div className="col">
-                                                <h6 className="mb-0">{response?.type}</h6>
+                                                <h6 className="mb-0">{user1?.type}</h6>
                                             </div>
                                         </div>
                                         <div className="row mb-3">
@@ -87,7 +81,7 @@ function UserProfile() {
                                                 <h6 className="mb-0">Username</h6>
                                             </div>
                                             <div className="col">
-                                                <h6 className="mb-0">{response?.username}</h6>
+                                                <h6 className="mb-0">{user1?.username}</h6>
                                             </div>
                                         </div>
                                 </div>
