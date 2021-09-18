@@ -34,8 +34,6 @@ function LoginComponent(props) {
             .then(response => {
                 let values = response.data;
                 console.log('res1 ', response.data);
-                // console.log('res1 ', values[0]);
-                // console.log('res3 ', values[2]);
                 if (values.type == null){
                     console.log('111')
                     alert('Invalid login')

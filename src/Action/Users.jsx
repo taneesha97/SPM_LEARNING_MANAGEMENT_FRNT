@@ -53,7 +53,7 @@ export const addUsers = (PostData) => async (dispatch) => {
     console.log('creating');
     try{
         const { data } = await api.createUser(PostData);
-        dispatch({type: ADD_USER, payload: data });
+        dispatch({type: ADD_USER, payload: data }, {type: ADD_USER, payload: data});
     } catch (error){
         console.log(error);
     }

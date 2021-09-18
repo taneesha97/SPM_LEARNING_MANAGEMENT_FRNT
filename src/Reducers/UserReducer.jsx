@@ -31,9 +31,9 @@ export default function (state = initialState, action){
                 UserDetails: {
                     ...state.UserDetails,
                     record: action.payload,
-                    success: "Class inserted successfully",
-                    error: action.error
-                }
+                    success: "User inserted successfully"
+                },
+                error: action.error
             }
         case DELETE_USER:
             console.log('reducer');
