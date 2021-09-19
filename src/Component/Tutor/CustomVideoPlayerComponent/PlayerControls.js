@@ -91,7 +91,7 @@ const PrettoSlider = withStyles({
 
 
 
-function PlayerControls({onPlayPause, playing}) {
+function PlayerControls({onPlayPause, playing, onFastForward, onRewind}) {
     // Methods
     const classes = useStyles();
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -133,9 +133,9 @@ function PlayerControls({onPlayPause, playing}) {
 
                 <IconButton onClick={onPlayPause} className={classes.controlIcons} aria-label="reqind">
                     {playing? (
-                        <PauseIcon fontSize="inherit"/>
+                        <PauseIcon fontSize="large"/>
                     ):(
-                        <PlayArrowIcon fontSize="inherit"/>
+                        <PlayArrowIcon fontSize="large"/>
                     )}
                 </IconButton>
 

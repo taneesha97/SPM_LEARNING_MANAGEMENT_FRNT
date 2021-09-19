@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useRef} from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import {Button, Container, Slider, Tooltip, Typography} from "@material-ui/core";
@@ -21,10 +21,21 @@ function CustomVideoPlayerComponent() {
 
     const classes = useStyles();
     const {playing} = state;
+    const playerRef = useRef(null);
 
     const handlePlayPause = () => {
         setState({...state, playing: !state.playing});
     }
+
+    const handleRewind = () => {
+        playerRef.current.seekTo(playerRef.current.getCurrentTime() - 10)
+    }
+
+    const handleFastForward = () => {
+        playerRef.current.seekTo(playerRef.current.getCurrentTime() + 10)
+    }
+
+
 
     return (
         <React.Fragment>
@@ -43,11 +54,14 @@ function CustomVideoPlayerComponent() {
                         playing={playing}
                         border-radius='16px'
                         overflow="hidden"
+                        ref={playerRef}
                     />
                     <PlayerControls
 
                         onPlayPause={handlePlayPause}
                         playing={playing}
+                        onRewind={handleRewind}
+                        onFastForward={handleFastForward}
 
                     />
                 </div>
