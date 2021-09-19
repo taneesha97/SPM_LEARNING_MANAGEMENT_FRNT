@@ -82,7 +82,7 @@ function Navbar () {
                         </li>
                         <li className= "nav-item">
                             <Link to= '/tutordash' className ="nav-links" onClick={closeMobileMenu}>
-                                CONTACT US
+                                Tutor Dashboard
                             </Link>
                         </li>
                     </ul>

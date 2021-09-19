@@ -4,9 +4,8 @@ import cancel from "./images/cancel (1).png";
 import profilePic from "../../Pages/ProfilePage/images/profilePic.png";
 function PasswordUpdateComponent(props) {
     let userObject = localStorage.getItem("user")
-    //console.log(user)
+
     let user = JSON.parse(userObject)
-    console.log('retrievedObject: ', user);
     const [password, setPassword] = useState();
     const [password1, setPassword1] = useState();
 

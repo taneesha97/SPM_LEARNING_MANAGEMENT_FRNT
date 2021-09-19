@@ -5,6 +5,7 @@ import {Button, Container, Slider, Tooltip, Typography} from "@material-ui/core"
 import ReactPlayer from "react-player";
 import {makeStyles} from "@material-ui/core/styles";
 import PlayerControls from "./PlayerControls";
+import screenfull from 'screenfull'
 
 const useStyles = makeStyles({
     playerWrapper: {
@@ -16,12 +17,17 @@ const useStyles = makeStyles({
 function CustomVideoPlayerComponent() {
 
     const [state, setState] = useState({
-        playing:true
+        playing:true,
+        muted: true,
+        volume: 0.5,
+        playbackRate: 1.0,
+        played:0
     })
 
     const classes = useStyles();
-    const {playing} = state;
+    const {playing, muted, volume, playbackRate, played} = state;
     const playerRef = useRef(null);
+    const playerContainerRef = useRef(null);
 
     const handlePlayPause = () => {
         setState({...state, playing: !state.playing});
@@ -35,7 +41,35 @@ function CustomVideoPlayerComponent() {
         playerRef.current.seekTo(playerRef.current.getCurrentTime() + 10)
     }
 
+    const handleMute = () => {
+        setState({...state, muted: !state.muted})
+    }
 
+    const handleVolumeChange = (e, newValue) => {
+        setState({...state, volume:parseFloat(newValue /100),
+        muted: newValue === 0 ? true: false,
+        });
+    };
+
+    const handleVolumeSeekDown =  (e, newValue) => {
+        setState({
+            ...state,
+            volume: parseFloat(newValue/ 100),
+            muted: newValue === 0 ? true: false,
+        })
+    }
+
+    const handlePlaybackRateChange = (rate) => {
+        setState({...state, playbackRate: rate})
+    }
+
+    const toggleFullScreen = () => {
+        screenfull.toggle(playerContainerRef.current);
+    }
+
+    const handleProgress = (changeState) => {
+        setState({...state, ...changeState});
+    };
 
     return (
         <React.Fragment>
@@ -46,15 +80,18 @@ function CustomVideoPlayerComponent() {
             </AppBar>
             <Toolbar/>
             <Container maxWidth="md">
-                <div className={classes.playerWrapper}>
+                <div ref={playerContainerRef} className={classes.playerWrapper}>
                     <ReactPlayer
                         width={"100%"}
                         url="https://www.youtube.com/watch?v=wGixQPuG1GY"
-                        muted={true}
+                        muted={muted}
                         playing={playing}
                         border-radius='16px'
                         overflow="hidden"
                         ref={playerRef}
+                        volume={volume}
+                        playbackRate={playbackRate}
+                        onProgress={handleProgress}
                     />
                     <PlayerControls
 
@@ -62,7 +99,15 @@ function CustomVideoPlayerComponent() {
                         playing={playing}
                         onRewind={handleRewind}
                         onFastForward={handleFastForward}
-
+                        muted={muted}
+                        onMute={handleMute}
+                        onVolumeChange={handleVolumeChange}
+                        onVolumeSeekDown={handleVolumeSeekDown}
+                        volume={volume}
+                        playbackRate={playbackRate}
+                        onPlaybackRateChange={handlePlaybackRateChange}
+                        onToggleFullScreen ={toggleFullScreen}
+                        played={played}
                     />
                 </div>
             </Container>
