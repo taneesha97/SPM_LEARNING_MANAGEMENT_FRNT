@@ -12,6 +12,8 @@ import FastForwardIcon from "@material-ui/icons/FastForward";
 import VolumeUpIcon from "@material-ui/icons/VolumeUp";
 import Popover from "@material-ui/core/Popover";
 import FullScreenButton from "@material-ui/icons/Fullscreen";
+import VolumeUp from "@material-ui/icons/VolumeOff";
+import {VolumeOff} from "@material-ui/icons";
 
 
 const useStyles = makeStyles({
@@ -91,7 +93,7 @@ const PrettoSlider = withStyles({
 
 
 
-function PlayerControls({onPlayPause, playing, onFastForward, onRewind}) {
+function PlayerControls({onPlayPause, playing, onFastForward, onRewind, muted, onMute}) {
     // Methods
     const classes = useStyles();
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -127,7 +129,7 @@ function PlayerControls({onPlayPause, playing, onFastForward, onRewind}) {
 
             {/*Middle controls*/}
             <Grid container direction="row" alignItems="center" justify="center">
-                <IconButton className={classes.controlIcons} aria-label="reqind">
+                <IconButton onClick={onRewind} className={classes.controlIcons} aria-label="reqind">
                     <FastRewindIcon fontSize="inherit"/>
                 </IconButton>
 
@@ -139,7 +141,7 @@ function PlayerControls({onPlayPause, playing, onFastForward, onRewind}) {
                     )}
                 </IconButton>
 
-                <IconButton className={classes.controlIcons} aria-label="reqind">
+                <IconButton onClick={onFastForward} className={classes.controlIcons} aria-label="reqind">
                     <FastForwardIcon fontSize="inherit"/>
                 </IconButton>
             </Grid>
@@ -173,8 +175,8 @@ function PlayerControls({onPlayPause, playing, onFastForward, onRewind}) {
                             )}
                         </IconButton>
 
-                        <IconButton className={classes.bottomIcons}>
-                            <VolumeUpIcon fontSize="large"/>
+                        <IconButton onClick={onMute} className={classes.bottomIcons}>
+                            {muted?<VolumeOff fontSize="large"/>:<VolumeUpIcon fontSize="large"/>}
                         </IconButton>
 
                         <Slider min={0}

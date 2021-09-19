@@ -16,11 +16,12 @@ const useStyles = makeStyles({
 function CustomVideoPlayerComponent() {
 
     const [state, setState] = useState({
-        playing:true
+        playing:true,
+        muted: true
     })
 
     const classes = useStyles();
-    const {playing} = state;
+    const {playing, muted} = state;
     const playerRef = useRef(null);
 
     const handlePlayPause = () => {
@@ -33,6 +34,10 @@ function CustomVideoPlayerComponent() {
 
     const handleFastForward = () => {
         playerRef.current.seekTo(playerRef.current.getCurrentTime() + 10)
+    }
+
+    const handleMute = () => {
+        setState({...state, muted: !state.muted})
     }
 
 
@@ -50,7 +55,7 @@ function CustomVideoPlayerComponent() {
                     <ReactPlayer
                         width={"100%"}
                         url="https://www.youtube.com/watch?v=wGixQPuG1GY"
-                        muted={true}
+                        muted={muted}
                         playing={playing}
                         border-radius='16px'
                         overflow="hidden"
@@ -62,7 +67,8 @@ function CustomVideoPlayerComponent() {
                         playing={playing}
                         onRewind={handleRewind}
                         onFastForward={handleFastForward}
-
+                        muted={muted}
+                        onMute={handleMute}
                     />
                 </div>
             </Container>
