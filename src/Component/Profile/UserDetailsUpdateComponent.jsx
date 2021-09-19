@@ -35,8 +35,9 @@ function UserDetailsUpdateComponent(props) {
         }
         console.log(user)
         dispatch(upDateUser(id, user));
+
         props.setButtonPopup2(!props.buttonPopup2)
-        //props.setTrigger(false)
+        props.setTrigger(false)
     }
 
 

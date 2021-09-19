@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 import './UserProfile.css'
 import profilePic from "./images/profilePic.png";
 import UserDetailsUpdateComponent from "../../Component/Profile/UserDetailsUpdateComponent";
-import {fetchStudents, getUserByID} from "../../Action/Users";
+import {fetchStudents, getUserByID, loggedUser} from "../../Action/Users";
 import {useDispatch, useSelector} from "react-redux";
 import PasswordUpdateComponent from "../../Component/Profile/PasswordUpdateComponent";
 function UserProfile() {
@@ -30,6 +30,7 @@ function UserProfile() {
     const user1 = useSelector((store) => store.userDetails1?.loginUser);
     console.log('12333', user1)
     const response = useSelector((state) => state.userDetails1?.editDetail?.data);
+    dispatch(loggedUser(response))
     const [result, setResult] = useState(response);
     return (<React.Fragment>
             <div>

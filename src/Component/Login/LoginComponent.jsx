@@ -37,7 +37,7 @@ function LoginComponent(props) {
                         alert('session closed')
                         dispatch(loggedUser({}))
                         AuthClass.logout();
-                    }, 1 * 60 * 1000);
+                    }, 5 * 60 * 1000);
                 }
                 let values = response.data;
                 console.log('res1 ', response.data);
