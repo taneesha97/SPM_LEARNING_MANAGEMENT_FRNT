@@ -25,7 +25,8 @@ function ClassAnnouncement(){
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
+        console.log('SUBMIT: ',data);
+        dispatch()
     }
 
 
