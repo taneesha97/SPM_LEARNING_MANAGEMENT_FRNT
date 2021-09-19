@@ -3,8 +3,8 @@
   top: 50%;
   left: 50%;
   display: block;
-  width: 60%;
-  height: 100px;
+  width: fit-content;
+  height: fit-content;
   color: #000;
   background-color: white;
   border-radius: 1em;

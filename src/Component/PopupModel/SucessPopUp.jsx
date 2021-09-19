@@ -14,7 +14,6 @@ function SucessPopUp(props) {
     }
     // return (props.trigger) ? (
     return (props.trigger) ? (
-        <div>
             <div className="modal-confirm">
                 <div className="modal-dialog modal-confirm">
                     <div className="modal-content">
@@ -37,7 +36,6 @@ function SucessPopUp(props) {
                     </div>
                 </div>
             </div>
-        </div>
 
 ) : <div></div>;
 }

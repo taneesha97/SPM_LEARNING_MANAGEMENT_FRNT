@@ -1,9 +1,13 @@
 import {ADD_USER, GET_USER, UPDATE_USER, DELETE_USER, FETCH_USERS, VALID_USER} from "./types";
 import axios from "axios";
 import * as api from '../API'
+import {useDispatch} from "react-redux";
+
+
+
 export const fetchStudents = () => dispatch => {
     console.log('fetching');
-    axios.get(api.baseURL + '/students')
+    axios.get(api.baseURL + 'students')
         .then(response => {
             dispatch({
                 type: FETCH_USERS,
@@ -40,9 +44,7 @@ export const fetchUser = () => dispatch => {
                 type: FETCH_USERS,
                 payload: response
             })}
-
         ).catch((err) => {
-
         console.log(err);
     })
 }
@@ -85,22 +87,48 @@ export const deleteUsers = (id) => dispatch => {
     })
 }
 
+// export const getUserByID = async (id) => {
+//     const dispatch = useDispatch();
+//     console.log('get user by id');
+//     try {
+//         const response = await axios.get(api.baseURL + 'getsingleuser/' + id)
+//
+//         dispatch({
+//             type: GET_USER,
+//             payload: response
+//         })
+//     }catch(err) {
+//         console.log(err);
+//     }
+// }
 
-export const getUserByID = (data) => dispatch => {
-    dispatch({
-        type: GET_USER,
-        payload: data
+
+
+export const getUserByID = (id) => dispatch => {
+    console.log('get user by id');
+    axios.get(api.baseURL + 'getsingleuser/'+ id)
+        .then(response => {
+                dispatch({
+                    type: GET_USER,
+                    payload: response
+                })
+            }
+
+        ).catch((err) => {
+        console.log(err);
     })
 }
 
-export const upDateUser = (PostData, id) => dispatch => {
+
+
+export const upDateUser = (id, PostData) => dispatch => {
     axios.put(api.baseURL + 'updateuser/' + id , PostData)
         .then(response => {
                 dispatch({
                     type: UPDATE_USER,
                     payload: response.data
                 })
-                alert("data updated successfully");
+                //alert("data updated successfully");
             }
 
         ).catch((err) => {
