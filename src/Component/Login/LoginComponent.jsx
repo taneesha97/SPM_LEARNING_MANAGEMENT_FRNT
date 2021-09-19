@@ -90,6 +90,12 @@ function LoginComponent(props) {
                         history.push("/login");
                     }
 
+                }else if (values.type == "admin"){
+                    console.log('111w')
+                    AuthClass.login(values)
+                    setPopupName("login");
+                    setPopupLocaion("/admindash");
+                    setButtonPopup(true);
                 }
             });
         // dispatch(loginUserValidation(newUser));
