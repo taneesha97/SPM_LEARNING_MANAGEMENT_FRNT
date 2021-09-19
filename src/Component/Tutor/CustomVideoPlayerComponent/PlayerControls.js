@@ -101,7 +101,9 @@ function PlayerControls({onPlayPause,
                             onMute,
                             onVolumeChange,
                             onVolumeSeekDown,
-                            volume
+                            volume,
+                            onPlaybackRateChange,
+                            playbackRate
 
 }) {
     // Methods
@@ -203,7 +205,7 @@ function PlayerControls({onPlayPause,
                 </Grid>
                 <Grid item>
                     <Button onClick={handlePopover} variant="text" className={classes.bottomIcons}>
-                        <Typography>1X</Typography>
+                        <Typography>{playbackRate}X</Typography>
                     </Button>
                     <Popover
                         id={id}
@@ -221,8 +223,8 @@ function PlayerControls({onPlayPause,
                     >
                         <Grid container direction="column-reverse">
                             {[0.5,1,1.5,2].map((rate) => (
-                                <Button variant="text">
-                                    <Typography color="secondary">{rate}</Typography>
+                                <Button onClick={() => onPlaybackRateChange(rate)} variant="text">
+                                    <Typography color={rate === playbackRate ? "secondary" : "primary"}>{rate}</Typography>
                                 </Button>
                             ))}
                         </Grid>

@@ -18,11 +18,12 @@ function CustomVideoPlayerComponent() {
     const [state, setState] = useState({
         playing:true,
         muted: true,
-        volume: 0.5
+        volume: 0.5,
+        playbackRate: 1.0
     })
 
     const classes = useStyles();
-    const {playing, muted, volume} = state;
+    const {playing, muted, volume, playbackRate} = state;
     const playerRef = useRef(null);
 
     const handlePlayPause = () => {
@@ -55,6 +56,10 @@ function CustomVideoPlayerComponent() {
         })
     }
 
+    const handlePlaybackRateChange = (rate) => {
+        setState({...state, playbackRate: rate})
+    }
+
     return (
         <React.Fragment>
             <AppBar position="fixed">
@@ -74,6 +79,7 @@ function CustomVideoPlayerComponent() {
                         overflow="hidden"
                         ref={playerRef}
                         volume={volume}
+                        playbackRate={playbackRate}
                     />
                     <PlayerControls
 
@@ -86,6 +92,8 @@ function CustomVideoPlayerComponent() {
                         onVolumeChange={handleVolumeChange}
                         onVolumeSeekDown={handleVolumeSeekDown}
                         volume={volume}
+                        playbackRate={playbackRate}
+                        onPlaybackRateChange={handlePlaybackRateChange}
                     />
                 </div>
             </Container>
