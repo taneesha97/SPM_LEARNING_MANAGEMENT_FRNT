@@ -49,26 +49,50 @@ export const fetchUser = () => dispatch => {
     })
 }
 
-export const addUsers = (PostData) => async (dispatch) => {
+export const addUsers = (PostData) => (dispatch) => {
     console.log('creating');
-    try{
-        const { data } = await api.createUser(PostData);
-        dispatch({type: ADD_USER, payload: data });
-    } catch (error){
-        console.log(error);
-        dispatch({type: ERROR_USER, payload: error.response.data});
-    }
+        axios.post(api.baseURL + 'useradd', PostData)
+            .then(response => {
+                console.log('then',response)
+                if(response.status === 200){
+                    console.log(response.data)
+                    dispatch({
+                        type: ADD_USER,
+                        payload: response.data
+                    })
+                }
+                else{
+                    console.log('else',response)
+                    dispatch({
+                        type: ERROR_USER,
+                        payload: response.data
+                    })
+                }
+            })
+            .catch((err) => {
+                console.log('catch',err)
+            })
 }
 
-// export const loginUserValidation = (user) => async (dispatch) => {
-//     console.log('creating');
-//     try {
-//         const data= await api.validateUser(user);
-//         console.log('data ', data);
-//         dispatch({type: VALID_USER, payload: data });
-//     } catch (error) {
-//         console.log(error);
-//     }
+// export const upDateUser = (id, PostData) => dispatch => {
+//     axios.put(api.baseURL + 'updateuser/' + id , PostData)
+//         .then(response => {
+//             console.log(response)
+//             if(response.status === 200){
+//                 console.log(response.data)
+//                 dispatch({
+//                     type: UPDATE_USER,
+//                     payload: response.data
+//                 })
+//             }
+//             else{
+//                 console.log('error123')
+//             }
+//         })
+//
+//         .catch((err) => {
+//             console.log(err);
+//         })
 // }
 
 
@@ -140,10 +164,6 @@ export const upDateUser = (id, PostData) => dispatch => {
                         console.log('error123')
                     }
                 })
-
-
-                //alert("data updated successfully");
-
 
         .catch((err) => {
             console.log(err);

@@ -28,6 +28,8 @@ function   RegistrationComponent() {
     // const hashedPassword = passwordHash.generate('password123');
     //
     // console.log(hashedPassword);
+    const response = useSelector((state) => state.userDetails1?.UserDetails?.record);
+    console.log(response);
 
     function SubmitPressed(e) {
         e.preventDefault();
@@ -55,11 +57,10 @@ function   RegistrationComponent() {
         }
         console.log(newUser);
        dispatch(addUsers(newUser));
-        // const response = useSelector((state) => state.errors);
-        // console.log(response);
-        setPopupName("register");
-       setPopupLocaion("/login");
-        setButtonPopup(true);
+
+       //  setPopupName("register");
+       // setPopupLocaion("/login");
+       //  setButtonPopup(true);
 
     }
 

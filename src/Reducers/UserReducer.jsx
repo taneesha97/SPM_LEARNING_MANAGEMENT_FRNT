@@ -1,4 +1,4 @@
-import {ADD_USER, DELETE_USER, UPDATE_USER, GET_USER, FETCH_USERS, VALID_USER} from "../Action/types";
+import {ADD_USER, DELETE_USER, UPDATE_USER, GET_USER, FETCH_USERS, VALID_USER, ERROR_USER} from "../Action/types";
 
 const initialState = {
     UserDetails: {
@@ -67,6 +67,10 @@ export default function (state = initialState, action){
                     ...state.UserDetails,
                     record: action.payload
                 }
+            }
+        case ERROR_USER:
+            return {
+                error: action.payload
             }
         default:
             return state;
