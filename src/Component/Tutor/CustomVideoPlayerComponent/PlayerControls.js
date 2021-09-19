@@ -178,7 +178,7 @@ function PlayerControls({onPlayPause,
                         min={0}
                         max={100}
                         value={played * 100}
-                        ValueLabelComponent={ValueLabelComponent}
+                        ValueLabelComponent={(props)=>(<ValueLabelComponent{...props} value={elapsedTime}/>)}
                         onChange={onSeek}
                         onMouse={onSeekMouseDown}
                         onChangeCommitted={onSeekMouseUp}

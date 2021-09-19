@@ -32,6 +32,8 @@ const format = (seconds) => {
 
 function CustomVideoPlayerComponent() {
 
+    const [timeDisplayFormat, setTimeDisplayFormat] = useState("normal")
+
     const [state, setState] = useState({
         playing:true,
         muted: true,
