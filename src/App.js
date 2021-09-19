@@ -33,9 +33,9 @@ const App = () => {
           <BrowserRouter>
               <Navbar/>
               <Switch>
-                  <ProtectedRoute exact path="/tutordash" >
+                  <Route exact path="/tutordash" >
                       <TutorDashboard/>
-                  </ProtectedRoute>
+                  </Route>
                   <Route exact path = "/home" component={HomePage}/>
                   <ProtectedRoute exact path = "/profile" component={UserProfilePage}/>
                   <Route exact path = "/login" component={LoginPage}/>

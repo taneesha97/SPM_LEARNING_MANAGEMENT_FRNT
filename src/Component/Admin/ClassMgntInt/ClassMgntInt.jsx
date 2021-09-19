@@ -6,6 +6,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {addClass, getClasses} from "../../../Action/Class";
 import CustomAlert from '../../CustomAlert/CustomAlert'
 import {Grid} from "@material-ui/core";
+import Select from "react-select";
 function ClassMgntInt() {
 
     const [image, setImage] = useState("");
@@ -15,6 +16,16 @@ function ClassMgntInt() {
         tutorName: '',
     });
     const dispatch = useDispatch();
+
+    //React Select
+    const options = [
+        { value: 'D.K.L.WEERSINGHE', label: 'D.K.L.WEERSINGHE' },
+        { value: 'T.K.L.CHANDRASENA', label: 'T.K.L.CHANDRASENA' },
+        { value: 'M.N.V.RATHNAYAKA', label: 'M.N.V.RATHNAYAKA' },
+        { value: 'H.K.L.VEERSINGHE', label: 'H.K.L.VEERSINGHE' },
+        { value: 'K.N.V.PERERA', label: 'K.N.V.PERERA' },
+        { value: 'D.O.K.KUMARA', label: 'D.O.K.KUMARA' },
+    ];
 
     const formRefresh = () => {
         console.log('form referesh calling');
@@ -102,21 +113,25 @@ function ClassMgntInt() {
                                 required
                             />
 
+                            {/*<label htmlFor="lname">Teacher name</label>*/}
+                            {/*<select*/}
+                            {/*    className="form-input"*/}
+                            {/*    aria-label="Default select example"*/}
+                            {/*    value={classData.teacher}*/}
+                            {/*    required onChange={(e) => setClassData({...classData, tutorName: e.target.value})}*/}
+                            {/*    required*/}
+                            {/*    options={options}*/}
+                            {/*>*/}
+                            {/*    /!*<option selected>Choose...</option>*!/*/}
+                            {/*    /!*<option value="1">D.K.L.WEERSINGHE</option>*!/*/}
+                            {/*    /!*<option value="2">T.K.L.CHANDRASENA</option>*!/*/}
+                            {/*    /!*<option value="3">M.N.V.RATHNAYAKA</option>*!/*/}
+                            {/*    /!*<option value="4">H.K.L.VEERSINGHE</option>*!/*/}
+                            {/*    /!*<option value="5">K.N.V.PERERA</option>*!/*/}
+                            {/*</select>*/}
+
                             <label htmlFor="lname">Teacher name</label>
-                            <select
-                                className="form-input"
-                                aria-label="Default select example"
-                                value={classData.teacher}
-                                required onChange={(e) => setClassData({...classData, tutorName: e.target.value})}
-                                required
-                            >
-                                <option selected>Choose...</option>
-                                <option value="1">D.K.L.WEERSINGHE</option>
-                                <option value="2">T.K.L.CHANDRASENA</option>
-                                <option value="3">M.N.V.RATHNAYAKA</option>
-                                <option value="4">H.K.L.VEERSINGHE</option>
-                                <option value="5">K.N.V.PERERA</option>
-                            </select>
+                            <div className="class-form-teacher-input"><Select options={options} menuPlacement="auto" menuPosition="fixed"/></div>
 
 
                             {/*<label htmlFor="lname">Image</label>*/}
