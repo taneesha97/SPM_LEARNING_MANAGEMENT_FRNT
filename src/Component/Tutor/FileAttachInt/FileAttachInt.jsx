@@ -55,7 +55,7 @@ function FileAttachInt({array4}) {
         e.preventDefault();
         try {
             setSuccess(false);
-            setLoading(true)
+            setLoading(true);
             const formData = new FormData();
             formData.append("file", file);
             const API_URL = "#";
@@ -102,7 +102,6 @@ function FileAttachInt({array4}) {
                         <div className="form-input"><Select options={options} menuPlacement="auto" menuPosition="fixed"/></div>
 
 
-
                         <label htmlFor="lname">Attach the File</label>
                         <input style={{height: "30px", fontSize: "10px", paddingBottom: "30px", color: "white", fontWeight: "bold"}} onChange={onDrop}  type="file" id="lname" name="lastname" placeholder="Number of Chapters.."
                                className="form-input"/>
@@ -112,10 +111,11 @@ function FileAttachInt({array4}) {
                             <button className="light-button">Reset</button>
                         </div>
                     </form>
-                    <div style={{marginLeft:"19px", marginRight: "10px"}}>
-                        <label style={{color: "white", fontWeight: "bold"}} htmlFor="lname">File Uploading Progress</label>
-                        <LinearProgress  variant={"determinate"} value={progress}/>
-                    </div>
+                        <div style={{marginLeft: "19px", marginRight: "10px", paddingBottom: "10px"}}>
+                            <label style={{color: "white", fontWeight: "bold"}} htmlFor="lname">File Uploading
+                                Progress </label>
+                            <LinearProgress variant={"determinate"} value={progress}/>
+                        </div>
                 </div>
                 <div className="file-table">
                     <div className="section-header dark-header"> Active Courses </div>
