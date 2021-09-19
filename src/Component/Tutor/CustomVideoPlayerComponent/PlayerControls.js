@@ -93,7 +93,7 @@ const PrettoSlider = withStyles({
 
 
 
-function PlayerControls({onPlayPause, playing, onFastForward, onRewind, muted, onMute}) {
+function PlayerControls({onPlayPause, playing, onFastForward, onRewind, muted, onMute, onVolumeChange, onVolumeSeekDown}) {
     // Methods
     const classes = useStyles();
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -183,6 +183,8 @@ function PlayerControls({onPlayPause, playing, onFastForward, onRewind, muted, o
                                 max={100}
                                 defaultValue={100}
                                 className={classes.volumeSlider}
+                                onChange={onVolumeChange}
+                                onChangeCommitted={onVolumeSeekDown}
                         />
                         <Button variant="text" style={{color: "#fff", marginLeft: 16}}>
                             <Typography>88:88</Typography>

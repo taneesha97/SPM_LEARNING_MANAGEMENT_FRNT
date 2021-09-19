@@ -69,6 +69,8 @@ function CustomVideoPlayerComponent() {
                         onFastForward={handleFastForward}
                         muted={muted}
                         onMute={handleMute}
+                        onChange={onVolumeChange}
+                        onChangeCommitted={onVolumeSeekDown}
                     />
                 </div>
             </Container>
