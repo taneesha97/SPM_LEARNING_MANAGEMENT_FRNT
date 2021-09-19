@@ -104,7 +104,8 @@ function PlayerControls({onPlayPause,
                             volume,
                             onPlaybackRateChange,
                             playbackRate,
-                            onToggleFullScreen
+                            onToggleFullScreen,
+                            played
 }) {
     // Methods
     const classes = useStyles();
@@ -171,7 +172,7 @@ function PlayerControls({onPlayPause,
                     <PrettoSlider
                         min={0}
                         max={100}
-                        defaultValue={20}
+                        value={played * 100}
                         ValueLabelComponent={ValueLabelComponent}/>
                 </Grid>
 

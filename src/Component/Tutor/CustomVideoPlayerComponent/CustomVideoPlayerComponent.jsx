@@ -20,11 +20,12 @@ function CustomVideoPlayerComponent() {
         playing:true,
         muted: true,
         volume: 0.5,
-        playbackRate: 1.0
+        playbackRate: 1.0,
+        played:0
     })
 
     const classes = useStyles();
-    const {playing, muted, volume, playbackRate} = state;
+    const {playing, muted, volume, playbackRate, played} = state;
     const playerRef = useRef(null);
     const playerContainerRef = useRef(null);
 
@@ -66,6 +67,10 @@ function CustomVideoPlayerComponent() {
         screenfull.toggle(playerContainerRef.current);
     }
 
+    const handleProgress = (changeState) => {
+        setState({...state, ...changeState});
+    };
+
     return (
         <React.Fragment>
             <AppBar position="fixed">
@@ -86,6 +91,7 @@ function CustomVideoPlayerComponent() {
                         ref={playerRef}
                         volume={volume}
                         playbackRate={playbackRate}
+                        onProgress={handleProgress}
                     />
                     <PlayerControls
 
@@ -101,6 +107,7 @@ function CustomVideoPlayerComponent() {
                         playbackRate={playbackRate}
                         onPlaybackRateChange={handlePlaybackRateChange}
                         onToggleFullScreen ={toggleFullScreen}
+                        played={played}
                     />
                 </div>
             </Container>
