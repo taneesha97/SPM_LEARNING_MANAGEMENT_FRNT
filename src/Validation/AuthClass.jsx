@@ -1,5 +1,10 @@
+import {useDispatch} from "react-redux";
+import {loggedUser} from "../Action/Users";
+
 class Auth {
+
     constructor() {
+
         this.authenicated = false;
     }
     //Need to check before cart checkout

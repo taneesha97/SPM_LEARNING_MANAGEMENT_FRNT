@@ -16,15 +16,18 @@ import { faDollarSign } from "@fortawesome/free-solid-svg-icons";
 import { faPencilRuler } from "@fortawesome/free-solid-svg-icons";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import {useHistory} from "react-router";
 
 function TutorDashboard() {
 
     let usertype = localStorage.getItem("usertype")
     console.log(usertype)
+    const history = useHistory();
 
     useEffect(()=> {
         if(usertype != "teacher" && usertype != "admin"){
-            window.location.href='/login';
+            history.push('./login')
+            //window.location.href='/login';
         } else {
             //setFlag(true);
         }

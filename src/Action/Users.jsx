@@ -124,6 +124,7 @@ export const loggedUser = (PostData) => dispatch => {
     dispatch({type: VALID_USER, payload: PostData });
 }
 
+
 export const upDateUser = (id, PostData) => dispatch => {
     axios.put(api.baseURL + 'updateuser/' + id , PostData)
         .then(response => {
