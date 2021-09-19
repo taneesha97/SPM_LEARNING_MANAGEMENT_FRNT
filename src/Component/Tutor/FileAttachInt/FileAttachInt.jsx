@@ -42,12 +42,10 @@ function FileAttachInt({array4}) {
     async function getItems () {
         const response = await axios.get("http://localhost:8073/api/courses");
         const data = response.data;
-
         const options = data.map(item => ({
             "value" : item.id,
             "label" : item.title
         }))
-
         setSelectedOptions(options);
     }
 
@@ -73,19 +71,37 @@ function FileAttachInt({array4}) {
         setProgress(0);
     })
 
-    //File Uploading method.
-    const uploadFiles = async (e) => {
+    const onUpload = (e) => {
+        e.preventDefault()
+        uploadFiles();
+    }
+
+    //TEsting upload method.
+    const upload = (e) => {
         e.preventDefault();
+        if (!file) return;
+
+        let formData = new FormData();
+        formData.append("file", file);
+
+        fetch("http://localhost:8073/api/single/upload", {
+            method: "POST",
+            body: formData
+        })
+            .then(data => console.log(data.json()));
+    };
+
+
+    //File Uploading method.
+    const uploadFiles =  (e) => {
+        // e.preventDefault();
         try {
             setSuccess(false);
             setLoading(true);
             const formData = new FormData();
             formData.append("file", file);
-            formData.append("price", price);
-            formData.append("description", description);
-            formData.append("course", course);
             const API_URL = "http://localhost:8073/api/single/upload";
-            const response = await axios.put(API_URL, formData, {
+            const response =  axios.post(API_URL, formData, {
                 onUploadProgress: (progressEvent) => {
                     const percentCompleted = Math.round(
                         (progressEvent.loaded * 100) / progressEvent.total
@@ -96,7 +112,6 @@ function FileAttachInt({array4}) {
             setDownloadUri(response.data.fileDownloadUri);
             setSuccess(true);
             setLoading(false);
-
         } catch (error) {
             alert(error.message);
         }
@@ -107,7 +122,7 @@ function FileAttachInt({array4}) {
         <div>
             <div className="file-component">
                 <div className="input-form-container">
-                    <form className="form" onSubmit={uploadFiles}>
+                    <form className="form" onSubmit={upload}>
                         <div className="course-component-header">
                             <div className="section-header">Course Form</div>
                             <div className="second-header">Course Form</div>
@@ -125,7 +140,7 @@ function FileAttachInt({array4}) {
                                className="form-input"/>
 
                         <label htmlFor="lname">Course</label>
-                        <div className="form-input"><Select options={selectedOptions} menuPlacement="auto" menuPosition="fixed"/></div>
+                        <div className="form-input"><Select onLoad={() => onDrop} options={selectedOptions} menuPlacement="auto" menuPosition="fixed"/></div>
 
 
                         <label htmlFor="lname">Attach the File</label>
