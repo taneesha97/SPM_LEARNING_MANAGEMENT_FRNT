@@ -1,25 +1,30 @@
 import React, {useEffect, useState} from 'react'
 import './Login.css'
 import {useDispatch, useSelector} from "react-redux";
-import {fetchUser, loginUserValidation} from "../../Action/Users";
+import {fetchUser, loggedUser, loginUserValidation} from "../../Action/Users";
 import {useHistory} from "react-router";
 import axios from "axios";
 import AuthClass from "../../Validation/AuthClass";
 import SucessPopUp from "../PopupModel/SucessPopUp";
+import PopupModel from "../PopupModel/PopupModel";
 
-function LoginComponent() {
+function LoginComponent(props) {
 
 
     const [username, setName] = useState("");
-    const [password, setPassword] = useState("");
+    const [password1, setPassword] = useState("");
     const [buttonPopup, setButtonPopup] = useState(false);
     const [popupName, setPopupName] = useState("");
     const [popupLocation, setPopupLocaion] = useState("");
     const dispatch = useDispatch();
     const history = useHistory();
+    const crypto = require('crypto'),
+        hash = crypto.getHashes();
 
     function SubmitPressed(e) {
         e.preventDefault();
+
+        let password = crypto.createHash('sha1').update(password1).digest('hex');
         const newUser = {
             username,
             password
@@ -27,33 +32,70 @@ function LoginComponent() {
         console.log(newUser);
         axios.post("http://localhost:8073/api/validate", newUser)
             .then(response => {
+                if(response.status == 200){
+                    setTimeout(() => {
+                        alert('session closed')
+                        dispatch(loggedUser({}))
+                        AuthClass.logout();
+                    }, 5 * 60 * 1000);
+                }
                 let values = response.data;
                 console.log('res1 ', response.data);
-                console.log('res1 ', values[0]);
-                if (values[1] == ""){
+
+                dispatch(loggedUser(response.data))
+
+
+                        // if(now-setupTime > hours*3000*100) {
+                        //     AuthClass.logout();
+                        //     // localStorage.setItem('flag', false);
+                        //     // localStorage.removeItem('usertype');
+                        //     // localStorage.setItem('username1234', "");
+                        //     // // localStorage.setItem('usertype', "");
+                        //     // // localStorage.setItem('user', "");
+                        //     //console.log('caling123');
+                        //     alert('error handling')
+                        //     // localStorage.clear()
+                        //     // localStorage.setItem('setupTime', now);//usertype
+                        //
+                        // }
+
+                if (values.type == null){
+                    console.log('111')
                     alert('Invalid login')
                     history.push("/login");
                     setName("");
                     setPassword("");
-                }else if (values[1] == "student"){
-                    AuthClass.login(username,values)
+                    AuthClass.logout()
+                }else if (values.type == "student"){
+                    console.log('1112')
+                    AuthClass.login(values)
+                    setButtonPopup(true);
                     setPopupName("login");
                     setPopupLocaion("/home");
-                    setButtonPopup(true);
-                }else if (values[1] == "teacher"){
-                    if (values[0] == "valid"){
-                        AuthClass.login(username,values)
+
+                }else if (values.type == "teacher"){
+                    if (values.status == "valid"){
+                        console.log('111w')
+                        AuthClass.login(values)
                         setPopupName("login");
                         setPopupLocaion("/tutordash");
                         setButtonPopup(true);
                         //history.push();
                     }else{
+                        console.log('111s')
+                        AuthClass.login(values)
                         setName("");
                         setPassword("");
                         alert('Teacher Status pending')
                         history.push("/login");
                     }
 
+                }else if (values.type == "admin"){
+                    console.log('111w')
+                    AuthClass.login(values)
+                    setPopupName("login");
+                    setPopupLocaion("/admindash");
+                    setButtonPopup(true);
                 }
             });
         // dispatch(loginUserValidation(newUser));
@@ -64,18 +106,17 @@ function LoginComponent() {
     }
 
     return (
-        <div>
-            <div className="login-component-1">
-                <SucessPopUp trigger={buttonPopup} setTrigger = {setButtonPopup} name1 = {popupName} name2 = {popupLocation}></SucessPopUp>
-            </div>
-            <form onSubmit={SubmitPressed}>
-                    <div className="login-info4">
-                        <h2 className="login-info4-main">Login</h2>
-                        <h4 className="login-info4-second">Login to get access to premium features and discounts</h4>
-                    </div>
-
+        <div className="loginbackground">
+                <PopupModel show={buttonPopup} buttondisble = {false}>
+                    <SucessPopUp setBackground={props.setBackground} trigger={buttonPopup} setTrigger = {setButtonPopup} name1 = {popupName} name2 = {popupLocation}></SucessPopUp>
+                </PopupModel>
+                <div className="login-info4">
+                    <h2 className="login-info4-main">Login</h2>
+                    <h4 className="login-info4-second">Login to get access to premium features and discounts</h4>
+                </div>
+                <form onSubmit={SubmitPressed} className="form-login">
                     <div className="login-body">
-                        <div>
+                        <div className="input-field-login">
                             <lable className="input-wrapper">Name</lable><br/>
                             <input className="input-field"
                                    placeholder="Enter Name..."
@@ -88,19 +129,19 @@ function LoginComponent() {
                             />
                             <br/>
                         </div>
-                        <div>
+                        <div className="input-field-login">
                             <lable className="input-wrapper">Password</lable><br/>
                             <input className="input-field"
                                    placeholder="Enter Password..."
                                    type="password"
-                                   value={password}
+                                   value={password1}
                                    onChange = {(e) =>{
                                        setPassword(e.target.value);
                                    }}
                                    required
                             />
                         </div>
-                        <div>
+                        <div className="input-field-login">
                             <input type="checkbox" className="input-field1" value="Remember me"/>
                             <lable className="input-wrapper">Remember me</lable><br/>
                         </div>
@@ -117,7 +158,8 @@ function LoginComponent() {
                             <h2 className="login-info6-main">Forgot Password?</h2>
                         </div>
                     </div>
-            </form>
+                </form>
+
         </div>
     )
 }

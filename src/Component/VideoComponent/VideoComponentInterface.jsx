@@ -13,7 +13,9 @@ function VideoComponentInterface() {
         {"title1": 'Main Page',"title2": 'name1'}
     ];
     return (
-        <div className="VideoComponentInterface">
+        <div className="videocontent-background pt-5">
+            <h2 className="title">Video Lecture</h2>
+            <div className="VideoComponentInterface">
                 <div>
                     <div className="home-videocomponentinterface-container-filter row">
                         <div className="all-videocomponentinterface-section-row">
@@ -31,7 +33,9 @@ function VideoComponentInterface() {
                         </div>
                     </div>
                 </div>
+            </div>
         </div>
+
     )
 }
 

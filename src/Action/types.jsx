@@ -4,10 +4,12 @@ export const VALID_USER = 'VALID_USER';
 export const UPDATE_USER = 'UPDATE_USER';
 export const DELETE_USER = 'DELETE_USER';
 export const GET_USER = 'GET_USER';
+export const ERROR_USER = 'ERROR_USER';
 
 //Course Related Constants.
 export const FETCH_COURSES = 'FETCH_COURSES';
 export const ADD_COURSES = 'ADD_COURSE';
+export const REMOVE_COURSES = 'DELETE_COURSE';
 
 
 //Class related constants

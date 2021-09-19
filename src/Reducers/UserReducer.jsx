@@ -8,10 +8,13 @@ const initialState = {
         error: null
     },
     editDetail: [],
-    loginUser: []
+    loginUser: {},
+    error: null
 }
 
 export default function (state = initialState, action){
+    console.log('reducer', action.payload);
+
     switch (action.type) {
         case FETCH_USERS:
             console.log('reducer');
@@ -19,7 +22,8 @@ export default function (state = initialState, action){
                 ...state,
                 UserDetails: {
                     ...state.UserDetails,
-                    records: action.payload
+                    records: action.payload,
+                    error: action.error
                 }
             }
         case ADD_USER:
@@ -29,9 +33,9 @@ export default function (state = initialState, action){
                 UserDetails: {
                     ...state.UserDetails,
                     record: action.payload,
-                    success: "Class inserted successfully",
-                    error: null
-                }
+                    success: "User inserted successfully"
+                },
+                error: action.error
             }
         case DELETE_USER:
             console.log('reducer');
@@ -39,7 +43,8 @@ export default function (state = initialState, action){
                 ...state,
                 UserDetails: {
                     ...state.UserDetails,
-                    record: state.UserDetails.records.data.filter(item => item !== action.payload)
+                    record: state.UserDetails.records.data.filter(item => item !== action.payload),
+                    error: action.error
                 }
             }
         case GET_USER:
@@ -55,6 +60,7 @@ export default function (state = initialState, action){
                 loginUser: action.payload
             }
         case UPDATE_USER:
+            console.log('reducer', action.payload);
             return {
                 ...state,
                 UserDetails: {
