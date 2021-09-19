@@ -106,9 +106,13 @@ function CustomVideoPlayerComponent() {
     const currentTime = playerRef.current ? playerRef.current.getCurrentTime(): '00:00';
     const duration = playerRef.current ? playerRef.current.getDuration():'00:00';
 
-    const elapsedTime = format(currentTime)
+    const elapsedTime = timeDisplayFormat === "normal" ? format(currentTime): `-${format(duration - currentTime)}`;
     const totalDuration = format(duration)
 
+    const handleDisplayFormat = () => {
+        setTimeDisplayFormat(timeDisplayFormat==="normal" ? "remaining": "normal"
+        );
+    }
 
 
     return (
@@ -153,6 +157,7 @@ function CustomVideoPlayerComponent() {
                         onSeek={handleSeekChange}
                         elapsedTime={elapsedTime}
                         totalDuration={totalDuration}
+                        onChangeDisplayFormat={handleDisplayFormat}
                     />
                 </div>
             </Container>

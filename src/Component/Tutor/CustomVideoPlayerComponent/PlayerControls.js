@@ -111,6 +111,7 @@ function PlayerControls({onPlayPause,
                             onSeek,
                             elapsedTime,
                             totalDuration,
+                            onChangeDisplayFormat
 }) {
     // Methods
     const classes = useStyles();
@@ -208,7 +209,7 @@ function PlayerControls({onPlayPause,
                                 onChange={onVolumeChange}
                                 onChangeCommitted={onVolumeSeekDown}
                         />
-                        <Button variant="text" style={{color: "#fff", marginLeft: 16}}>
+                        <Button onClick={onChangeDisplayFormat} variant="text" style={{color: "#fff", marginLeft: 16}}>
                             <Typography>{elapsedTime}/{totalDuration}</Typography>
                         </Button>
                     </Grid>
