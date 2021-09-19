@@ -17,11 +17,12 @@ function CustomVideoPlayerComponent() {
 
     const [state, setState] = useState({
         playing:true,
-        muted: true
+        muted: true,
+        volume: 0.5
     })
 
     const classes = useStyles();
-    const {playing, muted} = state;
+    const {playing, muted, volume} = state;
     const playerRef = useRef(null);
 
     const handlePlayPause = () => {
@@ -40,7 +41,19 @@ function CustomVideoPlayerComponent() {
         setState({...state, muted: !state.muted})
     }
 
+    const handleVolumeChange = (e, newValue) => {
+        setState({...state, volume:parseFloat(newValue /100),
+        muted: newValue === 0 ? true: false,
+        });
+    };
 
+    const handleVolumeSeekDown =  (e, newValue) => {
+        setState({
+            ...state,
+            volume: parseFloat(newValue/ 100),
+            muted: newValue === 0 ? true: false,
+        })
+    }
 
     return (
         <React.Fragment>
@@ -60,6 +73,7 @@ function CustomVideoPlayerComponent() {
                         border-radius='16px'
                         overflow="hidden"
                         ref={playerRef}
+                        volume={volume}
                     />
                     <PlayerControls
 
@@ -69,8 +83,9 @@ function CustomVideoPlayerComponent() {
                         onFastForward={handleFastForward}
                         muted={muted}
                         onMute={handleMute}
-                        onChange={onVolumeChange}
-                        onChangeCommitted={onVolumeSeekDown}
+                        onVolumeChange={handleVolumeChange}
+                        onVolumeSeekDown={handleVolumeSeekDown}
+                        volume={volume}
                     />
                 </div>
             </Container>
