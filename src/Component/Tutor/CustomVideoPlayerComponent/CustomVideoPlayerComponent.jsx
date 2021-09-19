@@ -47,6 +47,7 @@ function CustomVideoPlayerComponent() {
                     <PlayerControls
 
                         onPlayPause={handlePlayPause}
+                        playing={playing}
 
                     />
                 </div>

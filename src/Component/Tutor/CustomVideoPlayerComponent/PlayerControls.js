@@ -7,6 +7,7 @@ import BookmarkIcon from "@material-ui/icons/Bookmark";
 import IconButton from "@material-ui/core/IconButton";
 import FastRewindIcon from "@material-ui/icons/FastRewind";
 import PlayArrowIcon from "@material-ui/icons/PlayArrow";
+import PauseIcon from "@material-ui/icons/Pause"
 import FastForwardIcon from "@material-ui/icons/FastForward";
 import VolumeUpIcon from "@material-ui/icons/VolumeUp";
 import Popover from "@material-ui/core/Popover";
@@ -90,7 +91,7 @@ const PrettoSlider = withStyles({
 
 
 
-function PlayerControls({onPlayPause}) {
+function PlayerControls({onPlayPause, playing}) {
     // Methods
     const classes = useStyles();
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -131,7 +132,11 @@ function PlayerControls({onPlayPause}) {
                 </IconButton>
 
                 <IconButton onClick={onPlayPause} className={classes.controlIcons} aria-label="reqind">
-                    <PlayArrowIcon fontSize="inherit"/>
+                    {playing? (
+                        <PauseIcon fontSize="inherit"/>
+                    ):(
+                        <PlayArrowIcon fontSize="inherit"/>
+                    )}
                 </IconButton>
 
                 <IconButton className={classes.controlIcons} aria-label="reqind">
@@ -161,7 +166,11 @@ function PlayerControls({onPlayPause}) {
                           alignItems="center"
                           direction="row">
                         <IconButton onClick={onPlayPause} className={classes.bottomIcons}>
-                            <PlayArrowIcon fontSize="large"/>
+                            {playing? (
+                                <PauseIcon fontSize="inherit"/>
+                            ):(
+                                <PlayArrowIcon fontSize="inherit"/>
+                            )}
                         </IconButton>
 
                         <IconButton className={classes.bottomIcons}>
