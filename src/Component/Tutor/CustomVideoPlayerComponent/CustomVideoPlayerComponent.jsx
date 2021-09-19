@@ -14,6 +14,22 @@ const useStyles = makeStyles({
     },
 });
 
+const format = (seconds) => {
+    if(isNaN(seconds)){
+        return '00:00'
+    }
+    const date = new Date(seconds * 1000);
+    const hh = date.getUTCHours();
+    const mm = date.getUTCMinutes();
+    const ss = date.getUTCSeconds().toString().padStart(2, "0");
+    if(hh) {
+        return `${hh}:${mm.toString().padStart(2,"0")}:${ss}`
+    }
+    return `${mm}:${ss}`
+}
+
+
+
 function CustomVideoPlayerComponent() {
 
     const [state, setState] = useState({
@@ -85,6 +101,14 @@ function CustomVideoPlayerComponent() {
         playerRef.current.seekTo(newValue/100);
     }
 
+    const currentTime = playerRef.current ? playerRef.current.getCurrentTime(): '00:00';
+    const duration = playerRef.current ? playerRef.current.getDuration():'00:00';
+
+    const elapsedTime = format(currentTime)
+    const totalDuration = format(duration)
+
+
+
     return (
         <React.Fragment>
             <AppBar position="fixed">
@@ -125,6 +149,8 @@ function CustomVideoPlayerComponent() {
                         onSeekMouseUp={handleSeekMouseUp}
                         onSeekMouseDown={handleSeekMouseDown}
                         onSeek={handleSeekChange}
+                        elapsedTime={elapsedTime}
+                        totalDuration={totalDuration}
                     />
                 </div>
             </Container>
