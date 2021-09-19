@@ -125,13 +125,11 @@ function TeacherTableComponent() {
                     <Table className={classes.table} aria-label="simple table">
                         <TableHead className="teacher-table-header">
                             <TableRow >
-                                <TableCell align="center" className={classes.teacherTableHeaderColumns}>id</TableCell>
                                 <TableCell align="center" className={classes.teacherTableHeaderColumns}>Name</TableCell>
                                 <TableCell align="center" className={classes.teacherTableHeaderColumns}>Email</TableCell>
+                                <TableCell align="center" className={classes.teacherTableHeaderColumns}>Age</TableCell>
                                 <TableCell align="center" className={classes.teacherTableHeaderColumns}>User Name</TableCell>
-
                                 <TableCell align="center" className={classes.teacherTableHeaderColumns}>Status</TableCell>
-                                <TableCell align="center" className={classes.teacherTableHeaderColumns}>Password</TableCell>
                                 <TableCell align="center" className={classes.teacherTableHeaderColumns}>Delete</TableCell>
                                 <TableCell align="center" className={classes.teacherTableHeaderColumns}>Approve Teacher</TableCell>
                             </TableRow>
@@ -148,12 +146,11 @@ function TeacherTableComponent() {
                                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                                 .map((row) => (
                                     <TableRow key={row.id}>
-                                        <TableCell align="center"> {row.id} </TableCell>
                                         <TableCell align="center"> {row.name} </TableCell>
                                         <TableCell align="center"> {row.email} </TableCell>
+                                        <TableCell align="center"> {row.age} </TableCell>
                                         <TableCell align="center"> {row.username} </TableCell>
                                         <TableCell align="center"> {row.status} </TableCell>
-                                        <TableCell align="center"> {row.password} </TableCell>
                                         <TableCell align="center">
                                             <a onClick={() => {
                                                 deleteTeacher(row.id)}}>

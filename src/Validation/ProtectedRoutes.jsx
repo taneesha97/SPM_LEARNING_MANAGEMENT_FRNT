@@ -16,7 +16,7 @@ export const ProtectedRoute = ({component: Component, ...rest}) => {
                         console.log("Else" + Auth.isAuthenticated());
                         return (<Redirect to={
                             {
-                                pathname: "/",
+                                pathname: "/login",
                                 state: {
                                     from: props.location
                                 }

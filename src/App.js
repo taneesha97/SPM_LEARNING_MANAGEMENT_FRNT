@@ -18,7 +18,7 @@ import {ProtectedRoute} from "./Validation/ProtectedRoutes";
 
 import {Provider} from "react-redux";
 import store from "./store";
-import EmailUpdateComponent from "./Component/Profile/EmailUpdateComponent";
+import UserDetailsUpdateComponent from "./Component/Profile/UserDetailsUpdateComponent";
 import SingleClassView from "./Pages/SingleClass/SingleClassView";
 import ClassCourseview from "./Pages/ClassCourseview/ClassCourseview";
 import DownloadFile from "./Component/Downloads/DownloadFile";
@@ -37,16 +37,20 @@ const App = () => {
                       <TutorDashboard/>
                   </ProtectedRoute>
                   <Route exact path = "/home" component={HomePage}/>
-                  <Route exact path = "/profile" component={UserProfilePage}/>
+                  <ProtectedRoute exact path = "/profile" component={UserProfilePage}/>
                   <Route exact path = "/login" component={LoginPage}/>
                   <Route exact path = "/registration" component={RegistrationPage}/>
+
+                  {/*<Route exact path = "/tutordash" component={TutorDashboard}/>*/}
+
                   <Route exact path = "/admindash" component={AdminDashboard}/>
+
                   <Route exact path = "/navbarbuttoncomponent" component={NavBarButtonComponent}/>
                   <Route exact path = "/navbarbuttoncomponent2" component={NavBarButtonComponent2}/>
-                  <Route exact path = "/emailupdate" component={EmailUpdateComponent}/>
-                  <Route exact path = "/class" component={ClassPage}/>
+                  <Route exact path = "/emailupdate" component={UserDetailsUpdateComponent}/>
+                  <ProtectedRoute exact path = "/class" component={ClassPage}/>
                   <Route exact path = "/ClassCourseview" component={ClassCourseview}/>
-                  <Route exact path = "/singleclassview" component={SingleClassView}/>
+                  <ProtectedRoute exact path = "/singleclassview" component={SingleClassView}/>
                   <Route exact path = "/download" component={DownloadFile}/>
                   <Route exact path = "/teacherstatuspopup" component={PopUpTeacherStatusComponent}/>
                   <Route exact path = "/videocomponent" component={VideoComponentInterface}/>

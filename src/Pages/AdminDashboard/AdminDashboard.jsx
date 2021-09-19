@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import "./AdminDashboard.css"
 import AdminDashHeader from "../../Component/Admin/Header/AdminDashHeader";
 import TeacherTableComponent from "../../Component/Admin/TeachersTable/TeacherTableComponent";
@@ -6,9 +6,23 @@ import ClassMgntInt from "../../Component/Admin/ClassMgntInt/ClassMgntInt";
 import ClassDetailsTable from "../../Component/Admin/ClassTable/ClassDetailsTable";
 import AnnouncementSection from "../../Component/Admin/AnnouncementSection/AnnouncementSection";
 import AllTransations from "../../Component/Admin/AllTransations/AllTransations";
+import {useHistory} from "react-router";
 
 
 function AdminDashboard() {
+
+    let usertype = localStorage.getItem("usertype")
+    console.log(usertype)
+    const history = useHistory();
+
+    useEffect(()=> {
+        if(usertype != "admin"){
+            history.push('./login')
+            //window.location.href='/login';
+        } else {
+            //setFlag(true);
+        }
+    }, [])
 
     //Array for the announcement component.
     const array1 = [
