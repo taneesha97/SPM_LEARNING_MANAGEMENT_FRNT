@@ -1,8 +1,35 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './ClassAnnouncement.css'
 import CustomButton from "../../../Tutor/CourseMgntInt/CustomButtons/CustomButton";
+import {useDispatch} from "react-redux";
 
 function ClassAnnouncement(){
+
+    const [data, setData] = useState({
+        header:'',
+        body:'',
+        name: '',
+    });
+
+    const dispatch = useDispatch();
+
+    //React Select
+    const options = [
+        { value: 'Grade 7', label: 'Grade 7' },
+        { value: 'Grade 8', label: 'Grade 8' },
+        { value: 'Grade 9', label: 'Grade 9' },
+        { value: 'Grade 10', label: 'Grade 10' },
+        { value: 'Grade 11', label: 'Grade 11' },
+        { value: 'Grade 12', label: 'Grade 12' },
+    ];
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+    }
+
+
+
     return (
         <div className="class-announcement-container">
             <div className="class-announcement-header">
@@ -25,22 +52,6 @@ function ClassAnnouncement(){
                             <textarea type="text" id="fname" name="firstname" placeholder="Announcement body comes here..."
                                       className="form-area"/>
                             </div>
-                            {/*<div className="form-input">*/}
-                            {/*    <select*/}
-                            {/*        className="form-input"*/}
-                            {/*        aria-label="Default select example"*/}
-                            {/*        // value={classData.teacher}*/}
-                            {/*        //onChange={(e) => setClassData({...classData, tutorName: e.target.value})}*/}
-                            {/*        required*/}
-                            {/*    >*/}
-                            {/*        <option selected>Choose...</option>*/}
-                            {/*        <option value="1">D.K.L.WEERSINGHE</option>*/}
-                            {/*        <option value="2">T.K.L.CHANDRASENA</option>*/}
-                            {/*        <option value="3">M.N.V.RATHNAYAKA</option>*/}
-                            {/*        <option value="4">H.K.L.VEERSINGHE</option>*/}
-                            {/*        <option value="5">K.N.V.PERERA</option>*/}
-                            {/*    </select>*/}
-                            {/*</div >*/}
                             <div className="class-announcement-body-button-group">
                                 <div className="class-announcement-button">
                                     <CustomButton name={"Discard"} color={"#FF5050"}/>
