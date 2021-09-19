@@ -4,8 +4,20 @@ import "./FileAttachInt.css"
 import FileAttachmentTable from "./FileAttachmentTable/FileAttachmentTable";
 import {LinearProgress} from "@material-ui/core";
 import Select from 'react-select'
+import {useSelector} from "react-redux";
+import courses from "../../../Reducers/courses";
+import {
+    faBookOpen,
+    faCommentAlt,
+    faDollarSign,
+    faPencilRuler,
+    faSchool, faTimes, faUser,
+    faUserFriends
+} from "@fortawesome/free-solid-svg-icons";
 
 function FileAttachInt({array4}) {
+
+    console.log(array4);
 
     //Creating state for storing the meta information.
     const [name, setName] = useState("")
@@ -18,28 +30,39 @@ function FileAttachInt({array4}) {
     const [success, setSuccess] = useState(false);
     const [file, setFile] = useState(0);
     const [downloadUri, setDownloadUri] = useState(0);
+    const [selectedOptions, setSelectedOptions] = useState(null);
 
     //React Select
     const options = [
-        { value: 'chocolate', label: 'Chocolate' },
+        { value: 'chocolate1', label: 'Chocolate' },
         { value: 'strawberry', label: 'Strawberry' },
         { value: 'vanilla', label: 'Vanilla' }
     ];
-    const [region, setRegion] = useState(options[0]);
+
+    async function getItems () {
+        const response = await axios.get("http://localhost:8073/api/courses");
+        const data = response.data;
+
+        const options = data.map(item => ({
+            "value" : item.id,
+            "label" : item.title
+        }))
+
+        setSelectedOptions(options);
+    }
+
+
     const [currentCountry, setCurrentCountry] = useState(null);
     const onchangeSelect = (item) => {
         setCurrentCountry(null);
         setRegion(item);
     };
+    const [region, setRegion] = useState("");
 
     useEffect(()=> {
-        async function getCharacters() {
-            const response = await fetch("https://swapi.co/api/people");
-            const body = await response.json();
-            setCurrentCountry(body.results.map(({ name }) => ({ label: name, value: name })));
-        }
-        //getCharacters();
+        getItems();
     }, [])
+
 
     //File attachment logic, saved the file in state.
     const onDrop = React.useCallback((selectedFile) => {
@@ -99,7 +122,7 @@ function FileAttachInt({array4}) {
                                className="form-input"/>
 
                         <label htmlFor="lname">Course</label>
-                        <div className="form-input"><Select options={options} menuPlacement="auto" menuPosition="fixed"/></div>
+                        <div className="form-input"><Select options={selectedOptions} menuPlacement="auto" menuPosition="fixed"/></div>
 
 
                         <label htmlFor="lname">Attach the File</label>

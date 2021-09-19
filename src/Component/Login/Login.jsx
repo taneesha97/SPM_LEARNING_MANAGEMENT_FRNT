@@ -20,11 +20,9 @@ function Login(props) {
                     <h2 className="login-info2-main">Welcome</h2>
                 </div>
             </div>
-
             <div className="login-info">
                 <LoginComponent setBackground={props.setBackground} />
             </div>
-
         </div>
 
     )

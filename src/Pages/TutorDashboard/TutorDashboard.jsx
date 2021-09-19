@@ -97,7 +97,7 @@ function TutorDashboard() {
         <div className="tutor-dashboard-page">
             <TutorDashHeader array5={array4}/>
             <CourseMgntInt array4={courses} />
-            <FileAttachInt array4={array4}/>
+            <FileAttachInt array4={courses}/>
             <InqFeedInt array1={array1}
                         array2={array2}
                         setTrigger={setTrigger}
