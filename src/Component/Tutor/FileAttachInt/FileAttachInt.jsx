@@ -20,9 +20,9 @@ function FileAttachInt({array4}) {
     console.log(array4);
 
     //Creating state for storing the meta information.
-    const [name, setName] = useState("")
-    const [price, setPrice] = useState(0)
-    const [description, setDescription] = useState("");
+    const [course, setCourse] = useState(null)
+    const [price, setPrice] = useState(null)
+    const [description, setDescription] = useState(null);
 
     //Progress Tracking State.
     const [progress, setProgress] = useState(0);
@@ -32,7 +32,7 @@ function FileAttachInt({array4}) {
     const [downloadUri, setDownloadUri] = useState(0);
     const [selectedOptions, setSelectedOptions] = useState(null);
 
-    //React Select
+    //React Select - Sample Data for the React select.
     const options = [
         { value: 'chocolate1', label: 'Chocolate' },
         { value: 'strawberry', label: 'Strawberry' },
@@ -81,7 +81,10 @@ function FileAttachInt({array4}) {
             setLoading(true);
             const formData = new FormData();
             formData.append("file", file);
-            const API_URL = "#";
+            formData.append("price", price);
+            formData.append("description", description);
+            formData.append("course", course);
+            const API_URL = "http://localhost:8073/api/single/upload";
             const response = await axios.put(API_URL, formData, {
                 onUploadProgress: (progressEvent) => {
                     const percentCompleted = Math.round(
