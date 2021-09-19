@@ -90,7 +90,7 @@ const PrettoSlider = withStyles({
 
 
 
-function PlayerControls(props) {
+function PlayerControls({onPlayPause}) {
     // Methods
     const classes = useStyles();
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -130,7 +130,7 @@ function PlayerControls(props) {
                     <FastRewindIcon fontSize="inherit"/>
                 </IconButton>
 
-                <IconButton className={classes.controlIcons} aria-label="reqind">
+                <IconButton onClick={onPlayPause} className={classes.controlIcons} aria-label="reqind">
                     <PlayArrowIcon fontSize="inherit"/>
                 </IconButton>
 
@@ -160,7 +160,7 @@ function PlayerControls(props) {
                     <Grid container
                           alignItems="center"
                           direction="row">
-                        <IconButton className={classes.bottomIcons}>
+                        <IconButton onClick={onPlayPause} className={classes.bottomIcons}>
                             <PlayArrowIcon fontSize="large"/>
                         </IconButton>
 
@@ -211,7 +211,6 @@ function PlayerControls(props) {
                 </Grid>
             </Grid>
         </div>
-
     )
 }
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import {Button, Container, Slider, Tooltip, Typography} from "@material-ui/core";
@@ -14,7 +14,18 @@ const useStyles = makeStyles({
 });
 
 function CustomVideoPlayerComponent() {
+
+    const [state, setState] = useState({
+        playing:true
+    })
+
     const classes = useStyles();
+    const {playing} = state;
+
+    const handlePlayPause = () => {
+        setState({...state, playing: !state.playing});
+    }
+
     return (
         <React.Fragment>
             <AppBar position="fixed">
@@ -29,11 +40,15 @@ function CustomVideoPlayerComponent() {
                         width={"100%"}
                         url="https://www.youtube.com/watch?v=wGixQPuG1GY"
                         muted={true}
-                        playing={true}
+                        playing={playing}
                         border-radius='16px'
                         overflow="hidden"
                     />
-                    <PlayerControls/>
+                    <PlayerControls
+
+                        onPlayPause={handlePlayPause}
+
+                    />
                 </div>
             </Container>
         </React.Fragment>
