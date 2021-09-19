@@ -1,8 +1,7 @@
 .containermain {
-  transform: translate(-50%);
   cursor: pointer;
   border-radius: 20px;
-  width: 1300px;
+  width: 1000px;
   height: 250px;
   background: #162365;
   color: white;
@@ -21,11 +20,9 @@
 
 .upper {
   height: 250px;
-  min-width: 100%;
   width: 100%;
   border-radius: 20px;
   padding: 40px;
-  background: #162365;
 }
 
 .upper h3 svg {
@@ -58,24 +55,25 @@ div.expand .lower {
 }
 
 .collapseImage1 {
-  width: 500px;
+  width: 40%;
+  float: left;
   height: 210px;
   margin-top: -2%;
   margin-left: -1%;
 }
 
 .collapse-info1 {
-  position: absolute;
-  margin-left: 530px;
   margin-top: -2%;
-  width: 700px;
+  width: 58%;
+  height: 210px;
+  float: right;
 }
 
 .collapse-info1-main {
   font-family: Roboto;
   color: #FFFFFF;
   font-weight: 700;
-  font-size: 64px;
+  font-size: 48px;
 }
 
 .collapse-info1-second {
@@ -86,8 +84,10 @@ div.expand .lower {
 }
 
 .bluescreencss6 {
+  padding-left: 1%;
+  padding-right: 5%;
   background: #8221FE;
-  width: 1200px;
+  width: 95%;
   height: 64px;
   border-radius: 30px;
   margin: 0 auto;
@@ -136,9 +136,9 @@ div.expand .lower {
 }
 
 .progressbar1 {
-  width: 50%;
-  margin-left: 48%;
-  margin-top: -3%;
+  width: 40%;
+  float: right;
+  margin-top: -3.2vw;
 }
 
 /*# sourceMappingURL=collapseClassroom.css.map */

@@ -4,23 +4,30 @@ import {useDispatch, useSelector} from "react-redux";
 import {addUsers, loginUserValidation} from "../../Action/Users";
 import {useHistory} from "react-router";
 import CustomAlert from "../CustomAlert/CustomAlert";
-import EmailUpdateComponent from "../Profile/EmailUpdateComponent";
+import UserDetailsUpdateComponent from "../Profile/UserDetailsUpdateComponent";
 import SucessPopUp from "../PopupModel/SucessPopUp";
+import PopupModel from "../PopupModel/PopupModel";
 
 function   RegistrationComponent() {
 
 
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
+    const [age, setAge] = useState("");
     const [username, setUsername] = useState("");
     const [type, setType] = useState('teacher');
-    const [password, setPassword] = useState();
+    const [password1, setPassword] = useState();
     const [buttonPopup, setButtonPopup] = useState(false);
     const [popupName, setPopupName] = useState("");
     const [popupLocation, setPopupLocaion] = useState("");
     const dispatch = useDispatch();
     const history = useHistory();
-
+    const crypto = require('crypto'),
+        hash = crypto.getHashes();
+    // const passwordHash = require('password-hash');
+    // const hashedPassword = passwordHash.generate('password123');
+    //
+    // console.log(hashedPassword);
 
     function SubmitPressed(e) {
         e.preventDefault();
@@ -32,9 +39,15 @@ function   RegistrationComponent() {
         if(type == 'teacher'){
             status = 'pending';
         }
+
+        let password = crypto.createHash('sha1').update(password1).digest('hex');
+
+        console.log(password);
+
         const newUser = {
             name,
             email,
+            age,
             username,
             status,
             password,
@@ -50,11 +63,13 @@ function   RegistrationComponent() {
 
 
 
+
     return (
         <div>
-            <div className="registration">
+            <PopupModel show={buttonPopup} buttondisble = {false}>
                 <SucessPopUp trigger={buttonPopup} setTrigger = {setButtonPopup} name1 = {popupName} name2 = {popupLocation}></SucessPopUp>
-            </div>
+            </PopupModel>
+
             <form onSubmit={SubmitPressed}>
                 <div className="registration-info4">
                     <h2 className="registration-info4-main">Registration</h2>
@@ -81,6 +96,17 @@ function   RegistrationComponent() {
                                type="email"
                                onChange = {(e) =>{
                                    setEmail(e.target.value);
+                               }}
+                               required
+                        />
+                    </div>
+                    <div>
+                        <lable className="input-wrapper">Age</lable><br/>
+                        <input className="input-field"
+                               placeholder="Enter Age..."
+                               type="number"
+                               onChange = {(e) =>{
+                                   setAge(e.target.value);
                                }}
                                required
                         />

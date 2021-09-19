@@ -4,19 +4,26 @@ class Auth {
     }
     //Need to check before cart checkout
 
-    login(username, usertype) {
+    login(values) {
         //API validation
-        console.log(username);
-        console.log(usertype);
+        console.log(values.type);
+        console.log(values.username);
+        console.log(values);
         localStorage.setItem('flag', true);
-        localStorage.setItem('username', username);
-        localStorage.setItem('usertype', usertype);
+        localStorage.setItem('username', values.username);
+        localStorage.setItem('usertype', values.type);
+        //localStorage.setItem('user', values);
+        localStorage.setItem('user', JSON.stringify(values));
+
         this.authenicated = true;
     }
 
-    logout(cb) {
+    logout() {
         //Clear the Flag upon pressing log
         localStorage.setItem('flag', false);
+        localStorage.setItem('username', "");
+        localStorage.setItem('usertype', "");
+        localStorage.setItem('user', "");
         this.authenticated = false;
     }
 
