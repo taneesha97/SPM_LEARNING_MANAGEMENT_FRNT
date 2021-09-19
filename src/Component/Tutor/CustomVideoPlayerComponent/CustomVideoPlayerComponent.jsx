@@ -21,11 +21,12 @@ function CustomVideoPlayerComponent() {
         muted: true,
         volume: 0.5,
         playbackRate: 1.0,
-        played:0
+        played:0,
+        seeking: false
     })
 
     const classes = useStyles();
-    const {playing, muted, volume, playbackRate, played} = state;
+    const {playing, muted, volume, playbackRate, played, seeking} = state;
     const playerRef = useRef(null);
     const playerContainerRef = useRef(null);
 
@@ -68,8 +69,21 @@ function CustomVideoPlayerComponent() {
     }
 
     const handleProgress = (changeState) => {
-        setState({...state, ...changeState});
+        if(!state.seeking){setState({...state, ...changeState});}
     };
+
+    const handleSeekChange = (e, newValue) => {
+        setState({...state, played: parseFloat(newValue/100)})
+    }
+
+    const handleSeekMouseDown = (e) => {
+        setState({...state, seeking:true})
+    }
+
+    const handleSeekMouseUp = (e, newValue) => {
+        setState({...state, seeking: false})
+        playerRef.current.seekTo(newValue/100);
+    }
 
     return (
         <React.Fragment>
@@ -108,6 +122,9 @@ function CustomVideoPlayerComponent() {
                         onPlaybackRateChange={handlePlaybackRateChange}
                         onToggleFullScreen ={toggleFullScreen}
                         played={played}
+                        onSeekMouseUp={handleSeekMouseUp}
+                        onSeekMouseDown={handleSeekMouseDown}
+                        onSeek={handleSeekChange}
                     />
                 </div>
             </Container>

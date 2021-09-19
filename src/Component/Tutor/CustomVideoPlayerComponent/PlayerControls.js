@@ -105,7 +105,10 @@ function PlayerControls({onPlayPause,
                             onPlaybackRateChange,
                             playbackRate,
                             onToggleFullScreen,
-                            played
+                            played,
+                            onSeekMouseUp,
+                            onSeekMouseDown,
+                            onSeek
 }) {
     // Methods
     const classes = useStyles();
@@ -173,7 +176,11 @@ function PlayerControls({onPlayPause,
                         min={0}
                         max={100}
                         value={played * 100}
-                        ValueLabelComponent={ValueLabelComponent}/>
+                        ValueLabelComponent={ValueLabelComponent}
+                        onChange={onSeek}
+                        onMouse={onSeekMouseDown}
+                        onChangeCommitted={onSeekMouseUp}
+                    />
                 </Grid>
 
                 <Grid item>
