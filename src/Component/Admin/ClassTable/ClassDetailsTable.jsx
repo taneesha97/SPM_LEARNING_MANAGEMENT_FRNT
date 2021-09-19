@@ -44,11 +44,12 @@ const StyledTableRow = withStyles((theme: Theme) =>
 
 const useStyles = makeStyles({
     table: {
-        minWidth: 40,
+        minWidth: "100%",
         borderRadius: 50
     },
     editorContentClass: {
-        borderRadius: 30
+        borderRadius: 30,
+        maxWidth: "300%",
     },
 });
 
@@ -138,7 +139,7 @@ function ClassDetailsTable() {
                                     <TableCell align="center" className="classTablerow">Class name</TableCell>
                                     <TableCell align="center" className="classTablerow">Description</TableCell>
                                     <TableCell align="center" className="classTablerow">Teacher name</TableCell>
-                                    {/*<TableCell align="center" className="classTablerow">Image</TableCell>*/}
+                                    <TableCell align="center" className="classTablerow">Image</TableCell>
                                     <TableCell align="center" className="classTablerow">Delete</TableCell>
                                     <TableCell align="center" className="classTablerow">Update</TableCell>
                                 </TableRow>
@@ -158,7 +159,7 @@ function ClassDetailsTable() {
                                         <StyledTableCell align="center">{row.name}</StyledTableCell>
                                         <StyledTableCell align="center">{row.description}</StyledTableCell>
                                         <StyledTableCell align="center">{row.tutorName}</StyledTableCell>
-                                        {/*<StyledTableCell align="center">{row.image}</StyledTableCell>*/}
+                                        <StyledTableCell align="center">{row.image}</StyledTableCell>
                                         <TableCell align="center">
                                             <DeleteIcon  color="primary" style={{fontSize: 35 }}
                                             onClick={() => {confirmDelete(row.id)}}/>

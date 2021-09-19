@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import './ClassMgntInt.css'
 import "../../../../node_modules/bootstrap/dist/css/bootstrap.css"
-import FileBase from 'react-file-base64';
 import {useDispatch, useSelector} from "react-redux";
 import {addClass, getClasses} from "../../../Action/Class";
 import CustomAlert from '../../CustomAlert/CustomAlert'
@@ -16,6 +15,16 @@ function ClassMgntInt() {
         tutorName: '',
     });
     const dispatch = useDispatch();
+
+    //Progress Tracking State.
+    const [progress, setProgress] = useState(0);
+    const [loading, setLoading] = useState(false);
+    const [success, setSuccess] = useState(false);
+    const [file, setFile] = useState(0);
+    const [downloadUri, setDownloadUri] = useState(0);
+
+
+
 
     //React Select
     const options = [
@@ -56,6 +65,7 @@ function ClassMgntInt() {
     const [successMessageDisplay, setSuccessMessageDisplay] = useState(successMessage);
     const [errorMessageDisplay, setErrorMessageDisplay] = useState(null);
 
+
     React.useEffect(() => {
         setSuccessMessageDisplay(successMessage);
         setTimeout(() => setSuccessMessageDisplay(""), 3000);
@@ -69,6 +79,15 @@ function ClassMgntInt() {
             return true;
         }
     }
+
+    //File attachment logic, saved the file in state.
+    const onDrop = React.useCallback((selectedFile) => {
+        let files = selectedFile.target.files;
+        setFile(files);
+        console.log(file);
+        setSuccess(false);
+        setProgress(0);
+    })
 
         const handleSubmit = (e) => {
             e.preventDefault();
@@ -113,46 +132,19 @@ function ClassMgntInt() {
                                 required
                             />
 
-                            {/*<label htmlFor="lname">Teacher name</label>*/}
-                            {/*<select*/}
-                            {/*    className="form-input"*/}
-                            {/*    aria-label="Default select example"*/}
-                            {/*    value={classData.teacher}*/}
-                            {/*    required onChange={(e) => setClassData({...classData, tutorName: e.target.value})}*/}
-                            {/*    required*/}
-                            {/*    options={options}*/}
-                            {/*>*/}
-                            {/*    /!*<option selected>Choose...</option>*!/*/}
-                            {/*    /!*<option value="1">D.K.L.WEERSINGHE</option>*!/*/}
-                            {/*    /!*<option value="2">T.K.L.CHANDRASENA</option>*!/*/}
-                            {/*    /!*<option value="3">M.N.V.RATHNAYAKA</option>*!/*/}
-                            {/*    /!*<option value="4">H.K.L.VEERSINGHE</option>*!/*/}
-                            {/*    /!*<option value="5">K.N.V.PERERA</option>*!/*/}
-                            {/*</select>*/}
-
                             <label htmlFor="lname">Teacher name</label>
-                            <div className="class-form-teacher-input"><Select options={options} menuPlacement="auto" menuPosition="fixed"/></div>
+                            <div className="class-form-teacher-input">
+                                <Select
+                                options={options}
+                                menuPlacement="auto"
+                                menuPosition="fixed"
+                                // onChange={(e) => setClassData({...classData, tutorName: e.target.value})}
+                                /></div>
 
+                            <label htmlFor="lname">Attach the Image</label>
+                            <input style={{height: "30px", fontSize: "10px", paddingBottom: "30px", color: "black", fontWeight: "bold"}} onChange={onDrop}  type="file" id="lname" name="lastname" placeholder="Number of Chapters.."
+                                   className="class-form-teacher-input"/>
 
-                            {/*<label htmlFor="lname">Image</label>*/}
-                            {/*<div className="mb-3" style={{marginLeft:20}}>*/}
-                            {/*    /!*<FileBase*!/*/}
-                            {/*    /!*    type="file"*!/*/}
-                            {/*    /!*    multiple={false}*!/*/}
-                            {/*    /!*    onDone={({base64}) => setClassData({...classData, image: base64})}*!/*/}
-                            {/*    /!*    // required*!/*/}
-                            {/*    <input type="file" id="avatar"  accept="image/png, image/jpeg"*/}
-                            {/*           onChange={uploadedImage} />*/}
-                            {/*</div>*/}
-                            {/*<label htmlFor="lname">Image</label>*/}
-                            {/*<div className="mb-3" style={{marginLeft:20}}>*/}
-                            {/*    <FileBase*/}
-                            {/*        type="file"*/}
-                            {/*        multiple={false}*/}
-                            {/*        onDone={({base64}) => setClassData({...classData, image: base64})}*/}
-                            {/*        // required*/}
-                            {/*    />*/}
-                            {/*</div>*/}
                             <div className="msg">
                             <Grid item direction="column" md={6}>
                                 {errorDisplay ? (
