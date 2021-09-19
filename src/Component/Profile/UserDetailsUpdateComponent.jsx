@@ -6,7 +6,6 @@ import {addUsers, getUserByID, upDateUser} from "../../Action/Users";
 import {useDispatch, useSelector} from "react-redux";
 function UserDetailsUpdateComponent(props) {
     let userObject = localStorage.getItem("user")
-    //console.log(user)
     const response = useSelector((state) => state.userDetails1?.editDetail?.data);
     console.log(response);
     const [name, setName] = useState(response?.name);
@@ -15,11 +14,10 @@ function UserDetailsUpdateComponent(props) {
     const [username, setUsername] = useState(response?.username);
     const dispatch = useDispatch();
 
-
+    let id = localStorage.getItem("userid")
 
     useEffect(() => {
-        console.log('calling')
-        dispatch(getUserByID(props.name));
+        dispatch(getUserByID(id));
         setName(response?.name)
         setEmail(response?.email)
         setAge(response?.age)
@@ -36,7 +34,8 @@ function UserDetailsUpdateComponent(props) {
             username
         }
         console.log(user)
-        dispatch(upDateUser(props.name.id, user));
+        dispatch(upDateUser(id, user));
+
         props.setButtonPopup2(!props.buttonPopup2)
         props.setTrigger(false)
     }

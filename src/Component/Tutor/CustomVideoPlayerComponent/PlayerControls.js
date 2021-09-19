@@ -12,6 +12,8 @@ import FastForwardIcon from "@material-ui/icons/FastForward";
 import VolumeUpIcon from "@material-ui/icons/VolumeUp";
 import Popover from "@material-ui/core/Popover";
 import FullScreenButton from "@material-ui/icons/Fullscreen";
+import VolumeUp from "@material-ui/icons/VolumeOff";
+import {VolumeOff} from "@material-ui/icons";
 
 
 const useStyles = makeStyles({
@@ -91,7 +93,20 @@ const PrettoSlider = withStyles({
 
 
 
-function PlayerControls({onPlayPause, playing, onFastForward, onRewind}) {
+function PlayerControls({onPlayPause,
+                            playing,
+                            onFastForward,
+                            onRewind,
+                            muted,
+                            onMute,
+                            onVolumeChange,
+                            onVolumeSeekDown,
+                            volume,
+                            onPlaybackRateChange,
+                            playbackRate,
+                            onToggleFullScreen,
+                            played
+}) {
     // Methods
     const classes = useStyles();
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -127,7 +142,7 @@ function PlayerControls({onPlayPause, playing, onFastForward, onRewind}) {
 
             {/*Middle controls*/}
             <Grid container direction="row" alignItems="center" justify="center">
-                <IconButton className={classes.controlIcons} aria-label="reqind">
+                <IconButton onClick={onRewind} className={classes.controlIcons} aria-label="reqind">
                     <FastRewindIcon fontSize="inherit"/>
                 </IconButton>
 
@@ -139,7 +154,7 @@ function PlayerControls({onPlayPause, playing, onFastForward, onRewind}) {
                     )}
                 </IconButton>
 
-                <IconButton className={classes.controlIcons} aria-label="reqind">
+                <IconButton onClick={onFastForward} className={classes.controlIcons} aria-label="reqind">
                     <FastForwardIcon fontSize="inherit"/>
                 </IconButton>
             </Grid>
@@ -157,7 +172,7 @@ function PlayerControls({onPlayPause, playing, onFastForward, onRewind}) {
                     <PrettoSlider
                         min={0}
                         max={100}
-                        defaultValue={20}
+                        value={played * 100}
                         ValueLabelComponent={ValueLabelComponent}/>
                 </Grid>
 
@@ -173,14 +188,16 @@ function PlayerControls({onPlayPause, playing, onFastForward, onRewind}) {
                             )}
                         </IconButton>
 
-                        <IconButton className={classes.bottomIcons}>
-                            <VolumeUpIcon fontSize="large"/>
+                        <IconButton onClick={onMute} className={classes.bottomIcons}>
+                            {muted?<VolumeOff fontSize="large"/>:<VolumeUpIcon fontSize="large"/>}
                         </IconButton>
 
                         <Slider min={0}
                                 max={100}
-                                defaultValue={100}
+                                value={volume * 100}
                                 className={classes.volumeSlider}
+                                onChange={onVolumeChange}
+                                onChangeCommitted={onVolumeSeekDown}
                         />
                         <Button variant="text" style={{color: "#fff", marginLeft: 16}}>
                             <Typography>88:88</Typography>
@@ -189,7 +206,7 @@ function PlayerControls({onPlayPause, playing, onFastForward, onRewind}) {
                 </Grid>
                 <Grid item>
                     <Button onClick={handlePopover} variant="text" className={classes.bottomIcons}>
-                        <Typography>1X</Typography>
+                        <Typography>{playbackRate}X</Typography>
                     </Button>
                     <Popover
                         id={id}
@@ -207,14 +224,14 @@ function PlayerControls({onPlayPause, playing, onFastForward, onRewind}) {
                     >
                         <Grid container direction="column-reverse">
                             {[0.5,1,1.5,2].map((rate) => (
-                                <Button variant="text">
-                                    <Typography color="secondary">{rate}</Typography>
+                                <Button onClick={() => onPlaybackRateChange(rate)} variant="text">
+                                    <Typography color={rate === playbackRate ? "secondary" : "primary"}>{rate}</Typography>
                                 </Button>
                             ))}
                         </Grid>
 
                     </Popover>
-                    <IconButton className={classes.bottomIcons}>
+                    <IconButton onClick={onToggleFullScreen} className={classes.bottomIcons}>
                         <FullScreenButton fontSize="large"/>
                     </IconButton>
                 </Grid>
