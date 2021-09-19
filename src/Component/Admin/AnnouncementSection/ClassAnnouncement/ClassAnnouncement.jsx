@@ -4,6 +4,7 @@ import CustomButton from "../../../Tutor/CourseMgntInt/CustomButtons/CustomButto
 import {useDispatch} from "react-redux";
 import {addAnnouncement} from "../../../../Action/Announcement";
 import Select from "react-select";
+import {InputLabel, MenuItem} from "@material-ui/core";
 
 function ClassAnnouncement(){
 
@@ -45,7 +46,7 @@ function ClassAnnouncement(){
                 </div>
                 <div className="class-announcement-body">
                     <div className="input-form-container">
-                        <form className="form">
+                        <form className="form" onSubmit={handleSubmit}>
                             <label> Heading</label>
                             <div>
                                 <input
@@ -70,20 +71,36 @@ function ClassAnnouncement(){
                                 onChange={(e) => setData({...data, body: e.target.value})}
                             />
                             </div>
-                            <label htmlFor="lname">Class name</label>
+                            <InputLabel id="label">Class name</InputLabel>
                             <div className="clz-input">
                                 <Select
+                                    aria-label="Default select example"
+                                    value={data.name}
+                                    onChange={(e) => setData({...data, name: e.target.value})}
                                     options={options}
-                                    menuPlacement="auto"
-                                    menuPosition="fixed"
-                                    // onChange={(e) => setClassData({...classData, tutorName: e.target.value})}
-                                /></div>
+                                >
+                                </Select>
+                                {/*<label htmlFor="lname">Teacher name</label>*/}
+                                {/*<select*/}
+                                {/*    className="form-input"*/}
+                                {/*    aria-label="Default select example"*/}
+                                {/*    value={data.name}*/}
+                                {/*    onChange={(e) => setData({...data, name: e.target.value})}*/}
+                                {/*>*/}
+                                {/*    <option selected>Choose...</option>*/}
+                                {/*    <option value="1">D.K.L.WEERSINGHE</option>*/}
+                                {/*    <option value="2">T.K.L.CHANDRASENA</option>*/}
+                                {/*    <option value="3">M.N.V.RATHNAYAKA</option>*/}
+                                {/*    <option value="4">H.K.L.VEERSINGHE</option>*/}
+                                {/*    <option value="5">K.N.V.PERERA</option>*/}
+                                {/*</select>*/}
+                            </div>
                             <div className="class-announcement-body-button-group">
                                 <div className="class-announcement-button">
                                     <CustomButton name={"Discard"} color={"#FF5050"}/>
                                 </div>
                                 <div className="class-announcement-button">
-                                    <CustomButton name={"Send"} color={"#e4bf5e"}/>
+                                    <CustomButton type="submit" name={"Send"} color={"#e4bf5e"}/>
                                 </div>
                             </div>
                         </form>

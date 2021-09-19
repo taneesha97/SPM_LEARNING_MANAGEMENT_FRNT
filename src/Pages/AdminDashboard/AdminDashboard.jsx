@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {useEffect,useState} from 'react'
 import "./AdminDashboard.css"
 import AdminDashHeader from "../../Component/Admin/Header/AdminDashHeader";
 import TeacherTableComponent from "../../Component/Admin/TeachersTable/TeacherTableComponent";
@@ -10,7 +10,7 @@ import {useHistory} from "react-router";
 
 
 function AdminDashboard() {
-
+    const [tableClass,setTableClass] = useState([]);
     let usertype = localStorage.getItem("usertype")
     console.log(usertype)
     const history = useHistory();
@@ -38,12 +38,11 @@ function AdminDashboard() {
             <AdminDashHeader/>
             <div className="Class-Admin">
                 <ClassMgntInt/>
-                <ClassDetailsTable/>
+                <ClassDetailsTable method={setTableClass}/>
             </div>
             <br/>
             <TeacherTableComponent/>
             <AnnouncementSection array1={array1}/>
-            {/*<AllTransations/>*/}
         </div>
 
     )

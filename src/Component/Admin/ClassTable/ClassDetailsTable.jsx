@@ -53,7 +53,7 @@ const useStyles = makeStyles({
     },
 });
 
-function ClassDetailsTable() {
+function ClassDetailsTable({method}) {
 
     const classes = useStyles();
     const [page, setPage] = React.useState(0);
@@ -68,6 +68,11 @@ function ClassDetailsTable() {
         // setIsLoading(dataLoading);
         dispatch(getClasses());
     }, []);
+
+    const updateClass = (id) => {
+        console.log(id);
+        method(id)
+    }
 
 
     const handleChangePage = (event: React.MouseEvent<HTMLButtonElement> | null, newPage: number) => {
@@ -118,18 +123,6 @@ function ClassDetailsTable() {
                             style={{backgroundColor: "#FFFFFF", width: 300, borderRadius: 30}}
                         />
                     </div>
-                    {/*<div className="search-bar-class-table">*/}
-                    {/*    <TextField*/}
-                    {/*        id="filled-full-width"*/}
-                    {/*        // label="Search"*/}
-                    {/*        placeholder="Search Items.."*/}
-                    {/*        fullWidth*/}
-                    {/*        margin="normal"*/}
-                    {/*        // variant="outlined"*/}
-                    {/*        className="search-class"*/}
-                    {/*        style={{backgroundColor: "#FFFFFF", width: 300, height: 30, borderRadius: 30}}*/}
-                    {/*    />*/}
-                    {/*</div>*/}
 
                 </div>
                 <TableContainer component={Paper} className={classes.editorContentClass}>
@@ -139,7 +132,7 @@ function ClassDetailsTable() {
                                     <TableCell align="center" className="classTablerow">Class name</TableCell>
                                     <TableCell align="center" className="classTablerow">Description</TableCell>
                                     <TableCell align="center" className="classTablerow">Teacher name</TableCell>
-                                    <TableCell align="center" className="classTablerow">Image</TableCell>
+                                    {/*<TableCell align="center" className="classTablerow">Image</TableCell>*/}
                                     <TableCell align="center" className="classTablerow">Delete</TableCell>
                                     <TableCell align="center" className="classTablerow">Update</TableCell>
                                 </TableRow>
@@ -159,13 +152,15 @@ function ClassDetailsTable() {
                                         <StyledTableCell align="center">{row.name}</StyledTableCell>
                                         <StyledTableCell align="center">{row.description}</StyledTableCell>
                                         <StyledTableCell align="center">{row.tutorName}</StyledTableCell>
-                                        <StyledTableCell align="center">{row.image}</StyledTableCell>
+                                        {/*<StyledTableCell align="center">{row.image}</StyledTableCell>*/}
                                         <TableCell align="center">
                                             <DeleteIcon  color="primary" style={{fontSize: 35 }}
                                             onClick={() => {confirmDelete(row.id)}}/>
                                         </TableCell>
                                         <TableCell align="center">
-                                            <EditIcon style={{ color: green[500], fontSize: 35 }}/>
+                                            <EditIcon style={{ color: green[500], fontSize: 35 }}
+                                            onClick={() => {updateClass(row)}}
+                                            />
                                         </TableCell>
                                     </StyledTableRow>
                                 ))}

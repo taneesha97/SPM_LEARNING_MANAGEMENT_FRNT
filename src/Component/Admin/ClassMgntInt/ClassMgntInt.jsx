@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './ClassMgntInt.css'
 import "../../../../node_modules/bootstrap/dist/css/bootstrap.css"
 import {useDispatch, useSelector} from "react-redux";
@@ -6,14 +6,14 @@ import {addClass, getClasses} from "../../../Action/Class";
 import CustomAlert from '../../CustomAlert/CustomAlert'
 import {Grid} from "@material-ui/core";
 import Select from "react-select";
+import data from "bootstrap/js/src/dom/data";
 function ClassMgntInt() {
 
     const [image, setImage] = useState("");
-    const [classData, setClassData] = useState({
-        name: '',
-        description: '',
-        tutorName: '',
-    });
+    const [name, setName] = useState('');
+    const [description, setDescription] = useState('');
+    const [tutorName, setTutorName] = useState('');
+
     const dispatch = useDispatch();
 
     //Progress Tracking State.
@@ -22,9 +22,6 @@ function ClassMgntInt() {
     const [success, setSuccess] = useState(false);
     const [file, setFile] = useState(0);
     const [downloadUri, setDownloadUri] = useState(0);
-
-
-
 
     //React Select
     const options = [
@@ -38,7 +35,8 @@ function ClassMgntInt() {
 
     const formRefresh = () => {
         console.log('form referesh calling');
-        setClassData({...classData, name: '', teacher: [], description: ""});
+        setName('');
+        setDescription('');
     }
 
     const uploadedImage = (e) => {
@@ -71,8 +69,15 @@ function ClassMgntInt() {
         setTimeout(() => setSuccessMessageDisplay(""), 3000);
     }, [successMessage]);
 
+    //when click update button
+    useEffect(() => {
+
+
+    },[data])
+
+
     const validation = () => {
-        if (classData.tutorName === null) {
+        if (tutorName === null) {
             setErrorMessageDisplay("Please select a Tutor");
             return false;
         }else{
@@ -89,15 +94,31 @@ function ClassMgntInt() {
         setProgress(0);
     })
 
-        const handleSubmit = (e) => {
+    useEffect(() => {
+        if(data){
+            const {name,description, tutorName} = data;
+            setName(data.name);
+            setDescription(data.description);
+            setTutorName(data.tutorName);
+        }
+
+    }, [data])
+
+
+    const handleSubmit = (e) => {
             e.preventDefault();
             setErrorMessageDisplay(null);
-            console.log(classData);
+
             if (validation()) {
+                const classData = {
+                    name,
+                    description,
+                    tutorName,
+                    image
+                }
                 dispatch(addClass(classData));
             }
-                setTimeout(() => dispatch(getClasses()), 1000);
-
+            setTimeout(() => dispatch(getClasses()), 1000);
         }
 
         return (
@@ -115,8 +136,9 @@ function ClassMgntInt() {
                                 id="name" name="classname"
                                 placeholder="class name(eg:Grade 10)"
                                 className="form-input"
-                                value={classData.name}
-                                onChange={(e) => setClassData({...classData, name: e.target.value})}
+                                value={name}
+                                // onChange={(e) => setClassData({...classData, name: e.target.value})}
+                                onChange={(e) => setName(e.target.value)}
                                 required
                             />
 
@@ -127,8 +149,8 @@ function ClassMgntInt() {
                                 name="description"
                                 placeholder="description..."
                                 className="form-input"
-                                value={classData.description}
-                                onChange={(e) => setClassData({...classData, description: e.target.value})}
+                                value={description}
+                                onChange={(e) => setDescription(e.target.value)}
                                 required
                             />
 

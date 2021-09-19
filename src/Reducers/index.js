@@ -4,11 +4,14 @@ import UserReducer from './UserReducer'
 import errorsReducer from './errorsReducer'
 import classes from './Classes'
 import paymentDetails from './PaymentData'
+import Announcement from './Announcement'
 
 export default combineReducers({
     userDetails1: UserReducer,
     errors: errorsReducer,
     paymentDetails:paymentDetails,
     courses,
-    classes
+    classes,
+    Announcement
+
 });
