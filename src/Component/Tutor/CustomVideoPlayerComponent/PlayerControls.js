@@ -111,7 +111,8 @@ function PlayerControls({onPlayPause,
                             onSeek,
                             elapsedTime,
                             totalDuration,
-                            onChangeDisplayFormat
+                            onChangeDisplayFormat,
+                            MediaPlayerName
 }) {
     // Methods
     const classes = useStyles();
@@ -133,7 +134,7 @@ function PlayerControls({onPlayPause,
             <Grid container direction="row" alignItems="center" justify="space-between"
                   style={{padding: 16}}>
                 <Grid item>
-                    <Typography variant="h5" style={{color: "#fff"}}>Custom Player Title</Typography>
+                    <Typography variant="h5" style={{color: "#fff"}}>{MediaPlayerName}</Typography>
                 </Grid>
                 <Grid item>
                     <Button

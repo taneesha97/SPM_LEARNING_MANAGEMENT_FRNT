@@ -33,7 +33,7 @@ const format = (seconds) => {
 function CustomVideoPlayerComponent() {
 
     const [timeDisplayFormat, setTimeDisplayFormat] = useState("normal")
-
+    const [playerName, setPlayerName] = useState("VIDEO-01")
     const [state, setState] = useState({
         playing:true,
         muted: true,
@@ -115,6 +115,8 @@ function CustomVideoPlayerComponent() {
     }
 
 
+
+
     return (
         <React.Fragment>
             <AppBar position="fixed">
@@ -136,6 +138,7 @@ function CustomVideoPlayerComponent() {
                         volume={volume}
                         playbackRate={playbackRate}
                         onProgress={handleProgress}
+
                     />
                     <PlayerControls
 
@@ -158,6 +161,7 @@ function CustomVideoPlayerComponent() {
                         elapsedTime={elapsedTime}
                         totalDuration={totalDuration}
                         onChangeDisplayFormat={handleDisplayFormat}
+                        MediaPlayerName={playerName}
                     />
                 </div>
             </Container>
