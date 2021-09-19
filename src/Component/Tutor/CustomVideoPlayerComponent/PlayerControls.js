@@ -103,8 +103,8 @@ function PlayerControls({onPlayPause,
                             onVolumeSeekDown,
                             volume,
                             onPlaybackRateChange,
-                            playbackRate
-
+                            playbackRate,
+                            onToggleFullScreen
 }) {
     // Methods
     const classes = useStyles();
@@ -230,7 +230,7 @@ function PlayerControls({onPlayPause,
                         </Grid>
 
                     </Popover>
-                    <IconButton className={classes.bottomIcons}>
+                    <IconButton onClick={onToggleFullScreen} className={classes.bottomIcons}>
                         <FullScreenButton fontSize="large"/>
                     </IconButton>
                 </Grid>

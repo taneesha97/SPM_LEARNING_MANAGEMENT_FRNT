@@ -5,6 +5,7 @@ import {Button, Container, Slider, Tooltip, Typography} from "@material-ui/core"
 import ReactPlayer from "react-player";
 import {makeStyles} from "@material-ui/core/styles";
 import PlayerControls from "./PlayerControls";
+import screenfull from 'screenfull'
 
 const useStyles = makeStyles({
     playerWrapper: {
@@ -25,6 +26,7 @@ function CustomVideoPlayerComponent() {
     const classes = useStyles();
     const {playing, muted, volume, playbackRate} = state;
     const playerRef = useRef(null);
+    const playerContainerRef = useRef(null);
 
     const handlePlayPause = () => {
         setState({...state, playing: !state.playing});
@@ -60,6 +62,10 @@ function CustomVideoPlayerComponent() {
         setState({...state, playbackRate: rate})
     }
 
+    const toggleFullScreen = () => {
+        screenfull.toggle(playerContainerRef.current);
+    }
+
     return (
         <React.Fragment>
             <AppBar position="fixed">
@@ -69,7 +75,7 @@ function CustomVideoPlayerComponent() {
             </AppBar>
             <Toolbar/>
             <Container maxWidth="md">
-                <div className={classes.playerWrapper}>
+                <div ref={playerContainerRef} className={classes.playerWrapper}>
                     <ReactPlayer
                         width={"100%"}
                         url="https://www.youtube.com/watch?v=wGixQPuG1GY"
@@ -94,6 +100,7 @@ function CustomVideoPlayerComponent() {
                         volume={volume}
                         playbackRate={playbackRate}
                         onPlaybackRateChange={handlePlaybackRateChange}
+                        onToggleFullScreen ={toggleFullScreen}
                     />
                 </div>
             </Container>
