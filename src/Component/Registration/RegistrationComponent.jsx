@@ -4,7 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {addUsers, loginUserValidation} from "../../Action/Users";
 import {useHistory} from "react-router";
 import CustomAlert from "../CustomAlert/CustomAlert";
-import EmailUpdateComponent from "../Profile/EmailUpdateComponent";
+import UserDetailsUpdateComponent from "../Profile/UserDetailsUpdateComponent";
 import SucessPopUp from "../PopupModel/SucessPopUp";
 import PopupModel from "../PopupModel/PopupModel";
 
@@ -16,13 +16,18 @@ function   RegistrationComponent() {
     const [age, setAge] = useState("");
     const [username, setUsername] = useState("");
     const [type, setType] = useState('teacher');
-    const [password, setPassword] = useState();
+    const [password1, setPassword] = useState();
     const [buttonPopup, setButtonPopup] = useState(false);
     const [popupName, setPopupName] = useState("");
     const [popupLocation, setPopupLocaion] = useState("");
     const dispatch = useDispatch();
     const history = useHistory();
-
+    const crypto = require('crypto'),
+        hash = crypto.getHashes();
+    // const passwordHash = require('password-hash');
+    // const hashedPassword = passwordHash.generate('password123');
+    //
+    // console.log(hashedPassword);
 
     function SubmitPressed(e) {
         e.preventDefault();
@@ -32,8 +37,13 @@ function   RegistrationComponent() {
             status = 'valid';
         }
         if(type == 'teacher'){
-            status = 'valid';
+            status = 'pending';
         }
+
+        let password = crypto.createHash('sha1').update(password1).digest('hex');
+
+        console.log(password);
+
         const newUser = {
             name,
             email,
@@ -45,13 +55,14 @@ function   RegistrationComponent() {
         }
         console.log(newUser);
        dispatch(addUsers(newUser));
-       // const response = useSelector((state) => state.userDetails1.UserDetails);
-       // console.log(response);
+        // const response = useSelector((state) => state.errors);
+        // console.log(response);
         setPopupName("register");
        setPopupLocaion("/login");
         setButtonPopup(true);
 
     }
+
 
 
 

@@ -1,37 +1,46 @@
 import React, {useEffect, useState} from 'react'
 import './UserProfile.css'
 import profilePic from "./images/profilePic.png";
-import EmailUpdateComponent from "../../Component/Profile/EmailUpdateComponent";
-import {fetchStudents, getUserByID} from "../../Action/Users";
+import UserDetailsUpdateComponent from "../../Component/Profile/UserDetailsUpdateComponent";
+import {fetchStudents, fetchTeachers, getUserByID, loggedUser} from "../../Action/Users";
 import {useDispatch, useSelector} from "react-redux";
+import PasswordUpdateComponent from "../../Component/Profile/PasswordUpdateComponent";
 function UserProfile() {
     const dispatch = useDispatch();
     const [buttonPopup, setButtonPopup] = useState(false);
+    const [buttonPopup2, setButtonPopup2] = useState(false);
+    const [buttonPopup1, setButtonPopup1] = useState(false);
     const [popupName, setPopupName] = useState("");
+    const response = useSelector((state) => state.userDetails1?.editDetail?.data);
+
+
+    // setTimeout(function(){
+    //     dispatch(loggedUser(response))
+    // }, 100);
+    useEffect(() => {
+        dispatch(loggedUser(response))
+    },[response])
+
     let userObject = localStorage.getItem("user")
-    //console.log(user)
     let user = JSON.parse(userObject)
-    console.log('retrievedObject: ', user);
-    const updateUserName = () => {
-        setButtonPopup(true);
-        setPopupName("Username");
-    }
+    // console.log('retrievedObject: ', user);
     const updateEmail = () => {
         setButtonPopup(true);
         setPopupName("Email");
     }
     const updatePassword = () => {
-        setButtonPopup(true);
+        setButtonPopup1(true);
         setPopupName("Password");
     }
     useEffect(() => {
-        console.log('calling')
-        //dispatch(getUserByID(122));
+        dispatch(getUserByID(user.id));
+
     },[])
 
-    // const response = useSelector((state) => state.userDetails1.editDetail.data);
-    // console.log(response);
+    const user1 = useSelector((store) => store.userDetails1?.loginUser);
+    console.log('12333', user1)
 
+    const [result, setResult] = useState(response);
     return (<React.Fragment>
             <div>
                 <div className="bluescreen">
@@ -50,7 +59,7 @@ function UserProfile() {
                                                 <h6 className="mb-0">Full Name</h6>
                                             </div>
                                             <div className="col">
-                                                <h6 className="mb-0">{user.name}</h6>
+                                                <h6 className="mb-0">{user1?.name}</h6>
                                             </div>
                                         </div>
                                         <div className="row mb-3">
@@ -58,7 +67,7 @@ function UserProfile() {
                                                 <h6 className="mb-0">Email</h6>
                                             </div>
                                             <div className="col">
-                                                <h6 className="mb-0">{user.email}</h6>
+                                                <h6 className="mb-0">{user1?.email}</h6>
                                             </div>
                                         </div>
                                         <div className="row mb-3">
@@ -66,7 +75,7 @@ function UserProfile() {
                                                 <h6 className="mb-0">Age</h6>
                                             </div>
                                             <div className="col">
-                                                <h6 className="mb-0">{user.age}</h6>
+                                                <h6 className="mb-0">{user1?.age}</h6>
                                             </div>
                                         </div>
                                         <div className="row mb-3">
@@ -74,7 +83,7 @@ function UserProfile() {
                                                 <h6 className="mb-0">Position</h6>
                                             </div>
                                             <div className="col">
-                                                <h6 className="mb-0">{user.type}</h6>
+                                                <h6 className="mb-0">{user1?.type}</h6>
                                             </div>
                                         </div>
                                         <div className="row mb-3">
@@ -82,15 +91,10 @@ function UserProfile() {
                                                 <h6 className="mb-0">Username</h6>
                                             </div>
                                             <div className="col">
-                                                <h6 className="mb-0">{user.username}</h6>
+                                                <h6 className="mb-0">{user1?.username}</h6>
                                             </div>
                                         </div>
                                 </div>
-                                {/*<h4 className="userprofile-bio1-info1-second">*/}
-                                {/*    Lorem ipsum dolor sit amet, consectetur adipiscing elit.*/}
-                                {/*    Curabitur nec dignissim sem. Donec sed justo rutrum, vehicula elit a, pulvinar sem. Proin convallis,*/}
-                                {/*    orci vel blandit luctus, massa lectus blandit neque,*/}
-                                {/*    sit amet pharetra libero lacus et arcu. Donec placerat lacinia nunc vel faucibus.</h4>*/}
                             </div>
 
                         </div>
@@ -100,13 +104,13 @@ function UserProfile() {
                     <div className="userprofile1">
                         <img src= {profilePic}  className="profilePic"/>
                         <div className="popupInterfaceUpdateEmail">
-                            <EmailUpdateComponent trigger={buttonPopup} setTrigger = {setButtonPopup} name = {popupName}></EmailUpdateComponent>
+                            <UserDetailsUpdateComponent trigger={buttonPopup} setTrigger = {setButtonPopup} name = {result} name1 = {popupName} buttonPopup2 = {buttonPopup2} setButtonPopup2 = {setButtonPopup2}></UserDetailsUpdateComponent>
+                            <PasswordUpdateComponent trigger={buttonPopup1} setTrigger = {setButtonPopup1} name = {popupName}></PasswordUpdateComponent>
                         </div>
                         <div className="userprofile1-info">
                             <h2 className="userprofile1-info-main">Taneesha</h2>
                             <div className="profitable-group">
-                                <button className="userprofile-button1" onClick={updateUserName}>Update User Name</button><br/>
-                                <button className="userprofile-button1" onClick={updateEmail}>Update My Email</button><br/>
+                                <button className="userprofile-button1" onClick={updateEmail}>Update My Personal Details</button><br/>
                                 <button className="userprofile-button1" onClick={updatePassword}>Update Password</button><br/>
                                 <button className="userprofile-button1">My Transactions</button><br/>
                                 <button className="userprofile-button2">Delete My Account</button><br/>

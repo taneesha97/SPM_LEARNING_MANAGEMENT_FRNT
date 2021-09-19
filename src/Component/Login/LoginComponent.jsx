@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import './Login.css'
 import {useDispatch, useSelector} from "react-redux";
-import {fetchUser, loginUserValidation} from "../../Action/Users";
+import {fetchUser, loggedUser, loginUserValidation} from "../../Action/Users";
 import {useHistory} from "react-router";
 import axios from "axios";
 import AuthClass from "../../Validation/AuthClass";
@@ -12,15 +12,19 @@ function LoginComponent(props) {
 
 
     const [username, setName] = useState("");
-    const [password, setPassword] = useState("");
+    const [password1, setPassword] = useState("");
     const [buttonPopup, setButtonPopup] = useState(false);
     const [popupName, setPopupName] = useState("");
     const [popupLocation, setPopupLocaion] = useState("");
     const dispatch = useDispatch();
     const history = useHistory();
+    const crypto = require('crypto'),
+        hash = crypto.getHashes();
 
     function SubmitPressed(e) {
         e.preventDefault();
+
+        let password = crypto.createHash('sha1').update(password1).digest('hex');
         const newUser = {
             username,
             password
@@ -28,16 +32,40 @@ function LoginComponent(props) {
         console.log(newUser);
         axios.post("http://localhost:8073/api/validate", newUser)
             .then(response => {
+                if(response.status == 200){
+                    setTimeout(() => {
+                        alert('session closed')
+                        dispatch(loggedUser({}))
+                        AuthClass.logout();
+                    }, 5 * 60 * 1000);
+                }
                 let values = response.data;
                 console.log('res1 ', response.data);
-                // console.log('res1 ', values[0]);
-                // console.log('res3 ', values[2]);
+
+                dispatch(loggedUser(response.data))
+
+
+                        // if(now-setupTime > hours*3000*100) {
+                        //     AuthClass.logout();
+                        //     // localStorage.setItem('flag', false);
+                        //     // localStorage.removeItem('usertype');
+                        //     // localStorage.setItem('username1234', "");
+                        //     // // localStorage.setItem('usertype', "");
+                        //     // // localStorage.setItem('user', "");
+                        //     //console.log('caling123');
+                        //     alert('error handling')
+                        //     // localStorage.clear()
+                        //     // localStorage.setItem('setupTime', now);//usertype
+                        //
+                        // }
+
                 if (values.type == null){
                     console.log('111')
                     alert('Invalid login')
                     history.push("/login");
                     setName("");
                     setPassword("");
+                    AuthClass.logout()
                 }else if (values.type == "student"){
                     console.log('1112')
                     AuthClass.login(values)
@@ -62,6 +90,12 @@ function LoginComponent(props) {
                         history.push("/login");
                     }
 
+                }else if (values.type == "admin"){
+                    console.log('111w')
+                    AuthClass.login(values)
+                    setPopupName("login");
+                    setPopupLocaion("/admindash");
+                    setButtonPopup(true);
                 }
             });
         // dispatch(loginUserValidation(newUser));
@@ -100,7 +134,7 @@ function LoginComponent(props) {
                             <input className="input-field"
                                    placeholder="Enter Password..."
                                    type="password"
-                                   value={password}
+                                   value={password1}
                                    onChange = {(e) =>{
                                        setPassword(e.target.value);
                                    }}
