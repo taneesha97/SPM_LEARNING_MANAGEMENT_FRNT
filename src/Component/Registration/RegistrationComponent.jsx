@@ -23,7 +23,7 @@ function   RegistrationComponent() {
     const [buttonPopup1, setButtonPopup1] = useState(false);
     const [popupName, setPopupName] = useState("");
     const [popupLocation, setPopupLocaion] = useState("");
-    const [successmessage, setSuccessmessage] = useState(false);
+    //const [successmessage, setSuccessmessage] = useState(false);
     const dispatch = useDispatch();
     const history = useHistory();
     const crypto = require('crypto'),
@@ -39,12 +39,13 @@ function   RegistrationComponent() {
     console.log(response2);
 
     const dataClear = () => {
-        setName("");
-        setEmail("");
-        setAge("");
-        setUsername("");
-        setPassword("");
-        setType('teacher');
+        console.log('data clearing')
+        setName("")
+        setEmail("")
+        setAge("")
+        setUsername("")
+        setPassword("")
+        setType('teacher')
     }
     // if (response2 === 'User inserted successfully'){
     //     setSuccessmessage(true)
@@ -77,16 +78,6 @@ function   RegistrationComponent() {
         }
         console.log(newUser);
         dispatch(addUsers(newUser));
-        // if (successmessage === true){
-        //     console.log('calling123')
-        // }
-
-        // if (response1 === 'User inserted successfully'){
-        //
-        // }
-        // const response = useSelector((state) => state.errors);
-        // console.log(response);
-
 
     }
     useEffect(() => {
@@ -102,7 +93,7 @@ function   RegistrationComponent() {
     useEffect(() => {
         //alert('error message')
         if (response1 === 'username exists'){
-            setType('teacher');
+
             setPopupName("User already exists");
             setPopupLocaion("/registration");
             setButtonPopup1(true);

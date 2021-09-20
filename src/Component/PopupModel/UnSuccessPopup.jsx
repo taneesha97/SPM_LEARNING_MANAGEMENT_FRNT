@@ -9,6 +9,7 @@ function UnSuccessPopup(props) {
     const popupView = () => {
         history.push(props.name2);
         props.setTrigger(false)
+        window.location.reload(false)
 
     }
 // return (props.trigger) ? (
