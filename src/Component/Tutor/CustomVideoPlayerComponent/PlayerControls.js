@@ -105,7 +105,14 @@ function PlayerControls({onPlayPause,
                             onPlaybackRateChange,
                             playbackRate,
                             onToggleFullScreen,
-                            played
+                            played,
+                            onSeekMouseUp,
+                            onSeekMouseDown,
+                            onSeek,
+                            elapsedTime,
+                            totalDuration,
+                            onChangeDisplayFormat,
+                            MediaPlayerName
 }) {
     // Methods
     const classes = useStyles();
@@ -127,7 +134,7 @@ function PlayerControls({onPlayPause,
             <Grid container direction="row" alignItems="center" justify="space-between"
                   style={{padding: 16}}>
                 <Grid item>
-                    <Typography variant="h5" style={{color: "#fff"}}>Custom Player Title</Typography>
+                    <Typography variant="h5" style={{color: "#fff"}}>{MediaPlayerName}</Typography>
                 </Grid>
                 <Grid item>
                     <Button
@@ -173,7 +180,11 @@ function PlayerControls({onPlayPause,
                         min={0}
                         max={100}
                         value={played * 100}
-                        ValueLabelComponent={ValueLabelComponent}/>
+                        ValueLabelComponent={(props)=>(<ValueLabelComponent{...props} value={elapsedTime}/>)}
+                        onChange={onSeek}
+                        onMouse={onSeekMouseDown}
+                        onChangeCommitted={onSeekMouseUp}
+                    />
                 </Grid>
 
                 <Grid item>
@@ -199,8 +210,8 @@ function PlayerControls({onPlayPause,
                                 onChange={onVolumeChange}
                                 onChangeCommitted={onVolumeSeekDown}
                         />
-                        <Button variant="text" style={{color: "#fff", marginLeft: 16}}>
-                            <Typography>88:88</Typography>
+                        <Button onClick={onChangeDisplayFormat} variant="text" style={{color: "#fff", marginLeft: 16}}>
+                            <Typography>{elapsedTime}/{totalDuration}</Typography>
                         </Button>
                     </Grid>
                 </Grid>

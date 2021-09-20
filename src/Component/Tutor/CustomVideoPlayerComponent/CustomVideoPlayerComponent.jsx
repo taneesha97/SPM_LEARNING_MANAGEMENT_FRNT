@@ -14,18 +14,37 @@ const useStyles = makeStyles({
     },
 });
 
+const format = (seconds) => {
+    if(isNaN(seconds)){
+        return '00:00'
+    }
+    const date = new Date(seconds * 1000);
+    const hh = date.getUTCHours();
+    const mm = date.getUTCMinutes();
+    const ss = date.getUTCSeconds().toString().padStart(2, "0");
+    if(hh) {
+        return `${hh}:${mm.toString().padStart(2,"0")}:${ss}`
+    }
+    return `${mm}:${ss}`
+}
+
+
+
 function CustomVideoPlayerComponent() {
 
+    const [timeDisplayFormat, setTimeDisplayFormat] = useState("normal")
+    const [playerName, setPlayerName] = useState("VIDEO-01")
     const [state, setState] = useState({
         playing:true,
         muted: true,
         volume: 0.5,
         playbackRate: 1.0,
-        played:0
+        played:0,
+        seeking: false
     })
 
     const classes = useStyles();
-    const {playing, muted, volume, playbackRate, played} = state;
+    const {playing, muted, volume, playbackRate, played, seeking} = state;
     const playerRef = useRef(null);
     const playerContainerRef = useRef(null);
 
@@ -68,8 +87,35 @@ function CustomVideoPlayerComponent() {
     }
 
     const handleProgress = (changeState) => {
-        setState({...state, ...changeState});
+        if(!state.seeking){setState({...state, ...changeState});}
     };
+
+    const handleSeekChange = (e, newValue) => {
+        setState({...state, played: parseFloat(newValue/100)})
+    }
+
+    const handleSeekMouseDown = (e) => {
+        setState({...state, seeking:true})
+    }
+
+    const handleSeekMouseUp = (e, newValue) => {
+        setState({...state, seeking: false})
+        playerRef.current.seekTo(newValue/100);
+    }
+
+    const currentTime = playerRef.current ? playerRef.current.getCurrentTime(): '00:00';
+    const duration = playerRef.current ? playerRef.current.getDuration():'00:00';
+
+    const elapsedTime = timeDisplayFormat === "normal" ? format(currentTime): `-${format(duration - currentTime)}`;
+    const totalDuration = format(duration)
+
+    const handleDisplayFormat = () => {
+        setTimeDisplayFormat(timeDisplayFormat==="normal" ? "remaining": "normal"
+        );
+    }
+
+
+
 
     return (
         <React.Fragment>
@@ -92,6 +138,7 @@ function CustomVideoPlayerComponent() {
                         volume={volume}
                         playbackRate={playbackRate}
                         onProgress={handleProgress}
+
                     />
                     <PlayerControls
 
@@ -108,6 +155,13 @@ function CustomVideoPlayerComponent() {
                         onPlaybackRateChange={handlePlaybackRateChange}
                         onToggleFullScreen ={toggleFullScreen}
                         played={played}
+                        onSeekMouseUp={handleSeekMouseUp}
+                        onSeekMouseDown={handleSeekMouseDown}
+                        onSeek={handleSeekChange}
+                        elapsedTime={elapsedTime}
+                        totalDuration={totalDuration}
+                        onChangeDisplayFormat={handleDisplayFormat}
+                        MediaPlayerName={playerName}
                     />
                 </div>
             </Container>
