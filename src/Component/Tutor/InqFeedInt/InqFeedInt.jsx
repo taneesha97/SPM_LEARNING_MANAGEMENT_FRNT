@@ -1,25 +1,15 @@
 import React from 'react'
 import "./InqFeedInt.css"
 import Feedback from "./Feedback/Feedback";
-import AbstractModalHeader from "react-bootstrap/AbstractModalHeader";
 import Announcement from "./Announcement/Announcement";
 import Inquiry from "./Inquiry/Inquiry";
-function InqFeedInt() {
 
-    //Array for the announcement component.
-    const array1 = [
-        {"header":"Kamal", "description":"New News Update available"},
-        {"header":"Kamal", "description":"New News Update available"},
-        {"header":"Kamal", "description":"New News Update available"},
-        {"header":"Kamal", "description":"New News Update available"},
-        {"header":"Kamal", "description":"New News Update available"},
-        {"header":"Kamal", "description":"New News Update available"}];
+/**
+ * Get this two arrays into the tutor dashboard page.
+ * **/
 
-    //Array for the inquiry component.
-    const array2 = [
-        {"header":"Kamal", "description":"New News Update available"},
-        {"header":"Kamal", "description":"New News Update available"},
-        {"header":"Kamal", "description":"New News Update available"}];
+
+function InqFeedInt({array1, array2, setTrigger, setTriggerData, triggerData}) {
 
     return (
         <div className="inqfeedint-responsive-layout">
@@ -30,7 +20,10 @@ function InqFeedInt() {
                 <Announcement/>
             </div>
             <div className="responsive-subcomponent3">
-                <Inquiry array={array1}/>
+                <Inquiry array={array2}
+                         setTrigger={setTrigger}
+                         setTriggerData={setTriggerData}
+                         triggerData={triggerData}/>
             </div>
         </div>
     )

@@ -13,9 +13,8 @@ const CollapsComponent = () => {
     return (
         <React.Fragment>
             <div  className={"containermain " + (selected ? "expand" : "")} onClick={handleClick} data-testid="containermain">
-                <div className="upper" data-testid="container-upper">
-
-                    <h3 data-testid="container-des">
+                <div className="upper">
+                    <img src= {collapseImage}  className="collapseImage1"/>
                         {/*{value.Heading}*/}
                         <div className="collapse-info1">
                             <h2 className="collapse-info1-main">2021 Grade 10 class</h2>
@@ -25,9 +24,7 @@ const CollapsComponent = () => {
                                 massa lectus blandit neque, sit amet pharetra libero lacus et arcu.
                                 Donec placerat lacinia nunc vel faucibus..</h4>
                         </div>
-                        <img src= {collapseImage}  className="collapseImage1"/>
 
-                    </h3>
                 </div>
                 <div className="lower" data-testid="container-lower">
                     <div className="listOfBluescreen6">

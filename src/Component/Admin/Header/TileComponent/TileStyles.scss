@@ -1,5 +1,6 @@
 .admin-header-card {
-  background-color: #7F7CFF;
+  //background-color: #7F7CFF;
+  background: linear-gradient(to top, #8221FE,#2D61FD);
   border-radius: 22.34px;
   width: 400px;
   height: 242px;
@@ -9,10 +10,19 @@
     margin-top: 2px;
     font-weight: bold;
     font-size: 30px;
+    color: #FFFFFF;
   }
 
   .admin-card-price {
     font-weight: lighter;
     font-size: 40px;
+    color: #4B413A;
+  }
+
+  .admin-card-image{
+    height: 100px;
+    width: 100px;
+    margin-left: 270px;
+    margin-top: -2%;
   }
 }

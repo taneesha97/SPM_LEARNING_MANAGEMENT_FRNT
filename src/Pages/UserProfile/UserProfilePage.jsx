@@ -1,11 +1,20 @@
-import React from 'react'
-import UserProfile from "../StudentProfilePage/UserProfile";
+import React, {useEffect, useState} from 'react'
+import UserProfile from "../ProfilePage/UserProfile";
 import ProfileClassRoom from "../../Component/ProfileClassRoom/ProfileClassRoom";
+import {useHistory} from "react-router";
+
 
 function UserProfilePage() {
+
+
+    // let usertype = localStorage.getItem("usertype")
+    // console.log(usertype)
+
+
+
     return (
         <div>
-            <UserProfile/>
+            <UserProfile />
             <ProfileClassRoom/>
         </div>
     )
