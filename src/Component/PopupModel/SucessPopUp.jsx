@@ -11,6 +11,7 @@ function SucessPopUp(props) {
         history.push(props.name2);
         props.setTrigger(false)
 
+
     }
     // return (props.trigger) ? (
     return (props.trigger) ? (
@@ -41,3 +42,4 @@ function SucessPopUp(props) {
 }
 
 export default SucessPopUp
+//
