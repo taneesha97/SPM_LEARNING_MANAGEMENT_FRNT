@@ -49,50 +49,47 @@ export const fetchUser = () => dispatch => {
     })
 }
 
-export const addUsers = (PostData) => (dispatch) => {
-    console.log('creating');
-        axios.post(api.baseURL + 'useradd', PostData)
-            .then(response => {
-                console.log('then',response)
-                if(response.status === 200){
-                    console.log(response.data)
-                    dispatch({
-                        type: ADD_USER,
-                        payload: response.data
-                    })
-                }
-                else{
-                    console.log('else',response)
-                    dispatch({
-                        type: ERROR_USER,
-                        payload: response.data
-                    })
-                }
+export const addUsers = (PostData) => async (dispatch) => {
+    try {
+        const response = await axios.post(api.baseURL + 'useradd', PostData)
+        console.log(response)
+        if (response.status === 200) {
+            if (response.data === 'username exists'){
+                dispatch({
+                    type: ERROR_USER,
+                    payload: response.data
+                })
+            }else if (response.data.username != null){
+
+                dispatch({
+                    type: ADD_USER,
+                    payload: response.data
+                })
+            }
+
+        } else {
+            console.log('else ',response.data)
+            dispatch({
+                type: ERROR_USER,
+                payload: response.data
             })
-            .catch((err) => {
-                console.log('catch',err)
-            })
+        }
+
+    }catch(err) {
+        console.log(err);
+    }
+
 }
 
-// export const upDateUser = (id, PostData) => dispatch => {
-//     axios.put(api.baseURL + 'updateuser/' + id , PostData)
-//         .then(response => {
-//             console.log(response)
-//             if(response.status === 200){
-//                 console.log(response.data)
-//                 dispatch({
-//                     type: UPDATE_USER,
-//                     payload: response.data
-//                 })
-//             }
-//             else{
-//                 console.log('error123')
-//             }
-//         })
-//
-//         .catch((err) => {
-//             console.log(err);
-//         })
+// export const loginUserValidation = (user) => async (dispatch) => {
+//     console.log('creating');
+//     try {
+//         const data= await api.validateUser(user);
+//         console.log('data ', data);
+//         dispatch({type: VALID_USER, payload: data });
+//     } catch (error) {
+//         console.log(error);
+//     }
 // }
 
 
@@ -104,7 +101,7 @@ export const deleteUsers = (id) => dispatch => {
                     type: DELETE_USER,
                     payload: id
                 })
-          // alert("data deleted sucessfully");
+                // alert("data deleted sucessfully");
             }
 
         ).catch((err) => {
@@ -153,19 +150,23 @@ export const upDateUser = (id, PostData) => dispatch => {
     axios.put(api.baseURL + 'updateuser/' + id , PostData)
         .then(response => {
             console.log(response)
-                    if(response.status === 200){
-                        console.log(response.data)
-                        dispatch({
-                            type: UPDATE_USER,
-                            payload: response.data
-                        })
-                    }
-                    else{
-                        console.log('error123')
-                    }
+            if(response.status === 200){
+                console.log(response.data)
+                dispatch({
+                    type: UPDATE_USER,
+                    payload: response.data
                 })
+            }
+            else{
+                console.log('error123')
+            }
+        })
+
+
+        //alert("data updated successfully");
+
 
         .catch((err) => {
             console.log(err);
-    })
+        })
 }

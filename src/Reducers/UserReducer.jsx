@@ -3,7 +3,7 @@ import {ADD_USER, DELETE_USER, UPDATE_USER, GET_USER, FETCH_USERS, VALID_USER, E
 const initialState = {
     UserDetails: {
         records: [],
-        record: {},
+        record: [],
         success: null,
         error: null
     },
@@ -14,7 +14,7 @@ const initialState = {
 
 export default function (state = initialState, action){
     console.log('reducer', action.payload);
-
+    console.log('reducer1', action.type);
     switch (action.type) {
         case FETCH_USERS:
             console.log('reducer');
@@ -69,8 +69,10 @@ export default function (state = initialState, action){
                 }
             }
         case ERROR_USER:
+            console.log('reducer2222', action.payload);
             return {
                 error: action.payload
+
             }
         default:
             return state;
