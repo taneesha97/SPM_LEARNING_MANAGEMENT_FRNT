@@ -11,6 +11,7 @@ import NavBarButtonComponent from "./Component/NavigationBar/NavBarButtonCompone
 import NavBarButtonComponent2 from "./Component/NavigationBar/NavBarButtonComponent2";
 import AdminDashboard from "./Pages/AdminDashboard/AdminDashboard";
 import UserProfilePage from "./Pages/UserProfile/UserProfilePage";
+import TestingReport from "./Component/Report/TestingReport";
 
 import ClassPage from "./Pages/ClassPage/ClassPage";
 
@@ -37,7 +38,7 @@ const App = () => {
                       <TutorDashboard/>
                   </Route>
                   <Route exact path = "/home" component={HomePage}/>
-                  <Route exact path = "/" component={HomePage}/>
+                  <Route exact path = "/" component={TestingReport}/>
                   <ProtectedRoute exact path = "/profile" component={UserProfilePage}/>
                   <Route exact path = "/login" component={LoginPage}/>
                   <Route exact path = "/registration" component={RegistrationPage}/>
