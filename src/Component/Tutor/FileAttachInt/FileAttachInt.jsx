@@ -73,27 +73,15 @@ function FileAttachInt({array4}) {
 
     const onUpload = (e) => {
         e.preventDefault()
-        uploadFiles();
+        uploadFilesv1();
     }
 
-    //Testing upload method.
-    const upload = (e) => {
-        e.preventDefault();
-        if (!file) return;
-
-        let formData = new FormData();
-        formData.append("file", file);
-
-        fetch("http://localhost:8073/api/single/upload", {
-            method: "POST",
-            body: formData
-        })
-            .then(data => console.log(data.json()));
-    };
-
+    /**
+     * File Uploading methods.
+     * **/
 
     //File Uploading method.
-    const uploadFiles =  (e) => {
+    const uploadFilesv1 =  (e) => {
         // e.preventDefault();
         try {
             setSuccess(false);
@@ -122,22 +110,41 @@ function FileAttachInt({array4}) {
         fetch("https://localhost:8073/api/single/upload", {
             mode: 'no-cors',
             method: "POST",
-            body: data
+            body: file
         }).then(function (res){
-           if(res.ok) {
-               alert("Done Uploading!");
-           } else if (res.status == 401){
-               alert("Error!")
-           }
+            if(res.ok) {
+                alert("Done Uploading!");
+            } else if (res.status == 401){
+                alert("Error!")
+            }
         }, function (e) {alert("Error Submitting Form!")});
     }
+
+    //Testing upload method.
+    const uploadFilesv3 = (e) => {
+        e.preventDefault();
+        if (!file) return;
+
+        let formData = new FormData();
+        formData.append("file", file);
+
+        fetch("http://localhost:8073/api/single/upload", {
+            method: "POST",
+            body: formData
+        })
+            .then(data => console.log(data.json()));
+    };
+
+    /**
+     * END ------------- File Uploading methods.
+     * **/
 
 
     return (
         <div>
             <div className="file-component">
                 <div className="input-form-container">
-                    <form className="form" onSubmit={upload}>
+                    <form className="form" onSubmit={uploadFilesv3}>
                         <div className="course-component-header">
                             <div className="section-header">Course Form</div>
                             <div className="second-header">Course Form</div>
@@ -159,7 +166,7 @@ function FileAttachInt({array4}) {
 
 
                         <label htmlFor="lname">Attach the File</label>
-                        <input style={{height: "30px", fontSize: "10px", paddingBottom: "30px", color: "white", fontWeight: "bold"}} onChange={onDrop}  type="file" id="lname" name="lastname" placeholder="Number of Chapters.."
+                        <input style={{height: "30px", fontSize: "10px", paddingBottom: "30px", color: "white", fontWeight: "bold"}} onChange={(e) => onDrop(e.target.files)}  type="file" id="lname" name="lastname" placeholder="Number of Chapters.."
                                className="form-input"/>
 
                         <div className="course-button-group button-row">
