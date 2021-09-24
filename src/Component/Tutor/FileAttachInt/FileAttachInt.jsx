@@ -76,7 +76,7 @@ function FileAttachInt({array4}) {
         uploadFiles();
     }
 
-    //TEsting upload method.
+    //Testing upload method.
     const upload = (e) => {
         e.preventDefault();
         if (!file) return;
@@ -116,6 +116,21 @@ function FileAttachInt({array4}) {
             alert(error.message);
         }
     };
+
+    //Alternative File Uplaod method using fetch API.
+    const uploadFilesv2 = () => {
+        fetch("https://localhost:8073/api/single/upload", {
+            mode: 'no-cors',
+            method: "POST",
+            body: data
+        }).then(function (res){
+           if(res.ok) {
+               alert("Done Uploading!");
+           } else if (res.status == 401){
+               alert("Error!")
+           }
+        }, function (e) {alert("Error Submitting Form!")});
+    }
 
 
     return (
