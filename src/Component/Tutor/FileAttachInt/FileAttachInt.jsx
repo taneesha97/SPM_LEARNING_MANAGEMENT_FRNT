@@ -4,20 +4,8 @@ import "./FileAttachInt.css"
 import FileAttachmentTable from "./FileAttachmentTable/FileAttachmentTable";
 import {LinearProgress} from "@material-ui/core";
 import Select from 'react-select'
-import {useSelector} from "react-redux";
-import courses from "../../../Reducers/courses";
-import {
-    faBookOpen,
-    faCommentAlt,
-    faDollarSign,
-    faPencilRuler,
-    faSchool, faTimes, faUser,
-    faUserFriends
-} from "@fortawesome/free-solid-svg-icons";
 
 function FileAttachInt({array4}) {
-
-    console.log(array4);
 
     //Creating state for storing the meta information.
     const [metaData, setMetaData] = useState({
@@ -74,9 +62,13 @@ function FileAttachInt({array4}) {
         setProgress(0);
     })
 
+    //Meta information setter testing method.
     const onUpload = (e) => {
         e.preventDefault()
-        uploadFilesv1();
+        console.log(metaData.course.label);
+        console.log(metaData.name);
+        console.log(metaData.price);
+        console.log(metaData.description);
     }
 
     /**
@@ -91,6 +83,10 @@ function FileAttachInt({array4}) {
             setLoading(true);
             const formData = new FormData();
             formData.append("file", file);
+            formData.append("name", metaData.name);
+            formData.append("price", metaData.price);
+            formData.append("course", metaData.course);
+            formData.append("description", metaData.description);
             const API_URL = "http://localhost:8073/api/single/upload";
             const response =  axios.post(API_URL, formData, {
                 onUploadProgress: (progressEvent) => {
@@ -174,7 +170,7 @@ function FileAttachInt({array4}) {
                         />
 
                         <label htmlFor="lname">Course</label>
-                        <div className="form-input"><Select options={selectedOptions} menuPlacement="auto" menuPosition="fixed"/></div>
+                        <div className="form-input"><Select options={selectedOptions} menuPlacement="auto" menuPosition="fixed" onChange={(e) => setMetaData({...metaData, course: e})}/></div>
 
 
                         <label htmlFor="lname">Attach the File</label>
@@ -183,7 +179,7 @@ function FileAttachInt({array4}) {
 
                         <div className="course-button-group button-row">
                             <button className="add-button" type="submit">Add</button>
-                            <button className="light-button">Reset</button>
+                            <button className="light-button" onClick={onUpload}>Reset</button>
                         </div>
                     </form>
                         <div style={{marginLeft: "19px", marginRight: "10px", paddingBottom: "10px"}}>
