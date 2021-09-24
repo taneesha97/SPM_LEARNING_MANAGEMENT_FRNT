@@ -20,9 +20,12 @@ function FileAttachInt({array4}) {
     console.log(array4);
 
     //Creating state for storing the meta information.
-    const [course, setCourse] = useState(null)
-    const [price, setPrice] = useState(null)
-    const [description, setDescription] = useState(null);
+    const [metaData, setMetaData] = useState({
+        name: '',
+        price: '',
+        description: '',
+        course: ''
+    });
 
     //Progress Tracking State.
     const [progress, setProgress] = useState(0);
@@ -152,14 +155,23 @@ function FileAttachInt({array4}) {
 
                         <label htmlFor="fname">Name</label>
                         <input type="text" id="fname" name="firstname" placeholder="Your name.."
-                               className="form-input"/>
+                               className="form-input"
+                               value={metaData.name}
+                               onChange={(e) => setMetaData({...metaData, name: e.target.value})}
+                        />
 
                         <label htmlFor="lname">Price</label>
-                        <input type="text" id="lname" name="lastname" placeholder="Price.." className="form-input"/>
+                        <input type="text" id="lname" name="lastname" placeholder="Price.." className="form-input"
+                               value={metaData.price}
+                               onChange={(e) => setMetaData({...metaData, price: e.target.value})}
+                        />
 
                         <label htmlFor="lname">Description</label>
                         <input type="text" id="lname" name="lastname" placeholder="Description.."
-                               className="form-input"/>
+                               className="form-input"
+                               value={metaData.description}
+                               onChange={(e) => setMetaData({...metaData, description: e.target.value})}
+                        />
 
                         <label htmlFor="lname">Course</label>
                         <div className="form-input"><Select options={selectedOptions} menuPlacement="auto" menuPosition="fixed"/></div>
