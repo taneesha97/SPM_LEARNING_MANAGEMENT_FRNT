@@ -85,7 +85,7 @@ function FileAttachInt({array4}) {
             formData.append("file", file);
             formData.append("name", metaData.name);
             formData.append("price", metaData.price);
-            formData.append("course", metaData.course);
+            formData.append("course", metaData.course.label);
             formData.append("description", metaData.description);
             const API_URL = "http://localhost:8073/api/single/upload";
             const response =  axios.post(API_URL, formData, {
