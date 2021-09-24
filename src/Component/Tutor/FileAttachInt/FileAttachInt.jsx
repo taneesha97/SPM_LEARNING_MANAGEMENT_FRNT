@@ -28,7 +28,7 @@ function FileAttachInt({array4}) {
     const [progress, setProgress] = useState(0);
     const [loading, setLoading] = useState(false);
     const [success, setSuccess] = useState(false);
-    const [file, setFile] = useState(0);
+    const [file, setFile] = useState(null);
     const [downloadUri, setDownloadUri] = useState(0);
     const [selectedOptions, setSelectedOptions] = useState(null);
 
@@ -64,7 +64,7 @@ function FileAttachInt({array4}) {
 
     //File attachment logic, saved the file in state.
     const onDrop = React.useCallback((selectedFile) => {
-        let files = selectedFile.target.files;
+        let files = selectedFile.target.files[0];
         setFile(files);
         console.log(file);
         setSuccess(false);
@@ -82,7 +82,7 @@ function FileAttachInt({array4}) {
 
     //File Uploading method.
     const uploadFilesv1 =  (e) => {
-        // e.preventDefault();
+        e.preventDefault();
         try {
             setSuccess(false);
             setLoading(true);
@@ -97,7 +97,7 @@ function FileAttachInt({array4}) {
                     setProgress(percentCompleted);
                 },
             });
-            setDownloadUri(response.data.fileDownloadUri);
+            setDownloadUri(response.data);
             setSuccess(true);
             setLoading(false);
         } catch (error) {
@@ -114,7 +114,7 @@ function FileAttachInt({array4}) {
         }).then(function (res){
             if(res.ok) {
                 alert("Done Uploading!");
-            } else if (res.status == 401){
+            } else if (res.status === 401){
                 alert("Error!")
             }
         }, function (e) {alert("Error Submitting Form!")});
@@ -144,7 +144,7 @@ function FileAttachInt({array4}) {
         <div>
             <div className="file-component">
                 <div className="input-form-container">
-                    <form className="form" onSubmit={uploadFilesv3}>
+                    <form className="form" onSubmit={uploadFilesv1}>
                         <div className="course-component-header">
                             <div className="section-header">Course Form</div>
                             <div className="second-header">Course Form</div>
@@ -162,15 +162,15 @@ function FileAttachInt({array4}) {
                                className="form-input"/>
 
                         <label htmlFor="lname">Course</label>
-                        <div className="form-input"><Select onLoad={() => onDrop} options={selectedOptions} menuPlacement="auto" menuPosition="fixed"/></div>
+                        <div className="form-input"><Select options={selectedOptions} menuPlacement="auto" menuPosition="fixed"/></div>
 
 
                         <label htmlFor="lname">Attach the File</label>
-                        <input style={{height: "30px", fontSize: "10px", paddingBottom: "30px", color: "white", fontWeight: "bold"}} onChange={(e) => onDrop(e.target.files)}  type="file" id="lname" name="lastname" placeholder="Number of Chapters.."
+                        <input style={{height: "30px", fontSize: "10px", paddingBottom: "30px", color: "white", fontWeight: "bold"}} onChange={onDrop}  type="file" id="file" name="file" placeholder="Number of Chapters.."
                                className="form-input"/>
 
                         <div className="course-button-group button-row">
-                            <button className="add-button" type={"submit"}>Add</button>
+                            <button className="add-button" type="submit">Add</button>
                             <button className="light-button">Reset</button>
                         </div>
                     </form>
