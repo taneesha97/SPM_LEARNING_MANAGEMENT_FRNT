@@ -1,7 +1,7 @@
 import React from 'react'
 import '../../Pages/ProfilePage/UserProfile.css'
 
-function ProfileBio() {
+function ProfileBio(props) {
     return (
         <div className="userprofile-bio">
             <div className="userprofile-bio1">
@@ -15,8 +15,7 @@ function ProfileBio() {
                                     <h6 className="mb-0">Full Name</h6>
                                 </div>
                                 <div className="col">
-                                    {/*<h6 className="mb-0">{user1?.name}</h6>*/}
-                                    <h6 className="mb-0">fff</h6>
+                                    <h6 className="mb-0">{props?.user1?.name}</h6>
                                 </div>
                             </div>
                             <div className="row mb-3">
@@ -24,8 +23,7 @@ function ProfileBio() {
                                     <h6 className="mb-0">Email</h6>
                                 </div>
                                 <div className="col">
-                                    {/*<h6 className="mb-0">{user1?.email}</h6>*/}
-                                    <h6 className="mb-0">fff</h6>
+                                    <h6 className="mb-0">{props?.user1?.email}</h6>
                                 </div>
                             </div>
                             <div className="row mb-3">
@@ -33,8 +31,7 @@ function ProfileBio() {
                                     <h6 className="mb-0">Age</h6>
                                 </div>
                                 <div className="col">
-                                    {/*<h6 className="mb-0">{user1?.age}</h6>*/}
-                                    <h6 className="mb-0">fff</h6>
+                                    <h6 className="mb-0">{props?.user1?.age}</h6>
                                 </div>
                             </div>
                             <div className="row mb-3">
@@ -42,8 +39,7 @@ function ProfileBio() {
                                     <h6 className="mb-0">Position</h6>
                                 </div>
                                 <div className="col">
-                                    {/*<h6 className="mb-0">{user1?.type}</h6>*/}
-                                    <h6 className="mb-0">fff</h6>
+                                    <h6 className="mb-0">{props?.user1?.type}</h6>
                                 </div>
                             </div>
                             <div className="row mb-3">
@@ -51,8 +47,7 @@ function ProfileBio() {
                                     <h6 className="mb-0">Username</h6>
                                 </div>
                                 <div className="col">
-                                    {/*<h6 className="mb-0">{user1?.username}</h6>*/}
-                                    <h6 className="mb-0">fff</h6>
+                                    <h6 className="mb-0">{props?.user1?.username}</h6>
 
                                 </div>
                             </div>

@@ -48,7 +48,7 @@ function UserProfile() {
                 </div>
 
                 <div className="bluescreen1">
-                <ProfileBio/>
+                <ProfileBio user1 = {user1}/>
                 </div>
                 <div className="userprofile">
                     <div className="userprofile1">
