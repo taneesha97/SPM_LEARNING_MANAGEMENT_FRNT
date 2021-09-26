@@ -24,6 +24,9 @@ function TutorDashboard() {
     console.log(usertype)
     const history = useHistory();
 
+
+
+
     // useEffect(()=> {
     //     if(usertype != "teacher" && usertype != "admin"){
     //         history.push('./login')

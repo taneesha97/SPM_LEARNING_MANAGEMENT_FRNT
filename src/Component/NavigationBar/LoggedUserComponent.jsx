@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import './Navbar.css'
 import navImg from "./Images/Picture2.png";
 import navImg1 from "./Images/notification.png";
@@ -16,7 +16,8 @@ function LoggedUserComponent() {
     const user = localStorage.getItem("username")
     const email = localStorage.getItem("email")
     // console.log('retrievedObject: ', user);
-    //console.log(user)
+    console.log(user)
+    console.log(email)
 
     const logNav = () => {
         setSelected(!selected)
