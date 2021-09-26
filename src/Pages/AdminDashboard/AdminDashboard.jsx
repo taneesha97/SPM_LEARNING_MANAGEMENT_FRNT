@@ -7,6 +7,14 @@ import ClassDetailsTable from "../../Component/Admin/ClassTable/ClassDetailsTabl
 import AnnouncementSection from "../../Component/Admin/AnnouncementSection/AnnouncementSection";
 import AllTransations from "../../Component/Admin/AllTransations/AllTransations";
 import {useHistory} from "react-router";
+import {
+    faBookOpen,
+    faCommentAlt,
+    faDollarSign,
+    faPencilRuler,
+    faSchool, faTimes, faUser,
+    faUserFriends
+} from "@fortawesome/free-solid-svg-icons";
 
 
 function AdminDashboard() {
@@ -33,9 +41,20 @@ function AdminDashboard() {
         {"header":"Announcement 5", "description":"New News Update available"},
         {"header":"Announcement 6", "description":"New News Update available"}];
 
+    const array2 =[
+        {"header":"Total Student:", "count":"50", "image": faUserFriends},
+        {"header":"Feedback", "count":"3", "image": faCommentAlt},
+        {"header":"Courses", "count":"6", "image": faBookOpen},
+        {"header":"Class", "count":"5", "image": faSchool},
+        {"header":"Income", "count":"LKR 1256.23", "image": faDollarSign},
+        {"header":"Materials", "count":"10", "image": faPencilRuler},
+        {"header":"Active Students", "count":"23", "image": faUser},
+        {"header":"Disabled Courses", "count":"6", "image": faTimes},
+    ];
+
     return (
         <div className="admin-dashboard-page">
-            <AdminDashHeader/>
+            <AdminDashHeader array1={array2}/>
             <div className="Class-Admin">
                 <ClassMgntInt/>
                 <ClassDetailsTable method={setTableClass}/>
