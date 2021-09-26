@@ -1,11 +1,21 @@
-import {ADD_USER, DELETE_USER, UPDATE_USER, GET_USER, FETCH_USERS, VALID_USER} from "../Action/types";
+import {
+    ADD_USER,
+    DELETE_USER,
+    UPDATE_USER,
+    GET_USER,
+    FETCH_USERS,
+    VALID_USER,
+    ERROR_USER,
+    GET_USER_COUNT
+} from "../Action/types";
 
 const initialState = {
     UserDetails: {
         records: [],
-        record: {},
+        record: [],
         success: null,
-        error: null
+        error: null,
+        usercount: []
     },
     editDetail: [],
     loginUser: {},
@@ -14,7 +24,7 @@ const initialState = {
 
 export default function (state = initialState, action){
     console.log('reducer', action.payload);
-
+    console.log('reducer1', action.type);
     switch (action.type) {
         case FETCH_USERS:
             console.log('reducer');
@@ -67,6 +77,18 @@ export default function (state = initialState, action){
                     ...state.UserDetails,
                     record: action.payload
                 }
+            }
+        case ERROR_USER:
+            console.log('reducer2222', action.payload);
+            return {
+                error: action.payload
+
+            }
+        case GET_USER_COUNT:
+            console.log('reducer2222', action.payload);
+            return {
+                usercount: action.payload
+
             }
         default:
             return state;
