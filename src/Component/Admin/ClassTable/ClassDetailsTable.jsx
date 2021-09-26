@@ -147,6 +147,7 @@ function ClassDetailsTable({method}) {
                                 })
                                 // slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                                     .map((row) => (
+                                        console.log(row),
                                     <StyledTableRow key={row.id}>
                                         {/*<StyledTableCell align="center">{row.id}</StyledTableCell>*/}
                                         <StyledTableCell align="center">{row.name}</StyledTableCell>
