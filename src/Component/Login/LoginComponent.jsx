@@ -83,8 +83,6 @@ function LoginComponent(props) {
                     setButtonPopup(true);
                 }
             });
-        // dispatch(loginUserValidation(newUser));
-        // const response = useSelector((state) => state.userDetails1.loginUser);
     }
     const NavigateToRegistration = () => {
         //window.location.href("/registration")

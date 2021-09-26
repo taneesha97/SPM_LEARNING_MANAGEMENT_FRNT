@@ -34,7 +34,6 @@ function TeacherTableComponent() {
 
 
     const response = useSelector((state) => state.userDetails1?.UserDetails?.records?.data);
-    console.log(response);
     const [filteredData, setFilteredData] = useState(response);
 
     useEffect(() => {

@@ -11,9 +11,7 @@ class Auth {
 
     login(values) {
         //API validation
-        console.log(values.type);
-        console.log(values.username);
-        console.log(values);
+
         localStorage.setItem('flag', true);
         localStorage.setItem('username', values.username);
         localStorage.setItem('email', values.email);
