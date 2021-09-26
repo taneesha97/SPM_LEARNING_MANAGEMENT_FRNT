@@ -32,6 +32,7 @@ function AdminDashboard() {
     //     }
     // }, [])
 
+
     //Array for the announcement component.
     const array1 = [
         {"header":"Announcement 1", "description":"New News Update available"},

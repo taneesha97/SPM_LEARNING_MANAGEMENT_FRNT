@@ -102,7 +102,8 @@ function LoginComponent(props) {
         // const response = useSelector((state) => state.userDetails1.loginUser);
     }
     const NavigateToRegistration = () => {
-        history.push("/registration");
+        //window.location.href("/registration")
+        window.location.href = "/registration";
     }
 
     return (

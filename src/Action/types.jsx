@@ -4,6 +4,7 @@ export const VALID_USER = 'VALID_USER';
 export const UPDATE_USER = 'UPDATE_USER';
 export const DELETE_USER = 'DELETE_USER';
 export const GET_USER = 'GET_USER';
+export const GET_USER_COUNT = 'GET_USER_COUNT';
 export const ERROR_USER = 'ERROR_USER';
 
 //Course Related Constants.

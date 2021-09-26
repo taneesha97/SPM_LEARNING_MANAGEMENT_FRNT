@@ -6,6 +6,9 @@ import {useDispatch} from "react-redux";
 import {deleteUsers, fetchTeachers, upDateUser} from "../../../Action/Users";
 function PopUpTeacherStatusComponent(props) {
 
+
+    console.log('dddd', props.name2)
+
     const [status, setSelectedStatus] = useState(props.name2);
     const dispatch = useDispatch();
 

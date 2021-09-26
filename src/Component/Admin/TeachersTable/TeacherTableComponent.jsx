@@ -33,7 +33,7 @@ function TeacherTableComponent() {
     const [page, setPage] = React.useState(0);
 
 
-    const response = useSelector((state) => state.userDetails1.UserDetails.records.data);
+    const response = useSelector((state) => state.userDetails1?.UserDetails?.records?.data);
     console.log(response);
     const [filteredData, setFilteredData] = useState(response);
 
