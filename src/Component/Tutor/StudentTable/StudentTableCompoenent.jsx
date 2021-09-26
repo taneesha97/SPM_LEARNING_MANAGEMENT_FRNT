@@ -28,7 +28,7 @@ const StudentTableComponent = ()  => {
     const [page, setPage] = React.useState(0);
     //const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
 
-    const response = useSelector((state) => state.userDetails1.UserDetails.records.data);
+    const response = useSelector((state) => state.userDetails1?.UserDetails?.records?.data);
     console.log(response);
     const [filteredData, setFilteredData] = useState(response);
 

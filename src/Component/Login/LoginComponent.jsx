@@ -44,21 +44,6 @@ function LoginComponent(props) {
 
                 dispatch(loggedUser(response.data))
 
-
-                        // if(now-setupTime > hours*3000*100) {
-                        //     AuthClass.logout();
-                        //     // localStorage.setItem('flag', false);
-                        //     // localStorage.removeItem('usertype');
-                        //     // localStorage.setItem('username1234', "");
-                        //     // // localStorage.setItem('usertype', "");
-                        //     // // localStorage.setItem('user', "");
-                        //     //console.log('caling123');
-                        //     alert('error handling')
-                        //     // localStorage.clear()
-                        //     // localStorage.setItem('setupTime', now);//usertype
-                        //
-                        // }
-
                 if (values.type == null){
                     console.log('111')
                     alert('Invalid login')
