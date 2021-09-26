@@ -11,10 +11,10 @@ function LoggedUserComponent() {
     const [selected1 , setSelected1] = useState(false)
     //const [buttonPopup, setButtonPopup] = useState(false);
 
-    const user1 = useSelector((store) => store.userDetails1?.loginUser);
+    const user1 = useSelector((store) => store?.userDetails1?.loginUser);
 
-    let user = localStorage.getItem("username")
-    let email = localStorage.getItem("email")
+    const user = localStorage.getItem("username")
+    const email = localStorage.getItem("email")
     // console.log('retrievedObject: ', user);
     //console.log(user)
 
