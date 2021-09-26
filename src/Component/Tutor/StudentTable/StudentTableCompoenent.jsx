@@ -59,11 +59,11 @@ const StudentTableComponent = ()  => {
     const useStyles = makeStyles({
         table: {
             maxWidth: "710%",
-            borderRadius: 30,
+            borderRadius: 8.74,
 
         },
         editorContent: {
-            borderRadius: 30,
+            borderRadius: 8.74,
             maxWidth: "810%"
         },
         studentTableHeaderColumns: {
@@ -80,12 +80,6 @@ const StudentTableComponent = ()  => {
                 <h1 className="title-studentTable">Student Details Table</h1>
                 <div className="search-bar-student-table">
 
-                    {/*<input type="text" id="search" name="search" placeholder="search by name.."*/}
-                    {/*       className="search-student"*/}
-                    {/*       value={searchTerm}*/}
-                    {/*       onChange={(event) => setSearchTerm(event.target.value)}*/}
-                    {/*       required={true}*/}
-                    {/*/>*/}
                     <TextField
                         //label="Search"
                         placeholder="Search by name.."
@@ -95,7 +89,7 @@ const StudentTableComponent = ()  => {
                         className="search-student"
                         value={searchTerm}
                         onChange={(event) => setSearchTerm(event.target.value)}
-                        style={{backgroundColor: "#FFFFFF", width: 300, borderRadius:30, height: 30, paddingLeft: 10}}
+                        style={{backgroundColor: "#FFFFFF", width: 300, borderRadius:8.74, height: 30, paddingLeft: 10}}
                     />
                 </div>
             </div>
