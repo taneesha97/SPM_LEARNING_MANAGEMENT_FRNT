@@ -13,9 +13,10 @@ function LoggedUserComponent() {
 
     const user1 = useSelector((store) => store.userDetails1?.loginUser);
 
-    // let user = JSON.parse(userObject)
-    // // console.log('retrievedObject: ', user);
-    // console.log(user)
+    let userObject = localStorage.getItem("user")
+    let user = JSON.parse(userObject)
+    // console.log('retrievedObject: ', user);
+    console.log(user)
 
     const logNav = () => {
         setSelected(!selected)
@@ -27,8 +28,8 @@ function LoggedUserComponent() {
         <div className= "loggedUserComponent">
             <div className="loggedUserNameTile">
                 <div className="title-component-1">
-                    <h1 className="title-component-main-1">{user1?.name}</h1>
-                    <h2 className="title-component-sub-1">{user1?.email}</h2>
+                    <h1 className="title-component-main-1">{user?.name}</h1>
+                    <h2 className="title-component-sub-1">{user?.email}</h2>
                 </div>
             </div>
             {/*<div className="loggedUserImage + (selected ? "expand" : "")" onClick={logNav}>*/}

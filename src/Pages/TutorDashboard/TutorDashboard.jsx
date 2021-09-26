@@ -24,14 +24,14 @@ function TutorDashboard() {
     console.log(usertype)
     const history = useHistory();
 
-    useEffect(()=> {
-        // if(usertype != "teacher" && usertype != "admin"){
-        //     history.push('./login')
-        //     //window.location.href='/login';
-        // } else {
-        //     //setFlag(true);
-        // }
-    }, [])
+    // useEffect(()=> {
+    //     if(usertype != "teacher" && usertype != "admin"){
+    //         history.push('./login')
+    //         //window.location.href='/login';
+    //     } else {
+    //         //setFlag(true);
+    //     }
+    // }, [])
 
     //State to hold the popup menu.
     const [trigger, setTrigger] = useState(false);

@@ -13,18 +13,24 @@ function UserProfile() {
     const [buttonPopup1, setButtonPopup1] = useState(false);
     const [popupName, setPopupName] = useState("");
     const response = useSelector((state) => state.userDetails1?.editDetail?.data);
+    let userObject = localStorage.getItem("user")
+    let user = JSON.parse(userObject)
+    const user1 = useSelector((store) => store.userDetails1?.loginUser);
+    console.log('12333', user1)
+
+    const [result, setResult] = useState(response);
 
 
-    // setTimeout(function(){
-    //     dispatch(loggedUser(response))
-    // }, 100);
     useEffect(() => {
         dispatch(loggedUser(response))
     },[response])
 
-    let userObject = localStorage.getItem("user")
-    let user = JSON.parse(userObject)
-    // console.log('retrievedObject: ', user);
+    useEffect(() => {
+        dispatch(getUserByID(user.id));
+
+    },[])
+
+
     const updateEmail = () => {
         setButtonPopup(true);
         setPopupName("Email");
@@ -33,15 +39,9 @@ function UserProfile() {
         setButtonPopup1(true);
         setPopupName("Password");
     }
-    useEffect(() => {
-        dispatch(getUserByID(user.id));
 
-    },[])
 
-    const user1 = useSelector((store) => store.userDetails1?.loginUser);
-    console.log('12333', user1)
 
-    const [result, setResult] = useState(response);
     return (<React.Fragment>
             <div>
                 <div className="bluescreen">
