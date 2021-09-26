@@ -82,7 +82,7 @@ function TestingReport() {
             <div>
                 <div className="div2PDF">
                     <Bar
-                        data={cData}
+                       // data={cData}
                         // options={{
                         //     title: {
                         //         display: true,

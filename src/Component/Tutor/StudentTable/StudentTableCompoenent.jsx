@@ -28,7 +28,7 @@ const StudentTableComponent = ()  => {
     const [page, setPage] = React.useState(0);
     //const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
 
-    const response = useSelector((state) => state.userDetails1.UserDetails.records.data);
+    const response = useSelector((state) => state.userDetails1?.UserDetails?.records?.data);
     console.log(response);
     const [filteredData, setFilteredData] = useState(response);
 
@@ -59,11 +59,11 @@ const StudentTableComponent = ()  => {
     const useStyles = makeStyles({
         table: {
             maxWidth: "710%",
-            borderRadius: 30,
+            borderRadius: 8.74,
 
         },
         editorContent: {
-            borderRadius: 30,
+            borderRadius: 8.74,
             maxWidth: "810%"
         },
         studentTableHeaderColumns: {
@@ -79,17 +79,17 @@ const StudentTableComponent = ()  => {
             <div className="student-table-title-header">
                 <h1 className="title-studentTable">Student Details Table</h1>
                 <div className="search-bar-student-table">
+
                     <TextField
-                        id="filled-full-width"
-                        label="Search"
-                        placeholder="Search Items.."
-                        fullWidth
+                        //label="Search"
+                        placeholder="Search by name.."
+
                         margin="normal"
-                        variant="outlined"
+
                         className="search-student"
                         value={searchTerm}
                         onChange={(event) => setSearchTerm(event.target.value)}
-                        style={{backgroundColor: "#FFFFFF", width: 300, borderRadius:30}}
+                        style={{backgroundColor: "#FFFFFF", width: 300, borderRadius:8.74, height: 30, paddingLeft: 10}}
                     />
                 </div>
             </div>
