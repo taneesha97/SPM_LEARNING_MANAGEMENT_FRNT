@@ -79,17 +79,23 @@ const StudentTableComponent = ()  => {
             <div className="student-table-title-header">
                 <h1 className="title-studentTable">Student Details Table</h1>
                 <div className="search-bar-student-table">
+
+                    {/*<input type="text" id="search" name="search" placeholder="search by name.."*/}
+                    {/*       className="search-student"*/}
+                    {/*       value={searchTerm}*/}
+                    {/*       onChange={(event) => setSearchTerm(event.target.value)}*/}
+                    {/*       required={true}*/}
+                    {/*/>*/}
                     <TextField
-                        id="filled-full-width"
-                        label="Search"
-                        placeholder="Search Items.."
-                        fullWidth
+                        //label="Search"
+                        placeholder="Search by name.."
+
                         margin="normal"
-                        variant="outlined"
+
                         className="search-student"
                         value={searchTerm}
                         onChange={(event) => setSearchTerm(event.target.value)}
-                        style={{backgroundColor: "#FFFFFF", width: 300, borderRadius:30}}
+                        style={{backgroundColor: "#FFFFFF", width: 300, borderRadius:30, height: 30, paddingLeft: 10}}
                     />
                 </div>
             </div>
