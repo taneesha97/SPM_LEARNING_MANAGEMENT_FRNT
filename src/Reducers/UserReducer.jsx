@@ -1,11 +1,21 @@
-import {ADD_USER, DELETE_USER, UPDATE_USER, GET_USER, FETCH_USERS, VALID_USER, ERROR_USER} from "../Action/types";
+import {
+    ADD_USER,
+    DELETE_USER,
+    UPDATE_USER,
+    GET_USER,
+    FETCH_USERS,
+    VALID_USER,
+    ERROR_USER,
+    GET_USER_COUNT
+} from "../Action/types";
 
 const initialState = {
     UserDetails: {
         records: [],
         record: [],
         success: null,
-        error: null
+        error: null,
+        usercount: []
     },
     editDetail: [],
     loginUser: {},
@@ -72,6 +82,12 @@ export default function (state = initialState, action){
             console.log('reducer2222', action.payload);
             return {
                 error: action.payload
+
+            }
+        case GET_USER_COUNT:
+            console.log('reducer2222', action.payload);
+            return {
+                usercount: action.payload
 
             }
         default:

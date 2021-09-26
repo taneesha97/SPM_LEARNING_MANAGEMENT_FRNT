@@ -23,9 +23,33 @@ function TestingReport() {
     };
 
 
-    const div2PDF = e => {
-        const canvas = document.querySelector('canvas'),
+
+    const getData = () => {
+        const canvas = document?.querySelector('canvas'),
             ctx = canvas.getContext('2d');
+        //new Chart(ctx).Line(cData);
+        // new Chart(ctx,  {
+        //     type: 'bar',
+        //     data: cData,
+        //     options: {
+        //         scales: {
+        //             y: {
+        //                 beginAtZero: true
+        //             }
+        //         },
+        //         title: {
+        //             display: true,
+        //             text: "Chart to PDF Demo",
+        //             fontSize: 32
+        //         },
+        //         legend: {
+        //             display: true,
+        //             position: "right"
+        //         }
+        //     },
+        //     height: 200
+        //
+        // });
         const img = canvas.toDataURL("image/png");
             const pdf = new jsPDF('landscape');
             //doc.addImage(Logo, "png", 10, 10, 30, 5);
@@ -59,22 +83,22 @@ function TestingReport() {
                 <div className="div2PDF">
                     <Bar
                         data={cData}
-                        options={{
-                            title: {
-                                display: true,
-                                text: "Chart to PDF Demo",
-                                fontSize: 32
-                            },
-                            legend: {
-                                display: true,
-                                position: "right"
-                            }
-                        }}
+                        // options={{
+                        //     title: {
+                        //         display: true,
+                        //         text: "Chart to PDF Demo",
+                        //         fontSize: 32
+                        //     },
+                        //     legend: {
+                        //         display: true,
+                        //         position: "right"
+                        //     }
+                        // }}
                         height={200}
                     />
                 </div>
                 <div>
-                    <button onClick={(e) => div2PDF(e)}>Export 2 PDF</button>
+                    <button onClick={getData}>Export 2 PDF</button>
                 </div>
             </div>
         </div>

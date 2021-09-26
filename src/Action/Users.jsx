@@ -1,4 +1,13 @@
-import {ADD_USER, GET_USER, UPDATE_USER, DELETE_USER, FETCH_USERS, VALID_USER, ERROR_USER} from "./types";
+import {
+    ADD_USER,
+    GET_USER,
+    UPDATE_USER,
+    DELETE_USER,
+    FETCH_USERS,
+    VALID_USER,
+    ERROR_USER,
+    GET_USER_COUNT
+} from "./types";
 import axios from "axios";
 import * as api from '../API'
 import {useDispatch} from "react-redux";
@@ -169,4 +178,19 @@ export const upDateUser = (id, PostData) => dispatch => {
         .catch((err) => {
             console.log(err);
         })
+}
+
+export const getUserCount = () => dispatch => {
+    //console.log('get user by id');
+    axios.get(api.baseURL + 'usercount/')
+        .then(response => {
+                dispatch({
+                    type: GET_USER_COUNT,
+                    payload: response
+                })
+            }
+
+        ).catch((err) => {
+        console.log(err);
+    })
 }
