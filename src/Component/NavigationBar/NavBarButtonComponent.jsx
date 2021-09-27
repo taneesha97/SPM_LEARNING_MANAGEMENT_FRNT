@@ -10,14 +10,17 @@ function NavBarButtonComponent(props) {
     const history = useHistory();
     const profile = () => {
         history.push('/profile');
+        props.setTrigger(!props.trigger)
     }
 
     const Dashboard = () => {
         history.push('/home');
+        props.setTrigger(!props.trigger)
     }
 
     const ClassRoom = () => {
         history.push('/class');
+        props.setTrigger(!props.trigger)
     }
 
     const Logout = () => {
@@ -26,6 +29,7 @@ function NavBarButtonComponent(props) {
         // setButtonPopup(true);
         AuthClass.logout()
         history.push('/login');
+        props.setTrigger(!props.trigger)
 
     }
 

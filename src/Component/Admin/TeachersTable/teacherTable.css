@@ -13,7 +13,7 @@
   text-align: Left;
   color: #C4C4C4;
   font-weight: 700;
-  font-size: 44px;
+  font-size: 25px;
 }
 
 .footer {
@@ -43,10 +43,6 @@
   float: right;
   align-content: center;
   margin-top: -0.6%;
-}
-
-.search-teacher {
-  width: 100%;
 }
 
 /*# sourceMappingURL=teacherTable.css.map */
