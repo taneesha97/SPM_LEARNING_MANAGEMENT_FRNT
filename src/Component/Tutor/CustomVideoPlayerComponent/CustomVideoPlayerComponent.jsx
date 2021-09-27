@@ -6,6 +6,8 @@ import ReactPlayer from "react-player";
 import {makeStyles} from "@material-ui/core/styles";
 import PlayerControls from "./PlayerControls";
 import screenfull from 'screenfull'
+import "./CustomVideoPlayerComponent.scss"
+import CustomButton from "../CourseMgntInt/CustomButtons/CustomButton";
 
 const useStyles = makeStyles({
     playerWrapper: {
@@ -119,12 +121,7 @@ function CustomVideoPlayerComponent() {
 
     return (
         <React.Fragment>
-            <AppBar position="fixed">
-                <Toolbar>
-                    <Typography variant="h6">React Video Player</Typography>
-                </Toolbar>
-            </AppBar>
-            <Toolbar/>
+            <div style={{marginTop: "10px"}}/>
             <Container maxWidth="md">
                 <div ref={playerContainerRef} className={classes.playerWrapper}>
                     <ReactPlayer
@@ -164,6 +161,16 @@ function CustomVideoPlayerComponent() {
                         MediaPlayerName={playerName}
                     />
                 </div>
+                <p className="header-video-player"> Name of the video </p>
+                <p className="header-video-player-comment-section"> Comment section
+                </p>
+                <div className="video-player-comment">
+                    <input type="textarea" name="comment-input" className="comment-input"  />
+                    <div style={{marginTop: "5px"}}><CustomButton name="Post"/></div>
+
+                </div>
+
+
             </Container>
         </React.Fragment>
     );
