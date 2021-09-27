@@ -5,14 +5,13 @@ import {useDispatch} from "react-redux";
 import {addAnnouncement} from "../../../../Action/Announcement";
 import Select from "react-select";
 import {InputLabel, MenuItem} from "@material-ui/core";
+import {getClasses} from "../../../../Action/Class";
 
 function ClassAnnouncement(){
 
-    const [data, setData] = useState({
-        header:'',
-        body:'',
-        name: '',
-    });
+    const[header, setHeader] = useState('');
+    const[body, setBody] = useState('');
+    const[name, setName] = useState('');
 
     const dispatch = useDispatch();
 
@@ -26,14 +25,32 @@ function ClassAnnouncement(){
         { value: 'Grade 12', label: 'Grade 12' },
     ];
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log('SUBMIT: ',data);
-        dispatch(addAnnouncement(data));
-        console.log('DATA added')
+    const validationData = () => {
+        if(header === null){
+
+        }else if(body === null){
+
+        }else if(name === null){
+
+        }else{
+
+        }
     }
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
 
+        if(validationData()){
+            const announcementData = {
+                header,
+                body,
+                name
+            }
+            dispatch(addAnnouncement(announcementData));
+            console.log('DATA added')
+        }
+        // setTimeout(() => dispatch(getAnn()), 1000);
+    }
 
     return (
         <div className="class-announcement-container">
@@ -55,8 +72,8 @@ function ClassAnnouncement(){
                                     name="firstname"
                                     placeholder="Announcement Heading Comes here..."
                                     className="form-input"
-                                    value={data.header}
-                                    onChange={(e) => setData({...data, header: e.target.value})}
+                                    value={header}
+                                    onChange={(e) => setHeader(e.target.value)}
                                     required
                                 />
                             </div>
@@ -67,16 +84,16 @@ function ClassAnnouncement(){
                                 id="fname" name="firstname"
                                 placeholder="Announcement body comes here..."
                                 className="form-area"
-                                value={data.body}
-                                onChange={(e) => setData({...data, body: e.target.value})}
+                                value={body}
+                                onChange={(e) => setBody(e.target.value)}
                             />
                             </div>
                             <InputLabel id="label">Class name</InputLabel>
                             <div className="clz-input">
                                 <Select
                                     aria-label="Default select example"
-                                    value={data.name}
-                                    onChange={(e) => setData({...data, name: e.target.value})}
+                                    value={name}
+                                    onChange={(e) => setName(e.target.value)}
                                     options={options}
                                 >
                                 </Select>

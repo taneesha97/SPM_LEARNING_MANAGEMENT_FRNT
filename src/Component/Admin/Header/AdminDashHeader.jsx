@@ -1,7 +1,7 @@
 import React from 'react'
 import "./AdminDashHeader.css"
 import "../../../../node_modules/bootstrap/dist/css/bootstrap.css"
-import Tile1 from "../../Tutor/Header/TileComponent/Tile1";
+import Tile from "../Header/TileComponent/Tile";
 function AdminDashHeader({array1}) {
     return (
 
@@ -11,7 +11,7 @@ function AdminDashHeader({array1}) {
                 <div>
                     <div className="admin-header-component-container">
                         {array1.map((item) => (
-                            <Tile1 name={item.header} price={item.count} image={item.image}/>
+                            <Tile name={item.header} count={item.count} image={item.image}/>
                         ))}
                     </div>
                 </div>
