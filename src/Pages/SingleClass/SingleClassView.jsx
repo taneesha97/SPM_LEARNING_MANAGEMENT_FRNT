@@ -9,7 +9,7 @@ function SingleClassView() {
     return (
         <div className="singleclassViewBackground">
             <SingleClassWelcomeHeader/>
-
+            <SingleClassAnnouncements/>
             <SingleClassViewBackground/>
 
             <Footer/>
