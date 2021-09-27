@@ -6,11 +6,12 @@
   height: 697px;
   .landing-background-course{
     display: flex;
-    padding: 3%;
+    padding-top: 3%;
+    padding-left: 3%;
+    padding-right: 3%;
 
     .welcomebackground-surface-course{
       float: left;
-      background: burlywood;
       width: 100%;
       margin-top: 5%;
       margin-bottom: auto;
@@ -36,7 +37,7 @@
         width: 48.828125vw;
         height: 458px;
         //margin-left: 30%;
-        //margin-top: 3%;
+        margin-bottom: 3vw;
       }
 
     }
@@ -47,8 +48,8 @@
   //margin-top: 3%;
 }
 .button1-position{
-  //margin-top: 35vw;
-  //margin-left: 60vw;
+  //margin-top: 20vw;
+  margin-left: 20vw;
 
 }
 .button1{

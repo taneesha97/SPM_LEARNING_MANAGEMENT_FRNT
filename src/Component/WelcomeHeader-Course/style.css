@@ -7,11 +7,12 @@
 }
 .welcome-container-course .landing-background-course {
   display: flex;
-  padding: 3%;
+  padding-top: 3%;
+  padding-left: 3%;
+  padding-right: 3%;
 }
 .welcome-container-course .landing-background-course .welcomebackground-surface-course {
   float: left;
-  background: burlywood;
   width: 100%;
   margin-top: 5%;
   margin-bottom: auto;
@@ -36,6 +37,11 @@
   float: right;
   width: 48.828125vw;
   height: 458px;
+  margin-bottom: 3vw;
+}
+
+.button1-position {
+  margin-left: 20vw;
 }
 
 .button1 {
