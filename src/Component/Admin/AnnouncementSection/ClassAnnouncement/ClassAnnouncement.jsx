@@ -1,29 +1,45 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import './ClassAnnouncement.css'
 import CustomButton from "../../../Tutor/CourseMgntInt/CustomButtons/CustomButton";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {addAnnouncement} from "../../../../Action/Announcement";
 import Select from "react-select";
 import {InputLabel, MenuItem} from "@material-ui/core";
 import {getClasses} from "../../../../Action/Class";
+import {fetchTeachers} from "../../../../Action/Users";
 
 function ClassAnnouncement(){
 
     const[header, setHeader] = useState('');
     const[body, setBody] = useState('');
     const[name, setName] = useState('');
+    const[classOptions, setClassOptions] = useState(null);
 
     const dispatch = useDispatch();
+    const classResponse = useSelector((state) => state.classes.classRecords.records);
 
-    //React Select
-    const options = [
-        { value: 'Grade 7', label: 'Grade 7' },
-        { value: 'Grade 8', label: 'Grade 8' },
-        { value: 'Grade 9', label: 'Grade 9' },
-        { value: 'Grade 10', label: 'Grade 10' },
-        { value: 'Grade 11', label: 'Grade 11' },
-        { value: 'Grade 12', label: 'Grade 12' },
-    ];
+    useEffect(() => {
+        dispatch(getClasses());
+    },[])
+
+    async function getClass() {
+        const data = classResponse;
+        console.log('Calling get tacher method 2', classResponse);
+        const options = classResponse?.map((item) => (
+            console.log('ITEM', item),
+                {
+                    "value" : item.id,
+                    "label" : item.name
+                }))
+        setClassOptions(options);
+        console.log('OPTIONS',options);
+    }
+
+    //get teacher data
+    useEffect(() => {
+        getClass();
+    },[classResponse])
+
 
     const validationData = () => {
         if(header === null){
@@ -39,8 +55,8 @@ function ClassAnnouncement(){
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
-        if(validationData()){
+        console.log('CALLING')
+        // if(validationData()){
             const announcementData = {
                 header,
                 body,
@@ -48,7 +64,7 @@ function ClassAnnouncement(){
             }
             dispatch(addAnnouncement(announcementData));
             console.log('DATA added')
-        }
+        // }
         // setTimeout(() => dispatch(getAnn()), 1000);
     }
 
@@ -91,26 +107,12 @@ function ClassAnnouncement(){
                             <InputLabel id="label">Class name</InputLabel>
                             <div className="clz-input">
                                 <Select
-                                    aria-label="Default select example"
-                                    value={name}
-                                    onChange={(e) => setName(e.target.value)}
-                                    options={options}
+                                    menuPlacement="auto"
+                                    menuPosition="fixed"
+                                    onChange={(e) => setName(e.label)}
+                                    options={classOptions}
                                 >
                                 </Select>
-                                {/*<label htmlFor="lname">Teacher name</label>*/}
-                                {/*<select*/}
-                                {/*    className="form-input"*/}
-                                {/*    aria-label="Default select example"*/}
-                                {/*    value={data.name}*/}
-                                {/*    onChange={(e) => setData({...data, name: e.target.value})}*/}
-                                {/*>*/}
-                                {/*    <option selected>Choose...</option>*/}
-                                {/*    <option value="1">D.K.L.WEERSINGHE</option>*/}
-                                {/*    <option value="2">T.K.L.CHANDRASENA</option>*/}
-                                {/*    <option value="3">M.N.V.RATHNAYAKA</option>*/}
-                                {/*    <option value="4">H.K.L.VEERSINGHE</option>*/}
-                                {/*    <option value="5">K.N.V.PERERA</option>*/}
-                                {/*</select>*/}
                             </div>
                             <div className="class-announcement-body-button-group">
                                 <div className="class-announcement-button">
