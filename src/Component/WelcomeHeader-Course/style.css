@@ -7,35 +7,35 @@
 }
 .welcome-container-course .landing-background-course {
   display: flex;
+  padding: 3%;
+}
+.welcome-container-course .landing-background-course .welcomebackground-surface-course {
+  float: left;
   background: burlywood;
+  width: 100%;
+  margin-top: 5%;
+  margin-bottom: auto;
 }
-
-.welcomebackground-surface-course {
-  display: flex;
-  width: 35%;
-  margin-left: 6%;
-}
-
-.main-header-course {
+.welcome-container-course .landing-background-course .welcomebackground-surface-course .main-header-course {
   font-family: Roboto;
   color: white;
   font-weight: 700;
   font-size: 4vw;
 }
-
-.sub-header-course {
+.welcome-container-course .landing-background-course .welcomebackground-surface-course .sub-header-course {
   font-family: Roboto;
   color: white;
   font-weight: 400;
   font-size: 2vw;
 }
-
-.welcomebackground-course {
-  display: flex;
+.welcome-container-course .landing-background-course .welcomebackground-course1 {
+  margin-left: 5%;
+  display: block;
+}
+.welcome-container-course .landing-background-course .welcomebackground-course1 .welcomebackground-course {
   float: right;
   width: 48.828125vw;
   height: 458px;
-  margin-top: 3%;
 }
 
 .button1 {
@@ -45,10 +45,6 @@
   border-radius: 12px;
   font-size: 23px;
   color: white;
-}
-
-.button1-position {
-  margin-left: 60vw;
 }
 
 /*# sourceMappingURL=style.css.map */

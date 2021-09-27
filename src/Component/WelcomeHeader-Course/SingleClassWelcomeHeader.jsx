@@ -13,13 +13,17 @@ function SingleClassWelcomeHeader() {
                             Donec sed justo rutrum, </h4>
 
                     </div>
-                    <img src={Background} className='welcomebackground-course'/>
+                    <div className='welcomebackground-course1'>
+                        <img src={Background} className='welcomebackground-course'/>
+                        <div className="button1-position">
+                            <button className="button1">Sign Up Here</button>
+                        </div>
+                    </div >
+
 
 
                 </div>
-                <div className="button1-position">
-                    <button className="button1">Sign Up Here</button>
-                </div>
+
                 <hr/>
             </div>
 
