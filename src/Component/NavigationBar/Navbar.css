@@ -19,7 +19,7 @@
   background: white;
   width: 20%;
   clear: both;
-  margin-top: auto;
+  margin-top: -0.5vw;
   margin-bottom: auto;
   height: 4.2vw;
   border-radius: 0px 0px 20px 20px;
@@ -38,7 +38,8 @@
   width: 40%;
 }
 .loggedUserComponent .loggedUserNameTile .title-component-1 {
-  text-align: center;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 .loggedUserComponent .loggedUserNameTile .title-component-1 .title-component-main-1 {
   font-size: 0.8vw;

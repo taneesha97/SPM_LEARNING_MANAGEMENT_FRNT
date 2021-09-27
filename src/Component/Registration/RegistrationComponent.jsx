@@ -1,11 +1,13 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import './Registration.css'
 import {useDispatch, useSelector} from "react-redux";
 import {addUsers, loginUserValidation} from "../../Action/Users";
 import {useHistory} from "react-router";
 import CustomAlert from "../CustomAlert/CustomAlert";
 import UserDetailsUpdateComponent from "../Profile/UserDetailsUpdateComponent";
+import UnSuccessPopup from "../PopupModel/UnSuccessPopup";
 import SucessPopUp from "../PopupModel/SucessPopUp";
+
 import PopupModel from "../PopupModel/PopupModel";
 
 function   RegistrationComponent() {
@@ -18,8 +20,10 @@ function   RegistrationComponent() {
     const [type, setType] = useState('teacher');
     const [password1, setPassword] = useState();
     const [buttonPopup, setButtonPopup] = useState(false);
+    const [buttonPopup1, setButtonPopup1] = useState(false);
     const [popupName, setPopupName] = useState("");
     const [popupLocation, setPopupLocaion] = useState("");
+    //const [successmessage, setSuccessmessage] = useState(false);
     const dispatch = useDispatch();
     const history = useHistory();
     const crypto = require('crypto'),
@@ -28,6 +32,25 @@ function   RegistrationComponent() {
     // const hashedPassword = passwordHash.generate('password123');
     //
     // console.log(hashedPassword);
+    let response1 = useSelector((state) => state.userDetails1?.error);
+    console.log(response1);
+
+    let response2 = useSelector((state) => state.userDetails1?.UserDetails?.success);
+    console.log(response2);
+
+    const dataClear = () => {
+        console.log('data clearing')
+        setName("")
+        setEmail("")
+        setAge("")
+        setUsername("")
+        setPassword("")
+        setType('teacher')
+    }
+    // if (response2 === 'User inserted successfully'){
+    //     setSuccessmessage(true)
+    // }
+
 
     function SubmitPressed(e) {
         e.preventDefault();
@@ -54,15 +77,28 @@ function   RegistrationComponent() {
             type,
         }
         console.log(newUser);
-       dispatch(addUsers(newUser));
-        // const response = useSelector((state) => state.errors);
-        // console.log(response);
-        setPopupName("register");
-       setPopupLocaion("/login");
-        setButtonPopup(true);
+        dispatch(addUsers(newUser));
 
     }
+    useEffect(() => {
+        //alert('error message')
 
+        if (response2 === 'User inserted successfully'){
+            setPopupName("register");
+            setPopupLocaion("/login");
+            setButtonPopup(true);
+        }
+    },[response2])
+
+    useEffect(() => {
+        //alert('error message')
+        if (response1 === 'username exists'){
+
+            setPopupName("User already exists");
+            setPopupLocaion("/registration");
+            setButtonPopup1(true);
+        }
+    },[response1])
 
 
 
@@ -70,6 +106,9 @@ function   RegistrationComponent() {
         <div>
             <PopupModel show={buttonPopup} buttondisble = {false}>
                 <SucessPopUp trigger={buttonPopup} setTrigger = {setButtonPopup} name1 = {popupName} name2 = {popupLocation}></SucessPopUp>
+            </PopupModel>
+            <PopupModel show={buttonPopup1} buttondisble = {false}>
+                <UnSuccessPopup trigger={buttonPopup1} setTrigger = {setButtonPopup1} name1 = {popupName} name2 = {popupLocation}></UnSuccessPopup>
             </PopupModel>
 
             <form onSubmit={SubmitPressed}>

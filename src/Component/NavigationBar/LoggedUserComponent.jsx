@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import './Navbar.css'
 import navImg from "./Images/Picture2.png";
 import navImg1 from "./Images/notification.png";
@@ -11,11 +11,13 @@ function LoggedUserComponent() {
     const [selected1 , setSelected1] = useState(false)
     //const [buttonPopup, setButtonPopup] = useState(false);
 
-    const user1 = useSelector((store) => store.userDetails1?.loginUser);
+    const user1 = useSelector((store) => store?.userDetails1?.loginUser);
 
-    // let user = JSON.parse(userObject)
-    // // console.log('retrievedObject: ', user);
-    // console.log(user)
+    const user = localStorage.getItem("username")
+    const email = localStorage.getItem("email")
+    // console.log('retrievedObject: ', user);
+    console.log(user)
+    console.log(email)
 
     const logNav = () => {
         setSelected(!selected)
@@ -27,8 +29,8 @@ function LoggedUserComponent() {
         <div className= "loggedUserComponent">
             <div className="loggedUserNameTile">
                 <div className="title-component-1">
-                    <h1 className="title-component-main-1">{user1?.name}</h1>
-                    <h2 className="title-component-sub-1">{user1?.email}</h2>
+                    <h1 className="title-component-main-1">{user}</h1>
+                    <h2 className="title-component-sub-1">{email}</h2>
                 </div>
             </div>
             {/*<div className="loggedUserImage + (selected ? "expand" : "")" onClick={logNav}>*/}

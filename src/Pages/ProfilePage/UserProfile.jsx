@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import './UserProfile.css'
 import profilePic from "./images/profilePic.png";
+import ProfileBio from "../../Component/Profile/ProfileBio";
 import UserDetailsUpdateComponent from "../../Component/Profile/UserDetailsUpdateComponent";
 import {fetchStudents, fetchTeachers, getUserByID, loggedUser} from "../../Action/Users";
 import {useDispatch, useSelector} from "react-redux";
@@ -12,18 +13,24 @@ function UserProfile() {
     const [buttonPopup1, setButtonPopup1] = useState(false);
     const [popupName, setPopupName] = useState("");
     const response = useSelector((state) => state.userDetails1?.editDetail?.data);
+    let userObject = localStorage.getItem("user")
+    let user = JSON.parse(userObject)
+    const user1 = useSelector((store) => store.userDetails1?.loginUser);
+    console.log('12333', user1)
+
+    const [result, setResult] = useState(response);
 
 
-    // setTimeout(function(){
-    //     dispatch(loggedUser(response))
-    // }, 100);
     useEffect(() => {
         dispatch(loggedUser(response))
     },[response])
 
-    let userObject = localStorage.getItem("user")
-    let user = JSON.parse(userObject)
-    // console.log('retrievedObject: ', user);
+    useEffect(() => {
+        dispatch(getUserByID(user.id));
+
+    },[])
+
+
     const updateEmail = () => {
         setButtonPopup(true);
         setPopupName("Email");
@@ -32,73 +39,16 @@ function UserProfile() {
         setButtonPopup1(true);
         setPopupName("Password");
     }
-    useEffect(() => {
-        dispatch(getUserByID(user.id));
 
-    },[])
 
-    const user1 = useSelector((store) => store.userDetails1?.loginUser);
-    console.log('12333', user1)
 
-    const [result, setResult] = useState(response);
     return (<React.Fragment>
             <div>
                 <div className="bluescreen">
                 </div>
 
                 <div className="bluescreen1">
-                    <div className="userprofile-bio">
-                        <div className="userprofile-bio1">
-                            <div className="userprofile-bio1-info1">
-                                <div className="text-center">
-                                    <h2 className="userprofile-bio1-info1-main">Personal Details</h2>
-                                </div>
-                                <div className="card">
-                                        <div className="row mb-3">
-                                            <div className="col">
-                                                <h6 className="mb-0">Full Name</h6>
-                                            </div>
-                                            <div className="col">
-                                                <h6 className="mb-0">{user1?.name}</h6>
-                                            </div>
-                                        </div>
-                                        <div className="row mb-3">
-                                            <div className="col">
-                                                <h6 className="mb-0">Email</h6>
-                                            </div>
-                                            <div className="col">
-                                                <h6 className="mb-0">{user1?.email}</h6>
-                                            </div>
-                                        </div>
-                                        <div className="row mb-3">
-                                            <div className="col">
-                                                <h6 className="mb-0">Age</h6>
-                                            </div>
-                                            <div className="col">
-                                                <h6 className="mb-0">{user1?.age}</h6>
-                                            </div>
-                                        </div>
-                                        <div className="row mb-3">
-                                            <div className="col">
-                                                <h6 className="mb-0">Position</h6>
-                                            </div>
-                                            <div className="col">
-                                                <h6 className="mb-0">{user1?.type}</h6>
-                                            </div>
-                                        </div>
-                                        <div className="row mb-3">
-                                            <div className="col">
-                                                <h6 className="mb-0">Username</h6>
-                                            </div>
-                                            <div className="col">
-                                                <h6 className="mb-0">{user1?.username}</h6>
-                                            </div>
-                                        </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
+                <ProfileBio user1 = {user1}/>
                 </div>
                 <div className="userprofile">
                     <div className="userprofile1">
