@@ -2,7 +2,7 @@ import React from 'react'
 import Background from "./images/CourseWelcomeImage.png";
 import './style.css'
 
-function CourseWelcomeHeader() {
+function SingleClassWelcomeHeader() {
     return (
             <div className='welcome-container-course'>
                 <div className='landing-background-course'>
@@ -24,4 +24,4 @@ function CourseWelcomeHeader() {
     )
 }
 
-export default CourseWelcomeHeader
+export default SingleClassWelcomeHeader

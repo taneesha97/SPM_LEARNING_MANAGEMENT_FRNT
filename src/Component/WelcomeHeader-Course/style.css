@@ -18,19 +18,19 @@
   font-family: Roboto;
   color: white;
   font-weight: 700;
-  font-size: 64px;
+  font-size: 4vw;
 }
 
 .sub-header-course {
   font-family: Roboto;
   color: white;
   font-weight: 400;
-  font-size: 36px;
+  font-size: 2vw;
 }
 
 .welcomebackground-course {
   position: absolute;
-  width: 918.97px;
+  width: 600px;
   height: 458px;
   margin-left: 50%;
   margin-top: 3%;
