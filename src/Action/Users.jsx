@@ -1,4 +1,13 @@
-import {ADD_USER, GET_USER, UPDATE_USER, DELETE_USER, FETCH_USERS, VALID_USER, ERROR_USER} from "./types";
+import {
+    ADD_USER,
+    GET_USER,
+    UPDATE_USER,
+    DELETE_USER,
+    FETCH_USERS,
+    VALID_USER,
+    ERROR_USER,
+    GET_USER_COUNT
+} from "./types";
 import axios from "axios";
 import * as api from '../API'
 import {useDispatch} from "react-redux";
@@ -50,14 +59,35 @@ export const fetchUser = () => dispatch => {
 }
 
 export const addUsers = (PostData) => async (dispatch) => {
-    console.log('creating');
-    try{
-        const { data } = await api.createUser(PostData);
-        dispatch({type: ADD_USER, payload: data });
-    } catch (error){
-        console.log(error);
-        dispatch({type: ERROR_USER, payload: error.response.data});
+    try {
+        const response = await axios.post(api.baseURL + 'useradd', PostData)
+        console.log(response)
+        if (response.status === 200) {
+            if (response.data === 'username exists'){
+                dispatch({
+                    type: ERROR_USER,
+                    payload: response.data
+                })
+            }else if (response.data.username != null){
+
+                dispatch({
+                    type: ADD_USER,
+                    payload: response.data
+                })
+            }
+
+        } else {
+            console.log('else ',response.data)
+            dispatch({
+                type: ERROR_USER,
+                payload: response.data
+            })
+        }
+
+    }catch(err) {
+        console.log(err);
     }
+
 }
 
 // export const loginUserValidation = (user) => async (dispatch) => {
@@ -80,7 +110,7 @@ export const deleteUsers = (id) => dispatch => {
                     type: DELETE_USER,
                     payload: id
                 })
-          // alert("data deleted sucessfully");
+                // alert("data deleted sucessfully");
             }
 
         ).catch((err) => {
@@ -129,23 +159,38 @@ export const upDateUser = (id, PostData) => dispatch => {
     axios.put(api.baseURL + 'updateuser/' + id , PostData)
         .then(response => {
             console.log(response)
-                    if(response.status === 200){
-                        console.log(response.data)
-                        dispatch({
-                            type: UPDATE_USER,
-                            payload: response.data
-                        })
-                    }
-                    else{
-                        console.log('error123')
-                    }
+            if(response.status === 200){
+                console.log(response.data)
+                dispatch({
+                    type: UPDATE_USER,
+                    payload: response.data
                 })
+            }
+            else{
+                console.log('error123')
+            }
+        })
 
 
-                //alert("data updated successfully");
+        //alert("data updated successfully");
 
 
         .catch((err) => {
             console.log(err);
+        })
+}
+
+export const getUserCount = () => dispatch => {
+    //console.log('get user by id');
+    axios.get(api.baseURL + 'usercount/')
+        .then(response => {
+                dispatch({
+                    type: GET_USER_COUNT,
+                    payload: response
+                })
+            }
+
+        ).catch((err) => {
+        console.log(err);
     })
 }

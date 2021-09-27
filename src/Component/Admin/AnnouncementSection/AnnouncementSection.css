@@ -12,7 +12,7 @@
   width: fit-content;
   grid-template-columns: 500px 500px 500px;
   grid-gap: 30px;
-  grid-template-areas: "subcomponent1 subcomponent2 subcomponent3";
+  grid-template-areas: "subcomponent1 subcomponent2";
 }
 
 @media only screen and (max-width: 1720px) {

@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import './styles.css'
 import CustomAlert from "../../CustomAlert/CustomAlert";
 import {InputLabel, MenuItem, Select, Typography} from "@material-ui/core";
@@ -6,9 +6,16 @@ import {useDispatch} from "react-redux";
 import {deleteUsers, fetchTeachers, upDateUser} from "../../../Action/Users";
 function PopUpTeacherStatusComponent(props) {
 
-    const [status, setSelectedStatus] = useState(props.name2);
+
+    console.log('dddd', props.name2)
+
+    const [status, setSelectedStatus] = useState("");
     const dispatch = useDispatch();
 
+   // setSelectedStatus(props.name2)
+    useEffect(() => {
+        setSelectedStatus(props.name2)
+    },[props.trigger])
     const popupView = () => {
         const newUser = {
             status

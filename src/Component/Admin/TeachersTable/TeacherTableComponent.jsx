@@ -33,8 +33,7 @@ function TeacherTableComponent() {
     const [page, setPage] = React.useState(0);
 
 
-    const response = useSelector((state) => state.userDetails1.UserDetails.records.data);
-    console.log(response);
+    const response = useSelector((state) => state.userDetails1?.UserDetails?.records?.data);
     const [filteredData, setFilteredData] = useState(response);
 
     useEffect(() => {
@@ -52,10 +51,10 @@ function TeacherTableComponent() {
     const useStyles = makeStyles({
         table: {
             maxWidth: "710%",
-            borderRadius: 30,
+            borderRadius: 8.74,
         },
         teacherContent: {
-            borderRadius: 30,
+            borderRadius: 8.74,
             maxWidth: "810%"
         },
         teacherTableHeaderColumns: {
@@ -103,16 +102,13 @@ function TeacherTableComponent() {
                     <h1 className="title-teacherTable">Teacher Details Table</h1>
                     <div className="search-bar-teacher-table">
                         <TextField
-                            id="filled-full-width"
-                            label="Search"
                             placeholder="Search by name.."
-                            fullWidth
+
                             margin="normal"
-                            variant="outlined"
                             className="search-teacher"
                             value={searchTerm}
                             onChange={(event) => setSearchTerm(event.target.value)}
-                            style={{backgroundColor: "#FFFFFF", width: 300, borderRadius: 30}}
+                            style={{backgroundColor: "#FFFFFF", width: 300, borderRadius: 8.74, height: 30, paddingLeft: 10}}
                         />
                     </div>
 

@@ -44,15 +44,16 @@ const StyledTableRow = withStyles((theme: Theme) =>
 
 const useStyles = makeStyles({
     table: {
-        minWidth: 40,
+        minWidth: "100%",
         borderRadius: 50
     },
     editorContentClass: {
-        borderRadius: 30
+        borderRadius: 30,
+        maxWidth: "300%",
     },
 });
 
-function ClassDetailsTable() {
+function ClassDetailsTable({method}) {
 
     const classes = useStyles();
     const [page, setPage] = React.useState(0);
@@ -67,6 +68,11 @@ function ClassDetailsTable() {
         // setIsLoading(dataLoading);
         dispatch(getClasses());
     }, []);
+
+    const updateClass = (id) => {
+        console.log(id);
+        method(id)
+    }
 
 
     const handleChangePage = (event: React.MouseEvent<HTMLButtonElement> | null, newPage: number) => {
@@ -106,7 +112,7 @@ function ClassDetailsTable() {
                     <div className="search-bar-class-table">
                         <TextField
                             id="filled-full-width"
-                            label="Search"
+                            label="Search by class name"
                             placeholder="Search by name.."
                             fullWidth
                             margin="normal"
@@ -117,18 +123,6 @@ function ClassDetailsTable() {
                             style={{backgroundColor: "#FFFFFF", width: 300, borderRadius: 30}}
                         />
                     </div>
-                    {/*<div className="search-bar-class-table">*/}
-                    {/*    <TextField*/}
-                    {/*        id="filled-full-width"*/}
-                    {/*        // label="Search"*/}
-                    {/*        placeholder="Search Items.."*/}
-                    {/*        fullWidth*/}
-                    {/*        margin="normal"*/}
-                    {/*        // variant="outlined"*/}
-                    {/*        className="search-class"*/}
-                    {/*        style={{backgroundColor: "#FFFFFF", width: 300, height: 30, borderRadius: 30}}*/}
-                    {/*    />*/}
-                    {/*</div>*/}
 
                 </div>
                 <TableContainer component={Paper} className={classes.editorContentClass}>
@@ -164,7 +158,9 @@ function ClassDetailsTable() {
                                             onClick={() => {confirmDelete(row.id)}}/>
                                         </TableCell>
                                         <TableCell align="center">
-                                            <EditIcon style={{ color: green[500], fontSize: 35 }}/>
+                                            <EditIcon style={{ color: green[500], fontSize: 35 }}
+                                            onClick={() => {updateClass(row)}}
+                                            />
                                         </TableCell>
                                     </StyledTableRow>
                                 ))}
