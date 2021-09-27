@@ -1,39 +1,47 @@
 .welcome-container-course {
-  position: absolute;
+  display: flex;
   width: 100%;
   background-color: #162365;
   border-radius: 0px 0px 0px 130px;
   height: 697px;
-  margin-top: 3%;
 }
-
-.welcomebackground-surface-course {
-  position: absolute;
-  width: 35%;
-  margin-top: 11%;
-  margin-left: 6%;
+.welcome-container-course .landing-background-course {
+  display: flex;
+  padding-top: 3%;
+  padding-left: 3%;
+  padding-right: 3%;
 }
-
-.main-header-course {
+.welcome-container-course .landing-background-course .welcomebackground-surface-course {
+  float: left;
+  width: 100%;
+  margin-top: 5%;
+  margin-bottom: auto;
+}
+.welcome-container-course .landing-background-course .welcomebackground-surface-course .main-header-course {
   font-family: Roboto;
   color: white;
   font-weight: 700;
-  font-size: 64px;
+  font-size: 4vw;
 }
-
-.sub-header-course {
+.welcome-container-course .landing-background-course .welcomebackground-surface-course .sub-header-course {
   font-family: Roboto;
   color: white;
   font-weight: 400;
-  font-size: 36px;
+  font-size: 2vw;
+}
+.welcome-container-course .landing-background-course .welcomebackground-course1 {
+  margin-left: 5%;
+  display: block;
+}
+.welcome-container-course .landing-background-course .welcomebackground-course1 .welcomebackground-course {
+  float: right;
+  width: 48.828125vw;
+  height: 458px;
+  margin-bottom: 3vw;
 }
 
-.welcomebackground-course {
-  position: absolute;
-  width: 918.97px;
-  height: 458px;
-  margin-left: 50%;
-  margin-top: 3%;
+.button1-position {
+  margin-left: 20vw;
 }
 
 .button1 {
@@ -43,12 +51,6 @@
   border-radius: 12px;
   font-size: 23px;
   color: white;
-}
-
-.button1-position {
-  position: absolute;
-  margin-top: 30%;
-  margin-left: 66%;
 }
 
 /*# sourceMappingURL=style.css.map */

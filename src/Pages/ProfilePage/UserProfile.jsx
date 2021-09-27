@@ -6,7 +6,9 @@ import UserDetailsUpdateComponent from "../../Component/Profile/UserDetailsUpdat
 import {fetchStudents, fetchTeachers, getUserByID, loggedUser} from "../../Action/Users";
 import {useDispatch, useSelector} from "react-redux";
 import PasswordUpdateComponent from "../../Component/Profile/PasswordUpdateComponent";
-function UserProfile() {
+import {Button, Modal} from "react-bootstrap";
+
+const UserProfile = () => {
     const dispatch = useDispatch();
     const [buttonPopup, setButtonPopup] = useState(false);
     const [buttonPopup2, setButtonPopup2] = useState(false);
@@ -19,6 +21,10 @@ function UserProfile() {
     console.log('12333', user1)
 
     const [result, setResult] = useState(response);
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
 
     useEffect(() => {
@@ -39,6 +45,9 @@ function UserProfile() {
         setButtonPopup1(true);
         setPopupName("Password");
     }
+    const deleteAccount = () => {
+
+    }
 
 
 
@@ -46,7 +55,25 @@ function UserProfile() {
             <div>
                 <div className="bluescreen">
                 </div>
-
+                <Modal
+                    show={show}
+                    onHide={handleClose}
+                    backdrop="static"
+                    keyboard={false}
+                >
+                    <Modal.Header closeButton>
+                        <Modal.Title>Delete Account</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        Do you really want to delete account.
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="secondary" onClick={handleClose}>
+                            No
+                        </Button>
+                        <Button variant="primary" onClick={deleteAccount}>Yes</Button>
+                    </Modal.Footer>
+                </Modal>
                 <div className="bluescreen1">
                 <ProfileBio user1 = {user1}/>
                 </div>
@@ -63,7 +90,8 @@ function UserProfile() {
                                 <button className="userprofile-button1" onClick={updateEmail}>Update My Personal Details</button><br/>
                                 <button className="userprofile-button1" onClick={updatePassword}>Update Password</button><br/>
                                 <button className="userprofile-button1">My Transactions</button><br/>
-                                <button className="userprofile-button2">Delete My Account</button><br/>
+                                <button  className="userprofile-button2" onClick={handleShow}>Delete My Account</button><br/>
+
                             </div>
                         </div>
                     </div>
