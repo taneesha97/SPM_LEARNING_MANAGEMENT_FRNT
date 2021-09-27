@@ -32,13 +32,13 @@ function LoginComponent(props) {
         console.log(newUser);
         axios.post("http://localhost:8073/api/validate", newUser)
             .then(response => {
-                // if(response.status == 200){
-                //     setTimeout(() => {
-                //         alert('session closed')
-                //         dispatch(loggedUser({}))
-                //         AuthClass.logout();
-                //     }, 5 * 60 * 1000);
-                // }
+                if(response.status == 200){
+                    setTimeout(() => {
+                        alert('session closed')
+                        dispatch(loggedUser({}))
+                        AuthClass.logout();
+                    }, 10 * 60 * 1000);
+                }
                 let values = response.data;
                 console.log('res1 ', response.data);
 
@@ -56,7 +56,7 @@ function LoginComponent(props) {
                     AuthClass.login(values, values?.username, values?.email)
                     setButtonPopup(true);
                     setPopupName("login");
-                    setPopupLocaion("/home");
+                    setPopupLocaion("/profile");
 
                 }else if (values.type == "teacher"){
                     if (values.status == "valid"){
