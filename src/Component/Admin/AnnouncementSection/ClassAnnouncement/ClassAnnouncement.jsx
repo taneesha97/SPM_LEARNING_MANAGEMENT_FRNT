@@ -7,8 +7,9 @@ import Select from "react-select";
 import {InputLabel, MenuItem} from "@material-ui/core";
 import {getClasses} from "../../../../Action/Class";
 import {fetchTeachers} from "../../../../Action/Users";
+import {Form} from "react-bootstrap";
 
-function ClassAnnouncement(){
+const ClassAnnouncement = () =>{
 
     const[header, setHeader] = useState('');
     const[body, setBody] = useState('');
@@ -53,6 +54,12 @@ function ClassAnnouncement(){
         }
     }
 
+    const resetForm = () => {
+        setHeader('');
+        setBody('');
+        setName('');
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log('CALLING')
@@ -63,12 +70,14 @@ function ClassAnnouncement(){
                 name
             }
             dispatch(addAnnouncement(announcementData));
+            resetForm();
             console.log('DATA added')
         // }
         // setTimeout(() => dispatch(getAnn()), 1000);
     }
 
     return (
+        <React.Fragment>
         <div className="class-announcement-container">
             <div className="class-announcement-header">
                 <div className="class-announcement-section-header light">
@@ -79,7 +88,7 @@ function ClassAnnouncement(){
                 </div>
                 <div className="class-announcement-body">
                     <div className="input-form-container">
-                        <form className="form" onSubmit={handleSubmit}>
+                        <Form className="form" onSubmit={handleSubmit}>
                             <label> Heading</label>
                             <div>
                                 <input
@@ -114,19 +123,26 @@ function ClassAnnouncement(){
                                 >
                                 </Select>
                             </div>
-                            <div className="class-announcement-body-button-group">
-                                <div className="class-announcement-button">
-                                    <CustomButton name={"Discard"} color={"#FF5050"}/>
-                                </div>
-                                <div className="class-announcement-button">
-                                    <CustomButton type="submit" name={"Send"} color={"#e4bf5e"}/>
-                                </div>
+                            {/*<div className="class-announcement-body-button-group">*/}
+                            {/*    <div className="class-announcement-button">*/}
+                            {/*        <CustomButton name={"Discard"} color={"#FF5050"}/>*/}
+                            {/*    </div>*/}
+                            {/*    <div className="class-announcement-button">*/}
+                            {/*        <CustomButton  name={"Send"} color={"#e4bf5e"}/>*/}
+                            {/*        /!*<button type="submit" style={{color:"#e4bf5e", paddingBottom:"8px"}} className="custom-button">Submit</button>*!/*/}
+                            {/*    </div>*/}
+                            {/*</div>*/}
+
+                            <div className="course-button-group button-row">
+                                <button className="add-button" type="submit">Submit</button>
+                                <button className="reset-button" onClick={resetForm}>Reset</button>
                             </div>
-                        </form>
+                        </Form>
                     </div>
                 </div>
             </div>
         </div>
+        </React.Fragment>
     )
 }
 
