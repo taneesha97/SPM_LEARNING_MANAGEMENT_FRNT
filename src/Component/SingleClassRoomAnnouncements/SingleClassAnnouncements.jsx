@@ -30,7 +30,7 @@ function SingleClassAnnouncements() {
                     <img src= {volume}  className="Pic"/>
                 </div>
             </div>
-            <div className="mt-5">
+            <div className="mt-5 mb-5">
                 {rows.map((row)=> (
 
                     <div className="mb-2">
