@@ -7,6 +7,8 @@ import CustomAlert from '../../CustomAlert/CustomAlert'
 import {Grid} from "@material-ui/core";
 import Select from "react-select";
 import data from "bootstrap/js/src/dom/data";
+import {fetchTeachers} from "../../../Action/Users";
+import axios from "axios";
 function ClassMgntInt() {
 
     const [image, setImage] = useState("");
@@ -22,16 +24,16 @@ function ClassMgntInt() {
     const [success, setSuccess] = useState(false);
     const [file, setFile] = useState(0);
     const [downloadUri, setDownloadUri] = useState(0);
+    const [teacherOptions, setTeacherOptions] = useState(null);
+    //teacher data
+    const teacherResponse = useSelector((state) => state.userDetails1?.UserDetails?.records?.data);
+    console.log('teacherResponse',teacherResponse);
 
-    //React Select
-    const options = [
-        { value: 'D.K.L.WEERSINGHE', label: 'D.K.L.WEERSINGHE' },
-        { value: 'T.K.L.CHANDRASENA', label: 'T.K.L.CHANDRASENA' },
-        { value: 'M.N.V.RATHNAYAKA', label: 'M.N.V.RATHNAYAKA' },
-        { value: 'H.K.L.VEERSINGHE', label: 'H.K.L.VEERSINGHE' },
-        { value: 'K.N.V.PERERA', label: 'K.N.V.PERERA' },
-        { value: 'D.O.K.KUMARA', label: 'D.O.K.KUMARA' },
-    ];
+    useEffect(() => {
+        console.log('calling')
+        dispatch(fetchTeachers());
+    },[])
+
 
     const formRefresh = () => {
         console.log('form referesh calling');
@@ -69,11 +71,25 @@ function ClassMgntInt() {
         setTimeout(() => setSuccessMessageDisplay(""), 3000);
     }, [successMessage]);
 
-    //when click update button
+
+    async function getTeachers() {
+         console.log('Calling get tacher method');
+        const data = teacherResponse;
+         console.log('Calling get tacher method 2', teacherResponse);
+         const options = teacherResponse?.map((item) => (
+            console.log('ITEM', item),
+            {
+            "value" : item.id,
+            "label" : item.name
+            }))
+        setTeacherOptions(options);
+         console.log('OPTIONS',options);
+    }
+
+    //get teacher data
     useEffect(() => {
-
-
-    },[data])
+        getTeachers();
+    },[teacherResponse])
 
 
     const validation = () => {
@@ -157,11 +173,24 @@ function ClassMgntInt() {
                             <label htmlFor="lname">Teacher name</label>
                             <div className="class-form-teacher-input">
                                 <Select
-                                options={options}
+                                options={teacherOptions}
                                 menuPlacement="auto"
                                 menuPosition="fixed"
-                                // onChange={(e) => setClassData({...classData, tutorName: e.target.value})}
+                                onChange={(e) => setTutorName(e.label)}
                                 /></div>
+
+                            {/*<Autocomplete*/}
+                            {/*    value={teamName}*/}
+                            {/*    id="combo-box-demo"*/}
+                            {/*    size="small"*/}
+                            {/*    options={teamRecord.data}*/}
+                            {/*    getOptionLabel={(option: any) => option.teamName}*/}
+                            {/*    onChange={selectTeamName}*/}
+                            {/*    disabled={teamDisable}*/}
+                            {/*    renderInput={(params) => (*/}
+                            {/*        <TextField style={{ width: "100%" }} {...params} label="Team *" variant="outlined" />*/}
+                            {/*    )}*/}
+                            {/*/>*/}
 
                             <label htmlFor="lname">Attach the Image</label>
                             <input style={{height: "30px", fontSize: "10px", paddingBottom: "30px", color: "black", fontWeight: "bold"}} onChange={onDrop}  type="file" id="lname" name="lastname" placeholder="Number of Chapters.."
