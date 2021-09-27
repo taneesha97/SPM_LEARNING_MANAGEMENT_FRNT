@@ -28,37 +28,34 @@
 .admin-header-component-container {
   display: grid;
   justify-content: center;
-  grid-template-columns: 300px  300px 300px  300px;
+  grid-template-columns: 300px  300px 300px;
   grid-gap: 5px;
   grid-template-areas:
-    "tile1 tile2 tile3 tile4"
-    "tile5 tile6 tile7 tile8";
+    "tile1 tile2 tile3 "
+    "tile4 tile5 tile6 ";
 }
 @media only screen and (max-width: 1500px) {
   .admin-header-component-container {
     grid-template-columns: 300px  300px;
-    grid-template-rows: 200px 200px 200px 200px;
+    grid-template-rows: 200px 200px 200px;
     grid-template-areas:
         "tile1 tile2"
         "tile3 tile4"
-        "tile5 tile6"
-        "tile7 tile8";
+        "tile5 tile6";
   }
 
   //Media query to dynamically change the layout.
   @media only screen and (max-width: 966px) {
     .admin-header-component-container {
       grid-template-columns: 300px;
-      grid-template-rows: 200px 200px 200px 200px 200px 200px 200px 200px;
+      grid-template-rows: 200px 200px 200px 200px 200px 200px;
       grid-template-areas:
         "tile1"
         "tile2"
         "tile3"
         "tile4"
         "tile5"
-        "tile6"
-        "tile7"
-        "tile8";
+        "tile6";
     }
   }
 }

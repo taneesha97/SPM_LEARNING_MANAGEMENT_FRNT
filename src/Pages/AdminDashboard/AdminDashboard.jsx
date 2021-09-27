@@ -44,13 +44,13 @@ function AdminDashboard() {
 
     const array2 =[
         {"header":"Total Student:", "count":"50", "image": faUserFriends},
-        {"header":"Feedback", "count":"3", "image": faCommentAlt},
-        {"header":"Courses", "count":"6", "image": faBookOpen},
-        {"header":"Class", "count":"5", "image": faSchool},
-        {"header":"Income", "count":"LKR 1256.23", "image": faDollarSign},
-        {"header":"Materials", "count":"10", "image": faPencilRuler},
-        {"header":"Active Students", "count":"23", "image": faUser},
-        {"header":"Disabled Courses", "count":"6", "image": faTimes},
+        {"header":"Total Teacher", "count":"3", "image": faUser},
+        // {"header":"To", "count":"6", "image": faBookOpen},
+        // {"header":"Class", "count":"5", "image": faSchool},
+        {"header":"Total Income", "count":"LKR 1256.23", "image": faDollarSign},
+        {"header":"Total Announcements", "count":"10", "image": faCommentAlt},
+        {"header":"Total Classrooms", "count":"23", "image": faSchool},
+        {"header":"Total Courses", "count":"6", "image": faBookOpen},
     ];
 
     return (
