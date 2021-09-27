@@ -14,9 +14,10 @@ function SingleClassWelcomeHeader() {
                             Donec sed justo rutrum, </h4>
 
                     </div>
-                    <div className="button1-position">
-                        <button className="button1">Sign Up Here</button>
-                    </div>
+
+                </div>
+                <div className="button1-position">
+                    <button className="button1">Sign Up Here</button>
                 </div>
                 <hr/>
             </div>

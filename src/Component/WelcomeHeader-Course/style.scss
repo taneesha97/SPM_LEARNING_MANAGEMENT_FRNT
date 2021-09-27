@@ -1,10 +1,10 @@
 .welcome-container-course{
-  position: absolute;
+  display: flex;
   width: 100%;
   background-color: rgba(22, 35, 101, 1);
   border-radius: 0px 0px 0px 130px;
   height: 697px;
-  margin-top: 3%;
+  //margin-top: 3%;
 }
 
 .welcomebackground-surface-course{
@@ -31,7 +31,7 @@
 
 .welcomebackground-course{
   position: absolute;
-  width: 600px;
+  width: 48.828125vw;
   height: 458px;
   margin-left: 50%;
   margin-top: 3%;
@@ -47,8 +47,7 @@
 }
 
 .button1-position{
-  position: absolute;
-  margin-top: 30%;
-  margin-left: 66%;
+  margin-top: 35vw;
+  margin-left: 60vw;
 }
 
