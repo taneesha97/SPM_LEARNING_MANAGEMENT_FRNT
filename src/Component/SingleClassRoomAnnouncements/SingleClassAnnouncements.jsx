@@ -1,15 +1,15 @@
 import React from 'react'
 import './style.css'
-import volume from "./images/volume.png";
+import volume from "./images/audio.png";
 
 function SingleClassAnnouncements() {
     return (
         <div className="singleclassviewbackgroundann">
-            <div>
+            <div className="header">
                 <div>
-                    <h1>Announcements</h1>
+                    <h1 style={{color: "white"}}>Announcements</h1>
                 </div>
-                <div>
+                <div >
                     <img src= {volume}  className="Pic"/>
                 </div>
             </div>
