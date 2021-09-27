@@ -1,5 +1,6 @@
 import React from 'react'
 import "./PlayerThubnail.scss"
+import {Link} from "react-router-dom";
 
 function PlayerThumbnail({image, url}) {
     return (
@@ -16,11 +17,16 @@ function PlayerThumbnail({image, url}) {
                         This is the description of the Video card.
                     </div>
                     <div className="blog-card-background">
-                        <button className="blog-card_action">
+                        <Link to={{
+                            pathname: '/customvideoplayer',
+                            state: [{id: 1, name: 'Ford', color: 'red'}]
+                        }}>
+                            <button className="blog-card_action">
                         <span style={{marginRight: "10px"}}>
                                 Play
                         </span>
-                        </button>
+                            </button>
+                        </Link>
                     </div>
 
                 </div>
