@@ -32,7 +32,7 @@ const format = (seconds) => {
 
 
 
-function CustomVideoPlayerComponent() {
+function CustomVideoPlayerComponent({url}) {
 
     const [timeDisplayFormat, setTimeDisplayFormat] = useState("normal")
     const [playerName, setPlayerName] = useState("VIDEO-01")
