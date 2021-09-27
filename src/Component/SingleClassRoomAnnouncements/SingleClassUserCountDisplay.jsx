@@ -14,7 +14,7 @@ function SingleClassUserCountDisplay() {
             {rows.map((row)=> (
 
                 <div className="mb-2">
-                    <SingleClassUserCountDisplayInterface1/>
+                    <SingleClassUserCountDisplayInterface1 row = {row}/>
                     {/*<AnnoucementDisplay row = {row}/>*/}
                 </div>
 
