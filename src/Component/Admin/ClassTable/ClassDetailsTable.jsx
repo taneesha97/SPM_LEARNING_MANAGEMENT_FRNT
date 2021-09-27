@@ -118,16 +118,12 @@ function ClassDetailsTable({method}) {
                     <h1 className="title-classTable">Class Details Table</h1>
                     <div className="search-bar-class-table">
                         <TextField
-                            id="filled-full-width"
-                            label="Search by class name"
-                            placeholder="Search by name.."
-                            fullWidth
+                            placeholder="Search by class name.."
                             margin="normal"
-                            variant="outlined"
                             className="search-class"
                             value={searchTerm}
                             onChange={(event) => setSearchTerm(event.target.value)}
-                            style={{backgroundColor: "#FFFFFF", width: 300, borderRadius: 30}}
+                            style={{backgroundColor: "#FFFFFF", width: 300, borderRadius: 8.74, height: 30, paddingLeft: 10}}
                         />
                     </div>
                 </div>

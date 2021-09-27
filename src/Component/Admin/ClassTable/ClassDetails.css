@@ -28,7 +28,7 @@
   display: inline-block;
   text-align: Left;
   color: #5A5A5A;
-  font-size: 44px;
+  font-size: 25px;
   font-weight: bolder;
   font-family: "Helvetica", "Verdana", serif;
 }
@@ -37,10 +37,6 @@
   float: right;
   align-content: center;
   margin-top: -0.6%;
-}
-
-.search-class {
-  width: 100%;
 }
 
 .class-table-header {

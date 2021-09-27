@@ -4,6 +4,10 @@ import {fetchTeachers, upDateUser} from "../../../../Action/Users";
 
 function PopUpUpdate(props) {
 
+    const [name, setName] = useState('');
+    const [description, setDescription] = useState('');
+    const [tutorName, setTutorName] = useState('');
+
 
     function popupView() {
         const classData = {
