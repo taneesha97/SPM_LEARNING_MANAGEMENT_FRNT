@@ -6,7 +6,6 @@ function SingleClassWelcomeHeader() {
     return (
             <div className='welcome-container-course'>
                 <div className='landing-background-course'>
-                    <img src={Background} className='welcomebackground-course'/>
                     <div className='welcomebackground-surface-course align-middle'>
                         <h2 className='main-header-course align-middle'>2021 Grade 10 class</h2>
                         <h4 className='sub-header-course align-middle'>Lorem ipsum dolor sit amet,
@@ -14,6 +13,8 @@ function SingleClassWelcomeHeader() {
                             Donec sed justo rutrum, </h4>
 
                     </div>
+                    <img src={Background} className='welcomebackground-course'/>
+
 
                 </div>
                 <div className="button1-position">

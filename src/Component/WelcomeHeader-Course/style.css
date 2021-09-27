@@ -5,11 +5,14 @@
   border-radius: 0px 0px 0px 130px;
   height: 697px;
 }
+.welcome-container-course .landing-background-course {
+  display: flex;
+  background: burlywood;
+}
 
 .welcomebackground-surface-course {
-  position: absolute;
+  display: flex;
   width: 35%;
-  margin-top: 11%;
   margin-left: 6%;
 }
 
@@ -28,10 +31,10 @@
 }
 
 .welcomebackground-course {
-  position: absolute;
+  display: flex;
+  float: right;
   width: 48.828125vw;
   height: 458px;
-  margin-left: 50%;
   margin-top: 3%;
 }
 
@@ -45,7 +48,6 @@
 }
 
 .button1-position {
-  margin-top: 35vw;
   margin-left: 60vw;
 }
 
