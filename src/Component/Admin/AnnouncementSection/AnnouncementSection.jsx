@@ -11,6 +11,9 @@ function AnnouncementSection({array1}){
             <div className="announcement-section-responsive-subcomponent1">
                 <ClassAnnouncement/>
             </div>
+            <div className="announcement-section-responsive-subcomponent2-new">
+                <AnnouncementTable/>
+            </div>
             {/*<div className="announcement-section-responsive-subcomponent2">*/}
             {/*    /!*<AnnouncementTable array={array1}/>*!/*/}
             {/*</div>*/}
