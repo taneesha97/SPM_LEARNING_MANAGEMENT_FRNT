@@ -24,4 +24,18 @@
   padding: 40px;
 }
 
+.announcementDisplay1-font1 {
+  font-family: Roboto;
+  color: white;
+  font-weight: 700;
+  font-size: 2vw;
+}
+
+.announcementDisplay1-font2 {
+  font-family: Roboto;
+  color: white;
+  font-weight: 700;
+  font-size: 1vw;
+}
+
 /*# sourceMappingURL=style.css.map */

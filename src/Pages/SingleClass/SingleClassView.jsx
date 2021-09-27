@@ -9,9 +9,9 @@ function SingleClassView() {
     return (
         <div className="singleclassViewBackground">
             <SingleClassWelcomeHeader/>
-            <SingleClassAnnouncements/>
+
             <SingleClassViewBackground/>
-            <CourseContent/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
             <Footer/>
         </div>
     )
