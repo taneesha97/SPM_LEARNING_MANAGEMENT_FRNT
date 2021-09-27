@@ -1,6 +1,7 @@
 import React from 'react'
 import './style.css'
 import volume from "./images/audio.png";
+import AnnoucementDisplay from "./AnnoucementDisplay";
 
 function SingleClassAnnouncements() {
     return (
@@ -15,6 +16,7 @@ function SingleClassAnnouncements() {
             </div>
             <div>
                     <h1> announcements</h1>
+                    <AnnoucementDisplay/>
             </div>
 
         </div>
