@@ -1,0 +1,90 @@
+.singleclassviewbackgroundann{
+
+  height: fit-content;
+  width: 40.3vw;
+  background-color: #0D1335;
+  //margin-left: 77.85%;
+  margin-right: 0px;
+  margin-left: auto;
+  border-radius: 30px 0px 0px 30px;
+  padding : 3%;
+  .header{
+    display: flex;
+  }
+  .singleclassviewbackgroundann1{
+    height: fit-content;
+    .singleclassviewbackgroundann2{
+      height: fit-content;
+      .announcementDisplay1{
+        background: rgba(22, 35, 101, 1);
+
+        width: 100%;
+        border-radius: 20px;
+        padding: 40px;
+      }
+    }
+  }
+}
+
+.Pic{
+  height: 4vw;
+  width: 4vw;
+  margin-left: 7vw;
+
+}
+
+
+
+.announcementDisplay1-font1{
+  font-family:Roboto;
+  color: white;
+  font-weight: 700;
+  font-size: 3vw;
+}
+.announcementDisplay1-font2{
+  font-family:Roboto;
+  color: white;
+  font-weight: 700;
+  font-size: 2vw;
+}
+
+.singlclassview-logo1{
+  //display: block;
+  float: right;
+  margin-bottom: auto;
+  margin-top: auto;
+}
+
+.singlclassview-logo{
+  width: 5vw;
+  height: 5vw;
+  //background: chocolate;
+}
+
+.singleclassusercountdisplay{
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  height: 30.0vw;
+  width:  50.5vw;
+  //background-color: #FFFFFF;
+  margin-top: 2vw;
+  margin-left: 5vw;
+}
+
+.SingleClassUsertDisplayInterface1{
+  //display: flow;
+  background: rgba(22, 35, 101, 1);
+  height: 100%;
+  width: 100%;
+  border-radius: 20px;
+  padding: 40px;
+}
+
+.SingleClassUsertDisplayInterface2{
+  height: auto;
+  float: left;
+  margin-bottom: auto;
+  margin-top: auto;
+  padding-bottom: 20px;
+}
