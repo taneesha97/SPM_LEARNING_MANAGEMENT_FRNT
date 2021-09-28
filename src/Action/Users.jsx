@@ -6,7 +6,7 @@ import {
     FETCH_USERS,
     VALID_USER,
     ERROR_USER,
-    GET_USER_COUNT
+    GET_USER_COUNT, LOGOUT_USER
 } from "./types";
 import axios from "axios";
 import * as api from '../API'
@@ -152,6 +152,10 @@ export const getUserByID = (id) => dispatch => {
 
 export const loggedUser = (PostData) => dispatch => {
     dispatch({type: VALID_USER, payload: PostData });
+}
+
+export const logoutUser = () => dispatch => {
+    dispatch({type: LOGOUT_USER, payload: {} });
 }
 
 

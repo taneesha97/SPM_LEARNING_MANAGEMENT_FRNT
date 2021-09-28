@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import './Login.css'
 import {useDispatch, useSelector} from "react-redux";
-import {fetchUser, loggedUser, loginUserValidation} from "../../Action/Users";
+import {fetchUser, loggedUser, loginUserValidation, logoutUser} from "../../Action/Users";
 import {useHistory} from "react-router";
 import axios from "axios";
 import AuthClass from "../../Validation/AuthClass";
@@ -32,13 +32,13 @@ function LoginComponent(props) {
         console.log(newUser);
         axios.post("http://localhost:8073/api/validate", newUser)
             .then(response => {
-                // if(response.status == 200){
-                //     setTimeout(() => {
-                //         alert('session closed')
-                //         dispatch(loggedUser({}))
-                //         AuthClass.logout();
-                //     }, 5 * 60 * 1000);
-                // }
+                if(response.status == 200){
+                    setTimeout(() => {
+                        alert('session closed')
+                        dispatch(logoutUser())
+                        AuthClass.logout();
+                    }, 10 * 60 * 1000);
+                }
                 let values = response.data;
                 console.log('res1 ', response.data);
 
@@ -56,7 +56,7 @@ function LoginComponent(props) {
                     AuthClass.login(values, values?.username, values?.email)
                     setButtonPopup(true);
                     setPopupName("login");
-                    setPopupLocaion("/home");
+                    setPopupLocaion("/profile");
 
                 }else if (values.type == "teacher"){
                     if (values.status == "valid"){

@@ -3,6 +3,8 @@ import {loggedUser} from "../Action/Users";
 
 class Auth {
 
+
+
     constructor() {
 
         this.authenicated = false;
@@ -30,6 +32,7 @@ class Auth {
         localStorage.setItem('usertype', "");
         localStorage.setItem('email', "");
         localStorage.setItem('user', "");
+        window.location.href = "/login";
         this.authenticated = false;
     }
 
