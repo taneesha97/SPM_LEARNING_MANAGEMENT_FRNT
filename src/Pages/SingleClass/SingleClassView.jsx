@@ -15,7 +15,7 @@ function SingleClassView() {
             {/*<CourseContent/>*/}
             {/*<SingleClassViewBackground/>*/}
 
-            {/*<Footer/>*/}
+            <Footer/>
         </div>
     )
 }
