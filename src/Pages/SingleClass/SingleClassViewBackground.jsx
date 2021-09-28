@@ -7,9 +7,11 @@ import SingleClassUserCountDisplay from "../../Component/SingleClassRoomAnnounce
 function SingleClassViewBackground() {
     return (
             <div className="bluescreen4-singleClassView">
+                <SingleClassAnnouncements/>
                 <SingleClassUserCountDisplay/>
 
-                {/*<CourseContent/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>*/}
+
+
             </div>
     )
 }

@@ -1,9 +1,11 @@
 .bluescreen4-singleClassView {
-  height: 1909px;
+  height: fit-content;
+  background: chocolate;
 }
 
 .singleclassViewBackground {
   background-color: #99a9ff;
+  height: fit-content;
 }
 
 /*# sourceMappingURL=style.css.map */

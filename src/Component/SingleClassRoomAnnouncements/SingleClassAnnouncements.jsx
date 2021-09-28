@@ -21,27 +21,28 @@ function SingleClassAnnouncements() {
                 'course modifications are, once you have them completed. '},
       ]
     return (
-        <div className="singleclassviewbackgroundann">
-            <div className="header">
-                <div>
-                    <h1 style={{color: "white"}}>Announcements</h1>
-                </div>
-                <div >
-                    <img src= {volume}  className="Pic"/>
-                </div>
-            </div>
-            <div className="mt-5 mb-5">
-                {rows.map((row)=> (
-
-                    <div className="mb-2">
-                        <AnnoucementDisplay row = {row}/>
+            <div className="singleclassviewbackgroundann">
+                <div className="header">
+                    <div>
+                        <h1 style={{color: "white"}}>Announcements</h1>
                     </div>
+                    <div >
+                        <img src= {volume}  className="Pic"/>
+                    </div>
+                </div>
+                <div className="singleclassviewbackgroundann1 mt-5 mb-5">
+                    {rows.map((row)=> (
 
-                ))}
+                        <div className="singleclassviewbackgroundann2 mb-2">
+                            <AnnoucementDisplay row = {row}/>
+                        </div>
+
+                    ))}
+
+                </div>
 
             </div>
 
-        </div>
     )
 }
 
