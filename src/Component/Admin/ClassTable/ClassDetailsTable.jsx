@@ -65,7 +65,6 @@ function ClassDetailsTable({method}) {
     const dispatch = useDispatch();
     const [searchTerm, setSearchTerm] = useState("");
     const classDetails = useSelector((state) => state.classes.classRecords.records);
-    console.log('CLASS DETAIL', classDetails);
 
     React.useEffect(() => {
         // setIsLoading(dataLoading);

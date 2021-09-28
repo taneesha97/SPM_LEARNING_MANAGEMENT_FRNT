@@ -1,7 +1,5 @@
 import React from 'react'
 import './ClassSearch.css';
-import {FormControl, InputLabel, MenuItem} from "@material-ui/core";
-import Select from "react-select";
 
 function ClassSearch() {
     return (
