@@ -35,7 +35,18 @@
   font-family: Roboto;
   color: white;
   font-weight: 700;
-  font-size: 1vw;
+  font-size: 2vw;
+}
+
+.singlclassview-logo1 {
+  float: right;
+  margin-bottom: auto;
+  margin-top: auto;
+}
+
+.singlclassview-logo {
+  width: 5vw;
+  height: 5vw;
 }
 
 .singleclassusercountdisplay {
@@ -49,10 +60,18 @@
 
 .SingleClassUsertDisplayInterface1 {
   background: #162365;
-  height: fit-content;
+  height: 100%;
   width: 100%;
   border-radius: 20px;
   padding: 40px;
+}
+
+.SingleClassUsertDisplayInterface2 {
+  height: auto;
+  float: left;
+  margin-bottom: auto;
+  margin-top: auto;
+  padding-bottom: 20px;
 }
 
 /*# sourceMappingURL=style.css.map */
