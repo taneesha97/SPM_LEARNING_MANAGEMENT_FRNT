@@ -103,9 +103,9 @@ function ClassMgntInt() {
 
     //File attachment logic, saved the file in state.
     const onDrop = React.useCallback((selectedFile) => {
-        let files = selectedFile.target.files;
-        setFile(files);
-        console.log(file);
+        let image = selectedFile.target.files;
+        setFile(image);
+        console.log('IMG',file);
         setSuccess(false);
         setProgress(0);
     })
@@ -195,7 +195,6 @@ function ClassMgntInt() {
                             <label htmlFor="lname">Attach the Image</label>
                             <input style={{height: "30px", fontSize: "10px", paddingBottom: "30px", color: "black", fontWeight: "bold"}} onChange={onDrop}  type="file" id="lname" name="lastname" placeholder="Number of Chapters.."
                                    className="class-form-teacher-input"/>
-
                             <div className="msg">
                             <Grid item direction="column" md={6}>
                                 {errorDisplay ? (
