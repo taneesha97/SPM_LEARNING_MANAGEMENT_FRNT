@@ -25,6 +25,7 @@ function ClassMgntInt() {
     const [file, setFile] = useState(0);
     const [downloadUri, setDownloadUri] = useState(0);
     const [teacherOptions, setTeacherOptions] = useState(null);
+    console.log('teacherOptions',teacherOptions);
     //teacher data
     const teacherResponse = useSelector((state) => state.userDetails1?.UserDetails?.records?.data);
     console.log('teacherResponse',teacherResponse);

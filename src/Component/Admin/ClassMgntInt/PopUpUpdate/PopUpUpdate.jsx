@@ -1,29 +1,38 @@
 import React, {useEffect, useState} from 'react'
 import {InputLabel, MenuItem, Select} from "@material-ui/core";
 import {fetchTeachers, upDateUser} from "../../../../Action/Users";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {getClasses, updateClass} from "../../../../Action/Class";
 
 function PopUpUpdate(props) {
-
+    const dispatch = useDispatch();
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
     const [tutorName, setTutorName] = useState('');
     const [teacherOptions, setTeacherOptions] = useState(null);
     const teacherResponse = useSelector((state) => state.userDetails1?.UserDetails?.records?.data);
+    console.log(teacherResponse);
+
     function popupView() {
         const classData = {
             name,
             description,
-            tutorName,
-            //image
+            // tutorName,
         }
-        // dispatch(upDateUser(props.name1, newUser))
-        // setTimeout(function(){
-        //     dispatch(fetchTeachers());
-        //     props.setTrigger(false)
-        // }, 100);
+        console.log(classData);
+        dispatch(updateClass(props.popupData.id, classData))
+        setTimeout(function(){
+            dispatch(getClasses());
+            props.setTrigger(false)
+        }, 50);
         props.setTrigger(false);
     }
+
+    useEffect(() => {
+        dispatch(fetchTeachers());
+        setName(props.popupData.name);
+        setDescription(props.popupData.description);
+    },[props.trigger])
 
     async function getTeachersData() {
         const data = teacherResponse;
@@ -37,11 +46,12 @@ function PopUpUpdate(props) {
         setTeacherOptions(options);
         console.log('OPTIONS',options);
     }
-
+    console.log('OPTIONS',teacherOptions);
+    console.log('Calling popup',props.popupData);
     //get teacher data
     useEffect(() => {
         getTeachersData();
-    },[teacherResponse])
+    },[props.trigger])
 
     function popupView1() {
         props.setTrigger(false);
@@ -83,12 +93,22 @@ function PopUpUpdate(props) {
                     </div>
                     <div className="pb-2">
                         <InputLabel id="label">Teacher Name</InputLabel>
+                        {/*    <Select*/}
+                        {/*        options={teacherOptions}*/}
+                        {/*        menuPlacement="auto"*/}
+                        {/*        menuPosition="fixed"*/}
+                        {/*        style={{width:'500px'}}*/}
+                        {/*        onChange={(e) => setTutorName(e.label)}>*/}
+                        {/*    </Select>*/}
+                        <div className="class-form-teacher-input">
                             <Select
                                 options={teacherOptions}
-                                menuPlacement="auto"
+                                // menuPlacement="auto"
+                                style={{width:'500px'}}
                                 menuPosition="fixed"
-                                onChange={(e) => setTutorName(e.label)}>
-                            </Select>
+                                onChange={(e) => setTutorName(e.label)}/>
+                        </div>
+
                     </div>
                     <div className="modal-footer-1">
                         <button className="btn btn-success btn-block w-100" onClick={popupView}>OK</button>

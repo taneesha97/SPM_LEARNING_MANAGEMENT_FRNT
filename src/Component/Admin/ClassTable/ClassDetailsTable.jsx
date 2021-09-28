@@ -65,7 +65,7 @@ function ClassDetailsTable({method}) {
     const dispatch = useDispatch();
     const [searchTerm, setSearchTerm] = useState("");
     const classDetails = useSelector((state) => state.classes.classRecords.records);
-
+    const [popupData,setPopupData] = useState("");
     React.useEffect(() => {
         // setIsLoading(dataLoading);
         dispatch(getClasses());
@@ -73,6 +73,7 @@ function ClassDetailsTable({method}) {
 
     const updateClass = (id) => {
         console.log(id);
+        setPopupData(id);
         method(id)
         setButtonPopupUpdate(true);
     }
@@ -112,7 +113,7 @@ function ClassDetailsTable({method}) {
             <div className="classTableBackground">
                 <div className="class-table-title-header">
                     <div style={{ margin: 'auto'}}>
-                        <PopUpUpdate trigger={buttonPopupUpdate} setTrigger = {setButtonPopupUpdate}/>
+                        <PopUpUpdate trigger={buttonPopupUpdate} setTrigger = {setButtonPopupUpdate} popupData={popupData}/>
                     </div>
                     <h1 className="title-classTable">Class Details Table</h1>
                     <div className="search-bar-class-table">
