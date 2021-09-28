@@ -57,6 +57,7 @@
 
 .singleclassusercountdisplay {
   display: flex;
+  position: absolute;
   flex-direction: column;
   height: 30vw;
   width: 50.5vw;

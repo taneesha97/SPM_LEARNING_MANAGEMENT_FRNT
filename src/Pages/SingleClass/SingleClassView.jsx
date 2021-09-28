@@ -10,8 +10,9 @@ function SingleClassView() {
     return (
         <div className="singleclassViewBackground">
             <SingleClassWelcomeHeader/>
+            <SingleClassUserCountDisplay/>
             <SingleClassAnnouncements/>
-            {/*<SingleClassUserCountDisplay/>*/}
+
             {/*<CourseContent/>*/}
             {/*<SingleClassViewBackground/>*/}
 
