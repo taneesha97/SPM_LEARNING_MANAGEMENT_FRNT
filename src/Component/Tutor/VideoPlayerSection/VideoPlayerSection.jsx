@@ -23,8 +23,9 @@ function VideoPlayerSection() {
         const response = await axios.get("http://localhost:8073/videos");
         const data = response.data;
         const options = data.map(item => ({
-            "image" : item.name,
-            "url" : item.uri,
+            "image" : item.image,
+            "name": item.name,
+            "url" : item.url,
         }))
         setVideoData(options);
     }
@@ -38,6 +39,7 @@ function VideoPlayerSection() {
         {"image":"http://placeimg.com/180/100/nature", "url":"https://www.youtube.com/watch?v=wGixQPuG1GY"},
         ];
 
+    console.log(videoData);
     return (
         <div>
             <div style={{marginTop: "20px"}}/>

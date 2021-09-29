@@ -6,8 +6,8 @@ function PlayerThumbnail({image, url}) {
     return (
         <div className="video-card-container">
             <div className="blog-card">
-                <div className="blog-card_thumbnail">
-                    <img src={image}/>
+                <div className="blog-card-thumbnail">
+                    <img className="blog-card-thumbnail-image" src={image}/>
                 </div>
                 <div className="blog-card_details">
                     <div className="blog-card_title">
@@ -19,7 +19,7 @@ function PlayerThumbnail({image, url}) {
                     <div className="blog-card-background">
                         <Link to={{
                             pathname: '/customvideoplayer',
-                            state: [{id: 1, name: 'Ford', color: 'red'}]
+                            state: [{url: url}]
                         }}>
                             <button className="blog-card_action">
                         <span style={{marginRight: "10px"}}>
