@@ -6,7 +6,7 @@ import {
     FETCH_USERS,
     VALID_USER,
     ERROR_USER,
-    GET_USER_COUNT
+    GET_USER_COUNT, LOGOUT_USER
 } from "../Action/types";
 
 const initialState = {
@@ -68,6 +68,13 @@ export default function (state = initialState, action){
             return {
                 ...state,
                 loginUser: action.payload
+            }
+        case LOGOUT_USER:
+            console.log('reducer');
+            console.log('reducer1 ',action.payload);
+            return {
+                ...state,
+                loginUser: {}
             }
         case UPDATE_USER:
             console.log('reducer', action.payload);

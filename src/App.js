@@ -26,6 +26,8 @@ import VideoComponentInterface from "./Component/VideoComponent/VideoComponentIn
 import CustomVideoPlayerComponent from "./Component/Tutor/CustomVideoPlayerComponent/CustomVideoPlayerComponent";
 import VideoResourcePage from "./Pages/VideoResourcePage/VideoResourcePage";
 import TutorReportPage from "./Pages/TutorReportPage/TutorReportPage";
+import PopUpUpdate from "./Component/Admin/ClassMgntInt/PopUpUpdate/PopUpUpdate";
+
 
 
 const App = () => {
@@ -38,7 +40,7 @@ const App = () => {
                       <TutorDashboard/>
                   </Route>
                   <Route exact path = "/home" component={HomePage}/>
-                  <Route exact path = "/" component={TestingReport}/>
+                  <Route exact path = "/" component={HomePage}/>
                   <ProtectedRoute exact path = "/profile" component={UserProfilePage}/>
                   <Route exact path = "/login" component={LoginPage}/>
                   <Route exact path = "/registration" component={RegistrationPage}/>
@@ -58,6 +60,7 @@ const App = () => {
                   <Route exact path = "/customvideoplayer" component={CustomVideoPlayerComponent}/>
                   <Route exact path = "/video" component={VideoResourcePage}/>
                   <Route exact path = "/tutorreport" component={TutorReportPage}/>
+                  <Route exact path = "/popup" component={PopUpUpdate}/>
               </Switch>
           </BrowserRouter>
   )
