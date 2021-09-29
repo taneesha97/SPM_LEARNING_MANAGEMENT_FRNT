@@ -1,4 +1,4 @@
-import React, {useState, useRef} from "react";
+import React, {useState, useRef, useEffect} from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import {Button, Container, Slider, Tooltip, Typography} from "@material-ui/core";
@@ -8,6 +8,7 @@ import PlayerControls from "./PlayerControls";
 import screenfull from 'screenfull'
 import "./CustomVideoPlayerComponent.scss"
 import CustomButton from "../CourseMgntInt/CustomButtons/CustomButton";
+import {useLocation} from "react-router";
 
 const useStyles = makeStyles({
     playerWrapper: {
@@ -15,6 +16,8 @@ const useStyles = makeStyles({
         position: "relative"
     },
 });
+
+
 
 const format = (seconds) => {
     if(isNaN(seconds)){
@@ -32,7 +35,21 @@ const format = (seconds) => {
 
 
 
-function CustomVideoPlayerComponent({url}) {
+function CustomVideoPlayerComponent() {
+
+    const { url } = useLocation();
+    const [assignedUrl, setAssignedUrl] = useState(null)
+
+
+
+    useEffect(() => {
+        if(url){
+            setAssignedUrl(url.url)
+        } else {
+            setAssignedUrl("https://www.youtube.com/watch?v=wGixQPuG1GY");
+        }
+
+    },[])
 
     const [timeDisplayFormat, setTimeDisplayFormat] = useState("normal")
     const [playerName, setPlayerName] = useState("VIDEO-01")
@@ -117,8 +134,6 @@ function CustomVideoPlayerComponent({url}) {
     }
 
 
-
-
     return (
         <React.Fragment>
             <div style={{marginTop: "10px"}}/>
@@ -126,7 +141,7 @@ function CustomVideoPlayerComponent({url}) {
                 <div ref={playerContainerRef} className={classes.playerWrapper}>
                     <ReactPlayer
                         width={"100%"}
-                        url="https://www.youtube.com/watch?v=wGixQPuG1GY"
+                        url={assignedUrl}
                         muted={muted}
                         playing={playing}
                         border-radius='16px'
@@ -135,10 +150,8 @@ function CustomVideoPlayerComponent({url}) {
                         volume={volume}
                         playbackRate={playbackRate}
                         onProgress={handleProgress}
-
                     />
                     <PlayerControls
-
                         onPlayPause={handlePlayPause}
                         playing={playing}
                         onRewind={handleRewind}
@@ -167,7 +180,6 @@ function CustomVideoPlayerComponent({url}) {
                 <div className="video-player-comment">
                     <input type="textarea" name="comment-input" className="comment-input"  />
                     <div style={{marginTop: "5px"}}><CustomButton name="Post"/></div>
-
                 </div>
 
 
