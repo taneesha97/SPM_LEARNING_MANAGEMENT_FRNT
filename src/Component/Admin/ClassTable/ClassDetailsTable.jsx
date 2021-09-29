@@ -18,6 +18,8 @@ import './ClassDetails.css'
 import {TextField} from "@material-ui/core";
 import * as row from "react-file-base64";
 import {fetchTeachers} from "../../../Action/Users";
+import PopUpTeacherStatusComponent from "../../PopupModel/TeacherStatus/PopUpTeacherStatusComponent";
+import PopUpUpdate from "../ClassMgntInt/PopUpUpdate/PopUpUpdate";
 
 
 const StyledTableCell = withStyles((theme: Theme) =>
@@ -58,12 +60,12 @@ function ClassDetailsTable({method}) {
     const classes = useStyles();
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(5);
+    const [buttonPopupUpdate, setButtonPopupUpdate] = useState(false);
     // const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
     const dispatch = useDispatch();
     const [searchTerm, setSearchTerm] = useState("");
     const classDetails = useSelector((state) => state.classes.classRecords.records);
-    console.log('CLASS DETAIL', classDetails);
-
+    const [popupData,setPopupData] = useState("");
     React.useEffect(() => {
         // setIsLoading(dataLoading);
         dispatch(getClasses());
@@ -71,7 +73,9 @@ function ClassDetailsTable({method}) {
 
     const updateClass = (id) => {
         console.log(id);
+        setPopupData(id);
         method(id)
+        setButtonPopupUpdate(true);
     }
 
 
@@ -108,22 +112,20 @@ function ClassDetailsTable({method}) {
             {/*    <div className="input-table-container">*/}
             <div className="classTableBackground">
                 <div className="class-table-title-header">
+                    <div style={{ margin: 'auto'}}>
+                        <PopUpUpdate trigger={buttonPopupUpdate} setTrigger = {setButtonPopupUpdate} popupData={popupData}/>
+                    </div>
                     <h1 className="title-classTable">Class Details Table</h1>
                     <div className="search-bar-class-table">
                         <TextField
-                            id="filled-full-width"
-                            label="Search by class name"
-                            placeholder="Search by name.."
-                            fullWidth
+                            placeholder="Search by class name.."
                             margin="normal"
-                            variant="outlined"
                             className="search-class"
                             value={searchTerm}
                             onChange={(event) => setSearchTerm(event.target.value)}
-                            style={{backgroundColor: "#FFFFFF", width: 300, borderRadius: 30}}
+                            style={{backgroundColor: "#FFFFFF", width: 300, borderRadius: 8.74, height: 30, paddingLeft: 10}}
                         />
                     </div>
-
                 </div>
                 <TableContainer component={Paper} className={classes.editorContentClass}>
                         <Table className={classes.table} aria-label="customized table">
@@ -147,6 +149,7 @@ function ClassDetailsTable({method}) {
                                 })
                                 // slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                                     .map((row) => (
+                                        console.log(row),
                                     <StyledTableRow key={row.id}>
                                         {/*<StyledTableCell align="center">{row.id}</StyledTableCell>*/}
                                         <StyledTableCell align="center">{row.name}</StyledTableCell>

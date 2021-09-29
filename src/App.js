@@ -26,6 +26,8 @@ import DownloadFile from "./Component/Downloads/DownloadFile";
 import PopUpTeacherStatusComponent from "./Component/PopupModel/TeacherStatus/PopUpTeacherStatusComponent";
 import VideoComponentInterface from "./Component/VideoComponent/VideoComponentInterface";
 import CustomVideoPlayerComponent from "./Component/Tutor/CustomVideoPlayerComponent/CustomVideoPlayerComponent";
+import VideoResourcePage from "./Pages/VideoResourcePage/VideoResourcePage";
+import PopUpUpdate from "./Component/Admin/ClassMgntInt/PopUpUpdate/PopUpUpdate";
 
 
 const App = () => {
@@ -57,6 +59,8 @@ const App = () => {
                   <Route exact path = "/teacherstatuspopup" component={PopUpTeacherStatusComponent}/>
                   <Route exact path = "/videocomponent" component={VideoComponentInterface}/>
                   <Route exact path = "/customvideoplayer" component={CustomVideoPlayerComponent}/>
+                  <Route exact path = "/video" component={VideoResourcePage}/>
+                  <Route exact path = "/popup" component={PopUpUpdate}/>
               </Switch>
           </BrowserRouter>
   )
