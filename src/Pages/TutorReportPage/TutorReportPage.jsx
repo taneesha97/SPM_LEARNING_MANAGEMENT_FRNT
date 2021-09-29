@@ -15,7 +15,7 @@ import {
 
 // React Utils from Kendo
 import 'hammerjs';
-import { Button } from '@material-ui/core';
+import { Button } from '@progress/kendo-react-buttons';
 import { PDFExport, savePDF } from '@progress/kendo-react-pdf';
 import { DropDownList } from '@progress/kendo-react-dropdowns';
 import './TutorReportPage.scss'
@@ -25,19 +25,25 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 function TutoReportPage() {
     const pdfExportComponent = useRef(null);
+    const contentArea = useRef(null);
     const [layoutSelection, setLayoutSelection] = useState({ text: "A4", value: "size-a4"});
 
-    const ddData = [{ text: "A4", value: "size-a4" },
-        { text: "Letter", value: "size-letter" },
-        { text: "Executive", value: "size-executive" }
+    const ddData = [{text: "A4", value: "size-a4" },
+        {text: "Letter", value: "size-letter" },
+        {text: "Executive", value: "size-executive"}
     ];
 
     const handleExportWithComponent = (event) => {
+        console.log("PDF Export method, ");
         pdfExportComponent.current.save();
     }
 
     const updatePageLayout = (event) => {
         setLayoutSelection(event.target.value);
+    }
+
+    const handleExportWithMethod = (event) => {
+        savePDF(contentArea.current, {paperSize: "A4"});
     }
 
     return(
@@ -52,7 +58,7 @@ function TutoReportPage() {
             </div>
             <div className="page-container hidden-on-narrow">
                 <PDFExport ref={pdfExportComponent}>
-                    <div className={ `pdf-page ${ layoutSelection.value }` }>
+                    <div ref={contentArea} className={ `pdf-page ${ layoutSelection.value }` }>
                         <div className="inner-page">
                             <div className="pdf-header">
 								<span className="company-logo">
@@ -62,30 +68,26 @@ function TutoReportPage() {
                             </div>
                             <div className="pdf-footer">
                                 <p>
-                                    Blauer See Delikatessen<br />
-                                    Lützowplatz 456<br />
-                                    Berlin, Germany,  10785
+                                    SPM Management System.<br />
+                                    Learning Management Automation System.<br />
+                                    Colombo, Sri Lanka, 108080.
                                 </p>
                             </div>
                             <div className="addresses">
                                 <div className="for">
-                                    <h3>Invoice For</h3>
+                                    <h3>File Overview</h3>
                                     <p>
-                                        Antonio Moreno<br />
-                                        Naucalpan de Juárez<br />
-                                        México D.F., Mexico, 53500
+                                        This report shows the file distribution in each course.
                                     </p>
                                 </div>
 
                                 <div className="from">
-                                    <h3>From</h3>
+                                    <h6>Tutor Department</h6>
                                     <p>
-                                        Hanna Moos <br />
-                                        Lützowplatz 456<br />
-                                        Berlin, Germany,  10785
+                                        Resource Management.
                                     </p>
                                     <p>
-                                        Invoice ID: 23543<br />
+                                        Report ID: 23543<br />
                                         Invoice Date: 12.03.2014<br />
                                         Due Date: 27.03.2014
                                     </p>
@@ -133,11 +135,11 @@ function TutoReportPage() {
                 </div>
                 <div className="box-col">
                     <div>Click the button to export as PDF</div>
-                    <Button primary={true} onClick={handleExportWithComponent}>Export</Button>
+                    <Button style={{backgroundColor: "red"}} primary={true} onClick={handleExportWithMethod}>Export Method</Button>
+                    <Button style={{backgroundColor: "red"}} primary={true} onClick={handleExportWithComponent}>Export Component</Button>
                 </div>
             </div>
         </div>
     );
 }
-
 export default TutoReportPage;
