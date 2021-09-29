@@ -11,6 +11,7 @@ import NavBarButtonComponent from "./Component/NavigationBar/NavBarButtonCompone
 import NavBarButtonComponent2 from "./Component/NavigationBar/NavBarButtonComponent2";
 import AdminDashboard from "./Pages/AdminDashboard/AdminDashboard";
 import UserProfilePage from "./Pages/UserProfile/UserProfilePage";
+import TestingReport from "./Component/Report/TestingReport";
 
 import ClassPage from "./Pages/ClassPage/ClassPage";
 
@@ -25,6 +26,8 @@ import DownloadFile from "./Component/Downloads/DownloadFile";
 import PopUpTeacherStatusComponent from "./Component/PopupModel/TeacherStatus/PopUpTeacherStatusComponent";
 import VideoComponentInterface from "./Component/VideoComponent/VideoComponentInterface";
 import CustomVideoPlayerComponent from "./Component/Tutor/CustomVideoPlayerComponent/CustomVideoPlayerComponent";
+import VideoResourcePage from "./Pages/VideoResourcePage/VideoResourcePage";
+import PopUpUpdate from "./Component/Admin/ClassMgntInt/PopUpUpdate/PopUpUpdate";
 
 
 const App = () => {
@@ -33,10 +36,11 @@ const App = () => {
           <BrowserRouter>
               <Navbar/>
               <Switch>
-                  <ProtectedRoute exact path="/tutordash" >
+                  <Route exact path="/tutordash" >
                       <TutorDashboard/>
-                  </ProtectedRoute>
+                  </Route>
                   <Route exact path = "/home" component={HomePage}/>
+                  <Route exact path = "/" component={HomePage}/>
                   <ProtectedRoute exact path = "/profile" component={UserProfilePage}/>
                   <Route exact path = "/login" component={LoginPage}/>
                   <Route exact path = "/registration" component={RegistrationPage}/>
@@ -55,6 +59,8 @@ const App = () => {
                   <Route exact path = "/teacherstatuspopup" component={PopUpTeacherStatusComponent}/>
                   <Route exact path = "/videocomponent" component={VideoComponentInterface}/>
                   <Route exact path = "/customvideoplayer" component={CustomVideoPlayerComponent}/>
+                  <Route exact path = "/video" component={VideoResourcePage}/>
+                  <Route exact path = "/popup" component={PopUpUpdate}/>
               </Switch>
           </BrowserRouter>
   )

@@ -1,31 +1,39 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import './NavBarButtonComponent.css'
 import {useHistory} from "react-router";
 import SucessPopUp from "../PopupModel/SucessPopUp";
 import AuthClass from "../../Validation/AuthClass";
+import {useDispatch} from "react-redux";
+import {logoutUser} from "../../Action/Users";
 function NavBarButtonComponent(props) {
     const [buttonPopup, setButtonPopup] = useState(false);
     const [popupName, setPopupName] = useState("");
     const [popupLocation, setPopupLocaion] = useState("");
     const history = useHistory();
+    const dispatch = useDispatch();
     const profile = () => {
         history.push('/profile');
+        props.setTrigger(!props.trigger)
     }
 
     const Dashboard = () => {
         history.push('/home');
+        props.setTrigger(!props.trigger)
     }
 
     const ClassRoom = () => {
         history.push('/class');
+        props.setTrigger(!props.trigger)
     }
 
     const Logout = () => {
         // setPopupName("logout");
         // setPopupLocaion("/login");
         // setButtonPopup(true);
+        dispatch(logoutUser())
         AuthClass.logout()
         history.push('/login');
+        props.setTrigger(!props.trigger)
 
     }
 

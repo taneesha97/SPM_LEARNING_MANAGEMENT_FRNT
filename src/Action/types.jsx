@@ -4,7 +4,9 @@ export const VALID_USER = 'VALID_USER';
 export const UPDATE_USER = 'UPDATE_USER';
 export const DELETE_USER = 'DELETE_USER';
 export const GET_USER = 'GET_USER';
+export const GET_USER_COUNT = 'GET_USER_COUNT';
 export const ERROR_USER = 'ERROR_USER';
+export const LOGOUT_USER = 'LOGOUT_USER';
 
 //Course Related Constants.
 export const FETCH_COURSES = 'FETCH_COURSES';
@@ -17,6 +19,12 @@ export const ADD_CLASS = 'ADD_CLASS';
 export const GET_CLASS = 'GET_CLASS';
 export const UPDATE_CLASS = 'UPDATE_CLASS';
 export const DELETE_CLASS = 'DELETE_CLASS';
+
+//Announcement related constants
+export const ADD_ANNOUNCEMENT = 'ADD_ANNOUNCEMENT';
+export const GET_ANNOUNCEMENT = 'GET_ANNOUNCEMENT';
+export const UPDATE_ANNOUNCEMENT = 'UPDATE_ANNOUNCEMENT';
+export const DELETE_ANNOUNCEMENT = 'DELETE_ANNOUNCEMENT';
 
 //Payment Realated
 export const ADD_PAYMENT = 'ADD_PAYMENT';

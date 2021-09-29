@@ -1,14 +1,22 @@
 import React from 'react'
-import CourseWelcomeHeader from "../../Component/WelcomeHeader-Course/CourseWelcomeHeader";
+import SingleClassWelcomeHeader from "../../Component/WelcomeHeader-Course/SingleClassWelcomeHeader";
 import SingleClassViewBackground from "./SingleClassViewBackground";
 import CourseContent from "../../Component/CourseContent/CourseContent";
 import Footer from "../../Component/Footer/Footer";
+import './style.css'
+import SingleClassAnnouncements from "../../Component/SingleClassRoomAnnouncements/SingleClassAnnouncements";
+import SingleClassUserCountDisplay from "../../Component/SingleClassRoomAnnouncements/SingleClassUserCountDisplay";
 function SingleClassView() {
     return (
-        <div>
-            <CourseWelcomeHeader/>
-            <SingleClassViewBackground/>
-            <CourseContent/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+        <div className="singleclassViewBackground">
+            <SingleClassWelcomeHeader/>
+            <SingleClassUserCountDisplay/>
+            <CourseContent/>
+            <SingleClassAnnouncements/>
+
+
+            {/*<SingleClassViewBackground/>*/}
+
             <Footer/>
         </div>
     )

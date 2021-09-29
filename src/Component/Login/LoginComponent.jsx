@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import './Login.css'
 import {useDispatch, useSelector} from "react-redux";
-import {fetchUser, loggedUser, loginUserValidation} from "../../Action/Users";
+import {fetchUser, loggedUser, loginUserValidation, logoutUser} from "../../Action/Users";
 import {useHistory} from "react-router";
 import axios from "axios";
 import AuthClass from "../../Validation/AuthClass";
@@ -35,29 +35,14 @@ function LoginComponent(props) {
                 if(response.status == 200){
                     setTimeout(() => {
                         alert('session closed')
-                        dispatch(loggedUser({}))
+                        dispatch(logoutUser())
                         AuthClass.logout();
-                    }, 5 * 60 * 1000);
+                    }, 10 * 60 * 1000);
                 }
                 let values = response.data;
                 console.log('res1 ', response.data);
 
                 dispatch(loggedUser(response.data))
-
-
-                        // if(now-setupTime > hours*3000*100) {
-                        //     AuthClass.logout();
-                        //     // localStorage.setItem('flag', false);
-                        //     // localStorage.removeItem('usertype');
-                        //     // localStorage.setItem('username1234', "");
-                        //     // // localStorage.setItem('usertype', "");
-                        //     // // localStorage.setItem('user', "");
-                        //     //console.log('caling123');
-                        //     alert('error handling')
-                        //     // localStorage.clear()
-                        //     // localStorage.setItem('setupTime', now);//usertype
-                        //
-                        // }
 
                 if (values.type == null){
                     console.log('111')
@@ -68,22 +53,22 @@ function LoginComponent(props) {
                     AuthClass.logout()
                 }else if (values.type == "student"){
                     console.log('1112')
-                    AuthClass.login(values)
+                    AuthClass.login(values, values?.username, values?.email)
                     setButtonPopup(true);
                     setPopupName("login");
-                    setPopupLocaion("/home");
+                    setPopupLocaion("/profile");
 
                 }else if (values.type == "teacher"){
                     if (values.status == "valid"){
                         console.log('111w')
-                        AuthClass.login(values)
+                        AuthClass.login(values, values?.username, values?.email)
                         setPopupName("login");
-                        setPopupLocaion("/tutordash");
+                        setPopupLocaion("/admindash");
                         setButtonPopup(true);
                         //history.push();
                     }else{
                         console.log('111s')
-                        AuthClass.login(values)
+                        AuthClass.login(values, values?.username, values?.email)
                         setName("");
                         setPassword("");
                         alert('Teacher Status pending')
@@ -92,17 +77,17 @@ function LoginComponent(props) {
 
                 }else if (values.type == "admin"){
                     console.log('111w')
-                    AuthClass.login(values)
+                    AuthClass.login(values, values?.username, values?.email)
                     setPopupName("login");
                     setPopupLocaion("/admindash");
                     setButtonPopup(true);
                 }
             });
-        // dispatch(loginUserValidation(newUser));
-        // const response = useSelector((state) => state.userDetails1.loginUser);
     }
     const NavigateToRegistration = () => {
-        history.push("/registration");
+        //window.location.href("/registration")
+        //window.location.href = "/registration";
+        history.push('/registration')
     }
 
     return (

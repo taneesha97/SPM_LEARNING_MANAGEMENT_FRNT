@@ -8,58 +8,87 @@ import Select from 'react-select'
 function FileAttachInt({array4}) {
 
     //Creating state for storing the meta information.
-    const [name, setName] = useState("")
-    const [price, setPrice] = useState(0)
-    const [description, setDescription] = useState("");
+    const [metaData, setMetaData] = useState({
+        name: '',
+        price: '',
+        description: '',
+        course: ''
+    });
 
     //Progress Tracking State.
     const [progress, setProgress] = useState(0);
     const [loading, setLoading] = useState(false);
     const [success, setSuccess] = useState(false);
-    const [file, setFile] = useState(0);
+    const [file, setFile] = useState(null);
     const [downloadUri, setDownloadUri] = useState(0);
+    const [selectedOptions, setSelectedOptions] = useState(null);
 
-    //React Select
+    //React Select - Sample Data for the React select.
     const options = [
-        { value: 'chocolate', label: 'Chocolate' },
+        { value: 'chocolate1', label: 'Chocolate' },
         { value: 'strawberry', label: 'Strawberry' },
         { value: 'vanilla', label: 'Vanilla' }
     ];
-    const [region, setRegion] = useState(options[0]);
+
+    async function getItems () {
+        const response = await axios.get("http://localhost:8073/api/courses");
+        const data = response.data;
+        const options = data.map(item => ({
+            "value" : item.id,
+            "label" : item.title
+        }))
+        setSelectedOptions(options);
+    }
+
+
     const [currentCountry, setCurrentCountry] = useState(null);
     const onchangeSelect = (item) => {
         setCurrentCountry(null);
         setRegion(item);
     };
+    const [region, setRegion] = useState("");
 
     useEffect(()=> {
-        async function getCharacters() {
-            const response = await fetch("https://swapi.co/api/people");
-            const body = await response.json();
-            setCurrentCountry(body.results.map(({ name }) => ({ label: name, value: name })));
-        }
-        //getCharacters();
+        getItems();
     }, [])
+
 
     //File attachment logic, saved the file in state.
     const onDrop = React.useCallback((selectedFile) => {
-        let files = selectedFile.target.files;
+        let files = selectedFile.target.files[0];
         setFile(files);
         console.log(file);
         setSuccess(false);
         setProgress(0);
     })
 
+    //Meta information setter testing method.
+    const onUpload = (e) => {
+        e.preventDefault()
+        console.log(metaData.course.label);
+        console.log(metaData.name);
+        console.log(metaData.price);
+        console.log(metaData.description);
+    }
+
+    /**
+     * File Uploading methods.
+     * **/
+
     //File Uploading method.
-    const uploadFiles = async (e) => {
+    const uploadFilesv1 =  (e) => {
         e.preventDefault();
         try {
             setSuccess(false);
             setLoading(true);
             const formData = new FormData();
             formData.append("file", file);
-            const API_URL = "#";
-            const response = await axios.put(API_URL, formData, {
+            formData.append("name", metaData.name);
+            formData.append("price", metaData.price);
+            formData.append("course", metaData.course.label);
+            formData.append("description", metaData.description);
+            const API_URL = "http://localhost:8073/api/single/upload";
+            const response =  axios.post(API_URL, formData, {
                 onUploadProgress: (progressEvent) => {
                     const percentCompleted = Math.round(
                         (progressEvent.loaded * 100) / progressEvent.total
@@ -67,48 +96,91 @@ function FileAttachInt({array4}) {
                     setProgress(percentCompleted);
                 },
             });
-            setDownloadUri(response.data.fileDownloadUri);
+            setDownloadUri(response.data);
             setSuccess(true);
             setLoading(false);
-
+            setSuccess(false);
         } catch (error) {
             alert(error.message);
         }
     };
+
+    //Alternative File Uplaod method using fetch API.
+    const uploadFilesv2 = () => {
+        fetch("https://localhost:8073/api/single/upload", {
+            mode: 'no-cors',
+            method: "POST",
+            body: file
+        }).then(function (res){
+            if(res.ok) {
+                alert("Done Uploading!");
+            } else if (res.status === 401){
+                alert("Error!")
+            }
+        }, function (e) {alert("Error Submitting Form!")});
+    }
+
+    //Testing upload method.
+    const uploadFilesv3 = (e) => {
+        e.preventDefault();
+        if (!file) return;
+
+        let formData = new FormData();
+        formData.append("file", file);
+
+        fetch("http://localhost:8073/api/single/upload", {
+            method: "POST",
+            body: formData
+        })
+            .then(data => console.log(data.json()));
+    };
+
+    /**
+     * END ------------- File Uploading methods.
+     * **/
 
 
     return (
         <div>
             <div className="file-component">
                 <div className="input-form-container">
-                    <form className="form" onSubmit={uploadFiles}>
+                    <form className="form" onSubmit={uploadFilesv1}>
                         <div className="course-component-header">
                             <div className="section-header">Course Form</div>
                             <div className="second-header">Course Form</div>
                         </div>
 
                         <label htmlFor="fname">Name</label>
-                        <input type="text" id="fname" name="firstname" placeholder="Your name.."
-                               className="form-input"/>
+                        <input required type="text" id="fname" name="firstname" placeholder="Your name.."
+                               className="form-input"
+                               value={metaData.name}
+                               onChange={(e) => setMetaData({...metaData, name: e.target.value})}
+                        />
 
                         <label htmlFor="lname">Price</label>
-                        <input type="text" id="lname" name="lastname" placeholder="Price.." className="form-input"/>
+                        <input required type="text" id="lname" name="lastname" placeholder="Price.." className="form-input"
+                               value={metaData.price}
+                               onChange={(e) => setMetaData({...metaData, price: e.target.value})}
+                        />
 
                         <label htmlFor="lname">Description</label>
-                        <input type="text" id="lname" name="lastname" placeholder="Description.."
-                               className="form-input"/>
+                        <input required type="text" id="lname" name="lastname" placeholder="Description.."
+                               className="form-input"
+                               value={metaData.description}
+                               onChange={(e) => setMetaData({...metaData, description: e.target.value})}
+                        />
 
                         <label htmlFor="lname">Course</label>
-                        <div className="form-input"><Select options={options} menuPlacement="auto" menuPosition="fixed"/></div>
+                        <div className="form-input"><Select options={selectedOptions} menuPlacement="auto" menuPosition="fixed" onChange={(e) => setMetaData({...metaData, course: e})}/></div>
 
 
                         <label htmlFor="lname">Attach the File</label>
-                        <input style={{height: "30px", fontSize: "10px", paddingBottom: "30px", color: "white", fontWeight: "bold"}} onChange={onDrop}  type="file" id="lname" name="lastname" placeholder="Number of Chapters.."
+                        <input required style={{height: "30px", fontSize: "10px", paddingBottom: "30px", color: "white", fontWeight: "bold"}} onChange={onDrop}  type="file" id="file" name="file" placeholder="Number of Chapters.."
                                className="form-input"/>
 
                         <div className="course-button-group button-row">
-                            <button className="add-button" type={"submit"}>Add</button>
-                            <button className="light-button">Reset</button>
+                            <button className="add-button" type="submit">Add</button>
+                            <button className="light-button" onClick={onUpload}>Reset</button>
                         </div>
                     </form>
                         <div style={{marginLeft: "19px", marginRight: "10px", paddingBottom: "10px"}}>
@@ -120,7 +192,7 @@ function FileAttachInt({array4}) {
                 <div className="file-table">
                     <div className="section-header dark-header"> Active Courses </div>
                     <div id="style-1" className="file-table-body-scrollable">
-                        <FileAttachmentTable/>
+                        <FileAttachmentTable status={success}/>
                     </div>
                 </div>
             </div>

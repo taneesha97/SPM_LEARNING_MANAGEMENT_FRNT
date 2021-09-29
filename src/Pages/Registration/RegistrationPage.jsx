@@ -4,7 +4,7 @@ import './style.css'
 
 function RegistrationPage() {
     return (
-        <div style={{backgroundColor:'#D6D6D6'}} className="background-reg">
+        <div  className="background-reg">
             <Registration/>
 
         </div>
