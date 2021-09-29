@@ -8,14 +8,10 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import {Button, IconButton} from "@material-ui/core";
-import {sanitizeHtml} from "bootstrap/js/src/util/sanitizer";
-import {CloudDownload} from "@material-ui/icons";
 import axios from "axios";
-import {Link} from "react-router-dom";
 import Typography from "@material-ui/core/Typography";
-
-//Custom Fonts
-
+import TablePagination from '@material-ui/core/TablePagination';
+import TableFooter from "@material-ui/core/TableFooter";
 
 const useStyles = makeStyles((theme) => ({
     table: {
@@ -25,6 +21,7 @@ const useStyles = makeStyles((theme) => ({
         borderRadius: 30,
         margin: '5px 10px 10px 10px',
         maxWidth: "98%",
+        maxHeight: 500,
     },
     tableHeaderCell: {
         fontWeight: 'bold',
@@ -55,6 +52,9 @@ const useStyles = makeStyles((theme) => ({
 
 export default function FileAttachmentTable({status}) {
 
+    //Testing console logs
+    console.log(status);
+
     const [tableoptions, setTableOptions] = useState([]);
 
     useEffect(() => {
@@ -78,15 +78,25 @@ export default function FileAttachmentTable({status}) {
 
     // File Download method.
     async function downloadFiles (imageName) {
-        const response = await axios.get("http://localhost:8073/api/download/" + imageName);
-        const data = response.data;
-        return data;
+        fetch(`http://localhost:8073/api/download/${imageName}`)
+            .then(response => {
+                response.blob().then(blob => {
+                    let url = window.URL.createObjectURL(blob);
+                    let a = document.createElement('a');
+                    a.href = url;
+                    a.download = `${imageName}.json`;
+                    a.click();
+                });
+                //window.location.href = response.url;
+            });
     }
 
+    //Styles.
     const classes = useStyles();
 
+    //Table Pagination Controls
     const [page, setPage] = React.useState(0);
-    const [rowsPerPage, setRowsPerPage] = React.useState(20);
+    const [rowsPerPage, setRowsPerPage] = React.useState(4);
 
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
@@ -99,7 +109,7 @@ export default function FileAttachmentTable({status}) {
 
     return (
         <TableContainer className={classes.tableContainer} component={Paper}>
-            <Table className={classes.table} aria-label="simple table">
+            <Table stickyHeader className={classes.table} aria-label="simple table">
                 <TableHead>
                     <TableRow>
                         <TableCell className={classes.tableHeaderCell}>File Name</TableCell>
@@ -114,7 +124,7 @@ export default function FileAttachmentTable({status}) {
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {tableoptions?.map((row) => (
+                    {tableoptions.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => (
                         <TableRow key={row.name}>
                             <TableCell className={classes.name} component="th" scope="row">
                                 {row.name}
@@ -134,6 +144,17 @@ export default function FileAttachmentTable({status}) {
                         </TableRow>
                     ))}
                 </TableBody>
+                <TableFooter>
+                    <TablePagination
+                        rowsPerPageOptions={[4,5]}
+                        component="div"
+                        count={tableoptions.length}
+                        rowsPerPage={rowsPerPage}
+                        page={page}
+                        onPageChange={handleChangePage}
+                        onRowsPerPageChange={handleChangeRowsPerPage}
+                    />
+                </TableFooter>
             </Table>
         </TableContainer>
     );
