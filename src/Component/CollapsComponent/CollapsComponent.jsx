@@ -2,6 +2,8 @@ import React, {useState} from "react";
 import './collapseClassroom.css'
 import collapseImage from './images/collapseImage.png'
 import BlueScreen6 from "./BlueScreen6";
+import BlueScreen7 from "./BlueScreen7";
+import BlueScreen8 from "./BlueScreen8";
 
 
 // const CollapsComponent = ({value}) => {
@@ -29,8 +31,8 @@ const CollapsComponent = () => {
                 <div className="lower" data-testid="container-lower">
                     <div className="listOfBluescreen6">
                         <BlueScreen6/><br/>
-                        <BlueScreen6/><br/>
-                        <BlueScreen6/><br/>
+                        <BlueScreen7/><br/>
+                        <BlueScreen8/><br/>
                         <BlueScreen6/>
                     </div>
                 </div>
