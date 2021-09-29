@@ -9,9 +9,15 @@ function Announcement() {
     });
 
     //Announcement posting method.
-    const postAnnouncement = () => {
+    const postAnnouncement = (e) => {
+        //Avoid page refreshing
+        e.preventDefault();
+
         // Validation
-        if (!postData.heading || !postData.message) return;
+        if (!postData.heading || !postData.message) {
+            return;
+        }
+        console.log("Post Data From Announcement " + postData);
 
         fetch("http://localhost:8073/api/single/upload", {
             method: "POST",
@@ -32,7 +38,7 @@ function Announcement() {
                 </div>
                 <div className="announcement-body">
                     <div className="input-form-container">
-                    <form className="form">
+                    <form className="form" onSubmit={postAnnouncement}>
                         <label> Heading</label>
                         <div>
                             <input type="text" id="fname" name="firstname"
@@ -54,7 +60,7 @@ function Announcement() {
                                 <CustomButton name={"Discard"} color={"#FF5050"}/>
                             </div>
                             <div className="announcement-button">
-                                <CustomButton revokeMethod={postAnnouncement} name={"Send"} color={"#e4bf5e"}/>
+                                <CustomButton type={"submit"} name={"Send"} color={"#e4bf5e"}/>
                             </div>
                             <div className="announcement-button">
                                 <CustomButton name={"Show"} color={"#50C972"}/>
