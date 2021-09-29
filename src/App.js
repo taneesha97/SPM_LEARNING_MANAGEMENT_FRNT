@@ -56,7 +56,6 @@ const App = () => {
                   <ProtectedRoute exact path = "/singleclassview" component={SingleClassView}/>
                   <Route exact path = "/download" component={DownloadFile}/>
                   <Route exact path = "/teacherstatuspopup" component={PopUpTeacherStatusComponent}/>
-                  <Route exact path = "/videocomponent" component={VideoComponentInterface}/>
                   <Route exact path = "/customvideoplayer" component={CustomVideoPlayerComponent}/>
                   <Route exact path = "/video" component={VideoResourcePage}/>
               </Switch>
