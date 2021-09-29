@@ -1,11 +1,12 @@
 import React, {useState} from 'react'
 import './Announcement.css'
 import CustomButton from "../../CourseMgntInt/CustomButtons/CustomButton";
+import axios from "axios";
 function Announcement() {
 
     const [postData, setPostData] = useState({
         heading: '',
-        message: ''
+        body: ''
     });
 
     //Dummy method
@@ -14,22 +15,27 @@ function Announcement() {
         console.log('Printed with Different button')
     }
 
+    //State for saving the response after sending the announcement.
+    const [response, setResponse] = useState(null);
     //Announcement posting method.
     const postAnnouncement = (e) => {
         //Avoid page refreshing
         e.preventDefault();
 
         // Validation
-        if (!postData.heading || !postData.message) {
+        if (!postData.heading || !postData.body) {
+            console.log("Error postData Null")
+            console.log(postData);
             return;
         }
-        console.log("Post Data From Announcement " + postData);
+        console.log(postData);
 
-        fetch("http://localhost:8073/api/announcement", {
-            method: "POST",
-            body: postData
-        })
-            .then(data => console.log(data.json()));
+        axios.post('http://localhost:8073/api/announcement', postData)
+            .then(response => setResponse({ articleId: response.data.id }))
+            .catch(error => {
+                setResponse({ errorMessage: error.message });
+                console.error('There was an error!', error);
+            });
     }
 
 
@@ -55,10 +61,10 @@ function Announcement() {
                         </div>
                         <label> Body</label>
                         <div>
-                            <textarea type="text" id="fname" name="firstname" placeholder="Announcement body comes here..."
+                            <textarea id="fname" name="firstname" placeholder="Announcement body comes here..."
                                   className="form-area"
-                                      value={postData.message}
-                                      onChange={(e) => setPostData({...postData, message: e.target.value})}
+                                      value={postData.body}
+                                      onChange={(e) => setPostData({...postData, body: e.target.value})}
                                       required={true}/>
                         </div>
                         <div className="announcement-body-button-group">
