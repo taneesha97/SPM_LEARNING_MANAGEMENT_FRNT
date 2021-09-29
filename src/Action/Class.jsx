@@ -1,5 +1,5 @@
 import * as api from "../API";
-import {ADD_CLASS, DELETE_CLASS, GET_CLASS} from "./types";
+import {ADD_CLASS, DELETE_CLASS, GET_CLASS, UPDATE_CLASS, UPDATE_USER} from "./types";
 import axios from "axios";
 
 export const addClass = (Class) => async (dispatch) => {
@@ -40,4 +40,24 @@ export const deleteClasses = (id) => dispatch => {
         ).catch((err) => {
         console.log(err);
     })
+}
+
+export const updateClass = (id, PostData) => dispatch => {
+    axios.put(api.baseURL + 'class/' + id , PostData)
+        .then(response => {
+            console.log(response)
+            if(response.status === 200){
+                console.log(response.data)
+                dispatch({
+                    type: UPDATE_CLASS,
+                    payload: response.data
+                })
+            }
+            else{
+                console.log('error123')
+            }
+        })
+        .catch((err) => {
+            console.log(err);
+        })
 }

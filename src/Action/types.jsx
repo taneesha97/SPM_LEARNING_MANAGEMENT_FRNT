@@ -6,6 +6,7 @@ export const DELETE_USER = 'DELETE_USER';
 export const GET_USER = 'GET_USER';
 export const GET_USER_COUNT = 'GET_USER_COUNT';
 export const ERROR_USER = 'ERROR_USER';
+export const LOGOUT_USER = 'LOGOUT_USER';
 
 //Course Related Constants.
 export const FETCH_COURSES = 'FETCH_COURSES';

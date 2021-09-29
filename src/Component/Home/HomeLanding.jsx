@@ -9,7 +9,7 @@ import Footer from "../Footer/Footer";
 import GetUpdates from "./GetUpdates/GetUpdates";
 import TutorSection from "./TutorSection/TutorSection";
 
-import CourseWelcomeHeader from "../WelcomeHeader-Course/CourseWelcomeHeader";
+import SingleClassWelcomeHeader from "../WelcomeHeader-Course/SingleClassWelcomeHeader";
 
 import PopupModel from "../PopupModel/PopupModel";
 import CourseTile from "../Class/CourseTile/CourseTile";
