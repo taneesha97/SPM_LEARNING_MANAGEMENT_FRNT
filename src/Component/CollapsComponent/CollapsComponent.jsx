@@ -20,11 +20,11 @@ const CollapsComponent = () => {
                         {/*{value.Heading}*/}
                         <div className="collapse-info1">
                             <h2 className="collapse-info1-main">2021 Grade 10 class</h2>
-                            <h4 className="collapse-info1-second">Lorem ipsum dolor sit amet,
-                                consectetur adipiscing elit. Curabitur nec dignissim sem. Donec sed justo rutrum,
-                                vehicula elit a, pulvinar sem. Proin convallis, orci vel blandit luctus,
-                                massa lectus blandit neque, sit amet pharetra libero lacus et arcu.
-                                Donec placerat lacinia nunc vel faucibus..</h4>
+                            <h4 className="collapse-info1-second">Grade 10 is a very important year.
+                                It is the year students begin to meet their graduation requirements. In grade 10,
+                                English Language Arts: Composition 10, New Media - and Creative Writing coming Sept. 2021
+                                Social Studies 10
+                                Mathematics 10 ...</h4>
                         </div>
 
                 </div>
