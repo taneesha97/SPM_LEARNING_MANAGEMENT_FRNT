@@ -11,13 +11,12 @@ function PopUpUpdate(props) {
     const [tutorName, setTutorName] = useState('');
     const [teacherOptions, setTeacherOptions] = useState(null);
     const teacherResponse = useSelector((state) => state.userDetails1?.UserDetails?.records?.data);
-    console.log(teacherResponse);
 
     function popupView() {
         const classData = {
             name,
             description,
-            // tutorName,
+            tutorName,
         }
         console.log(classData);
         dispatch(updateClass(props.popupData.id, classData))
@@ -32,6 +31,7 @@ function PopUpUpdate(props) {
         dispatch(fetchTeachers());
         setName(props.popupData.name);
         setDescription(props.popupData.description);
+        setTutorName(props.popupData.tutorName);
     },[props.trigger])
 
     async function getTeachersData() {
@@ -93,18 +93,18 @@ function PopUpUpdate(props) {
                     </div>
                     <div className="pb-2">
                         <InputLabel id="label">Teacher Name</InputLabel>
-                        {/*    <Select*/}
-                        {/*        options={teacherOptions}*/}
-                        {/*        menuPlacement="auto"*/}
-                        {/*        menuPosition="fixed"*/}
-                        {/*        style={{width:'500px'}}*/}
-                        {/*        onChange={(e) => setTutorName(e.label)}>*/}
-                        {/*    </Select>*/}
                         <div className="class-form-teacher-input">
+                            {/*<Select*/}
+                            {/*    options={teacherOptions}*/}
+                            {/*    menuPlacement="auto"*/}
+                            {/*    menuPosition="fixed"*/}
+                            {/*    onChange={(e) => setTutorName(e.label)}*/}
+                            {/*    style={{width:'500px'}}*/}
+                            {/*/>*/}
 
                             <Select
                                 // name={name}
-                                // value={value}
+                                value={tutorName}
                                 style={{width:'500px'}}
                                 onChange={(e) => setTutorName(e.label)}
                             >
@@ -116,12 +116,6 @@ function PopUpUpdate(props) {
                                     );
                                 })}
                             </Select>
-                            {/*<Select*/}
-                            {/*    options={teacherOptions}*/}
-                            {/*    // menuPlacement="auto"*/}
-                            {/*    style={{width:'500px'}}*/}
-                            {/*    menuPosition="fixed"*/}
-                            {/*    onChange={(e) => setTutorName(e.label)}/>*/}
                         </div>
 
                     </div>
@@ -138,7 +132,6 @@ function PopUpUpdate(props) {
         </div>
     </div>
     ) : <div></div>;
-// )
 }
 
 export default PopUpUpdate;

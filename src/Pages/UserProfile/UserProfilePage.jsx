@@ -6,12 +6,6 @@ import {useHistory} from "react-router";
 
 function UserProfilePage() {
 
-
-    // let usertype = localStorage.getItem("usertype")
-    // console.log(usertype)
-
-
-
     return (
         <div>
             <UserProfile />

@@ -1,17 +1,17 @@
 import React from 'react';
 import "../../../../node_modules/bootstrap/dist/css/bootstrap.css"
-import Classimage from './Images/Classimage.svg'
 import './ClassFileStyles.css'
-const ClassTile = (rows) => {
+const ClassTile = (props) => {
+    console.log('ROWS',props.rows);
 
     return(
         <div className='class-tile-container'>
             <div className='left-container'>
-                <div className='main-heading'>{rows.name}</div>
-                <div className='sub-heading'> {rows.description}</div>
+                <div className='main-heading'>{props.rows.name}</div>
+                <div className='sub-heading'> {props.rows.description}</div>
             </div>
             <div className='right-container'>
-                <img src={rows.image}/>
+                <img src={props.rows.image}/>
             </div>
 
         </div>
