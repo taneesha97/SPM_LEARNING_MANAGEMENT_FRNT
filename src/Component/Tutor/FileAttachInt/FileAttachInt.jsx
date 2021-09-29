@@ -151,20 +151,20 @@ function FileAttachInt({array4}) {
                         </div>
 
                         <label htmlFor="fname">Name</label>
-                        <input type="text" id="fname" name="firstname" placeholder="Your name.."
+                        <input required type="text" id="fname" name="firstname" placeholder="Your name.."
                                className="form-input"
                                value={metaData.name}
                                onChange={(e) => setMetaData({...metaData, name: e.target.value})}
                         />
 
                         <label htmlFor="lname">Price</label>
-                        <input type="text" id="lname" name="lastname" placeholder="Price.." className="form-input"
+                        <input required type="text" id="lname" name="lastname" placeholder="Price.." className="form-input"
                                value={metaData.price}
                                onChange={(e) => setMetaData({...metaData, price: e.target.value})}
                         />
 
                         <label htmlFor="lname">Description</label>
-                        <input type="text" id="lname" name="lastname" placeholder="Description.."
+                        <input required type="text" id="lname" name="lastname" placeholder="Description.."
                                className="form-input"
                                value={metaData.description}
                                onChange={(e) => setMetaData({...metaData, description: e.target.value})}
@@ -175,7 +175,7 @@ function FileAttachInt({array4}) {
 
 
                         <label htmlFor="lname">Attach the File</label>
-                        <input style={{height: "30px", fontSize: "10px", paddingBottom: "30px", color: "white", fontWeight: "bold"}} onChange={onDrop}  type="file" id="file" name="file" placeholder="Number of Chapters.."
+                        <input required style={{height: "30px", fontSize: "10px", paddingBottom: "30px", color: "white", fontWeight: "bold"}} onChange={onDrop}  type="file" id="file" name="file" placeholder="Number of Chapters.."
                                className="form-input"/>
 
                         <div className="course-button-group button-row">
