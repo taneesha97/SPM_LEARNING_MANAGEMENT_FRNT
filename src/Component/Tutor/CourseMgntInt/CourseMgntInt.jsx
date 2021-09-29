@@ -6,6 +6,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {addCourse, deleteCourse} from "../../../Action/Courses";
 
 function CourseMgntInt({array4}) {
+
     //To refresh the page when delete the file.
     const courses = useSelector((state) => state.courses);
     useEffect(()=> {
