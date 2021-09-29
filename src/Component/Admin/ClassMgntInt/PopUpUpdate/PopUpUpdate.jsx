@@ -101,12 +101,27 @@ function PopUpUpdate(props) {
                         {/*        onChange={(e) => setTutorName(e.label)}>*/}
                         {/*    </Select>*/}
                         <div className="class-form-teacher-input">
+
                             <Select
-                                options={teacherOptions}
-                                // menuPlacement="auto"
+                                // name={name}
+                                // value={value}
                                 style={{width:'500px'}}
-                                menuPosition="fixed"
-                                onChange={(e) => setTutorName(e.label)}/>
+                                onChange={(e) => setTutorName(e.label)}
+                            >
+                                {teacherOptions?.map(option => {
+                                    return (
+                                        <MenuItem key={option.id} value={option.name}>
+                                            {option.label ?? option.value}
+                                        </MenuItem>
+                                    );
+                                })}
+                            </Select>
+                            {/*<Select*/}
+                            {/*    options={teacherOptions}*/}
+                            {/*    // menuPlacement="auto"*/}
+                            {/*    style={{width:'500px'}}*/}
+                            {/*    menuPosition="fixed"*/}
+                            {/*    onChange={(e) => setTutorName(e.label)}/>*/}
                         </div>
 
                     </div>
