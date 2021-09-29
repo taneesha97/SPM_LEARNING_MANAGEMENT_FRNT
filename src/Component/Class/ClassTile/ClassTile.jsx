@@ -2,16 +2,16 @@ import React from 'react';
 import "../../../../node_modules/bootstrap/dist/css/bootstrap.css"
 import './ClassFileStyles.css'
 const ClassTile = (props) => {
-    console.log('ROWS',props.rows);
+    console.log('ROWS',props?.rows);
 
     return(
         <div className='class-tile-container'>
             <div className='left-container'>
-                <div className='main-heading'>{props.rows.name}</div>
-                <div className='sub-heading'> {props.rows.description}</div>
+                <div className='main-heading'>{props?.rows?.name}</div>
+                <div className='sub-heading'> {props?.rows?.description}</div>
             </div>
             <div className='right-container'>
-                <img src={props.rows.image}/>
+                <img src={props?.rows?.image}/>
             </div>
 
         </div>
