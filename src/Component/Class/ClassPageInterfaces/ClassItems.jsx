@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import ClassTile from "../ClassTile/ClassTile";
 import './ClassItems.css'
 import {useDispatch, useSelector} from "react-redux";
@@ -6,8 +6,9 @@ import {getClasses} from "../../../Action/Class";
 function ClassItems() {
 
     const dispatch = useDispatch();
+    const [searchTerm, setSearchTerm] = useState("");
     //get all class data
-    const classData = useSelector((state) => state.classes.classRecords.records);
+    const classData = useSelector((state) => state.classes?.classRecords?.records);
     console.log('CLASS DETAIL', classData);
 
     React.useEffect(() => {
@@ -16,8 +17,8 @@ function ClassItems() {
     }, []);
 
     const rows = [
-        // {"title1": classData.name,"title2": 'name1', "image": ''},
-        {classData}
+        // {"title1": classData.name,"title2": clas, "image": ''},
+        classData
     ];
     return (
         <React.Fragment>
@@ -25,7 +26,7 @@ function ClassItems() {
                 <div>
                     <div className="home-class-container-filter row">
                         <div className="all-class-section-row">
-                            {rows.slice(0,50).map((row)=> (
+                            {classData?.slice(0,50).map((row)=> (
                                 <div className="col-md-4">
                                     <ClassTile rows={row}/>
                                 </div>
