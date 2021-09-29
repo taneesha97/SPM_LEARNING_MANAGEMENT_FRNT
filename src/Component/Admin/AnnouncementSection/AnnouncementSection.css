@@ -12,7 +12,7 @@
   width: fit-content;
   grid-template-columns: 500px 500px 500px;
   grid-gap: 30px;
-  grid-template-areas: "subcomponent1 subcomponent2";
+  grid-template-areas: "subcomponent1 subcomponent2 subcomponent3";
 }
 
 @media only screen and (max-width: 1720px) {
@@ -21,6 +21,10 @@
     grid-template-rows: 500px 500px 500px;
     grid-template-areas: "subcomponent1" "subcomponent2";
   }
+}
+.announcement-section-responsive-subcomponent2-new {
+  margin-left: 650px;
+  margin-top: -490px;
 }
 
 /*# sourceMappingURL=AnnouncementSection.css.map */
