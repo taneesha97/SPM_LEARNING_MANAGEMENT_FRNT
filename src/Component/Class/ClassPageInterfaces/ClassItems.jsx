@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import ClassTile from "../ClassTile/ClassTile";
 import './ClassItems.css'
 import {useDispatch, useSelector} from "react-redux";
@@ -6,6 +6,7 @@ import {getClasses} from "../../../Action/Class";
 function ClassItems() {
 
     const dispatch = useDispatch();
+    const [searchTerm, setSearchTerm] = useState("");
     //get all class data
     const classData = useSelector((state) => state.classes?.classRecords?.records);
     console.log('CLASS DETAIL', classData);
