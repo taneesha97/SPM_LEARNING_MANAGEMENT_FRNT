@@ -1,9 +1,9 @@
 import React, {useState} from 'react'
 import './ClassSearch.css';
 
-function ClassSearch({searchData}) {
+function ClassSearch(props) {
 
-    const [searchTerm, setSearchTerm] = useState("");
+    const [searchTerm1, setSearchTerm1] = useState("");
     return (
         <div className="search_back">
         <div class="container">
@@ -12,8 +12,8 @@ function ClassSearch({searchData}) {
                         <input type="text"
                                className="input"
                                placeholder="search..."
-                               value={searchTerm}
-                               onChange={(event) => setSearchTerm(event.target.value)}
+                               // value={searchTerm1}
+                               onChange={(e) => props.setSearchTerm(e.target.value)}
 
                         />
                         <div className="btn">
