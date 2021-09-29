@@ -30,6 +30,16 @@ const useStyles = makeStyles((theme) => ({
         fontSize: 18,
         marginLeft: 10
     },
+
+    tableFooterCell: {
+        fontWeight: 'bold',
+        backgroundColor: theme.palette.primary.dark, // Change the background color to pink.
+        color: theme.palette.getContrastText(theme.palette.primary.dark),
+        fontSize: 18,
+        marginLeft: 10,
+        width: '100%'
+    },
+
     name : {
         fontWeight: 'bold',
         color: theme.palette.secondary.dark
@@ -42,6 +52,10 @@ const useStyles = makeStyles((theme) => ({
         borderRadius: 10,
         padding: '3px 10px',
         display: 'inline-block',
+    },
+    pagination: {
+        color: theme.palette.getContrastText(theme.palette.primary.dark),
+
     }
 }))
 
@@ -144,8 +158,9 @@ export default function FileAttachmentTable({status}) {
                         </TableRow>
                     ))}
                 </TableBody>
-                <TableFooter>
+                <TableFooter className={classes.tableFooterCell}>
                     <TablePagination
+                        className={classes.pagination}
                         rowsPerPageOptions={[4,5]}
                         component="div"
                         count={tableoptions.length}
