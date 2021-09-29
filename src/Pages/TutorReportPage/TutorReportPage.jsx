@@ -1,5 +1,5 @@
 import React from 'react';
-import './ReportPage.scss'
+import './TutorReportPage.scss'
 const ClassTile = () => {
     return(
         <div className=''>
