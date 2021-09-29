@@ -84,7 +84,7 @@ export default function FileAttachmentTable({status}) {
                     let url = window.URL.createObjectURL(blob);
                     let a = document.createElement('a');
                     a.href = url;
-                    a.download = `${imageName}.json`;
+                    a.download = `${imageName}`;
                     a.click();
                 });
                 //window.location.href = response.url;
