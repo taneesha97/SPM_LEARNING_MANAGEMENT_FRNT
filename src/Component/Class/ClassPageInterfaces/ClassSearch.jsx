@@ -1,5 +1,5 @@
 import React from 'react'
-import './ClassSearch.css';
+import './ClassSearch.scss';
 
 function ClassSearch() {
     return (
