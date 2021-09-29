@@ -2,6 +2,9 @@ import React from 'react';
 import { useRef, useState, useEffect } from 'react';
 import sampleData from './SampleData/invoice-data.json'
 import Logo from "./companyLogo/Logo.png";
+import ReactDOM from 'react-dom';
+import jsPDF from "jspdf";
+
 // Chart Dependencies
 import {
     Chart,
@@ -14,14 +17,12 @@ import {
 } from '@progress/kendo-react-charts';
 
 // React Utils from Kendo
-import 'hammerjs';
 import { Button } from '@progress/kendo-react-buttons';
 import { PDFExport, savePDF } from '@progress/kendo-react-pdf';
 import { DropDownList } from '@progress/kendo-react-dropdowns';
 import './TutorReportPage.scss'
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-
 
 function TutoReportPage() {
     const pdfExportComponent = useRef(null);
@@ -34,7 +35,7 @@ function TutoReportPage() {
     ];
 
     const handleExportWithComponent = (event) => {
-        console.log("PDF Export method, ");
+        console.log("PDF Export component, ");
         pdfExportComponent.current.save();
     }
 
@@ -43,8 +44,32 @@ function TutoReportPage() {
     }
 
     const handleExportWithMethod = (event) => {
+        console.log("PDF Export with method, ");
         savePDF(contentArea.current, {paperSize: "A4"});
     }
+
+    //Testing method for printing the PDF
+    const exportPDF2 = () => {
+        // TODO: Fetch data from backend
+        // TODO: Move content generator to different function
+        let element = document.createElement('div')
+        element.setAttribute('id','test')
+        element.innerHTML = 'terefere<h2>hello</h2>'
+        let domElement = ReactDOM.findDOMNode(element);
+        savePDF(domElement, {
+            paperSize: 'A4',
+            fileName: 'report.pdf',
+            margin: { top: '2cm', left: '1.5cm', right: '1.5cm', bottom: '2cm' },
+            scale: 0.8
+        }, () => document.querySelector('#test').remove())
+    }
+
+    //Another PDF printing method with jsPDF.
+    const toPDF = () => {
+        const doc = new jsPDF("p", "pt", "a4");
+        doc.text(20,20,"This is the PDF");
+        doc.save("sample.pdf")
+    };
 
     return(
         <div id="example">
@@ -57,8 +82,8 @@ function TutoReportPage() {
                 </div>
             </div>
             <div className="page-container hidden-on-narrow">
-                <PDFExport ref={pdfExportComponent}>
-                    <div ref={contentArea} className={ `pdf-page ${ layoutSelection.value }` }>
+                <PDFExport ref={pdfExportComponent} paperSize="A4">
+                    <div ref={contentArea} className={ 'pdf-page size-a4' } id="container">
                         <div className="inner-page">
                             <div className="pdf-header">
 								<span className="company-logo">
@@ -135,8 +160,8 @@ function TutoReportPage() {
                 </div>
                 <div className="box-col">
                     <div>Click the button to export as PDF</div>
-                    <Button style={{backgroundColor: "red"}} primary={true} onClick={handleExportWithMethod}>Export Method</Button>
-                    <Button style={{backgroundColor: "red"}} primary={true} onClick={handleExportWithComponent}>Export Component</Button>
+                    <Button  onClick={handleExportWithMethod}>Export Method jsPDF</Button>
+                    <Button  primary={true} onClick={handleExportWithComponent}>Export Component</Button>
                 </div>
             </div>
         </div>
