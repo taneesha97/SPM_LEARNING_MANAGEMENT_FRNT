@@ -56,7 +56,7 @@ function VideoPlayerSection() {
             <Container maxWidth="lg">
                 <p className="header-video-player">Course Videos</p>
                 <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 1, md: 2, xl: 3}}>
-                {array1?.map((item) => (
+                {videoData?.map((item) => (
                     <Grid item xs={8} sm={6} md={4} lg={3} xl={3} >
                         <PlayerThumbnail image={item.image} url={item.url}/>
                     </Grid>

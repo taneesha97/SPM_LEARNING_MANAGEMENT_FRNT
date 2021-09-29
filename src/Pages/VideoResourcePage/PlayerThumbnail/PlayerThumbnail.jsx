@@ -19,7 +19,7 @@ function PlayerThumbnail({image, url}) {
                     <div className="blog-card-background">
                         <Link to={{
                             pathname: '/customvideoplayer',
-                            state: [{url: url}]
+                            url: {url: url}
                         }}>
                             <button className="blog-card_action">
                         <span style={{marginRight: "10px"}}>
