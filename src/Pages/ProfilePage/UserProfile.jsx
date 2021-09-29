@@ -7,6 +7,7 @@ import {fetchStudents, fetchTeachers, getUserByID, loggedUser} from "../../Actio
 import {useDispatch, useSelector} from "react-redux";
 import PasswordUpdateComponent from "../../Component/Profile/PasswordUpdateComponent";
 import {Button, Modal} from "react-bootstrap";
+import Transaction from "../../Component/Transaction/BankDetails/Transaction";
 
 const UserProfile = () => {
     const dispatch = useDispatch();
@@ -76,6 +77,7 @@ const UserProfile = () => {
                 </Modal>
                 <div className="bluescreen1">
                 <ProfileBio user1 = {user1}/>
+                <Transaction/>
                 </div>
                 <div className="userprofile">
                     <div className="userprofile1">
