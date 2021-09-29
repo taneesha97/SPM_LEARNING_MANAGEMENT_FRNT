@@ -61,6 +61,7 @@ const App = () => {
                   <Route exact path = "/video" component={VideoResourcePage}/>
                   <Route exact path = "/tutorreport" component={TutorReportPage}/>
                   <Route exact path = "/popup" component={PopUpUpdate}/>
+                  <Route exact path = "/tes" component={TestingReport}/>
               </Switch>
           </BrowserRouter>
   )

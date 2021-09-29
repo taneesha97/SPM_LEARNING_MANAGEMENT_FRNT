@@ -1,5 +1,9 @@
+
 import React, {useState} from 'react'
 import './ClassSearch.css';
+import React from 'react'
+import './ClassSearch.scss';
+
 
 function ClassSearch(props) {
 

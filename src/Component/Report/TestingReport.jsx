@@ -75,7 +75,7 @@ function TestingReport() {
         //     height: 200
         //
         // });
-       // const img = canvas.toDataURL("image/png");
+        const img = canvas.toDataURL("image/png");
             const pdf = new jsPDF();
             //doc.addImage(Logo, "png", 10, 10, 30, 5);
             pdf.setFontSize(20);
@@ -116,28 +116,28 @@ function TestingReport() {
         <div>
             <h1>eeeee</h1>
 
-            <div>
-                <Chart chartData={chartData} />
+            {/*<div>*/}
+            {/*    <Chart chartData={chartData} />*/}
 
-                    {/*<Bar*/}
-                    {/*   data={cData}*/}
-                    {/*    options={{*/}
-                    {/*        title: {*/}
-                    {/*            display: true,*/}
-                    {/*            text: "Chart to PDF Demo",*/}
-                    {/*            fontSize: 32*/}
-                    {/*        },*/}
-                    {/*        legend: {*/}
-                    {/*            display: true,*/}
-                    {/*            position: "right"*/}
-                    {/*        }*/}
-                    {/*    }}*/}
-                    {/*    height={200}*/}
-                    {/*/>*/}
-                <div>
-                    <button onClick={getData}>Export 2 PDF</button>
-                </div>
-            </div>
+            {/*        <Bar*/}
+            {/*           data={cData}*/}
+            {/*            options={{*/}
+            {/*                title: {*/}
+            {/*                    display: true,*/}
+            {/*                    text: "Chart to PDF Demo",*/}
+            {/*                    fontSize: 32*/}
+            {/*                },*/}
+            {/*                legend: {*/}
+            {/*                    display: true,*/}
+            {/*                    position: "right"*/}
+            {/*                }*/}
+            {/*            }}*/}
+            {/*            height={200}*/}
+            {/*        />*/}
+            {/*    <div>*/}
+            {/*        <button onClick={getData}>Export 2 PDF</button>*/}
+            {/*    </div>*/}
+            {/*</div>*/}
         </div>
     )
 }

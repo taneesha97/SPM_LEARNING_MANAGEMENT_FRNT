@@ -8,7 +8,7 @@ function PopUpUpdate(props) {
     const dispatch = useDispatch();
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
-    const [tutorName, setTutorName] = useState('');
+    const [tutorName, setTutorName] = useState('name1');
     const [teacherOptions, setTeacherOptions] = useState(null);
     const teacherResponse = useSelector((state) => state.userDetails1?.UserDetails?.records?.data);
 
@@ -29,9 +29,9 @@ function PopUpUpdate(props) {
 
     useEffect(() => {
         dispatch(fetchTeachers());
-        setName(props.popupData.name);
-        setDescription(props.popupData.description);
-        setTutorName(props.popupData.tutorName);
+        setName(props.popupData?.name);
+        setDescription(props.popupData?.description);
+        setTutorName(props.popupData?.tutorName);
     },[props.trigger])
 
     async function getTeachersData() {
@@ -40,8 +40,8 @@ function PopUpUpdate(props) {
         const options = teacherResponse?.map((item) => (
             console.log('ITEM', item),
                 {
-                    "value" : item.id,
-                    "label" : item.name
+                    "value" : item?.name,
+                    "label" : item?.name
                 }))
         setTeacherOptions(options);
         console.log('OPTIONS',options);
@@ -103,15 +103,17 @@ function PopUpUpdate(props) {
                             {/*/>*/}
 
                             <Select
-                                // name={name}
+                                name={tutorName}
                                 value={tutorName}
                                 style={{width:'500px'}}
-                                onChange={(e) => setTutorName(e.label)}
+                                onChange={(e) => setTutorName(e.target.value)}
                             >
+
                                 {teacherOptions?.map(option => {
+                                    console.log(option)
                                     return (
-                                        <MenuItem key={option.id} value={option.name}>
-                                            {option.label ?? option.value}
+                                        <MenuItem key={option.name} value={option?.value}>
+                                            {option?.label ?? option?.value}
                                         </MenuItem>
                                     );
                                 })}

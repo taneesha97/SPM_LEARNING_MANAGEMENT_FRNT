@@ -2,7 +2,7 @@ import React from 'react';
 import "../../../../node_modules/bootstrap/dist/css/bootstrap.css"
 import './ClassFileStyles.css'
 const ClassTile = (props) => {
-    console.log('ROWS',props.rows);
+    console.log('ROWS',props?.rows);
 
     return(
         <div className='class-tile-container'>
