@@ -11,10 +11,10 @@ function SucessPopUp(props) {
         history.push(props.name2);
         props.setTrigger(false)
 
+
     }
     // return (props.trigger) ? (
     return (props.trigger) ? (
-        <div>
             <div className="modal-confirm">
                 <div className="modal-dialog modal-confirm">
                     <div className="modal-content">
@@ -37,9 +37,9 @@ function SucessPopUp(props) {
                     </div>
                 </div>
             </div>
-        </div>
 
 ) : <div></div>;
 }
 
 export default SucessPopUp
+//

@@ -1,16 +1,12 @@
 import React from 'react'
 import "./TileStyles.css"
-import ClassRoom from '../Images/class.png'
-import PermContactCalendarIcon from '@material-ui/icons/PermContactCalendar';
-function Tile({name, count}) {
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+function Tile({name, count, image}) {
     return (
         <div className="admin-header-card">
-            <p className="admin-card-header"> {name}</p>
-            <p className="admin-card-price"> {count} </p>
-            {/*<p><PermContactCalendarIcon classes="admin-card-image"/> </p>*/}
-            <img src={ClassRoom} className="admin-card-image"></img>
-            {/*<PermContactCalendarIcon style={{fontSize:"larger"}}/>*/}
-            {/*<img src="" alt="icon-name"/>*/}
+            <p className="admin-card-header">{name}</p>
+            <p className="admin-card-price">{count}</p>
+            <FontAwesomeIcon color="#3e3b9d" size="3x" icon={image} />
         </div>
     )
 }

@@ -1,9 +1,83 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import './ClassAnnouncement.css'
 import CustomButton from "../../../Tutor/CourseMgntInt/CustomButtons/CustomButton";
+import {useDispatch, useSelector} from "react-redux";
+import {addAnnouncement} from "../../../../Action/Announcement";
+import Select from "react-select";
+import {InputLabel, MenuItem} from "@material-ui/core";
+import {getClasses} from "../../../../Action/Class";
+import {fetchTeachers} from "../../../../Action/Users";
+import {Form} from "react-bootstrap";
 
-function ClassAnnouncement(){
+const ClassAnnouncement = () =>{
+
+    const[header, setHeader] = useState('');
+    const[body, setBody] = useState('');
+    const[name, setName] = useState('');
+    const[classOptions, setClassOptions] = useState(null);
+
+    const dispatch = useDispatch();
+    const classResponse = useSelector((state) => state.classes.classRecords.records);
+
+    useEffect(() => {
+        dispatch(getClasses());
+    },[])
+
+    async function getClass() {
+        const data = classResponse;
+        console.log('Calling get tacher method 2', classResponse);
+        const options = classResponse?.map((item) => (
+            console.log('ITEM', item),
+                {
+                    "value" : item.id,
+                    "label" : item.name
+                }))
+        setClassOptions(options);
+        console.log('OPTIONS',options);
+    }
+
+    //get teacher data
+    useEffect(() => {
+        getClass();
+    },[classResponse])
+
+
+    const validationData = () => {
+        if(header === null){
+
+        }else if(body === null){
+
+        }else if(name === null){
+
+        }else{
+
+        }
+    }
+
+    const resetForm = () => {
+        setHeader('');
+        setBody('');
+        setName('');
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log('CALLING')
+        // if(validationData()){
+            const announcementData = {
+                header,
+                body,
+                name
+            }
+            dispatch(addAnnouncement(announcementData));
+            resetForm();
+            console.log('DATA added')
+        // }
+        // setTimeout(() => dispatch(getAnn()), 1000);
+    }
+
     return (
+        <React.Fragment>
         <div className="class-announcement-container">
             <div className="class-announcement-header">
                 <div className="class-announcement-section-header light">
@@ -14,46 +88,61 @@ function ClassAnnouncement(){
                 </div>
                 <div className="class-announcement-body">
                     <div className="input-form-container">
-                        <form className="form">
+                        <Form className="form" onSubmit={handleSubmit}>
                             <label> Heading</label>
                             <div>
-                                <input type="text" id="fname" name="firstname"
-                                       placeholder="Announcement Heading Comes here..." className="form-input"/>
+                                <input
+                                    type="text"
+                                    id="fname"
+                                    name="firstname"
+                                    placeholder="Announcement Heading Comes here..."
+                                    className="form-input"
+                                    value={header}
+                                    onChange={(e) => setHeader(e.target.value)}
+                                    required
+                                />
                             </div>
                             <label> Body</label>
                             <div>
-                            <textarea type="text" id="fname" name="firstname" placeholder="Announcement body comes here..."
-                                      className="form-area"/>
+                            <textarea
+                                type="text"
+                                id="fname" name="firstname"
+                                placeholder="Announcement body comes here..."
+                                className="form-area"
+                                value={body}
+                                onChange={(e) => setBody(e.target.value)}
+                            />
                             </div>
-                            {/*<div className="form-input">*/}
-                            {/*    <select*/}
-                            {/*        className="form-input"*/}
-                            {/*        aria-label="Default select example"*/}
-                            {/*        // value={classData.teacher}*/}
-                            {/*        //onChange={(e) => setClassData({...classData, tutorName: e.target.value})}*/}
-                            {/*        required*/}
-                            {/*    >*/}
-                            {/*        <option selected>Choose...</option>*/}
-                            {/*        <option value="1">D.K.L.WEERSINGHE</option>*/}
-                            {/*        <option value="2">T.K.L.CHANDRASENA</option>*/}
-                            {/*        <option value="3">M.N.V.RATHNAYAKA</option>*/}
-                            {/*        <option value="4">H.K.L.VEERSINGHE</option>*/}
-                            {/*        <option value="5">K.N.V.PERERA</option>*/}
-                            {/*    </select>*/}
-                            {/*</div >*/}
-                            <div className="class-announcement-body-button-group">
-                                <div className="class-announcement-button">
-                                    <CustomButton name={"Discard"} color={"#FF5050"}/>
-                                </div>
-                                <div className="class-announcement-button">
-                                    <CustomButton name={"Send"} color={"#e4bf5e"}/>
-                                </div>
+                            <InputLabel id="label">Class name</InputLabel>
+                            <div className="clz-input">
+                                <Select
+                                    menuPlacement="auto"
+                                    menuPosition="fixed"
+                                    onChange={(e) => setName(e.label)}
+                                    options={classOptions}
+                                >
+                                </Select>
                             </div>
-                        </form>
+                            {/*<div className="class-announcement-body-button-group">*/}
+                            {/*    <div className="class-announcement-button">*/}
+                            {/*        <CustomButton name={"Discard"} color={"#FF5050"}/>*/}
+                            {/*    </div>*/}
+                            {/*    <div className="class-announcement-button">*/}
+                            {/*        <CustomButton  name={"Send"} color={"#e4bf5e"}/>*/}
+                            {/*        /!*<button type="submit" style={{color:"#e4bf5e", paddingBottom:"8px"}} className="custom-button">Submit</button>*!/*/}
+                            {/*    </div>*/}
+                            {/*</div>*/}
+
+                            <div className="course-button-group button-row">
+                                <button className="add-button" type="submit">Submit</button>
+                                <button className="reset-button" onClick={resetForm}>Reset</button>
+                            </div>
+                        </Form>
                     </div>
                 </div>
             </div>
         </div>
+        </React.Fragment>
     )
 }
 

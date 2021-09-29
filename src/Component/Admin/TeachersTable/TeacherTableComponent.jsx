@@ -8,7 +8,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import {Link} from "react-router-dom";
-import {makeStyles, TextField} from "@material-ui/core";
+import {createTheme, makeStyles, styled, TextField} from "@material-ui/core";
 import './teacherTable.css'
 import teacherDeleteimage1 from "./images/teacherDelete-image1.png";
 import {useDispatch, useSelector} from "react-redux";
@@ -16,6 +16,9 @@ import {deleteUsers, fetchStudents, fetchTeachers, fetchUser} from "../../../Act
 import {useHistory} from "react-router";
 import TableFooter from "@material-ui/core/TableFooter";
 import TablePagination from "@material-ui/core/TablePagination";
+import SucessPopUp from "../../PopupModel/SucessPopUp";
+import PopUpTeacherStatusComponent from "../../PopupModel/TeacherStatus/PopUpTeacherStatusComponent";
+import {purple} from "@material-ui/core/colors";
 function TeacherTableComponent() {
 
 
@@ -24,12 +27,17 @@ function TeacherTableComponent() {
 
     const [searchTerm, setSearchTerm] = useState("");
     const [rowsPerPage, setRowsPerPage] = React.useState(5);
-    //const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
+    const [buttonPopup, setButtonPopup] = useState(false);
+    const [popupId, setPopupId] = useState("");
+    const [popupStatus, setPopupStatus] = useState("");
+    const [page, setPage] = React.useState(0);
 
-    const response = useSelector((state) => state.userDetails1.UserDetails.records.data);
-    console.log(response);
+
+    const response = useSelector((state) => state.userDetails1?.UserDetails?.records?.data);
+    const [filteredData, setFilteredData] = useState(response);
 
     useEffect(() => {
+        setPage(0);
         console.log('calling')
         dispatch(fetchTeachers());
     },[])
@@ -43,118 +51,142 @@ function TeacherTableComponent() {
     const useStyles = makeStyles({
         table: {
             maxWidth: "710%",
-            borderRadius: 30,
+            borderRadius: 8.74,
         },
         teacherContent: {
-            borderRadius: 30,
+            borderRadius: 8.74,
             maxWidth: "810%"
         },
         teacherTableHeaderColumns: {
             color: 'white',
-            width: 200
+            width: '200px',
+
         },
+
+        // export const useStyle = makeStyles((theme) => ({
+        //     root: {
+        //         "& .MuiFormControl-root": {
+        //             width: "80%",
+        //             margin: theme.spacing(1),
+        //         },
+        //     },
+        // }));
     });
+
     const classes = useStyles();
 
+    const handleChangePage = (event: unknown, newPage: number) => {
+        setPage(newPage);
+    };
 
-    const handleChangePage = () => {
+    const handleChangeRowsPerPage = (
+        event: React.ChangeEvent<HTMLInputElement>
+    ) => {
+        setRowsPerPage(+event.target.value);
 
-    }
+        setPage(0);
+    };
 
-    const handleChangeRowsPerPage= () => {
 
+    const buttonStatus = (id, status) => {
+        //console.log(value)
+        setPopupId(id);
+        setPopupStatus(status);
+        setButtonPopup(true);
     }
 
     return (
-        <div className="Teacher-table-background">
-            <div className="teacher-table-title-header">
-                <h1 className="title-teacherTable">Teacher Details Table</h1>
-                <div className="search-bar-teacher-table">
-                    <TextField
-                        id="filled-full-width"
-                        label="Search"
-                        placeholder="Search by name.."
-                        fullWidth
-                        margin="normal"
-                        variant="outlined"
-                        className="search-teacher"
-                        value={searchTerm}
-                        onChange={(event) => setSearchTerm(event.target.value)}
-                        style={{backgroundColor: "#FFFFFF", width: 300, borderRadius: 30}}
-                    />
+        <React.Fragment>
+            <div className="Teacher-table-background">
+                <div className="teacher-table-title-header">
+                    <h1 className="title-teacherTable">Teacher Details Table</h1>
+                    <div className="search-bar-teacher-table">
+                        <TextField
+                            placeholder="Search by name.."
+
+                            margin="normal"
+                            className="search-teacher"
+                            value={searchTerm}
+                            onChange={(event) => setSearchTerm(event.target.value)}
+                            style={{backgroundColor: "#FFFFFF", width: 300, borderRadius: 8.74, height: 30, paddingLeft: 10}}
+                        />
+                    </div>
+
                 </div>
+                <div className="login-component-4">
+                    <PopUpTeacherStatusComponent trigger={buttonPopup} setTrigger = {setButtonPopup} name1 = {popupId} name2 = {popupStatus}/>
+                </div>
+                <TableContainer component={Paper} className={classes.teacherContent}>
 
-            </div>
-            <TableContainer component={Paper} className={classes.teacherContent}>
+                    <Table className={classes.table} aria-label="simple table">
+                        <TableHead className="teacher-table-header">
+                            <TableRow >
+                                <TableCell align="center" className={classes.teacherTableHeaderColumns}>Name</TableCell>
+                                <TableCell align="center" className={classes.teacherTableHeaderColumns}>Email</TableCell>
+                                <TableCell align="center" className={classes.teacherTableHeaderColumns}>Age</TableCell>
+                                <TableCell align="center" className={classes.teacherTableHeaderColumns}>User Name</TableCell>
+                                <TableCell align="center" className={classes.teacherTableHeaderColumns}>Status</TableCell>
+                                <TableCell align="center" className={classes.teacherTableHeaderColumns}>Delete</TableCell>
+                                <TableCell align="center" className={classes.teacherTableHeaderColumns}>Approve Teacher</TableCell>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
 
-                <Table className={classes.table} aria-label="simple table">
-                    <TableHead className="teacher-table-header">
-                        <TableRow >
-                            <TableCell align="center" className={classes.teacherTableHeaderColumns}>id</TableCell>
-                            <TableCell align="center" className={classes.teacherTableHeaderColumns}>Name</TableCell>
-                            <TableCell align="center" className={classes.teacherTableHeaderColumns}>Email</TableCell>
-                            <TableCell align="center" className={classes.teacherTableHeaderColumns}>User Name</TableCell>
-                            <TableCell align="center" className={classes.teacherTableHeaderColumns}>Status</TableCell>
-                            <TableCell align="center" className={classes.teacherTableHeaderColumns}>Password</TableCell>
-                            <TableCell align="center" className={classes.teacherTableHeaderColumns}>Delete</TableCell>
-                            <TableCell align="center" className={classes.teacherTableHeaderColumns}>Approve Teacher</TableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {response?.filter((val) => {
-                            if(searchTerm == ""){
-                                return val
-                            }else if(val.name.toLowerCase().includes(searchTerm.toLowerCase())){
-                                return val
+                            {response?.filter((val) => {
+                                if(searchTerm == ""){
+                                    return val
+                                }else if(val.name.toLowerCase().includes(searchTerm.toLowerCase())){
+                                    return val
+                                }
+                            })
+                                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                                .map((row) => (
+                                    <TableRow key={row.id}>
+                                        <TableCell align="center"> {row.name} </TableCell>
+                                        <TableCell align="center"> {row.email} </TableCell>
+                                        <TableCell align="center"> {row.age} </TableCell>
+                                        <TableCell align="center"> {row.username} </TableCell>
+                                        <TableCell align="center"> {row.status} </TableCell>
+                                        <TableCell align="center">
+                                            <a onClick={() => {
+                                                deleteTeacher(row.id)}}>
+                                                <img src= {teacherDeleteimage1}  className="teacherDelete-image1"/>
+                                            </a>
+
+                                        </TableCell>
+                                        <TableCell align="center">
+                                            <button type="button" onClick={() => {buttonStatus(row.id, row.status)}} className="btn btn-info">Update</button>
+                                            {/*<a onClick={() => {*/}
+                                            {/*    deleteTeacher(row.id)}}>*/}
+                                            {/*    <img src= {teacherDeleteimage1}  className="teacherDelete-image1"/>*/}
+                                            {/*</a>*/}
+                                        </TableCell>
+                                    </TableRow>
+                                ))
                             }
-                        }).map((row) => (
-                            console.log(row),
-                                <TableRow key={row.id}>
-                                    <TableCell align="center"> {row.id} </TableCell>
-                                    <TableCell align="center"> {row.name} </TableCell>
-                                    <TableCell align="center"> {row.email} </TableCell>
-                                    <TableCell align="center"> {row.username} </TableCell>
-                                    <TableCell align="center"> {row.status} </TableCell>
-                                    <TableCell align="center"> {row.password} </TableCell>
-                                    <TableCell align="center">
-                                        <a onClick={() => {
-                                            deleteTeacher(row.id)}}>
-                                            <img src= {teacherDeleteimage1}  className="teacherDelete-image1"/>
-                                        </a>
+                        </TableBody>
+                    </Table>
 
-                                    </TableCell>
-                                    <TableCell align="center">
-                                        <a>update</a>
-                                        {/*<a onClick={() => {*/}
-                                        {/*    deleteTeacher(row.id)}}>*/}
-                                        {/*    <img src= {teacherDeleteimage1}  className="teacherDelete-image1"/>*/}
-                                        {/*</a>*/}
-                                    </TableCell>
-                                </TableRow>
-                        ))
-                        }
-                    </TableBody>
-                    <TableFooter>
-                        <TableRow>
-                            <TablePagination
-                                rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
-                                colSpan={3}
-                                count={10}
-                                rowsPerPage={rowsPerPage}
-                                page={6}
-                                SelectProps={{
-                                    inputProps: { 'aria-label': 'rows per page' },
-                                    native: true,
-                                }}
-                                onPageChange={handleChangePage}
-                                onRowsPerPageChange={handleChangeRowsPerPage}
-                                // ActionsComponent={TablePaginationActions}
-                            />
-                        </TableRow>
-                    </TableFooter>
-                </Table>
-            </TableContainer>
-        </div>
+                </TableContainer>
+                <TablePagination
+                    rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
+                    colSpan={3}
+                    count={filteredData ? filteredData.length : 1}
+                    rowsPerPage={rowsPerPage}
+                    page={page}
+                    //classes={{ ul: classes.ul }}
+                    SelectProps={{
+                        inputProps: { 'aria-label': 'rows per page' },
+                        native: true,
+                    }}
+                    component="div"
+                    onPageChange={handleChangePage}
+                    onRowsPerPageChange={handleChangeRowsPerPage}
+                    //className={classes.table}
+                />
+            </div>
+        </React.Fragment>
+
     )
 }
 

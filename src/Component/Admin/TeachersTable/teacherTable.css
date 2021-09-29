@@ -9,11 +9,15 @@
 }
 
 .title-teacherTable {
+  display: inline-block;
   text-align: Left;
   color: #C4C4C4;
   font-weight: 700;
-  font-family: Roboto;
-  font-size: 44px;
+  font-size: 25px;
+}
+
+.footer {
+  font-size: 30px;
 }
 
 .teacher-table-header {
@@ -21,6 +25,10 @@
   width: 75%;
   margin-left: -10%;
   border-radius: 30px;
+}
+
+.login-component-4 {
+  margin: auto;
 }
 
 .student-table-header-columns {
@@ -32,18 +40,9 @@
 }
 
 .search-bar-teacher-table {
-  margin-left: 387.5%;
-  margin-top: -17%;
-  border-radius: 30px;
-  background-color: white;
-}
-
-.teacher-table-title-header {
-  display: inline-block;
-}
-
-.search-teacher {
-  width: 100%;
+  float: right;
+  align-content: center;
+  margin-top: -0.6%;
 }
 
 /*# sourceMappingURL=teacherTable.css.map */

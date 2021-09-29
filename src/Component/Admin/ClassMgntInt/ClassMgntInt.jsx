@@ -1,24 +1,45 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './ClassMgntInt.css'
 import "../../../../node_modules/bootstrap/dist/css/bootstrap.css"
-import FileBase from 'react-file-base64';
 import {useDispatch, useSelector} from "react-redux";
 import {addClass, getClasses} from "../../../Action/Class";
 import CustomAlert from '../../CustomAlert/CustomAlert'
 import {Grid} from "@material-ui/core";
+import Select from "react-select";
+import data from "bootstrap/js/src/dom/data";
+import {fetchTeachers} from "../../../Action/Users";
+import axios from "axios";
 function ClassMgntInt() {
 
     const [image, setImage] = useState("");
-    const [classData, setClassData] = useState({
-        name: '',
-        description: '',
-        tutorName: '',
-    });
+    const [name, setName] = useState('');
+    const [description, setDescription] = useState('');
+    const [tutorName, setTutorName] = useState('');
+
     const dispatch = useDispatch();
+
+    //Progress Tracking State.
+    const [progress, setProgress] = useState(0);
+    const [loading, setLoading] = useState(false);
+    const [success, setSuccess] = useState(false);
+    const [file, setFile] = useState(0);
+    const [downloadUri, setDownloadUri] = useState(0);
+    const [teacherOptions, setTeacherOptions] = useState(null);
+    console.log('teacherOptions',teacherOptions);
+    //teacher data
+    const teacherResponse = useSelector((state) => state.userDetails1?.UserDetails?.records?.data);
+    console.log('teacherResponse',teacherResponse);
+
+    useEffect(() => {
+        console.log('calling')
+        dispatch(fetchTeachers());
+    },[])
+
 
     const formRefresh = () => {
         console.log('form referesh calling');
-        setClassData({...classData, name: '', teacher: [], description: ""});
+        setName('');
+        setDescription('');
     }
 
     const uploadedImage = (e) => {
@@ -45,13 +66,35 @@ function ClassMgntInt() {
     const [successMessageDisplay, setSuccessMessageDisplay] = useState(successMessage);
     const [errorMessageDisplay, setErrorMessageDisplay] = useState(null);
 
+
     React.useEffect(() => {
         setSuccessMessageDisplay(successMessage);
         setTimeout(() => setSuccessMessageDisplay(""), 3000);
     }, [successMessage]);
 
+
+    async function getTeachers() {
+         console.log('Calling get tacher method');
+        const data = teacherResponse;
+         console.log('Calling get tacher method 2', teacherResponse);
+         const options = teacherResponse?.map((item) => (
+            console.log('ITEM', item),
+            {
+            "value" : item.id,
+            "label" : item.name
+            }))
+        setTeacherOptions(options);
+         console.log('OPTIONS',options);
+    }
+
+    //get teacher data
+    useEffect(() => {
+        getTeachers();
+    },[teacherResponse])
+
+
     const validation = () => {
-        if (classData.tutorName === null) {
+        if (tutorName === null) {
             setErrorMessageDisplay("Please select a Tutor");
             return false;
         }else{
@@ -59,15 +102,40 @@ function ClassMgntInt() {
         }
     }
 
-        const handleSubmit = (e) => {
+    //File attachment logic, saved the file in state.
+    const onDrop = React.useCallback((selectedFile) => {
+        let image = selectedFile.target.files;
+        setFile(image);
+        console.log('IMG',file);
+        setSuccess(false);
+        setProgress(0);
+    })
+
+    useEffect(() => {
+        if(data){
+            const {name,description, tutorName} = data;
+            setName(data.name);
+            setDescription(data.description);
+            setTutorName(data.tutorName);
+        }
+
+    }, [data])
+
+
+    const handleSubmit = (e) => {
             e.preventDefault();
             setErrorMessageDisplay(null);
-            console.log(classData);
+
             if (validation()) {
+                const classData = {
+                    name,
+                    description,
+                    tutorName,
+                    image
+                }
                 dispatch(addClass(classData));
             }
-                setTimeout(() => dispatch(getClasses()), 1000);
-
+            setTimeout(() => dispatch(getClasses()), 1000);
         }
 
         return (
@@ -85,8 +153,9 @@ function ClassMgntInt() {
                                 id="name" name="classname"
                                 placeholder="class name(eg:Grade 10)"
                                 className="form-input"
-                                value={classData.name}
-                                onChange={(e) => setClassData({...classData, name: e.target.value})}
+                                value={name}
+                                // onChange={(e) => setClassData({...classData, name: e.target.value})}
+                                onChange={(e) => setName(e.target.value)}
                                 required
                             />
 
@@ -97,47 +166,36 @@ function ClassMgntInt() {
                                 name="description"
                                 placeholder="description..."
                                 className="form-input"
-                                value={classData.description}
-                                onChange={(e) => setClassData({...classData, description: e.target.value})}
+                                value={description}
+                                onChange={(e) => setDescription(e.target.value)}
                                 required
                             />
 
                             <label htmlFor="lname">Teacher name</label>
-                            <select
-                                className="form-input"
-                                aria-label="Default select example"
-                                value={classData.teacher}
-                                required onChange={(e) => setClassData({...classData, tutorName: e.target.value})}
-                                required
-                            >
-                                <option selected>Choose...</option>
-                                <option value="1">D.K.L.WEERSINGHE</option>
-                                <option value="2">T.K.L.CHANDRASENA</option>
-                                <option value="3">M.N.V.RATHNAYAKA</option>
-                                <option value="4">H.K.L.VEERSINGHE</option>
-                                <option value="5">K.N.V.PERERA</option>
-                            </select>
+                            <div className="class-form-teacher-input">
+                                <Select
+                                options={teacherOptions}
+                                menuPlacement="auto"
+                                menuPosition="fixed"
+                                onChange={(e) => setTutorName(e.label)}
+                                /></div>
 
+                            {/*<Autocomplete*/}
+                            {/*    value={teamName}*/}
+                            {/*    id="combo-box-demo"*/}
+                            {/*    size="small"*/}
+                            {/*    options={teamRecord.data}*/}
+                            {/*    getOptionLabel={(option: any) => option.teamName}*/}
+                            {/*    onChange={selectTeamName}*/}
+                            {/*    disabled={teamDisable}*/}
+                            {/*    renderInput={(params) => (*/}
+                            {/*        <TextField style={{ width: "100%" }} {...params} label="Team *" variant="outlined" />*/}
+                            {/*    )}*/}
+                            {/*/>*/}
 
-                            {/*<label htmlFor="lname">Image</label>*/}
-                            {/*<div className="mb-3" style={{marginLeft:20}}>*/}
-                            {/*    /!*<FileBase*!/*/}
-                            {/*    /!*    type="file"*!/*/}
-                            {/*    /!*    multiple={false}*!/*/}
-                            {/*    /!*    onDone={({base64}) => setClassData({...classData, image: base64})}*!/*/}
-                            {/*    /!*    // required*!/*/}
-                            {/*    <input type="file" id="avatar"  accept="image/png, image/jpeg"*/}
-                            {/*           onChange={uploadedImage} />*/}
-                            {/*</div>*/}
-                            {/*<label htmlFor="lname">Image</label>*/}
-                            {/*<div className="mb-3" style={{marginLeft:20}}>*/}
-                            {/*    <FileBase*/}
-                            {/*        type="file"*/}
-                            {/*        multiple={false}*/}
-                            {/*        onDone={({base64}) => setClassData({...classData, image: base64})}*/}
-                            {/*        // required*/}
-                            {/*    />*/}
-                            {/*</div>*/}
+                            <label htmlFor="lname">Attach the Image</label>
+                            <input style={{height: "30px", fontSize: "10px", paddingBottom: "30px", color: "black", fontWeight: "bold"}} onChange={onDrop}  type="file" id="lname" name="lastname" placeholder="Number of Chapters.."
+                                   className="class-form-teacher-input"/>
                             <div className="msg">
                             <Grid item direction="column" md={6}>
                                 {errorDisplay ? (

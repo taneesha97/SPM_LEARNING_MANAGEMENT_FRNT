@@ -1,7 +1,7 @@
 .class-announcement-container {
   background-color: #525252;
   width: 600px;
-  height: 500px;
+  height: 600px;
   border-radius: 30px;
   padding-bottom: 20px;
   padding-right: 10px;
@@ -40,6 +40,16 @@
           border-radius: 4px;
           box-sizing: border-box;
         }
+        .clz-input{
+          width: 510px;
+          padding: 12px 20px;
+          margin-left:3px;
+          //margin-right: 20px;
+          //display: inline-block;
+          border: 1px solid white;
+          border-radius: 4px;
+          box-sizing: border-box;
+        }
 
       }
     }
@@ -75,3 +85,4 @@
     font-family: "Helvetica","Verdana", serif;
   }
 }
+

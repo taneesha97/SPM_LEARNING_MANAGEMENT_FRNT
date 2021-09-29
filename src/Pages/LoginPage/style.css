@@ -1,0 +1,20 @@
+.background-log {
+  align-content: center;
+  max-width: 100%;
+  padding-top: 2%;
+  background: #d9d9ff;
+}
+
+.sub-footer1 {
+  text-align: center;
+  background: #000;
+  width: 100%;
+  margin: 100px 0 10px 0;
+  padding: 5px 0;
+  justify-content: center;
+  color: gray;
+  font-size: 15px;
+  color: #FFFFFF;
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -1,13 +1,5 @@
-.background-userUpdate{
-  position: absolute;
-  margin-top: -20px;
-  position: relative;
-  width: fit-content;
-  height: fit-content;
-  //background-color: white;
 
-}
-
+//ok
 .background-userUpdate-1{
   position:fixed;
   top:0;
@@ -24,12 +16,12 @@
 .emailupdatecomponent-bio{
   display: flex;
   flex-direction: column;
-  height: 350px;
-  width: 800px;
+  height: fit-content;
+  width: fit-content;
   margin-left: 1%;
   margin-top: 1%;
   border-radius: 30px;
-  background-color: #FFFFFF;
+  background-color: rgba(136, 134, 255, 1);
   filter: drop-shadow(0px 5px 20px rgba(0, 0, 0, 0.25)) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
@@ -39,7 +31,6 @@
 }
 
 .emailupdatecomponent-bio1-info1-main{
-  font-family:Roboto;
   color:rgba(0, 0, 0, 1);
   font-weight: 400;
   font-size: 48px;
@@ -49,12 +40,21 @@
 }
 
 .emailupdatecomponent-bio1-info1-second{
-  margin-top: 6%;
-  width: 800px;
+  margin-top: 2%;
+  width: 100%;
+  padding: 2%;
+}
+
+.button-container{
+  position: relative;
+  width: 100%;
+}
+
+.btnpopup{
+  width: 100%;
 }
 
 .input-wrapper-update{
-  font-family:Roboto;
   //color: black;
   font-weight: 700;
   font-size: 19px;
@@ -89,37 +89,45 @@
   width: 5%;
   //height: 10%;
   margin-top: 1%;
-  margin-left: 94%;
+  float: right;
+  margin-right: 2%;
 }
 
 .profilePic-emailUpdate{
-  display: block;
   margin-left: 3%;
-  width: 175px;
-  margin-top:-3%;
+  width: 160px;
+  margin-top:5%;
 }
 
 
 .emailupdatecomponent-bio1-info2{
   position: absolute;
-  margin-left: 25%;
-  margin-top: -18%;
-  width: 70%;
+  right: 0;
+  margin-right: 9%;
+  margin-top: -23%;
+  width: 55%;
 }
 
 .emailupdatecomponent-bio1-info2-main{
-  font-family:"Script MT Bold";
-  color:rgba(0, 0, 0, 1);
-  font-weight: 400;
-  font-size: 44px;
+  color: black;
+  font-size: 2vw;
   //margin-right: auto;
+  text-align: center;
+}
+.emailupdatecomponent-bio1-info2-main1{
   text-align: center;
 }
 
 .emailupdatecomponent-bio1-info2-second{
-  font-family:Roboto;
-  color: rgba(0, 0, 0, 1);
+  color: white;
   font-weight: 400;
-  font-size: 24px;
+  font-size: 1.5vw;
+  text-align: center;
+}
+
+.emailupdatecomponent-bio1-info2-second1{
+  color: white;
+  font-weight: 400;
+  font-size: 1.0vw;
   text-align: center;
 }

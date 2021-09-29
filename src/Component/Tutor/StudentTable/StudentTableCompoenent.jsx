@@ -11,7 +11,7 @@ import {Link} from "react-router-dom";
 import {makeStyles, TextField} from "@material-ui/core";
 import './studentTable.css'
 import studentDeleting1 from "./images/studentDelete-image1.png";
-import {deleteUsers, fetchStudents} from "../../../Action/Users";
+import {deleteUsers, fetchStudents, getUserByID} from "../../../Action/Users";
 import teacherDeleteimage1 from "../../Admin/TeachersTable/images/teacherDelete-image1.png";
 import {useDispatch, useSelector} from "react-redux";
 import {useHistory} from "react-router";
@@ -25,12 +25,15 @@ const StudentTableComponent = ()  => {
     const history = useHistory();
     const [searchTerm, setSearchTerm] = useState("");
     const [rowsPerPage, setRowsPerPage] = React.useState(5);
+    const [page, setPage] = React.useState(0);
     //const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
 
-    const response = useSelector((state) => state.userDetails1.UserDetails.records.data);
+    const response = useSelector((state) => state.userDetails1?.UserDetails?.records?.data);
     console.log(response);
+    const [filteredData, setFilteredData] = useState(response);
 
     useEffect(() => {
+        setPage(0);
         console.log('calling')
         dispatch(fetchStudents());
     },[])
@@ -42,21 +45,25 @@ const StudentTableComponent = ()  => {
             }, 3000);
     }
 
-    const handleChangePage = () => {
+    const handleChangePage = (event: unknown, newPage: number) => {
+        setPage(newPage);
+    };
 
-    }
+    const handleChangeRowsPerPage = (
+        event: React.ChangeEvent<HTMLInputElement>
+    ) => {
+        setRowsPerPage(+event.target.value);
 
-    const handleChangeRowsPerPage= () => {
-
-    }
+        setPage(0);
+    };
     const useStyles = makeStyles({
         table: {
             maxWidth: "710%",
-            borderRadius: 30,
+            borderRadius: 8.74,
 
         },
         editorContent: {
-            borderRadius: 30,
+            borderRadius: 8.74,
             maxWidth: "810%"
         },
         studentTableHeaderColumns: {
@@ -72,17 +79,17 @@ const StudentTableComponent = ()  => {
             <div className="student-table-title-header">
                 <h1 className="title-studentTable">Student Details Table</h1>
                 <div className="search-bar-student-table">
+
                     <TextField
-                        id="filled-full-width"
-                        label="Search"
-                        placeholder="Search Items.."
-                        fullWidth
+                        //label="Search"
+                        placeholder="Search by name.."
+
                         margin="normal"
-                        variant="outlined"
+
                         className="search-student"
                         value={searchTerm}
                         onChange={(event) => setSearchTerm(event.target.value)}
-                        style={{backgroundColor: "#FFFFFF", width: 300, borderRadius: 2}}
+                        style={{backgroundColor: "#FFFFFF", width: 300, borderRadius:8.74, height: 30, paddingLeft: 10}}
                     />
                 </div>
             </div>
@@ -94,11 +101,10 @@ const StudentTableComponent = ()  => {
                 <Table className={classes.table} aria-label="simple table">
                     <TableHead className="student-table-header">
                         <TableRow >
-                            <TableCell align="center" className={classes.studentTableHeaderColumns}>id</TableCell>
                             <TableCell align="center" className={classes.studentTableHeaderColumns}>Name</TableCell>
                             <TableCell align="center" className={classes.studentTableHeaderColumns}>Email</TableCell>
+                            <TableCell align="center" className={classes.studentTableHeaderColumns}>Age</TableCell>
                             <TableCell align="center" className={classes.studentTableHeaderColumns}>User Name</TableCell>
-                            <TableCell align="center" className={classes.studentTableHeaderColumns}>Password</TableCell>
                             <TableCell align="center" className={classes.studentTableHeaderColumns}>type</TableCell>
                             <TableCell align="center" className={classes.studentTableHeaderColumns}>Delete</TableCell>
                         </TableRow>
@@ -110,14 +116,15 @@ const StudentTableComponent = ()  => {
                             }else if(val.name.toLowerCase().includes(searchTerm.toLowerCase())){
                                 return val
                             }
-                        }).map((row) => (
+                        })
+                            .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                            .map((row) => (
                             console.log(row),
                                 <TableRow>
-                                    <TableCell align="center"> {row.id} </TableCell>
                                     <TableCell align="center"> {row.name} </TableCell>
                                     <TableCell align="center"> {row.email} </TableCell>
+                                    <TableCell align="center"> {row.age} </TableCell>
                                     <TableCell align="center"> {row.username} </TableCell>
-                                    <TableCell align="center"> {row.password} </TableCell>
                                     <TableCell align="center"> {row.type} </TableCell>
                                     <TableCell align="center">
                                         <a onClick={() => {
@@ -127,26 +134,24 @@ const StudentTableComponent = ()  => {
                         ))
                         }
                     </TableBody>
-                    <TableFooter>
-                        <TableRow>
-                            <TablePagination
-                                rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
-                                colSpan={3}
-                                count={10}
-                                rowsPerPage={rowsPerPage}
-                                page={6}
-                                SelectProps={{
-                                    inputProps: { 'aria-label': 'rows per page' },
-                                    native: true,
-                                }}
-                                onPageChange={handleChangePage}
-                                onRowsPerPageChange={handleChangeRowsPerPage}
-                                // ActionsComponent={TablePaginationActions}
-                            />
-                        </TableRow>
-                    </TableFooter>
                 </Table>
             </TableContainer>
+            <TablePagination
+                rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
+                colSpan={3}
+                count={filteredData ? filteredData.length : 1}
+                rowsPerPage={rowsPerPage}
+                page={page}
+                //classes={{ ul: classes.ul }}
+                SelectProps={{
+                    inputProps: { 'aria-label': 'rows per page' },
+                    native: true,
+                }}
+                component="div"
+                onPageChange={handleChangePage}
+                onRowsPerPageChange={handleChangeRowsPerPage}
+                //className={classes.table}
+            />
         </div>
     )
 }
