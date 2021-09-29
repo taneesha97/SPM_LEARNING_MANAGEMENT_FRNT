@@ -8,6 +8,12 @@ function Announcement() {
         message: ''
     });
 
+    //Dummy method
+    const printValue = (e) => {
+        e.preventDefault();
+        console.log('Printed with Different button')
+    }
+
     //Announcement posting method.
     const postAnnouncement = (e) => {
         //Avoid page refreshing
@@ -38,7 +44,7 @@ function Announcement() {
                 </div>
                 <div className="announcement-body">
                     <div className="input-form-container">
-                    <form className="form" onSubmit={postAnnouncement}>
+                    <form className="form">
                         <label> Heading</label>
                         <div>
                             <input type="text" id="fname" name="firstname"
@@ -57,13 +63,13 @@ function Announcement() {
                         </div>
                         <div className="announcement-body-button-group">
                             <div className="announcement-button">
-                                <CustomButton name={"Discard"} color={"#FF5050"}/>
+                                <CustomButton type={"reset"} name={"Discard"} color={"#FF5050"}/>
                             </div>
                             <div className="announcement-button">
-                                <CustomButton type={"submit"} name={"Send"} color={"#e4bf5e"}/>
+                                <CustomButton revokeMethod={postAnnouncement} name={"Send"} color={"#e4bf5e"}/>
                             </div>
                             <div className="announcement-button">
-                                <CustomButton name={"Show"} color={"#50C972"}/>
+                                <CustomButton revokeMethod={printValue} name={"Show"} color={"#50C972"}/>
                             </div>
                         </div>
                     </form>
