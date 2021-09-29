@@ -8,9 +8,10 @@ import html2canvas from "html2canvas";
 
 
 
-const pdfConverter = require("jspdf");
+
 
 function TestingReport() {
+    const pdfConverter = require("jspdf");
     const [chartData, setChartData] = useState({})
 
     const cData = {
@@ -24,24 +25,24 @@ function TestingReport() {
         ]
     };
 
-    useEffect(() => {
-        setChartData({
-            // labels: data.data.map((crypto) => crypto.name),
-            datasets: [
-                {
-                    label: "Price in USD",
-                    data: cData,
-                    backgroundColor: [
-                        "#ffbb11",
-                        "#ecf0f1",
-                        "#50AF95",
-                        "#f3ba2f",
-                        "#2a71d0"
-                    ]
-                }
-            ]
-        });
-    },[]);
+    // useEffect(() => {
+    //     setChartData({
+    //         // labels: data.data.map((crypto) => crypto.name),
+    //         datasets: [
+    //             {
+    //                 label: "Price in USD",
+    //                 data: cData,
+    //                 backgroundColor: [
+    //                     "#ffbb11",
+    //                     "#ecf0f1",
+    //                     "#50AF95",
+    //                     "#f3ba2f",
+    //                     "#2a71d0"
+    //                 ]
+    //             }
+    //         ]
+    //     });
+    // },[]);
 
 
 
@@ -89,11 +90,11 @@ function TestingReport() {
             pdf.text("Total Packages: ", 10, 30);
             pdf.text("Total Customers: ", 10, 40);
             pdf.text("Total Feedbacks: ", 10, 50);
-            pdf.addImage(
-                img,
-                "png",
-                10, 70, 280, 150
-            );
+            // pdf.addImage(
+            //     img,
+            //     "png",
+            //     10, 70, 280, 150
+            // );
             //pdf.table(3,4,)
 //         pdf.autoTable({ html: '#my-table' })
 //
