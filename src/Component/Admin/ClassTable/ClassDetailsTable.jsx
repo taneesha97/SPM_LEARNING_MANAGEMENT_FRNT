@@ -16,9 +16,6 @@ import {useDispatch, useSelector} from "react-redux";
 import {deleteClasses, getClasses} from "../../../Action/Class";
 import './ClassDetails.css'
 import {TextField} from "@material-ui/core";
-import * as row from "react-file-base64";
-import {fetchTeachers} from "../../../Action/Users";
-import PopUpTeacherStatusComponent from "../../PopupModel/TeacherStatus/PopUpTeacherStatusComponent";
 import PopUpUpdate from "../ClassMgntInt/PopUpUpdate/PopUpUpdate";
 
 
@@ -65,6 +62,7 @@ function ClassDetailsTable({method}) {
     const dispatch = useDispatch();
     const [searchTerm, setSearchTerm] = useState("");
     const classDetails = useSelector((state) => state.classes.classRecords.records);
+    const [filteredData, setFilteredData] = useState(classDetails);
     const [popupData,setPopupData] = useState("");
     React.useEffect(() => {
         // setIsLoading(dataLoading);
@@ -108,13 +106,8 @@ function ClassDetailsTable({method}) {
     }
     return (
         <React.Fragment>
-            {/*<div className="class-table-component">*/}
-            {/*    <div className="input-table-container">*/}
             <div className="classTableBackground">
                 <div className="class-table-title-header">
-                    <div style={{ margin: 'auto'}}>
-                        <PopUpUpdate trigger={buttonPopupUpdate} setTrigger = {setButtonPopupUpdate} popupData={popupData}/>
-                    </div>
                     <h1 className="title-classTable">Class Details Table</h1>
                     <div className="search-bar-class-table">
                         <TextField
@@ -126,6 +119,9 @@ function ClassDetailsTable({method}) {
                             style={{backgroundColor: "#FFFFFF", width: 300, borderRadius: 8.74, height: 30, paddingLeft: 10}}
                         />
                     </div>
+                </div>
+                <div style={{ margin: 'auto'}}>
+                    <PopUpUpdate trigger={buttonPopupUpdate} setTrigger = {setButtonPopupUpdate} popupData={popupData}/>
                 </div>
                 <TableContainer component={Paper} className={classes.editorContentClass}>
                         <Table className={classes.table} aria-label="customized table">
@@ -173,7 +169,7 @@ function ClassDetailsTable({method}) {
                                     <TablePagination
                                         rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
                                         colSpan={3}
-                                        count={10}
+                                        count={filteredData ? filteredData.length : 1}
                                         rowsPerPage={rowsPerPage}
                                         page={page}
                                         SelectProps={{
@@ -182,16 +178,12 @@ function ClassDetailsTable({method}) {
                                         }}
                                         onPageChange={handleChangePage}
                                         onRowsPerPageChange={handleChangeRowsPerPage}
-                                        // ActionsComponent={TablePaginationActions}
                                     />
                                 </TableRow>
                             </TableFooter>
                         </Table>
                 </TableContainer>
             </div>
-
-            {/*    </div>*/}
-            {/*</div>*/}
         </React.Fragment>
 
     )
