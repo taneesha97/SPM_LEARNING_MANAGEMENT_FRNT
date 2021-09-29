@@ -11,30 +11,36 @@ import {Button, IconButton} from "@material-ui/core";
 import {sanitizeHtml} from "bootstrap/js/src/util/sanitizer";
 import {CloudDownload} from "@material-ui/icons";
 import axios from "axios";
+import {Link} from "react-router-dom";
+import Typography from "@material-ui/core/Typography";
 
-// Axios call to get the data from the database.
+//Custom Fonts
 
 
-const useStyles = makeStyles({
-    root: {
-        width: "100%",
-        display: "block",
-        overflow: "hidden",
-        borderBottomLeftRadius: 30,
-        borderBottomRightRadius: 30,
-        fontWeight: 600
+const useStyles = makeStyles((theme) => ({
+    table: {
+        minWidth: 400
     },
-    container: {
-        overflow: "scroll",
-        scrollbarWidth: "none" /* Firefox */,
-        fontWeight: 600,
-        maxHeight: 420,
-        "&::-webkit-scrollbar": {
-            display: "none"
-        } /* Chrome */
+    tableContainer: {
+        borderRadius: 30,
+        margin: '10px 10px 10px 10px',
+        maxWidth: "98%",
+    },
+    tableHeaderCell: {
+        fontWeight: 'bold',
+        backgroundColor: theme.palette.primary.dark, // Change the background color to pink.
+        color: theme.palette.getContrastText(theme.palette.primary.dark)
+    },
+    name : {
+        fontWeight: 'bold',
+        color: theme.palette.secondary.dark
     }
+}))
 
-});
+
+
+
+
 
 export default function FileAttachmentTable() {
 
@@ -59,6 +65,13 @@ export default function FileAttachmentTable() {
         setTableOptions(options);
     }
 
+    // File Download method.
+    async function downloadFiles (imageName) {
+        const response = await axios.get("http://localhost:8073/api/download/" + imageName);
+        const data = response.data;
+        return data;
+    }
+
     const classes = useStyles();
 
     const [page, setPage] = React.useState(0);
@@ -74,33 +87,35 @@ export default function FileAttachmentTable() {
     };
 
     return (
-        <TableContainer component={Paper}>
+        <TableContainer className={classes.tableContainer} component={Paper}>
             <Table className={classes.table} aria-label="simple table">
                 <TableHead>
                     <TableRow>
-                        <TableCell>File Name</TableCell>
-                        <TableCell>URI</TableCell>
-                        <TableCell>type</TableCell>
-                        <TableCell>Size</TableCell>
-                        <TableCell>Price</TableCell>
-                        <TableCell>Description</TableCell>
-                        <TableCell>Course</TableCell>
-                        <TableCell>User Given Name</TableCell>
+                        <TableCell className={classes.tableHeaderCell}>File Name</TableCell>
+                        <TableCell className={classes.tableHeaderCell}>User Given Name</TableCell>
+                        <TableCell className={classes.tableHeaderCell}>type</TableCell>
+                        <TableCell className={classes.tableHeaderCell}>Size</TableCell>
+                        <TableCell className={classes.tableHeaderCell}>Price</TableCell>
+                        <TableCell className={classes.tableHeaderCell}>Description</TableCell>
+                        <TableCell className={classes.tableHeaderCell}>Course</TableCell>
+                        <TableCell className={classes.tableHeaderCell}>URI</TableCell>
+
                     </TableRow>
                 </TableHead>
                 <TableBody>
                     {tableoptions?.map((row) => (
                         <TableRow key={row.name}>
-                            <TableCell component="th" scope="row">
+                            <TableCell className={classes.name} component="th" scope="row">
                                 {row.name}
                             </TableCell>
-                            <TableCell>{row.uri}</TableCell>
+                            <TableCell><Typography>{row.userGivenName}</Typography></TableCell>
                             <TableCell>{row.type}</TableCell>
                             <TableCell>{row.size}</TableCell>
                             <TableCell>{row.price}</TableCell>
                             <TableCell>{row.description}</TableCell>
                             <TableCell>{row.course}</TableCell>
-                            <TableCell>{row.userGivenName}</TableCell>
+
+                            <TableCell><Button style={{backgroundColor: "red"}} onClick={() => downloadFiles(`${row.name}`)} value="Download">Download</Button></TableCell>
                         </TableRow>
                     ))}
                 </TableBody>
