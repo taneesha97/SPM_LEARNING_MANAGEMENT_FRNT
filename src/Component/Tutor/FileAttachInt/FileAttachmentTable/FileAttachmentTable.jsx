@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
         color: theme.palette.getContrastText(theme.palette.primary.dark),
         fontSize: 18,
         marginLeft: 10,
-        width: '100%'
+        width: 100,
     },
 
     name : {
@@ -139,12 +139,12 @@ export default function FileAttachmentTable({status}) {
                             <TableCell className={classes.name} component="th" scope="row">
                                 {row.name}
                             </TableCell>
-                            <TableCell><Typography color="textSecondary" variant="subtitle1">{row.userGivenName}</Typography></TableCell>
-                            <TableCell><Typography color="textSecondary" variant="subtitle1">{row.type}</Typography></TableCell>
-                            <TableCell><Typography color="textSecondary" variant="subtitle1">{row.size}</Typography></TableCell>
-                            <TableCell><Typography color="textSecondary" variant="subtitle1">{row.price}</Typography></TableCell>
-                            <TableCell><Typography color="textSecondary" variant="subtitle1">{row.description}</Typography></TableCell>
-                            <TableCell><Typography className={classes.course} style={
+                            <TableCell style={{overflow: "hidden"}}><Typography color="textSecondary" variant="subtitle1">{row.userGivenName}</Typography></TableCell>
+                            <TableCell style={{overflow: "hidden"}}><Typography color="textSecondary" variant="subtitle1">{row.type}</Typography></TableCell>
+                            <TableCell style={{overflow: "hidden"}}><Typography color="textSecondary" variant="subtitle1">{row.size}</Typography></TableCell>
+                            <TableCell style={{overflow: "hidden"}}><Typography color="textSecondary" variant="subtitle1">{row.price}</Typography></TableCell>
+                            <TableCell style={{overflow: "hidden"}}><Typography color="textSecondary" variant="subtitle1">{row.description}</Typography></TableCell>
+                            <TableCell style={{overflow: "hidden"}}><Typography className={classes.course} style={
                                 {
                                     backgroundColor: ((row.course === 'English' && 'green') || (row.course === 'Sinhala' && 'blue') || (row.course === 'Tamil' && 'yellow'))
                                 }

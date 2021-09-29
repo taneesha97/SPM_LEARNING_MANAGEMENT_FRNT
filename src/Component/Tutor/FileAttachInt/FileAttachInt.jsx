@@ -176,7 +176,9 @@ function FileAttachInt({array4}) {
                         />
 
                         <label htmlFor="lname">Course</label>
-                        <div className="form-input"><Select options={selectedOptions} menuPlacement="auto" menuPosition="fixed" onChange={(e) => setMetaData({...metaData, course: e})}/></div>
+                        <div className="form-input">
+                            <Select options={selectedOptions} menuPlacement="auto" menuPosition="fixed" onChange={(e) => setMetaData({...metaData, course: e})}/>
+                        </div>
 
 
                         <label htmlFor="lname">Attach the File</label>
