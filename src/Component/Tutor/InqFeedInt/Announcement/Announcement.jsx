@@ -25,7 +25,7 @@ function Announcement() {
         }
         console.log("Post Data From Announcement " + postData);
 
-        fetch("http://localhost:8073/api/single/upload", {
+        fetch("http://localhost:8073/api/announcement", {
             method: "POST",
             body: postData
         })
