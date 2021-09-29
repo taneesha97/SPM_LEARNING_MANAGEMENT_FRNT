@@ -17,6 +17,7 @@ import { faPencilRuler } from "@fortawesome/free-solid-svg-icons";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import {useHistory} from "react-router";
+import axios from "axios";
 
 function TutorDashboard() {
 
@@ -24,25 +25,36 @@ function TutorDashboard() {
     console.log(usertype)
     const history = useHistory();
 
+    //User Validation Upon Landing On the Page -- Temporarily Disable.
+    useEffect(()=> {
+        // if(usertype != "teacher" && usertype != "admin"){
+        //     history.push('./login')
+        //     //window.location.href='/login';
+        // } else {
+        //     //setFlag(true);
+        // }
+        getItems();
+    }, [])
 
-
-
-    // useEffect(()=> {
-    //     if(usertype != "teacher" && usertype != "admin"){
-    //         history.push('./login')
-    //         //window.location.href='/login';
-    //     } else {
-    //         //setFlag(true);
-    //     }
-    // }, [])
+    //Method to fetch all the feedback information.
+    async function getItems () {
+        const response = await axios.get("http://localhost:8073/feedback");
+        const data = response.data;
+        const options = data.map(item => ({
+            "header" : item.name,
+            "description" : item.message,
+        }))
+        setFeedback(options);
+    }
 
     //State to hold the popup menu.
     const [trigger, setTrigger] = useState(false);
-
     const [triggerData, setTriggerData] = useState({
         header: 'No Data',
         description: 'No Data'
     });
+    const [feedback, setFeedback] = useState([]);
+
 
     const courses = useSelector((state) => state.courses);
     const dispatch = useDispatch();
@@ -101,7 +113,7 @@ function TutorDashboard() {
             <TutorDashHeader array5={array4}/>
             <CourseMgntInt array4={courses} />
             <FileAttachInt array4={courses}/>
-            <InqFeedInt array1={array1}
+            <InqFeedInt array1={feedback}
                         array2={array2}
                         setTrigger={setTrigger}
                         setTriggerData={setTriggerData}

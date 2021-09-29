@@ -65,10 +65,6 @@ const useStyles = makeStyles((theme) => ({
 
 
 export default function FileAttachmentTable({status}) {
-
-    //Testing console logs
-    console.log(status);
-
     const [tableoptions, setTableOptions] = useState([]);
 
     useEffect(() => {
