@@ -99,6 +99,7 @@ function FileAttachInt({array4}) {
             setDownloadUri(response.data);
             setSuccess(true);
             setLoading(false);
+            setSuccess(false);
         } catch (error) {
             alert(error.message);
         }
@@ -191,7 +192,7 @@ function FileAttachInt({array4}) {
                 <div className="file-table">
                     <div className="section-header dark-header"> Active Courses </div>
                     <div id="style-1" className="file-table-body-scrollable">
-                        <FileAttachmentTable/>
+                        <FileAttachmentTable status={success}/>
                     </div>
                 </div>
             </div>

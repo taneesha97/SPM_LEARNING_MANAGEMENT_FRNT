@@ -23,17 +23,28 @@ const useStyles = makeStyles((theme) => ({
     },
     tableContainer: {
         borderRadius: 30,
-        margin: '10px 10px 10px 10px',
+        margin: '5px 10px 10px 10px',
         maxWidth: "98%",
     },
     tableHeaderCell: {
         fontWeight: 'bold',
         backgroundColor: theme.palette.primary.dark, // Change the background color to pink.
-        color: theme.palette.getContrastText(theme.palette.primary.dark)
+        color: theme.palette.getContrastText(theme.palette.primary.dark),
+        fontSize: 18,
+        marginLeft: 10
     },
     name : {
         fontWeight: 'bold',
         color: theme.palette.secondary.dark
+    },
+    course: {
+        fontWeight: 'bold',
+        fontSize: '1.2rem',
+        color: 'white',
+        backgroundColor: 'grey',
+        borderRadius: 10,
+        padding: '3px 10px',
+        display: 'inline-block',
     }
 }))
 
@@ -42,13 +53,13 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-export default function FileAttachmentTable() {
+export default function FileAttachmentTable({status}) {
 
     const [tableoptions, setTableOptions] = useState([]);
 
     useEffect(() => {
         getItems();
-    },[])
+    },[status])
     async function getItems () {
         const response = await axios.get("http://localhost:8073/api/files");
         const data = response.data;
@@ -108,14 +119,18 @@ export default function FileAttachmentTable() {
                             <TableCell className={classes.name} component="th" scope="row">
                                 {row.name}
                             </TableCell>
-                            <TableCell><Typography>{row.userGivenName}</Typography></TableCell>
-                            <TableCell>{row.type}</TableCell>
-                            <TableCell>{row.size}</TableCell>
-                            <TableCell>{row.price}</TableCell>
-                            <TableCell>{row.description}</TableCell>
-                            <TableCell>{row.course}</TableCell>
+                            <TableCell><Typography color="textSecondary" variant="subtitle1">{row.userGivenName}</Typography></TableCell>
+                            <TableCell><Typography color="textSecondary" variant="subtitle1">{row.type}</Typography></TableCell>
+                            <TableCell><Typography color="textSecondary" variant="subtitle1">{row.size}</Typography></TableCell>
+                            <TableCell><Typography color="textSecondary" variant="subtitle1">{row.price}</Typography></TableCell>
+                            <TableCell><Typography color="textSecondary" variant="subtitle1">{row.description}</Typography></TableCell>
+                            <TableCell><Typography className={classes.course} style={
+                                {
+                                    backgroundColor: ((row.course === 'English' && 'green') || (row.course === 'Sinhala' && 'blue') || (row.course === 'Tamil' && 'yellow'))
+                                }
+                            } color="textSecondary" variant="subtitle1">{row.course}</Typography></TableCell>
 
-                            <TableCell><Button style={{backgroundColor: "red"}} onClick={() => downloadFiles(`${row.name}`)} value="Download">Download</Button></TableCell>
+                            <TableCell><Button style={{backgroundColor: "red", borderRadius: '10px'}} onClick={() => downloadFiles(`${row.name}`)} value="Download">Download</Button></TableCell>
                         </TableRow>
                     ))}
                 </TableBody>
