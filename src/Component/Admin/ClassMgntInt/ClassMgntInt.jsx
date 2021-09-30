@@ -11,7 +11,7 @@ import {fetchTeachers} from "../../../Action/Users";
 import axios from "axios";
 function ClassMgntInt() {
 
-    // const [image, setImage] = useState(null);
+
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
     const [tutorName, setTutorName] = useState('');
@@ -23,6 +23,7 @@ function ClassMgntInt() {
     const [loading, setLoading] = useState(false);
     const [success, setSuccess] = useState(false);
     const [file, setFile] = useState(null);
+    const [image, setImage] = useState(file?.name);
     const [downloadUri, setDownloadUri] = useState(0);
     const [teacherOptions, setTeacherOptions] = useState(null);
     console.log('teacherOptions',teacherOptions);
@@ -90,6 +91,7 @@ function ClassMgntInt() {
     //get teacher data
     useEffect(() => {
         getTeachers();
+        setImage(file?.name);
     },[teacherResponse])
 
 
@@ -144,6 +146,18 @@ function ClassMgntInt() {
                 },
             });
             setDownloadUri(response.data);
+            console.log('IMG',image);
+            if (validation()) {
+                const classData = {
+                    name,
+                    description,
+                    tutorName,
+                    image
+                }
+                console.log('CLZ', classData);
+                dispatch(addClass(classData));
+            }
+            setTimeout(() => dispatch(getClasses()), 1000);
             setSuccess(true);
             setLoading(false);
             setSuccess(false);
@@ -152,16 +166,16 @@ function ClassMgntInt() {
         }
     };
 
+
     // const handleSubmit = (e) => {
     //         e.preventDefault();
     //         setErrorMessageDisplay(null);
-    //
+    //         handleSubmit1()
     //         if (validation()) {
     //             const classData = {
     //                 name,
     //                 description,
     //                 tutorName,
-    //                 image
     //             }
     //             dispatch(addClass(classData));
     //         }
