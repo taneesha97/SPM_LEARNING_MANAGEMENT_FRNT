@@ -13,7 +13,6 @@ function SingleClassView(props) {
     const annDetails = useSelector((state) => state.Announcement?.announcementRecords?.records);
 
     const data = props?.location?.state?.data;
-    console.log(data)
 
     React.useEffect(() => {
         dispatch(getAnnouncements());
