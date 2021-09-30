@@ -3,6 +3,8 @@ import {Button} from "@progress/kendo-react-buttons";
 import {PDFExport} from "@progress/kendo-react-pdf";
 import React from "react";
 import Logo from "../../companyLogo/Logo.png";
+import {Chart, ChartSeries, ChartSeriesItem, ChartSeriesLabels} from "@progress/kendo-react-charts";
+import sampleData from "../../SampleData/invoice-data.json";
 class PrintableComponent extends React.Component {
 
     render() {
@@ -46,6 +48,23 @@ class PrintableComponent extends React.Component {
                                             Due Date: 27.03.2014
                                         </p>
                                     </div>
+                                </div>
+                                <div className="pdf-chart">
+                                    <Chart style={{ height: 280 }}>
+                                        <ChartSeries>
+                                            <ChartSeriesItem
+                                                type="donut"
+                                                data={sampleData}
+                                                categoryField="product"
+                                                field="share"
+                                            >
+                                                <ChartSeriesLabels
+                                                    color="#fff"
+                                                    background="none"
+                                                />
+                                            </ChartSeriesItem>
+                                        </ChartSeries>
+                                    </Chart>
                                 </div>
                                 <div className="pdf-body">
                                     <div className="custom-grid" id="grid">
