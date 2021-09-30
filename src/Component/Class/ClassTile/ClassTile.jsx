@@ -7,11 +7,11 @@ const ClassTile = (props) => {
     return(
         <div className='class-tile-container'>
             <div className='left-container'>
-                <div className='main-heading'>{props.rows.name}</div>
-                <div className='sub-heading'> {props.rows.description}</div>
+                <div className='main-heading'>{props.rows?.name}</div>
+                <div className='sub-heading'> {props.rows?.description}</div>
             </div>
             <div className='right-container'>
-                <img src={props.rows.image}/>
+                <img src={props.rows?.image}/>
             </div>
 
         </div>
