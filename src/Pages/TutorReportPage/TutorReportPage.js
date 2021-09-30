@@ -6,7 +6,15 @@ import ReactDOM from 'react-dom';
 import jsPDF from "jspdf";
 
 // Chart Dependencies
-
+import {
+    Chart,
+    ChartLegend,
+    ChartSeries,
+    ChartSeriesItem,
+    ChartSeriesLabels,
+    ChartCategoryAxis,
+    ChartCategoryAxisItem
+} from '@progress/kendo-react-charts';
 // React Utils from Kendo
 import '@progress/kendo-theme-material/dist/all.css'
 import {Button} from '@progress/kendo-react-buttons';
@@ -99,6 +107,23 @@ function TutoReportPage() {
                                             Due Date: 27.03.2014
                                         </p>
                                     </div>
+                                </div>
+                                <div className="pdf-chart">
+                                    <Chart style={{ height: 280 }}>
+                                        <ChartSeries>
+                                            <ChartSeriesItem
+                                                type="donut"
+                                                data={sampleData}
+                                                categoryField="product"
+                                                field="share"
+                                            >
+                                                <ChartSeriesLabels
+                                                    color="#fff"
+                                                    background="none"
+                                                />
+                                            </ChartSeriesItem>
+                                        </ChartSeries>
+                                    </Chart>
                                 </div>
                                 <div className="pdf-body">
                                     <div id="grid"></div>
