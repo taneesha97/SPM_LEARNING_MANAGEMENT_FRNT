@@ -47,6 +47,7 @@ function LoginComponent(props) {
                 console.log('res1 ', response.data);
                 localStorage.setItem('username', values?.username);
                 localStorage.setItem('email', values?.email);
+                localStorage.setItem('userid', values?.id);
 
                 dispatch(loggedUser(response.data))
 

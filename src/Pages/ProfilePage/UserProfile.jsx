@@ -22,6 +22,7 @@ const UserProfile = () => {
     let user = JSON.parse(userObject)
     const user1 = useSelector((store) => store.userDetails1?.loginUser);
     console.log('12333', user1)
+    let id = localStorage.getItem("userid");
 
     const [result, setResult] = useState(response);
     const [show, setShow] = useState(false);
@@ -35,7 +36,7 @@ const UserProfile = () => {
     },[response])
 
     useEffect(() => {
-        dispatch(getUserByID(user.id));
+        dispatch(getUserByID(user?.id));
 
     },[])
 
@@ -49,12 +50,13 @@ const UserProfile = () => {
         setPopupName("Password");
     }
     const deleteAccount = () => {
-        dispatch(deleteUsers(user1?.id))
+        dispatch(deleteUsers(id))
         setTimeout(function(){
             dispatch(fetchUser());
-        }, 100);
-        AuthClass.logout()
-        history.push('/login');
+            AuthClass.logout()
+            history.push('/login');
+        }, 1000);
+
     }
 
 
