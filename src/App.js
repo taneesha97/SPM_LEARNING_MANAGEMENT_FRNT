@@ -25,6 +25,7 @@ import TestingReport from "./Component/Report/TestingReport";
 
 
 import TutorReportPage from "./Pages/TutorReportPage/TutorReportPage";
+import TestingReport2 from "./Component/Report/TestingReport2";
 
 
 
@@ -61,7 +62,7 @@ const App = () => {
                   <Route exact path = "/report" component={ReactToPrintClass}/>
                   <Route exact path = "/reportold" component={TutorReportPage}/>
                   <Route exact path = "/popup" component={PopUpUpdate}/>
-                  <Route exact path = "/tes" component={TestingReport}/>
+                  <Route exact path = "/tes" component={TestingReport2}/>
               </Switch>
           </BrowserRouter>
   )

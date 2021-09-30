@@ -44,7 +44,7 @@ export const fetchTeachers = () => dispatch => {
 
 // const { user } = useSelector((store) => store?.user);
 export const fetchUser = () => dispatch => {
-    axios.get(api.baseURL + '/students')//api.baseURL + 'deleteuser'
+    axios.get(api.baseURL + '/users')//api.baseURL + 'deleteuser'
         .then(response => {
             dispatch({
                 type: FETCH_USERS,
