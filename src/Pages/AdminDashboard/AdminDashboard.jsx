@@ -23,14 +23,14 @@ function AdminDashboard() {
     console.log(usertype)
     const history = useHistory();
 
-    // useEffect(()=> {
-    //     if(usertype != "admin"){
-    //         history.push('./login')
-    //         //window.location.href='/login';
-    //     } else {
-    //         //setFlag(true);
-    //     }
-    // }, [])
+    useEffect(()=> {
+        if(usertype != "admin"){
+            history.push('./login')
+            //window.location.href='/login';
+        } else {
+            //setFlag(true);
+        }
+    }, [])
 
 
     //Array for the announcement component.

@@ -10,44 +10,44 @@ function ProfileBio(props) {
                         <h2 className="userprofile-bio1-info1-main">Personal Details</h2>
                     </div>
                     <div className="card">
-                            <div className="row mb-3">
+                            <div className="row">
                                 <div className="col">
-                                    <h6 className="mb-0">Full Name</h6>
+                                    <div className="mb-0">Full Name</div>
                                 </div>
                                 <div className="col">
-                                    <h6 className="mb-0">{props?.user1?.name}</h6>
-                                </div>
-                            </div>
-                            <div className="row mb-3">
-                                <div className="col">
-                                    <h6 className="mb-0">Email</h6>
-                                </div>
-                                <div className="col">
-                                    <h6 className="mb-0">{props?.user1?.email}</h6>
+                                    <div className="mb-0">{props?.user1?.name}</div>
                                 </div>
                             </div>
-                            <div className="row mb-3">
+                            <div className="row">
                                 <div className="col">
-                                    <h6 className="mb-0">Age</h6>
+                                    <div className="mb-0">Email</div>
                                 </div>
                                 <div className="col">
-                                    <h6 className="mb-0">{props?.user1?.age}</h6>
-                                </div>
-                            </div>
-                            <div className="row mb-3">
-                                <div className="col">
-                                    <h6 className="mb-0">Position</h6>
-                                </div>
-                                <div className="col">
-                                    <h6 className="mb-0">{props?.user1?.type}</h6>
+                                    <div className="mb-0">{props?.user1?.email}</div>
                                 </div>
                             </div>
-                            <div className="row mb-3">
+                            <div className="row">
                                 <div className="col">
-                                    <h6 className="mb-0">Username</h6>
+                                    <div className="mb-0">Age</div>
                                 </div>
                                 <div className="col">
-                                    <h6 className="mb-0">{props?.user1?.username}</h6>
+                                    <div className="mb-0">{props?.user1?.age}</div>
+                                </div>
+                            </div>
+                            <div className="row">
+                                <div className="col">
+                                    <div className="mb-0">Position</div>
+                                </div>
+                                <div className="col">
+                                    <div className="mb-0">{props?.user1?.type}</div>
+                                </div>
+                            </div>
+                            <div className="row">
+                                <div className="col">
+                                    <div className="mb-0">Username</div>
+                                </div>
+                                <div className="col">
+                                    <div className="mb-0">{props?.user1?.username}</div>
 
                                 </div>
                             </div>

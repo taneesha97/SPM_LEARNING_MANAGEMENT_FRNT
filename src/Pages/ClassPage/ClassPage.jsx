@@ -18,24 +18,24 @@ function ClassPage() {
     return (
      
         <div style={{backgroundColor:'#D6D6D6'}}>
-            <ClassSearch searchData={searchData} setSearchTerm={setSearchTerm}/>
+            <ClassSearch searchData={searchTerm} setSearchTerm={setSearchTerm}/>
             <div className="row">
-                {searchData?.filter((val) =>  val?.name === searchTerm ? true : searchTerm === '' ? true  : false)
-                    //     .filter((val) => {
-                    //     if(searchTerm == ""){
-                    //         return val
-                    //     } else if(val.name.toLowerCase().includes(searchTerm.toLowerCase())){
-                    //         return val
-                    //     }
-                    // })
+                {searchData?.filter((val) => {
+                        if(searchTerm == ""){
+                            return val
+                        }else if(val?.name.toLowerCase().includes(searchTerm.toLowerCase())){
+                            return val
+                        }else if (val?.description.toLowerCase().includes(searchTerm.toLowerCase())){
+                            return val
+                        }
+                    })
                     .map((row) => (
                         console.log('%%%%%%%%%%%%%%%%',row),
                             <div className="col-md-4">
-                                <ClassTile/>
+                                <ClassTile rows = {row}/>
                             </div>
                     ))}
             </div>
-            {/*<ClassItems/><br/><br/><br/>*/}
             <Footer/>
         </div>
     )
