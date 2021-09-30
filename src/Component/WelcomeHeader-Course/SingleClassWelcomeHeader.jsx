@@ -2,7 +2,9 @@ import React from 'react'
 import Background from "./images/CourseWelcomeImage.png";
 import './style.css'
 
-function SingleClassWelcomeHeader() {
+function SingleClassWelcomeHeader(props) {
+
+    console.log()
     return (
             <div className='welcome-container-course'>
                 <div className='landing-background-course'>

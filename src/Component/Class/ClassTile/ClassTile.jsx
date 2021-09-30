@@ -1,8 +1,10 @@
 import React from 'react';
 import "../../../../node_modules/bootstrap/dist/css/bootstrap.css"
 import './ClassFileStyles.css'
+import {useHistory} from "react-router";
 const ClassTile = (props) => {
     console.log('ROWS',props?.rows);
+    const history = useHistory();
 
     const passData = () => {
         history.push('/singleclassview', { data: props?.rows })

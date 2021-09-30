@@ -7,11 +7,13 @@ import SingleClassAnnouncements from "../../Component/SingleClassRoomAnnouncemen
 import SingleClassUserCountDisplay from "../../Component/SingleClassRoomAnnouncements/SingleClassUserCountDisplay";
 import {useDispatch, useSelector} from "react-redux";
 import {getAnnouncements} from "../../Action/Announcement";
-function SingleClassView() {
+function SingleClassView(props) {
 
     const dispatch = useDispatch();
     const annDetails = useSelector((state) => state.Announcement?.announcementRecords?.records);
 
+    const data = props?.location?.state?.data;
+    console.log(data)
 
     React.useEffect(() => {
         dispatch(getAnnouncements());
@@ -19,7 +21,7 @@ function SingleClassView() {
 
     return (
         <div className="singleclassViewBackground">
-            <SingleClassWelcomeHeader/>
+            <SingleClassWelcomeHeader data = {data}/>
             <SingleClassUserCountDisplay/>
             <CourseContent/>
             <SingleClassAnnouncements annoucemntData = {annDetails}/>
