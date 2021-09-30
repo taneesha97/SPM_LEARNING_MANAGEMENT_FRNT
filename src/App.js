@@ -22,7 +22,10 @@ import VideoResourcePage from "./Pages/VideoResourcePage/VideoResourcePage";
 import PopUpUpdate from "./Component/Admin/ClassMgntInt/PopUpUpdate/PopUpUpdate";
 import ReactToPrintClass from "./Pages/TutorReportPage/ReactToPrint/ReactToPrint";
 import TestingReport from "./Component/Report/TestingReport";
+
+
 import TutorReportPage from "./Pages/TutorReportPage/TutorReportPage";
+
 
 
 
