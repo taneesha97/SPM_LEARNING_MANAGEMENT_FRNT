@@ -31,6 +31,7 @@ const StudentTableComponent = ()  => {
     const response = useSelector((state) => state.userDetails1?.UserDetails?.records?.data);
     console.log(response);
     const [filteredData, setFilteredData] = useState(response);
+    let usertype = localStorage.getItem("usertype")
 
     useEffect(() => {
         setPage(0);
@@ -111,19 +112,20 @@ const StudentTableComponent = ()  => {
                     </TableHead>
                     <TableBody>
                         {response?.filter((val) => {
-                            if(searchTerm == ""){
-                                return val
-                            }else if(val?.name.toLowerCase().includes(searchTerm.toLowerCase())){
-                                return val
-                            }else if(val?.email.toLowerCase().includes(searchTerm.toLowerCase())){
-                                return val
-                            }else if(val?.age.toLowerCase().includes(searchTerm.toLowerCase())){
-                                return val
-                            }else if(val?.username.toLowerCase().includes(searchTerm.toLowerCase())){
-                                return val
-                            }else if(val?.type.toLowerCase().includes(searchTerm.toLowerCase())){
+                            if(searchTerm === ""){
                                 return val
                             }
+                            // else if(val?.name.toLowerCase().includes(searchTerm.toLowerCase())){
+                            //     return val
+                            // }else if(val?.email.toLowerCase().includes(searchTerm.toLowerCase())){
+                            //     return val
+                            // }else if(val?.age.toLowerCase().includes(searchTerm.toLowerCase())){
+                            //     return val
+                            // }else if(val?.username.toLowerCase().includes(searchTerm.toLowerCase())){
+                            //     return val
+                            // }else if(val?.type.toLowerCase().includes(searchTerm.toLowerCase())){
+                            //     return val
+                            // }
                         })
                             .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                             .map((row) => (
