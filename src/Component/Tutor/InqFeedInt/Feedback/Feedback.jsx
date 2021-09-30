@@ -5,6 +5,7 @@ import RowComponent from "./RowComponent/RowComponent";
  * This component accept a array as a prop, data should be displayed in a scrollable div in the body of the below component.
  * **/
 function Feedback({array}) {
+    console.log(array)
     return (
         <div className="feedback-container">
             <div className="feedback-header">

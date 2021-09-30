@@ -32,38 +32,45 @@ function LoginComponent(props) {
         console.log(newUser);
         axios.post("http://localhost:8073/api/validate", newUser)
             .then(response => {
+                console.log('res2 ', response);
                 if(response.status == 200){
                     setTimeout(() => {
                         alert('session closed')
+                        localStorage.setItem('username', '');
+                        localStorage.setItem('email', '');
                         dispatch(logoutUser())
                         AuthClass.logout();
                     }, 10 * 60 * 1000);
                 }
-                let values = response.data;
+
+                const values = response.data;
                 console.log('res1 ', response.data);
+                localStorage.setItem('username', values?.username);
+                localStorage.setItem('email', values?.email);
+                localStorage.setItem('userid', values?.id);
 
                 dispatch(loggedUser(response.data))
 
-                if (values.type == null){
+                if (values === null){
                     console.log('111')
                     alert('Invalid login')
-                    history.push("/login");
                     setName("");
                     setPassword("");
                     AuthClass.logout()
-                }else if (values.type == "student"){
+                }
+                else if (values.type == "student"){
                     console.log('1112')
                     AuthClass.login(values, values?.username, values?.email)
                     setButtonPopup(true);
                     setPopupName("login");
-                    setPopupLocaion("/profile");
+                    setPopupLocaion("/home");
 
                 }else if (values.type == "teacher"){
                     if (values.status == "valid"){
                         console.log('111w')
                         AuthClass.login(values, values?.username, values?.email)
                         setPopupName("login");
-                        setPopupLocaion("/admindash");
+                        setPopupLocaion("/tutordash");
                         setButtonPopup(true);
                         //history.push();
                     }else{

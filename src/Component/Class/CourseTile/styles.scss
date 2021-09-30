@@ -1,6 +1,6 @@
 .course-tile-container{
-  width: 200px;
-  height: 200px;
+  width: 13.020833333333334vw;
+  height: 13.020833333333334vw;
   background-color: #7D75A4;
   border-radius: 30px;
   margin: 1.5%;
@@ -11,19 +11,19 @@
     padding: 10px;
    text-align: right;
     .main-heading{
-      font-size: larger;
+      font-size: 1.25vw;
       font-weight: bold;
     }
     .sub-heading{
-      font-size: small;
+      font-size: 0.8463541666666666vw;
     }
   }
   .image-container{
-    position: absolute;
-    margin-left: 10px;
-    margin-top: 28px;
+    position: relative;
+    //margin-left: 10px;
+    //margin-top: 28px;
     img{
-      width: 100px;
+      width: 6.510416666666667vw;
 
     }
 

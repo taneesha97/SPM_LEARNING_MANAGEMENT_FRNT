@@ -30,7 +30,7 @@
 .section-main-wrapper .section-body {
   overflow: hidden;
   display: flex;
-  height: 300px;
+  height: fit-content;
 }
 
 /*# sourceMappingURL=styles.css.map */
