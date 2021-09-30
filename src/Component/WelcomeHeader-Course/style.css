@@ -1,19 +1,19 @@
 .welcome-container-course {
   display: flex;
-  width: 100%;
   background-color: #162365;
   border-radius: 0px 0px 0px 130px;
   height: 697px;
 }
 .welcome-container-course .landing-background-course {
+  width: 100%;
   display: flex;
   padding-top: 3%;
-  padding-left: 3%;
+  padding-left: 15%;
   padding-right: 3%;
 }
 .welcome-container-course .landing-background-course .welcomebackground-surface-course {
+  min-width: fit-content;
   float: left;
-  width: 100%;
   margin-top: 5%;
   margin-bottom: auto;
 }
@@ -30,7 +30,8 @@
   font-size: 2vw;
 }
 .welcome-container-course .landing-background-course .welcomebackground-course1 {
-  margin-left: 5%;
+  margin-right: 0px;
+  margin-left: auto;
   display: block;
 }
 .welcome-container-course .landing-background-course .welcomebackground-course1 .welcomebackground-course {

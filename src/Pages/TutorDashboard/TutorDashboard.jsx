@@ -18,6 +18,7 @@ import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import {useHistory} from "react-router";
 import axios from "axios";
+import {getUserCount} from "../../Action/Users";
 
 function TutorDashboard() {
 
@@ -35,6 +36,12 @@ function TutorDashboard() {
         }
         getItems();
     }, [])
+
+    const response = useSelector((state) => state.userDetails1?.usercount?.data);
+    useEffect(()=> {
+        dispatch(getUserCount())
+    }, [])
+    console.log('dddd ', response)
 
     //Method to fetch all the feedback information.
     async function getItems () {
@@ -97,7 +104,7 @@ function TutorDashboard() {
 
     //JSON object for the headers
     const array4 =[
-        {"header":"Total Student:", "count":"50", "image": faUserFriends},
+        {"header":"Total Student:", "count":response?.at(1), "image": faUserFriends},
         {"header":"Feedback", "count":"3", "image": faCommentAlt},
         {"header":"Courses", "count":"6", "image": faBookOpen},
         {"header":"Class", "count":"5", "image": faSchool},

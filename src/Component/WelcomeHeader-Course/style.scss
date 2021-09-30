@@ -1,18 +1,18 @@
 .welcome-container-course{
   display: flex;
-  width: 100%;
   background-color: rgba(22, 35, 101, 1);
   border-radius: 0px 0px 0px 130px;
   height: 697px;
   .landing-background-course{
+    width: 100%;
     display: flex;
     padding-top: 3%;
-    padding-left: 3%;
+    padding-left: 15%;
     padding-right: 3%;
 
     .welcomebackground-surface-course{
+      min-width: fit-content;
       float: left;
-      width: 100%;
       margin-top: 5%;
       margin-bottom: auto;
       .main-header-course{
@@ -30,7 +30,8 @@
       }
     }
     .welcomebackground-course1{
-      margin-left: 5%;
+      margin-right: 0px;
+      margin-left: auto;
       display: block;
       .welcomebackground-course{
         float: right;
