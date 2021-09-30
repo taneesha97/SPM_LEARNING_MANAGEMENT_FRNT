@@ -3,17 +3,20 @@ import './UserProfile.css'
 import profilePic from "./images/profilePic.png";
 import ProfileBio from "../../Component/Profile/ProfileBio";
 import UserDetailsUpdateComponent from "../../Component/Profile/UserDetailsUpdateComponent";
-import {fetchStudents, fetchTeachers, getUserByID, loggedUser} from "../../Action/Users";
+import {deleteUsers, fetchStudents, fetchTeachers, fetchUser, getUserByID, loggedUser} from "../../Action/Users";
 import {useDispatch, useSelector} from "react-redux";
 import PasswordUpdateComponent from "../../Component/Profile/PasswordUpdateComponent";
 import {Button, Modal} from "react-bootstrap";
+import AuthClass from "../../Validation/AuthClass";
+import {useHistory} from "react-router";
 
 const UserProfile = () => {
     const dispatch = useDispatch();
     const [buttonPopup, setButtonPopup] = useState(false);
     const [buttonPopup2, setButtonPopup2] = useState(false);
     const [buttonPopup1, setButtonPopup1] = useState(false);
-    const [popupName, setPopupName] = useState("");
+    const [popupName, setPopupName] = useState("");;
+    const history = useHistory();
     const response = useSelector((state) => state.userDetails1?.editDetail?.data);
     let userObject = localStorage.getItem("user")
     let user = JSON.parse(userObject)
@@ -46,7 +49,12 @@ const UserProfile = () => {
         setPopupName("Password");
     }
     const deleteAccount = () => {
-
+        dispatch(deleteUsers(user1?.id))
+        setTimeout(function(){
+            dispatch(fetchUser());
+        }, 100);
+        AuthClass.logout()
+        history.push('/login');
     }
 
 

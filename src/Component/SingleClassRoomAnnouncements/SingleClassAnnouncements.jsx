@@ -4,7 +4,9 @@ import volume from "./images/audio.png";
 import AnnoucementDisplay from "./AnnoucementDisplay";
 import ClassTile from "../Class/ClassTile/ClassTile";
 
-function SingleClassAnnouncements() {
+const SingleClassAnnouncements = (props) => {
+
+    console.log(props.annoucemntData)
 
     const rows = [
         {"title1": 'Announcement',"title2": 'Consider Two Announcements – One announcement to let students know that you are actively\n' +
@@ -26,7 +28,7 @@ function SingleClassAnnouncements() {
                     </div>
                 </div>
                 <div className="singleclassviewbackgroundann1 mt-5 mb-5">
-                    {rows.map((row)=> (
+                    {props?.annoucemntData?.map((row)=> (
 
                         <div className="singleclassviewbackgroundann2 mb-2">
                             <AnnoucementDisplay row = {row}/>
