@@ -15,22 +15,28 @@ import {
     faSchool, faTimes, faUser,
     faUserFriends
 } from "@fortawesome/free-solid-svg-icons";
+import {useDispatch, useSelector} from "react-redux";
+import {getUserCount} from "../../Action/Users";
 
 
 function AdminDashboard() {
     const [tableClass,setTableClass] = useState([]);
     let usertype = localStorage.getItem("usertype")
-    console.log(usertype)
     const history = useHistory();
+    const dispatch = useDispatch();
+    //getUserCount
+    const response = useSelector((state) => state.userDetails1?.usercount?.data);
+    useEffect(()=> {
+        dispatch(getUserCount())
+    }, [])
 
-    // useEffect(()=> {
-    //     if(usertype != "admin"){
-    //         history.push('./login')
-    //         //window.location.href='/login';
-    //     } else {
-    //         //setFlag(true);
-    //     }
-    // }, [])
+    useEffect(()=> {
+        if(usertype != "admin"){
+            history.push('./login')
+        } else {
+            //setFlag(true);
+        }
+    }, [])
 
 
     //Array for the announcement component.
@@ -43,8 +49,8 @@ function AdminDashboard() {
         {"header":"Announcement 6", "description":"New News Update available"}];
 
     const array2 =[
-        {"header":"Total Student:", "count":"50", "image": faUserFriends},
-        {"header":"Total Teacher", "count":"3", "image": faUser},
+        {"header":"Total Student:", "count":response?.at(1), "image": faUserFriends},
+        {"header":"Total Teacher", "count":response?.at(0), "image": faUser},
         // {"header":"To", "count":"6", "image": faBookOpen},
         // {"header":"Class", "count":"5", "image": faSchool},
         {"header":"Total Income", "count":"LKR 1256.23", "image": faDollarSign},

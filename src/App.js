@@ -30,9 +30,9 @@ const App = () => {
           <BrowserRouter>
               <Navbar/>
               <Switch>
-                  <Route exact path="/tutordash" >
+                  <ProtectedRoute exact path="/tutordash" >
                       <TutorDashboard/>
-                  </Route>
+                  </ProtectedRoute>
                   <Route exact path = "/home" component={HomePage}/>
                   <Route exact path = "/" component={HomePage}/>
                   <ProtectedRoute exact path = "/profile" component={UserProfilePage}/>
@@ -41,7 +41,7 @@ const App = () => {
 
                   {/*<Route exact path = "/tutordash" component={TutorDashboard}/>*/}
 
-                  <Route exact path = "/admindash" component={AdminDashboard}/>
+                  <ProtectedRoute exact path = "/admindash" component={AdminDashboard}/>
 
                   <Route exact path = "/navbarbuttoncomponent" component={NavBarButtonComponent}/>
                   <Route exact path = "/navbarbuttoncomponent2" component={NavBarButtonComponent2}/>
@@ -55,6 +55,7 @@ const App = () => {
                   <Route exact path = "/video" component={VideoResourcePage}/>
                   <Route exact path = "/report" component={ReactToPrintClass}/>
                   <Route exact path = "/popup" component={PopUpUpdate}/>
+                  <Route exact path = "/tes" component={TestingReport}/>
               </Switch>
           </BrowserRouter>
   )

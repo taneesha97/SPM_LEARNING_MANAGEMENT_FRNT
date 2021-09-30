@@ -2,12 +2,19 @@ import React, {useEffect, useState} from 'react'
 import './ClassAnnouncement.css'
 import CustomButton from "../../../Tutor/CourseMgntInt/CustomButtons/CustomButton";
 import {useDispatch, useSelector} from "react-redux";
-import {addAnnouncement} from "../../../../Action/Announcement";
+import {addAnnouncement, getAnnouncements} from "../../../../Action/Announcement";
 import Select from "react-select";
 import {InputLabel, MenuItem} from "@material-ui/core";
 import {getClasses} from "../../../../Action/Class";
 import {fetchTeachers} from "../../../../Action/Users";
 import {Form} from "react-bootstrap";
+
+const customStyles = {
+    menu: (provided, state) => ({
+        ...provided,
+       color:'black',
+    })
+}
 
 const ClassAnnouncement = () =>{
 
@@ -69,7 +76,12 @@ const ClassAnnouncement = () =>{
                 body,
                 name
             }
+        console.log('DATA ', announcementData)
             dispatch(addAnnouncement(announcementData));
+        setTimeout(function(){
+            dispatch(getAnnouncements());
+            //props.setTrigger(false)
+        }, 100);
             resetForm();
             console.log('DATA added')
         // }
@@ -116,6 +128,7 @@ const ClassAnnouncement = () =>{
                             <InputLabel id="label">Class name</InputLabel>
                             <div className="clz-input">
                                 <Select
+                                    styles={customStyles}
                                     menuPlacement="auto"
                                     menuPosition="fixed"
                                     onChange={(e) => setName(e.label)}

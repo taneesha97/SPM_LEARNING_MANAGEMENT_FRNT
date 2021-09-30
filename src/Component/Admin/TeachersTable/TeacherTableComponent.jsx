@@ -135,7 +135,15 @@ function TeacherTableComponent() {
                             {response?.filter((val) => {
                                 if(searchTerm == ""){
                                     return val
-                                }else if(val.name.toLowerCase().includes(searchTerm.toLowerCase())){
+                                }else if(val?.name.toLowerCase().includes(searchTerm.toLowerCase())){
+                                    return val
+                                }else if(val?.email.toLowerCase().includes(searchTerm.toLowerCase())){
+                                    return val
+                                }else if(val?.age.toLowerCase().includes(searchTerm.toLowerCase())){
+                                    return val
+                                }else if(val?.username.toLowerCase().includes(searchTerm.toLowerCase())){
+                                    return val
+                                }else if(val?.type.toLowerCase().includes(searchTerm.toLowerCase())){
                                     return val
                                 }
                             })

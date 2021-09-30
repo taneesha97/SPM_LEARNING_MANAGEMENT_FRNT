@@ -35,12 +35,16 @@ function LoginComponent(props) {
                 if(response.status == 200){
                     setTimeout(() => {
                         alert('session closed')
+                        localStorage.setItem('username', '');
+                        localStorage.setItem('email', '');
                         dispatch(logoutUser())
                         AuthClass.logout();
                     }, 10 * 60 * 1000);
                 }
                 let values = response.data;
                 console.log('res1 ', response.data);
+                localStorage.setItem('username', values?.username);
+                localStorage.setItem('email', values?.email);
 
                 dispatch(loggedUser(response.data))
 
@@ -56,14 +60,14 @@ function LoginComponent(props) {
                     AuthClass.login(values, values?.username, values?.email)
                     setButtonPopup(true);
                     setPopupName("login");
-                    setPopupLocaion("/profile");
+                    setPopupLocaion("/home");
 
                 }else if (values.type == "teacher"){
                     if (values.status == "valid"){
                         console.log('111w')
                         AuthClass.login(values, values?.username, values?.email)
                         setPopupName("login");
-                        setPopupLocaion("/admindash");
+                        setPopupLocaion("/tutordash");
                         setButtonPopup(true);
                         //history.push();
                     }else{
