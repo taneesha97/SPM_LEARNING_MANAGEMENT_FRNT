@@ -7,7 +7,7 @@ import {fetchStudents, fetchTeachers, getUserByID, loggedUser} from "../../Actio
 import {useDispatch, useSelector} from "react-redux";
 import PasswordUpdateComponent from "../../Component/Profile/PasswordUpdateComponent";
 import {Button, Modal} from "react-bootstrap";
-import Transaction from "../../Component/Transaction/BankDetails/Transaction";
+import Transaction from "../../Component/Transaction/UserTransarction/Transaction";
 
 const UserProfile = () => {
     const dispatch = useDispatch();
