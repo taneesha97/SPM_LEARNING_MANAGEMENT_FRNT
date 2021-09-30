@@ -30,6 +30,16 @@ const useStyles = makeStyles((theme) => ({
         fontSize: 18,
         marginLeft: 10
     },
+
+    tableFooterCell: {
+        fontWeight: 'bold',
+        backgroundColor: theme.palette.primary.dark, // Change the background color to pink.
+        color: theme.palette.getContrastText(theme.palette.primary.dark),
+        fontSize: 18,
+        marginLeft: 10,
+        width: 100,
+    },
+
     name : {
         fontWeight: 'bold',
         color: theme.palette.secondary.dark
@@ -42,6 +52,10 @@ const useStyles = makeStyles((theme) => ({
         borderRadius: 10,
         padding: '3px 10px',
         display: 'inline-block',
+    },
+    pagination: {
+        color: theme.palette.getContrastText(theme.palette.primary.dark),
+
     }
 }))
 
@@ -51,10 +65,6 @@ const useStyles = makeStyles((theme) => ({
 
 
 export default function FileAttachmentTable({status}) {
-
-    //Testing console logs
-    console.log(status);
-
     const [tableoptions, setTableOptions] = useState([]);
 
     useEffect(() => {
@@ -129,12 +139,12 @@ export default function FileAttachmentTable({status}) {
                             <TableCell className={classes.name} component="th" scope="row">
                                 {row.name}
                             </TableCell>
-                            <TableCell><Typography color="textSecondary" variant="subtitle1">{row.userGivenName}</Typography></TableCell>
-                            <TableCell><Typography color="textSecondary" variant="subtitle1">{row.type}</Typography></TableCell>
-                            <TableCell><Typography color="textSecondary" variant="subtitle1">{row.size}</Typography></TableCell>
-                            <TableCell><Typography color="textSecondary" variant="subtitle1">{row.price}</Typography></TableCell>
-                            <TableCell><Typography color="textSecondary" variant="subtitle1">{row.description}</Typography></TableCell>
-                            <TableCell><Typography className={classes.course} style={
+                            <TableCell style={{overflow: "hidden"}}><Typography color="textSecondary" variant="subtitle1">{row.userGivenName}</Typography></TableCell>
+                            <TableCell style={{overflow: "hidden"}}><Typography color="textSecondary" variant="subtitle1">{row.type}</Typography></TableCell>
+                            <TableCell style={{overflow: "hidden"}}><Typography color="textSecondary" variant="subtitle1">{row.size}</Typography></TableCell>
+                            <TableCell style={{overflow: "hidden"}}><Typography color="textSecondary" variant="subtitle1">{row.price}</Typography></TableCell>
+                            <TableCell style={{overflow: "hidden"}}><Typography color="textSecondary" variant="subtitle1">{row.description}</Typography></TableCell>
+                            <TableCell style={{overflow: "hidden"}}><Typography className={classes.course} style={
                                 {
                                     backgroundColor: ((row.course === 'English' && 'green') || (row.course === 'Sinhala' && 'blue') || (row.course === 'Tamil' && 'yellow'))
                                 }
@@ -144,8 +154,9 @@ export default function FileAttachmentTable({status}) {
                         </TableRow>
                     ))}
                 </TableBody>
-                <TableFooter>
+                <TableFooter className={classes.tableFooterCell}>
                     <TablePagination
+                        className={classes.pagination}
                         rowsPerPageOptions={[4,5]}
                         component="div"
                         count={tableoptions.length}

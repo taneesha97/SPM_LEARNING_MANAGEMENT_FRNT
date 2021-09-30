@@ -15,9 +15,9 @@ class Auth {
         //API validation
 
         localStorage.setItem('flag', true);
-        localStorage.setItem('username', name);
-        localStorage.setItem('email', email);
-        localStorage.setItem('userid', values.id);
+        // localStorage.setItem('username', name);
+        // localStorage.setItem('email', email);
+
         localStorage.setItem('usertype', values.type);
         //localStorage.setItem('user', values);
         localStorage.setItem('user', JSON.stringify(values));

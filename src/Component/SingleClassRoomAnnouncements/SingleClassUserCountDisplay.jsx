@@ -3,10 +3,10 @@ import './style.css'
 import SingleClassUserCountDisplayInterface1 from "./SingleClassUserCountDisplayInterface1";
 import AnnoucementDisplay from "./AnnoucementDisplay";
 import presentation from './images/presentation(1).png'
-function SingleClassUserCountDisplay() {
+function SingleClassUserCountDisplay(props) {
     const rows = [
-        {"title1": 'Total Students',"title2": '5000', "image": presentation},
-        {"title1": 'Total Tutors',"title2": '30', "image": presentation},
+        {"title1": 'Total Students',"title2": props?.usercount?.at(1), "image": presentation},
+        {"title1": 'Total Tutors',"title2": props?.usercount?.at(0), "image": presentation},
 
     ]
     return (

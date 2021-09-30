@@ -71,6 +71,11 @@ function FileAttachInt({array4}) {
         console.log(metaData.description);
     }
 
+    // Clear the Form When click on the Reset.
+    const clearForm = () => {
+        setMetaData({...metaData, name: "", price: "", description: "", course: ""})
+    }
+
     /**
      * File Uploading methods.
      * **/
@@ -171,7 +176,12 @@ function FileAttachInt({array4}) {
                         />
 
                         <label htmlFor="lname">Course</label>
-                        <div className="form-input"><Select options={selectedOptions} menuPlacement="auto" menuPosition="fixed" onChange={(e) => setMetaData({...metaData, course: e})}/></div>
+                        <div className="form-input">
+                            <Select options={selectedOptions}
+                                    menuPlacement="auto"
+                                    menuPosition="fixed"
+                                    onChange={(e) => setMetaData({...metaData, course: e})}/>
+                        </div>
 
 
                         <label htmlFor="lname">Attach the File</label>
@@ -180,7 +190,7 @@ function FileAttachInt({array4}) {
 
                         <div className="course-button-group button-row">
                             <button className="add-button" type="submit">Add</button>
-                            <button className="light-button" onClick={onUpload}>Reset</button>
+                            <button className="light-button" onClick={clearForm}>Reset</button>
                         </div>
                     </form>
                         <div style={{marginLeft: "19px", marginRight: "10px", paddingBottom: "10px"}}>

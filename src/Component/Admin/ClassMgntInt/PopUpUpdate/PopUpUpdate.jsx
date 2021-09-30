@@ -8,16 +8,15 @@ function PopUpUpdate(props) {
     const dispatch = useDispatch();
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
-    const [tutorName, setTutorName] = useState('');
+    const [tutorName, setTutorName] = useState('name1');
     const [teacherOptions, setTeacherOptions] = useState(null);
     const teacherResponse = useSelector((state) => state.userDetails1?.UserDetails?.records?.data);
-    console.log(teacherResponse);
 
     function popupView() {
         const classData = {
             name,
             description,
-            // tutorName,
+            tutorName,
         }
         console.log(classData);
         dispatch(updateClass(props.popupData.id, classData))
@@ -30,8 +29,9 @@ function PopUpUpdate(props) {
 
     useEffect(() => {
         dispatch(fetchTeachers());
-        setName(props.popupData.name);
-        setDescription(props.popupData.description);
+        setName(props.popupData?.name);
+        setDescription(props.popupData?.description);
+        setTutorName(props.popupData?.tutorName);
     },[props.trigger])
 
     async function getTeachersData() {
@@ -40,8 +40,8 @@ function PopUpUpdate(props) {
         const options = teacherResponse?.map((item) => (
             console.log('ITEM', item),
                 {
-                    "value" : item.id,
-                    "label" : item.name
+                    "value" : item?.name,
+                    "label" : item?.name
                 }))
         setTeacherOptions(options);
         console.log('OPTIONS',options);
@@ -93,35 +93,31 @@ function PopUpUpdate(props) {
                     </div>
                     <div className="pb-2">
                         <InputLabel id="label">Teacher Name</InputLabel>
-                        {/*    <Select*/}
-                        {/*        options={teacherOptions}*/}
-                        {/*        menuPlacement="auto"*/}
-                        {/*        menuPosition="fixed"*/}
-                        {/*        style={{width:'500px'}}*/}
-                        {/*        onChange={(e) => setTutorName(e.label)}>*/}
-                        {/*    </Select>*/}
                         <div className="class-form-teacher-input">
+                            {/*<Select*/}
+                            {/*    options={teacherOptions}*/}
+                            {/*    menuPlacement="auto"*/}
+                            {/*    menuPosition="fixed"*/}
+                            {/*    onChange={(e) => setTutorName(e.label)}*/}
+                            {/*    style={{width:'500px'}}*/}
+                            {/*/>*/}
 
                             <Select
-                                // name={name}
-                                // value={value}
+                                name={tutorName}
+                                value={tutorName}
                                 style={{width:'500px'}}
-                                onChange={(e) => setTutorName(e.label)}
+                                onChange={(e) => setTutorName(e.target.value)}
                             >
+
                                 {teacherOptions?.map(option => {
+                                    console.log(option)
                                     return (
-                                        <MenuItem key={option.id} value={option.name}>
-                                            {option.label ?? option.value}
+                                        <MenuItem key={option.name} value={option?.value}>
+                                            {option?.label ?? option?.value}
                                         </MenuItem>
                                     );
                                 })}
                             </Select>
-                            {/*<Select*/}
-                            {/*    options={teacherOptions}*/}
-                            {/*    // menuPlacement="auto"*/}
-                            {/*    style={{width:'500px'}}*/}
-                            {/*    menuPosition="fixed"*/}
-                            {/*    onChange={(e) => setTutorName(e.label)}/>*/}
                         </div>
 
                     </div>
@@ -138,7 +134,6 @@ function PopUpUpdate(props) {
         </div>
     </div>
     ) : <div></div>;
-// )
 }
 
 export default PopUpUpdate;

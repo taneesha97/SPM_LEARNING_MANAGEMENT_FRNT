@@ -6,6 +6,7 @@
 .pnp.js
 *.css
 *.map
+kendo-ui-license.txt
 
 # testing
 /coverage
