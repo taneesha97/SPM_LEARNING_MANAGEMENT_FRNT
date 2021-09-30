@@ -10,6 +10,8 @@ class PrintableComponent extends React.Component {
         graphData: []
     }
 
+    // Async method to return the data.
+    // Plug the data to the chart.
     async componentDidMount() {
         await axios.get(`http://localhost:8073/api/tutor/charts`)
             .then(res => {
