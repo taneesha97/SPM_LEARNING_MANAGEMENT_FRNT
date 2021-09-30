@@ -35,6 +35,8 @@ function LoginComponent(props) {
                 if(response.status == 200){
                     setTimeout(() => {
                         alert('session closed')
+                        localStorage.setItem('username', '');
+                        localStorage.setItem('email', '');
                         dispatch(logoutUser())
                         AuthClass.logout();
                     }, 10 * 60 * 1000);
