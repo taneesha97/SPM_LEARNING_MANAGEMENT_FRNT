@@ -11,7 +11,7 @@ import {fetchTeachers} from "../../../Action/Users";
 import axios from "axios";
 function ClassMgntInt() {
 
-    const [image, setImage] = useState("");
+    // const [image, setImage] = useState(null);
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
     const [tutorName, setTutorName] = useState('');
@@ -22,7 +22,7 @@ function ClassMgntInt() {
     const [progress, setProgress] = useState(0);
     const [loading, setLoading] = useState(false);
     const [success, setSuccess] = useState(false);
-    const [file, setFile] = useState(0);
+    const [file, setFile] = useState(null);
     const [downloadUri, setDownloadUri] = useState(0);
     const [teacherOptions, setTeacherOptions] = useState(null);
     console.log('teacherOptions',teacherOptions);
@@ -45,7 +45,7 @@ function ClassMgntInt() {
     const uploadedImage = (e) => {
         let file = e.target.files[0];
         console.log(file.name)
-        setImage(file.name)//
+        setFile(file.name)
     }
 
 
@@ -104,9 +104,9 @@ function ClassMgntInt() {
 
     //File attachment logic, saved the file in state.
     const onDrop = React.useCallback((selectedFile) => {
-        let image = selectedFile.target.files;
+        let image = selectedFile.target.files[0];
         setFile(image);
-        console.log('IMG',file);
+        console.log('IMG',image);
         setSuccess(false);
         setProgress(0);
     })
@@ -121,22 +121,53 @@ function ClassMgntInt() {
 
     }, [data])
 
-
-    const handleSubmit = (e) => {
-            e.preventDefault();
-            setErrorMessageDisplay(null);
-
-            if (validation()) {
-                const classData = {
-                    name,
-                    description,
-                    tutorName,
-                    image
-                }
-                dispatch(addClass(classData));
-            }
-            setTimeout(() => dispatch(getClasses()), 1000);
+    //File Uploading method.
+    const handleSubmit =  (e) => {
+        e.preventDefault();
+        try {
+            setSuccess(false);
+            setLoading(true);
+            const formData = new FormData();
+            formData.append("file", file);
+            formData.append("name", name);
+            formData.append("description", description);
+            formData.append("tutorName", tutorName);
+            console.log(file);
+            console.log(formData);
+            const API_URL_REQ = "http://localhost:8073/api/single/upload/image";
+            const response =  axios.post(API_URL_REQ, formData, {
+                onUploadProgress: (progressEvent) => {
+                    const percentCompleted = Math.round(
+                        (progressEvent.loaded * 100) / progressEvent.total
+                    );
+                    setProgress(percentCompleted);
+                },
+            });
+            setDownloadUri(response.data);
+            setSuccess(true);
+            setLoading(false);
+            setSuccess(false);
+        } catch (error) {
+            alert(error.message);
         }
+    };
+
+    // const handleSubmit = (e) => {
+    //         e.preventDefault();
+    //         setErrorMessageDisplay(null);
+    //
+    //         if (validation()) {
+    //             const classData = {
+    //                 name,
+    //                 description,
+    //                 tutorName,
+    //                 image
+    //             }
+    //             dispatch(addClass(classData));
+    //         }
+    //         setTimeout(() => dispatch(getClasses()), 1000);
+    //     }
+
 
         return (
             <React.Fragment>
@@ -194,7 +225,7 @@ function ClassMgntInt() {
                             {/*/>*/}
 
                             <label htmlFor="lname">Attach the Image</label>
-                            <input style={{height: "30px", fontSize: "10px", paddingBottom: "30px", color: "black", fontWeight: "bold"}} onChange={onDrop}  type="file" id="lname" name="lastname" placeholder="Number of Chapters.."
+                            <input style={{height: "30px", fontSize: "10px", paddingBottom: "30px", color: "black", fontWeight: "bold"}} onChange={onDrop}  type="file" id="file" name="file" placeholder="Number of Chapters.."
                                    className="class-form-teacher-input"/>
                             <div className="msg">
                             <Grid item direction="column" md={6}>
