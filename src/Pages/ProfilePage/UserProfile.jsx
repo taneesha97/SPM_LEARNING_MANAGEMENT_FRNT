@@ -3,14 +3,13 @@ import './UserProfile.css'
 import profilePic from "./images/profilePic.png";
 import ProfileBio from "../../Component/Profile/ProfileBio";
 import UserDetailsUpdateComponent from "../../Component/Profile/UserDetailsUpdateComponent";
-import {fetchStudents, fetchTeachers, getUserByID, loggedUser} from "../../Action/Users";
+import {deleteUsers, fetchStudents, fetchTeachers, fetchUser, getUserByID, loggedUser} from "../../Action/Users";
 import {useDispatch, useSelector} from "react-redux";
 import PasswordUpdateComponent from "../../Component/Profile/PasswordUpdateComponent";
 import {Button, Modal} from "react-bootstrap";
-import Transaction from "../../Component/Transaction/UserTransarction/Transaction";
+import UserTransarction from "../../Component/Transaction/UserTransarction/Transaction";
 import AuthClass from "../../Validation/AuthClass";
 import {useHistory} from "react-router";
-import Transaction from "../../Component/Transaction/BankDetails/Transaction";
 
 
 const UserProfile = () => {
@@ -63,7 +62,6 @@ const UserProfile = () => {
     }
 
 
-
     return (<React.Fragment>
             <div>
                 <div className="bluescreen">
@@ -89,7 +87,7 @@ const UserProfile = () => {
                 </Modal>
                 <div className="bluescreen1">
                 <ProfileBio user1 = {user1}/>
-                <Transaction/>
+                <UserTransarction type ={ user1?.type === 'student' ? 'Card' : 'Bank'}  />
                 </div>
                 <div className="userprofile">
                     <div className="userprofile1">

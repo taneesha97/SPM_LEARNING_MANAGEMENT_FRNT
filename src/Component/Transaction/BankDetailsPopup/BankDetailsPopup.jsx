@@ -1,6 +1,7 @@
 import React from "react";
+import './styles.scss'
 
-const BankDetailsPopup = () => {
+const BankDetailsPopup = ({setShow}) => {
 
     const submitBankDetals = () =>{
 
@@ -20,8 +21,8 @@ const BankDetailsPopup = () => {
                 <input className='input-styles'
                        placeholder='Enter Your Account Number Here'
                        type='number'/>
-                <div>
-                    <button className='button-cancel-styles'>Cancel</button>
+                <div className='card-details-buttons'>
+                    <button className='button-cancel-styles' onClick={() => setShow(false)}>Cancel</button>
                     <button className='button-submit-styles'>Add</button>
                 </div>
             </form>

@@ -1,23 +1,52 @@
 .bank-details-wrapper{
+  background-color: #0D1335;
+  padding: 10px;
+  border-radius: 10px;
+  justify-content: center;
  .bank-details-header{
+   text-align: center;
+   color: #FFFFFF;
+   font-size: x-large;
+   margin-bottom: 20px;
 
  }
   .bank-details-form{
+    display: flex;
+    flex-direction: column;
     .input-styles{
+      width: 350px;
       background-color: #D3C0DC;
+      padding: 7px;
+      margin: 8px;
+      border: none;
+      padding-inline-start: 10px;
+      border-radius: 10px;
 
     }
-    .button-cancel-styles{
-      color: #FFFFFF;
-      background: #D1214B;
-      border-radius: 20px;
+    .card-details-buttons{
+      text-align: center;
+      .button-cancel-styles{
+        width: 75px;
+        border: none;
+        padding: 5px;
+        margin: 5px;
+        background-color: #D1214B;
+        color: #FFFFFF;
+        border-radius: 10px;
+
+      }
+      .button-submit-styles{
+        width: 75px;
+        border: none;
+        padding: 5px;
+        margin: 5px;
+        background-color: #7364B9;
+        color: #FFFFFF;
+        border-radius: 10px;
+
+      }
 
     }
-    .button-submit-styles{
-      color: #FFFFFF;
-      background: #7364B9;
-      border-radius: 20px;
 
-    }
   }
 }
