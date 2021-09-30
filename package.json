@@ -76,6 +76,7 @@
     "react-player": "^2.9.0",
     "react-redux": "^7.2.4",
     "react-router-dom": "^5.2.0",
+    "react-to-print": "^2.13.0",
     "screenfull": "^5.1.0"
   }
 }
