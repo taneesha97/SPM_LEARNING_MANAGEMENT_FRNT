@@ -1,11 +1,23 @@
 import './PrintableComponent.scss'
-import {Button} from "@progress/kendo-react-buttons";
-import {PDFExport} from "@progress/kendo-react-pdf";
 import React from "react";
 import Logo from "../../companyLogo/Logo.png";
 import {Chart, ChartSeries, ChartSeriesItem, ChartSeriesLabels} from "@progress/kendo-react-charts";
 import sampleData from "../../SampleData/invoice-data.json";
+import axios from "axios";
 class PrintableComponent extends React.Component {
+
+    state = {
+        graphData: []
+    }
+
+    componentDidMount() {
+        axios.get(`https://jasonplaceholder.typicode.com/users`)
+            .then(res => {
+                const graphData = res.data;
+                this.setState({graphData});
+            })
+    }
+
 
     render() {
         return (
