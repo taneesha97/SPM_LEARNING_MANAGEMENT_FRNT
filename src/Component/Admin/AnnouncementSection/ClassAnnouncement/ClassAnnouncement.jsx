@@ -9,6 +9,13 @@ import {getClasses} from "../../../../Action/Class";
 import {fetchTeachers} from "../../../../Action/Users";
 import {Form} from "react-bootstrap";
 
+const customStyles = {
+    menu: (provided, state) => ({
+        ...provided,
+       color:'black',
+    })
+}
+
 const ClassAnnouncement = () =>{
 
     const[header, setHeader] = useState('');
@@ -116,6 +123,7 @@ const ClassAnnouncement = () =>{
                             <InputLabel id="label">Class name</InputLabel>
                             <div className="clz-input">
                                 <Select
+                                    styles={customStyles}
                                     menuPlacement="auto"
                                     menuPosition="fixed"
                                     onChange={(e) => setName(e.label)}
