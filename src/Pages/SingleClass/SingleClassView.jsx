@@ -10,16 +10,11 @@ import {getAnnouncements} from "../../Action/Announcement";
 function SingleClassView() {
 
     const dispatch = useDispatch();
-
-    const [announcementData, setAnnouncementData] = useState('');
-
-
     const annDetails = useSelector((state) => state.Announcement?.announcementRecords?.records);
 
 
     React.useEffect(() => {
         dispatch(getAnnouncements());
-        setAnnouncementData(annDetails)
     }, []);
 
     return (
@@ -27,7 +22,7 @@ function SingleClassView() {
             <SingleClassWelcomeHeader/>
             <SingleClassUserCountDisplay/>
             <CourseContent/>
-            <SingleClassAnnouncements annoucemntData = {annDetails} setAnnoucementData = {setAnnouncementData}/>
+            <SingleClassAnnouncements annoucemntData = {annDetails}/>
             <Footer/>
         </div>
     )
