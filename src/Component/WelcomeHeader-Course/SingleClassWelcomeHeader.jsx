@@ -4,7 +4,6 @@ import './style.css'
 
 function SingleClassWelcomeHeader(props) {
 
-    console.log(props.data)
     return (
             <div className='welcome-container-course'>
                 <div className='landing-background-course'>
