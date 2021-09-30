@@ -9,6 +9,8 @@ import PasswordUpdateComponent from "../../Component/Profile/PasswordUpdateCompo
 import {Button, Modal} from "react-bootstrap";
 import AuthClass from "../../Validation/AuthClass";
 import {useHistory} from "react-router";
+import Transaction from "../../Component/Transaction/BankDetails/Transaction";
+
 
 const UserProfile = () => {
     const dispatch = useDispatch();
@@ -86,6 +88,7 @@ const UserProfile = () => {
                 </Modal>
                 <div className="bluescreen1">
                 <ProfileBio user1 = {user1}/>
+                <Transaction/>
                 </div>
                 <div className="userprofile">
                     <div className="userprofile1">
