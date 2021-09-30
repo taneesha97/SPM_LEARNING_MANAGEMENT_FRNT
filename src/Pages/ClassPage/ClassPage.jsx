@@ -10,12 +10,11 @@ import ClassTile from "../../Component/Class/ClassTile/ClassTile";
 function ClassPage() {
     const dispatch = useDispatch();
     const [searchTerm, setSearchTerm] = useState("");
-    const searchData = useSelector((state) => state.classes?.classRecords?.records);
+    const searchData = useSelector((state) => state.classes.classRecords.records);
     console.log('#######', searchTerm);
     React.useEffect(() => {
         dispatch(getClasses());
     }, []);
-
     return (
      
         <div style={{backgroundColor:'#D6D6D6'}}>
