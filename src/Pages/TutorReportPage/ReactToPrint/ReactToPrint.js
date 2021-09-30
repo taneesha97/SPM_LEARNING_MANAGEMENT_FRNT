@@ -6,13 +6,18 @@ import PrintableComponent from "./PrintableComponent/PrintableComponent";
 import Button from "@progress/kendo-react-buttons/dist/es/Button";
 /**
  * If work make this  class a reusable class passing the component as props (Default component)
- * Component to print shoudl be passed inside to this class <PrintableComponent/>
+ * Component to print should be passed inside to this class <PrintableComponent/>
  *
  * **/
 
-function ReactToPrintClass() {
+function ReactToPrintClass({input}) {
 
     let componentRef = useRef(null);
+
+    /**
+     * dynamically assigned the
+     * **/
+
 
     useEffect(() => {
 
@@ -22,7 +27,6 @@ function ReactToPrintClass() {
         <div className="parent-container">
             <ReactToPrint
                 trigger={() =>
-
                     <div className="printing-component-container">
                         <div className="printing-component-header">PDF Report Generator</div>
                         <div className="printing-component-sub-header">PDF Report Generator</div>

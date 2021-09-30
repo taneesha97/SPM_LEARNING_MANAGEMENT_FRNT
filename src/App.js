@@ -50,7 +50,7 @@ const App = () => {
                   <Route exact path = "/emailupdate" component={UserDetailsUpdateComponent}/>
                   <ProtectedRoute exact path = "/class" component={ClassPage}/>
                   <Route exact path = "/ClassCourseview" component={ClassCourseview}/>
-                  <ProtectedRoute exact path = "/singleclassview" component={SingleClassView}/>
+                  <Route exact path = "/singleclassview" component={SingleClassView}/>
                   <Route exact path = "/download" component={DownloadFile}/>
                   <Route exact path = "/teacherstatuspopup" component={PopUpTeacherStatusComponent}/>
                   <Route exact path = "/customvideoplayer" component={CustomVideoPlayerComponent}/>

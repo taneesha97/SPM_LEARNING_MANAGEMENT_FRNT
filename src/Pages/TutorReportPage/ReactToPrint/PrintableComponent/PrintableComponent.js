@@ -10,14 +10,14 @@ class PrintableComponent extends React.Component {
         graphData: []
     }
 
-    componentDidMount() {
-        axios.get(`https://jasonplaceholder.typicode.com/users`)
+    async componentDidMount() {
+        await axios.get(`http://localhost:8073/api/tutor/charts`)
             .then(res => {
                 const graphData = res.data;
                 this.setState({graphData});
             })
+        console.log(this.state.graphData);
     }
-
 
     render() {
         return (
@@ -80,7 +80,6 @@ class PrintableComponent extends React.Component {
                                 </div>
                                 <div className="pdf-body">
                                     <div className="custom-grid" id="grid">
-                                        <div> Content Comes Here! </div>
                                     </div>
                                 </div>
                             </div>
