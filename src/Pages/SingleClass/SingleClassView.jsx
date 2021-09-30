@@ -11,6 +11,7 @@ import {getAnnouncements} from "../../Action/Announcement";
 function SingleClassView() {
 
     const dispatch = useDispatch();
+
     const [announcementData, setAnnouncementData] = useState('');
 
 
