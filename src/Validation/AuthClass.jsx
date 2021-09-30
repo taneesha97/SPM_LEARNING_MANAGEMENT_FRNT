@@ -17,7 +17,7 @@ class Auth {
         localStorage.setItem('flag', true);
         // localStorage.setItem('username', name);
         // localStorage.setItem('email', email);
-        localStorage.setItem('userid', values.id);
+
         localStorage.setItem('usertype', values.type);
         //localStorage.setItem('user', values);
         localStorage.setItem('user', JSON.stringify(values));
