@@ -91,7 +91,6 @@ function ClassMgntInt() {
     //get teacher data
     useEffect(() => {
         getTeachers();
-        setImage(file?.name);
     },[teacherResponse])
 
 
@@ -107,6 +106,7 @@ function ClassMgntInt() {
     //File attachment logic, saved the file in state.
     const onDrop = React.useCallback((selectedFile) => {
         let image = selectedFile.target.files[0];
+        setImage(image?.name)
         setFile(image);
         console.log('IMG',image);
         setSuccess(false);
