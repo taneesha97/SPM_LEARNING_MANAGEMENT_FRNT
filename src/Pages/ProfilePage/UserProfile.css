@@ -102,6 +102,10 @@
   background-color: #E5E5E5;
 }
 
+.row {
+  padding: 20px;
+}
+
 .userprofile-bio1 {
   flex-direction: column;
   margin: auto;

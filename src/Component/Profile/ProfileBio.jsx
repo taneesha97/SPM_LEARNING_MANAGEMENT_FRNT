@@ -10,7 +10,7 @@ function ProfileBio(props) {
                         <h2 className="userprofile-bio1-info1-main">Personal Details</h2>
                     </div>
                     <div className="card">
-                            <div className="row mb-2">
+                            <div className="row">
                                 <div className="col">
                                     <div className="mb-0">Full Name</div>
                                 </div>
@@ -18,7 +18,7 @@ function ProfileBio(props) {
                                     <div className="mb-0">{props?.user1?.name}</div>
                                 </div>
                             </div>
-                            <div className="row mb-2">
+                            <div className="row">
                                 <div className="col">
                                     <div className="mb-0">Email</div>
                                 </div>
@@ -26,7 +26,7 @@ function ProfileBio(props) {
                                     <div className="mb-0">{props?.user1?.email}</div>
                                 </div>
                             </div>
-                            <div className="row mb-2">
+                            <div className="row">
                                 <div className="col">
                                     <div className="mb-0">Age</div>
                                 </div>
@@ -34,7 +34,7 @@ function ProfileBio(props) {
                                     <div className="mb-0">{props?.user1?.age}</div>
                                 </div>
                             </div>
-                            <div className="row mb-2">
+                            <div className="row">
                                 <div className="col">
                                     <div className="mb-0">Position</div>
                                 </div>
@@ -42,7 +42,7 @@ function ProfileBio(props) {
                                     <div className="mb-0">{props?.user1?.type}</div>
                                 </div>
                             </div>
-                            <div className="row mb-2">
+                            <div className="row">
                                 <div className="col">
                                     <div className="mb-0">Username</div>
                                 </div>
