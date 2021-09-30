@@ -31,8 +31,8 @@ function LoggedUserComponent() {
         <div className= "loggedUserComponent">
             <div className="loggedUserNameTile">
                 <div className="title-component-1">
-                    <h1 className="title-component-main-1">{user1?.username}</h1>
-                    <h2 className="title-component-sub-1">{user1?.email}</h2>
+                    <h1 className="title-component-main-1">{user}</h1>
+                    <h2 className="title-component-sub-1">{email}</h2>
                 </div>
             </div>
             {/*<div className="loggedUserImage + (selected ? "expand" : "")" onClick={logNav}>*/}
