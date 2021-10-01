@@ -18,6 +18,8 @@ import {
 import {useDispatch, useSelector} from "react-redux";
 import {fetchTeachers, getUserCount} from "../../Action/Users";
 import UserReports from "../../Component/Admin/AdminReports/UserReports";
+import Button from "@progress/kendo-react-buttons/dist/es/Button";
+import {Link} from "react-router-dom";
 
 
 function AdminDashboard() {
@@ -78,8 +80,19 @@ function AdminDashboard() {
             <UserReports/>
             <br/>
             <AnnouncementSection array1={array1}/>
-
+            <Link to={{
+                pathname: '/report',
+                age: {type: "tclass"}
+            }}>
+                <Button
+                    style={{ marginLeft: "15px", width: "100px"}}
+                    variant="contained"
+                    color="primary"
+                    size="large"
+                >check </Button>
+            </Link>
         </div>
+
 
     )
 }
