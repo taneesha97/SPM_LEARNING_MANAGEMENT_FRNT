@@ -91,6 +91,7 @@ function ClassMgntInt() {
     //get teacher data
     useEffect(() => {
         getTeachers();
+        setImage(file?.name);
     },[teacherResponse])
 
 
