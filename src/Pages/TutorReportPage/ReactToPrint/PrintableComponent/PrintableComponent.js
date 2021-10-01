@@ -18,7 +18,7 @@ class PrintableComponent extends React.Component {
                 const graphData = res.data;
                 this.setState({graphData});
             })
-        console.log(this.state.graphData);
+        console.log(this.state.graphData); // Testing.
     }
 
     render() {
@@ -68,9 +68,9 @@ class PrintableComponent extends React.Component {
                                         <ChartSeries>
                                             <ChartSeriesItem
                                                 type="donut"
-                                                data={sampleData}
-                                                categoryField="product"
-                                                field="share"
+                                                data={this.state.graphData}
+                                                categoryField="category"
+                                                field="count"
                                             >
                                                 <ChartSeriesLabels
                                                     color="#fff"
