@@ -105,6 +105,7 @@ function FileAttachInt({array4}) {
             setSuccess(true);
             setLoading(false);
             setSuccess(false);
+            getItems();
         } catch (error) {
             alert(error.message);
         }
