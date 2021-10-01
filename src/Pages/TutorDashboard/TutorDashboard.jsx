@@ -19,6 +19,7 @@ import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import {useHistory} from "react-router";
 import axios from "axios";
 import {getUserCount} from "../../Action/Users";
+import {Container} from "@material-ui/core";
 
 function TutorDashboard() {
 
@@ -117,6 +118,7 @@ function TutorDashboard() {
     console.log(courses);
     return (
         <div className="tutor-dashboard-page">
+            <Container midWidth="md">
             <TutorDashHeader array5={array4}/>
             <CourseMgntInt array4={courses} />
             <FileAttachInt array4={courses}/>
@@ -130,6 +132,7 @@ function TutorDashboard() {
                           setTrigger={setTrigger}
                           triggerHeader={triggerData}
             />
+            </Container>
         </div>
     )
 }
