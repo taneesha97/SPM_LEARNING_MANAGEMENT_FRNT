@@ -16,21 +16,40 @@ import * as api from "../../API";
 const useStyles = makeStyles(theme => ({
     container: {
         display: "flex",
-        padding: "auto",
+        //padding: "auto",
     },
     container1: {
         padding: "auto",
     },
     container2: {
-        marginBottom: "30px",
+        //marginBottom: "30px",
+        minWidth: 'fit-content',
+        height: 'fit-content'
+    },
+    container3: {
+        marginTop: "100px",
+        minWidth: 'fit-content',
+        height: 'fit-content'
     },
     paper: {
-        height: 200,
-        flex: 1,
-        display: "flex",
+        height: "200px",
+        minWidth: "fit-content",
+        justifyContent: "left",
+        elevation: 8
+    },
+    paper1: {
+        height: "fit-content",
+        minWidth: "400px",
+        padding: "20px",
         alignItems: "center",
         justifyContent: "center",
         //elevation: 8
+    },
+    dataFont : {
+        fontSize: "15px"
+    },
+    chart1 : {
+        marginTop: "-100px"
     }
 }))
 
@@ -103,71 +122,83 @@ const TestingReport3 = () => {
     return (
         <div>
             <div className={classes.container}>
-                <Grid container className={classes.container1} direction="column" alignItems="center" spacing={2}>
-                    <Grid container className={classes.container2} spacing={16} alignItems="center" justify="flex-start">
-                        <Grid item xs={12} sm={6} md={4} lg={4}>
-                            <Chart >
+                <Grid container className={classes.container1} direction="column" alignItems="center">
+                    <Grid container className={classes.container2} direction="row"spacing={3} alignItems="center">
+                        <Grid item lg={3}>
+
+                            <Chart className={classes.chart1}>
                                 <ChartSeries>
                                     <ChartSeriesItem
                                         type="donut"
                                         data={data}
                                         categoryField="kind"
+
                                         field="share"
                                     >
                                         <ChartSeriesLabels
                                             color="#fff"
                                             background="none"
+
                                             content={labelContent}
                                         />
                                     </ChartSeriesItem>
                                 </ChartSeries>
                                 <ChartLegend visible={false} />
                             </Chart>
-                        </Grid>
-                        <Grid item xs={12} sm={6} md={4} lg={4}>
-                            <Paper className={classes.paper}>
-                                <Grid container direction="column" alignItems="center" spacing={2}>
-                                    <h6>Total Users :{response?.at(2)} </h6>
-                                    <h6>Total Teachers : {response?.at(0)} ({(response?.at(0) / response?.at(2)) * 100})%</h6>
-                                    <h6>Total Students : {response?.at(1)} ({(response?.at(1) / response?.at(2)) * 100})%</h6>
-                                    <h6>Total Admins : {(response?.at(2) - (response?.at(1) + response?.at(0)) )} ({((response?.at(2) - (response?.at(1) + response?.at(0)) ) / response?.at(2)) * 100})%</h6>
-                                </Grid>
 
-                            </Paper>
                         </Grid>
-                    </Grid>
-                    <Grid className={classes.container2} container spacing={16} justify="flex-start">
-                        <Grid item xs={12} sm={6} md={4} lg={4}>
-                            <Chart >
+                        <Grid item xs={12} sm={6} md={4} lg={3}>
+
+                            <Chart className={classes.chart1}>
                                 <ChartSeries>
                                     <ChartSeriesItem
                                         type="donut"
                                         data={data1}
+
                                         categoryField="kind"
                                         field="share"
                                     >
                                         <ChartSeriesLabels
                                             color="#fff"
                                             background="none"
+
                                             content={labelContent}
                                         />
                                     </ChartSeriesItem>
                                 </ChartSeries>
                                 <ChartLegend visible={false} />
                             </Chart>
+
+                        </Grid>
+                        <Paper className={classes.paper1}>
+                            <Grid container direction="column" alignItems="center" spacing={2}>
+                                <div className={classes.dataFont}>Total Users :{response?.at(2)} </div>
+                                <div className={classes.dataFont}>Total Teachers : {response?.at(0)} ({(response?.at(0) / response?.at(2)) * 100})%</div>
+                                <div className={classes.dataFont}>Total Students : {response?.at(1)} ({(response?.at(1) / response?.at(2)) * 100})%</div>
+                                <div className={classes.dataFont}>Total Admins : {(response?.at(2) - (response?.at(1) + response?.at(0)) )} ({((response?.at(2) - (response?.at(1) + response?.at(0)) ) / response?.at(2)) * 100})%</div>
+                            </Grid>
+
+                        </Paper>
+
+
+                    </Grid>
+                    <Grid container className={classes.container3} direction="row"spacing={3} alignItems="center">
+                        <Grid item xs={12} sm={6} md={4} lg={4}>
+
                         </Grid>
                         <Grid item xs={12} sm={6} md={4} lg={4}>
-                            <Paper className={classes.paper}>
+                            <Paper className={classes.paper1}>
                                 <Grid container direction="column" alignItems="center" spacing={2}>
-                                    <h6>Total Teachers : {response3?.at(0) + response3?.at(1) + response3?.at(2) } </h6>
-                                    <h6>Total Valid Teachers : {response3?.at(0)} ({(response3?.at(0) / (response3?.at(0) + response3?.at(1) + response3?.at(2))) * 100 }%)</h6>
-                                    <h6>Total Invalid Teachers : {response3?.at(1)} ({(response3?.at(1) / (response3?.at(0) + response3?.at(1) + response3?.at(2))) * 100 }%)</h6>
-                                    <h6>Total Pending Teachers : {response3?.at(2)} ({(response3?.at(2) / (response3?.at(0) + response3?.at(1) + response3?.at(2))) * 100 }%)</h6>
+                                    <div className={classes.dataFont}>Total Teachers : {response3?.at(0) + response3?.at(1) + response3?.at(2) } </div>
+                                    <div className={classes.dataFont}>Total Valid Teachers : {response3?.at(0)} ({(response3?.at(0) / (response3?.at(0) + response3?.at(1) + response3?.at(2))) * 100 }%)</div>
+                                    <div className={classes.dataFont}>Total Invalid Teachers : {response3?.at(1)} ({(response3?.at(1) / (response3?.at(0) + response3?.at(1) + response3?.at(2))) * 100 }%)</div>
+                                    <div className={classes.dataFont}>Total Pending Teachers : {response3?.at(2)} ({(response3?.at(2) / (response3?.at(0) + response3?.at(1) + response3?.at(2))) * 100 }%)</div>
                                 </Grid>
 
                             </Paper>
                         </Grid>
                     </Grid>
+
                 </Grid>
 
             </div>

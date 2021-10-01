@@ -7,6 +7,7 @@ import Button from "@progress/kendo-react-buttons/dist/es/Button";
 import AdminReport1 from "../User/AdminReport1";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchUser} from "../../../Action/Users";
+import AdminReport2 from "../User/AdminReport2";
 /**
  * If work make this  class a reusable class passing the component as props (Default component)
  * Component to print should be passed inside to this class <PrintableComponent/>
@@ -53,8 +54,9 @@ function ReactToPrintClass(props) {
                 }
                 content={() => componentRef}
             />
-            {/*<AdminReport1 age = {age} age1={age1} data = {response} className="component-to-print" ref={el => (componentRef = el)}/>*/}
-            <PrintableComponent className="component-to-print" ref={el => (componentRef = el)}/>
+            {/*<AdminReport2 age = {age} age1={age1} data = {response} className="component-to-print" ref={el => (componentRef = el)}/>*/}
+            <AdminReport2 className="component-to-print" ref={el => (componentRef = el)}/>
+            {/*<PrintableComponent className="component-to-print" ref={el => (componentRef = el)}/>*/}
         </div>
     )
 }
