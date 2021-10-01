@@ -15,7 +15,7 @@ import {useLocation} from "react-router";
  * **/
 
 
-function ReactToPrintClass({tutor, admin}) {
+function ReactToPrintClass() {
 
     //Parameters to the Report.
     const { age } = useLocation();
@@ -27,17 +27,20 @@ function ReactToPrintClass({tutor, admin}) {
     //Testing
     console.log(age?.age);
     console.log(age?.age1);
+    console.log(age?.type);
 
     //Admin Variables.
     const admin_age =  age?.age;
     const admin_age1 = age?.age1;
 
-    //Selection condition for each user.
-    if(age?.type === "admin"){
-        setAdmin("admin");
-    } else if(age?.type === "tutor") {
-        setTutor("tutor")
-    }
+    useEffect(() => {
+        //Selection condition for each user.
+        if(age?.type === "admin"){
+            setAdmin("admin");
+        } else if(age?.type === "tutor") {
+            setTutor("tutor")
+        }
+    },[])
 
 
     let componentRef = useRef(null);

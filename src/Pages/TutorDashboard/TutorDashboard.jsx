@@ -20,6 +20,8 @@ import {useHistory} from "react-router";
 import axios from "axios";
 import {Container} from "@material-ui/core";
 import {fetchStudents, getUserCount} from "../../Action/Users";
+import {Link} from "react-router-dom";
+import Button from "@progress/kendo-react-buttons/dist/es/Button";
 
 
 function TutorDashboard() {
@@ -138,6 +140,10 @@ function TutorDashboard() {
                           triggerHeader={triggerData}
             />
             </Container>
+            <Link to={{
+                pathname: '/report',
+                age: {type: "tutor"}
+            }}><Button/> Go to Report Generation</Link>
         </div>
     )
 }
