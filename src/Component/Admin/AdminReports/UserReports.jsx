@@ -6,6 +6,7 @@ import Grid from "@material-ui/core/Grid";
 import {makeStyles} from "@material-ui/core/styles";
 import Button from "@progress/kendo-react-buttons/dist/es/Button";
 import {useHistory} from "react-router";
+import {Link} from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -87,14 +88,19 @@ function UserReports() {
                 </Grid>
                 <Grid item>
                     <Grid item xs={12} sm={6}>
+                        <Link to={{
+                            pathname: '/report',
+                            age: {age: age, age1: age1, type: "admin"}
+                        }}>
                         <Button
                             style={{ marginLeft: "15px", width: "100px"}}
                             variant="contained"
                             color="primary"
                             size="large"
-                            onClick={handleChange}
                         >check </Button>
+                        </Link>
                     </Grid>
+
                 </Grid>
             </Grid>
         </div>

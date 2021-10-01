@@ -18,7 +18,11 @@ import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import {useHistory} from "react-router";
 import axios from "axios";
+import {Container} from "@material-ui/core";
 import {fetchStudents, getUserCount} from "../../Action/Users";
+import {Link} from "react-router-dom";
+import Button from "@progress/kendo-react-buttons/dist/es/Button";
+
 
 function TutorDashboard() {
 
@@ -121,6 +125,7 @@ function TutorDashboard() {
     console.log(courses);
     return (
         <div className="tutor-dashboard-page">
+            <Container midWidth="md">
             <TutorDashHeader array5={array4}/>
             <CourseMgntInt array4={courses} />
             <FileAttachInt array4={courses}/>
@@ -134,6 +139,11 @@ function TutorDashboard() {
                           setTrigger={setTrigger}
                           triggerHeader={triggerData}
             />
+            </Container>
+            <Link to={{
+                pathname: '/report',
+                age: {type: "tutor"}
+            }}><Button/> Go to Report Generation</Link>
         </div>
     )
 }
