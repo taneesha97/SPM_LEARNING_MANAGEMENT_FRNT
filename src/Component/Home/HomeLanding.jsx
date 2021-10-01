@@ -34,8 +34,6 @@ function HomeLanding() {
                     <CourseTile image={Book6}/>
                     <CourseTile image={Booksontop}/>
                     <CourseTile image={Book6}/>
-                    <CourseTile image={Book2}/>
-                    <CourseTile image={Booksontop}/>
                 </CustomizeSection>
             </div>
             <div className='dark-ash-background'>
