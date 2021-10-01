@@ -18,8 +18,9 @@ import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import {useHistory} from "react-router";
 import axios from "axios";
-import {getUserCount} from "../../Action/Users";
 import {Container} from "@material-ui/core";
+import {fetchStudents, getUserCount} from "../../Action/Users";
+
 
 function TutorDashboard() {
 
@@ -39,9 +40,13 @@ function TutorDashboard() {
     }, [])
 
     const response = useSelector((state) => state.userDetails1?.usercount?.data);
+    const response1 = useSelector((state) => state.userDetails1?.UserDetails?.records?.data);
+    console.log(response1);
     useEffect(()=> {
         dispatch(getUserCount())
+        dispatch(fetchStudents());
     }, [])
+
     console.log('dddd ', response)
 
     //Method to fetch all the feedback information.
@@ -127,7 +132,7 @@ function TutorDashboard() {
                         setTrigger={setTrigger}
                         setTriggerData={setTriggerData}
                         triggerData={triggerData}/>
-            <StudentTableComponent/>
+            <StudentTableComponent response1 = {response1}/>
             <InqPopUpMenu trigger={trigger}
                           setTrigger={setTrigger}
                           triggerHeader={triggerData}
