@@ -4,6 +4,7 @@ import './styles.scss'
 const BankDetailsPopup = ({setShow}) => {
 
     const submitBankDetals = () =>{
+        console.log('Submit click')
 
     }
     return(
@@ -23,7 +24,7 @@ const BankDetailsPopup = ({setShow}) => {
                        type='number'/>
                 <div className='card-details-buttons'>
                     <button className='button-cancel-styles' onClick={() => setShow(false)}>Cancel</button>
-                    <button className='button-submit-styles'>Add</button>
+                    <button type='Submit' className='button-submit-styles'>Add</button>
                 </div>
             </form>
 
