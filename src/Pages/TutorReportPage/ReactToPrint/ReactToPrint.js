@@ -1,13 +1,18 @@
 import React, {useEffect, useRef, useState} from 'react'
 import ReactToPrint from "react-to-print";
 import "./ReactToPrint.scss";
-import ReportTesting from "../Testing/ReportTesting";
-import PrintableComponent from "./PrintableComponent/PrintableComponent";
 import Button from "@progress/kendo-react-buttons/dist/es/Button";
-import AdminReport1 from "../User/AdminReport1";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchUser} from "../../../Action/Users";
 import {useLocation} from "react-router";
+
+/**
+ * External Report Imports.
+ * **/
+import PrintableComponent from "./PrintableComponent/PrintableComponent";
+import AdminReport1 from "../User/AdminReport1";
+
+
 /**
  * If work make this  class a reusable class passing the component as props (Default component)
  * Component to print should be passed inside to this class <PrintableComponent/>
@@ -23,6 +28,8 @@ function ReactToPrintClass() {
     //Selection User States
     const [admin, setAdmin] = useState(null);
     const [tutor, setTutor] = useState(null);
+    const [payment, setPayment] = useState(null);
+    const [tclass, setTClass] = useState(null);
 
     //Testing
     console.log(age?.age);
@@ -35,10 +42,19 @@ function ReactToPrintClass() {
 
     useEffect(() => {
         //Selection condition for each user.
+
+        /**
+         * Update the condition accordingly
+         * **/
+
         if(age?.type === "admin"){
             setAdmin("admin");
         } else if(age?.type === "tutor") {
             setTutor("tutor")
+        } else if(age?.type === "payment"){
+            setPayment("payment");
+        } else if(age?.type === "tclass"){
+            setTClass("tclass");
         }
     },[])
 
@@ -72,9 +88,13 @@ function ReactToPrintClass() {
                 }
                 content={() => componentRef}
             />
-            {admin ? <AdminReport1 age = {admin_age} age1={admin_age1} data = {response} className="component-to-print" ref={el => (componentRef = el)}/>
-                : tutor ? <PrintableComponent className="component-to-print" ref={el => (componentRef = el)}/>
-                    : "Default Error Component"}
+            {
+                admin ?
+                <AdminReport1 age = {admin_age} age1={admin_age1} data = {response} className="component-to-print" ref={el => (componentRef = el)}/> :
+                    tutor ? <PrintableComponent className="component-to-print" ref={el => (componentRef = el)}/> :
+                        payment? "Payment report component comes here!":
+                            tclass? "Class report component comes here!":
+                        "Default Error Component"}
         </div>
     )
 }
