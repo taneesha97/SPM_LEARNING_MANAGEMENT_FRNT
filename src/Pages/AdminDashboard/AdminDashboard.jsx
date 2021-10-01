@@ -17,6 +17,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchTeachers, getUserCount} from "../../Action/Users";
+import UserReports from "../../Component/Admin/AdminReports/UserReports";
 
 
 function AdminDashboard() {
@@ -26,8 +27,8 @@ function AdminDashboard() {
     const dispatch = useDispatch();
     //getUserCount
     const response = useSelector((state) => state.userDetails1?.usercount?.data);
-    const teacherdetails = useSelector((state) => state.userDetails1?.UserDetails?.records?.data);
-
+    const teacherDetails = useSelector((store) => store.userDetails1?.UserDetails?.records?.data);
+    console.log(teacherDetails)
     useEffect(()=> {
         dispatch(getUserCount())
         dispatch(fetchTeachers());
@@ -72,8 +73,12 @@ function AdminDashboard() {
                 <ClassDetailsTable method={setTableClass}/>
             </div>
             <br/>
-            <TeacherTableComponent teacherdetails = {teacherdetails}/>
+            <TeacherTableComponent teacherdetails = {teacherDetails}/>
+            <br/>
+            <UserReports/>
+            <br/>
             <AnnouncementSection array1={array1}/>
+
         </div>
 
     )
