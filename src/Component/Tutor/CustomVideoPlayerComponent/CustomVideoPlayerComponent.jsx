@@ -66,6 +66,7 @@ function CustomVideoPlayerComponent() {
     const {playing, muted, volume, playbackRate, played, seeking} = state;
     const playerRef = useRef(null);
     const playerContainerRef = useRef(null);
+    const controlRef = useRef(null);
 
     const handlePlayPause = () => {
         setState({...state, playing: !state.playing});
@@ -152,6 +153,7 @@ function CustomVideoPlayerComponent() {
                         onProgress={handleProgress}
                     />
                     <PlayerControls
+                        ref={controlRef}
                         onPlayPause={handlePlayPause}
                         playing={playing}
                         onRewind={handleRewind}

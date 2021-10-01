@@ -14,6 +14,7 @@ import Popover from "@material-ui/core/Popover";
 import FullScreenButton from "@material-ui/icons/Fullscreen";
 import VolumeUp from "@material-ui/icons/VolumeOff";
 import {VolumeOff} from "@material-ui/icons";
+import {forwardRef} from "react";
 
 
 const useStyles = makeStyles({
@@ -93,7 +94,7 @@ const PrettoSlider = withStyles({
 
 
 
-function PlayerControls({onPlayPause,
+export default forwardRef(({onPlayPause,
                             playing,
                             onFastForward,
                             onRewind,
@@ -113,7 +114,7 @@ function PlayerControls({onPlayPause,
                             totalDuration,
                             onChangeDisplayFormat,
                             MediaPlayerName
-}) {
+}) => {
     // Methods
     const classes = useStyles();
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -248,7 +249,7 @@ function PlayerControls({onPlayPause,
                 </Grid>
             </Grid>
         </div>
-    )
-}
+    );
+})
 
-export default PlayerControls
+
