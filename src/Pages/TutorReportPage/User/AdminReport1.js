@@ -54,7 +54,7 @@ export class AdminReport1 extends Component {
                                 </div>
                             </div>
                             <div className="pdf-chart">
-                                <TestingReport2/>
+                                <TestingReport2 age = {this.props.age} age1 = {this.props.age1}/>
                                 {/*<Chart style={{ height: 280 }}>*/}
                                 {/*    /!*<ChartSeries>*!/*/}
                                 {/*    /!*    <ChartSeriesItem*!/*/}

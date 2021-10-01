@@ -5,6 +5,7 @@ import {TextField} from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
 import {makeStyles} from "@material-ui/core/styles";
 import Button from "@progress/kendo-react-buttons/dist/es/Button";
+import {useHistory} from "react-router";
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -59,10 +60,15 @@ function UserReports() {
     const [age, setAge] = useState("")
     const [age1, setAge1] = useState("")
     const classes = useStyles();
+    const history = useHistory();
 
     const handleChange = () => {
         console.log(age)
         console.log(age1)
+        ///report
+        //, { data: props?.rows }
+        history.push('/report', { age: age, age1: age1 });
+
     }
 
     return (

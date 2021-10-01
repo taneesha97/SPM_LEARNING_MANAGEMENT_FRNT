@@ -13,7 +13,12 @@ import {fetchUser} from "../../../Action/Users";
  *
  * **/
 
-function ReactToPrintClass() {
+function ReactToPrintClass(props) {
+
+    const age = props?.location?.state?.age;
+    console.log(age)
+    const age1 = props?.location?.state?.age1;
+    console.log(age1)
 
     let componentRef = useRef(null);
     const dispatch = useDispatch();
@@ -40,7 +45,7 @@ function ReactToPrintClass() {
                 }
                 content={() => componentRef}
             />
-            <AdminReport1 data = {response} className="component-to-print" ref={el => (componentRef = el)}/>
+            <AdminReport1 age = {age} age1={age1} data = {response} className="component-to-print" ref={el => (componentRef = el)}/>
             {/*<PrintableComponent className="component-to-print" ref={el => (componentRef = el)}/>*/}
         </div>
     )

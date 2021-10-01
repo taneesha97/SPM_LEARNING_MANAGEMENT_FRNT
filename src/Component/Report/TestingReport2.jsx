@@ -83,10 +83,10 @@ function createData(name, age, email, status, type) {
 }
 
 
-const TestingReport2 = () => {
+const TestingReport2 = (props) => {
     const dispatch = useDispatch();
-    const [age, setAge] = useState(20)
-    const [age1, setAge1] = useState(50)
+    const [age, setAge] = useState(props?.age)
+    const [age1, setAge1] = useState(props?.age1)
     const [age2, setAge2] = useState(0)
     const classes = useStyles();
 
