@@ -28,12 +28,12 @@ function TutorDashboard() {
 
     //User Validation Upon Landing On the Page -- Temporarily Disable.
     useEffect(()=> {
-        if(usertype != "teacher" && usertype != "admin"){
-            history.push('./login')
-            //window.location.href='/login';
-        } else {
-            //setFlag(true);
-        }
+        // if(usertype != "teacher" && usertype != "admin"){
+        //     history.push('./login')
+        //     //window.location.href='/login';
+        // } else {
+        //     //setFlag(true);
+        // }
         getItems();
     }, [])
 
