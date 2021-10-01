@@ -17,6 +17,7 @@ const CustomizeSection = ({main_topic, sub_topic, backgroundcl, btn_text, btn_co
 
     return (
         <div className='section-main-wrapper' style={backgroundStyle}>
+            <Container>
             <div className='section-header'>
                 <div className='topic-section'>
                     <div className='main-topic'>{main_topic}</div>
@@ -25,12 +26,12 @@ const CustomizeSection = ({main_topic, sub_topic, backgroundcl, btn_text, btn_co
                 <button className='view-all-btn' style={buttonStyle} onClick={setPath}>{btn_text}</button>
             </div>
             <div className='section-body'>
-                <Container>
+
                     <Grid container>
                         {children}
                     </Grid>
-                </Container>
             </div>
+        </Container>
         </div>
     )
 
