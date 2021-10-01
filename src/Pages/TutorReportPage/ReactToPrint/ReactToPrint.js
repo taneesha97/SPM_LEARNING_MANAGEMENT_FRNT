@@ -1,12 +1,13 @@
 import React, {useEffect, useRef} from 'react'
 import ReactToPrint from "react-to-print";
-import "./ReactToPrint.scss";
+import "./ReactToPrint.css";
 import ReportTesting from "../Testing/ReportTesting";
 import PrintableComponent from "./PrintableComponent/PrintableComponent";
 import Button from "@progress/kendo-react-buttons/dist/es/Button";
 import AdminReport1 from "../User/AdminReport1";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchUser} from "../../../Action/Users";
+import AdminPrintableComponent from "../../AdminReportPage/AdminPrintableComponent/AdminPrintableComponent";
 /**
  * If work make this  class a reusable class passing the component as props (Default component)
  * Component to print should be passed inside to this class <PrintableComponent/>
@@ -21,7 +22,7 @@ function ReactToPrintClass(props) {
     const age1 = props?.location?.state?.age1;
     console.log(age1)
 
-function ReactToPrintClass({input}) {
+// function ReactToPrintClass({input}) {
 
 
     let componentRef = useRef(null);
@@ -53,8 +54,9 @@ function ReactToPrintClass({input}) {
                 }
                 content={() => componentRef}
             />
-            <AdminReport1 age = {age} age1={age1} data = {response} className="component-to-print" ref={el => (componentRef = el)}/>
-            {/*<PrintableComponent className="component-to-print" ref={el => (componentRef = el)}/>*/}
+            {/*<AdminReport1 age = {age} age1={age1} data = {response} className="component-to-print" ref={el => (componentRef = el)}/>*/}
+            <PrintableComponent className="component-to-print" ref={el => (componentRef = el)}/>
+            {/*<AdminPrintableComponent className="component-to-print" ref={el => (componentRef = el)}/>*/}
         </div>
     )
 }

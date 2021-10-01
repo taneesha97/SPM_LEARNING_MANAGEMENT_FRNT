@@ -3,6 +3,7 @@ import React from "react";
 import Logo from "../../TutorReportPage/companyLogo/Logo.png";
 import {Chart, ChartSeries, ChartSeriesItem, ChartSeriesLabels} from "@progress/kendo-react-charts";
 import axios from "axios";
+import data from "./data.json";
 class AdminPrintableComponent extends React.Component {
 
     state = {
@@ -11,14 +12,16 @@ class AdminPrintableComponent extends React.Component {
 
     // Async method to return the data.
     // Plug the data to the chart.
-    async componentDidMount() {
-        await axios.get(`http://localhost:8073/api/tutor/charts`)
-            .then(res => {
-                const graphData = res.data;
-                this.setState({graphData});
-            })
-        console.log(this.state.graphData); // Testing.
-    }
+    // async componentDidMount() {
+    //     await axios.get(`http://localhost:8073/api/images`)
+    //         .then(res => {
+    //             const graphData = res.data;
+    //             this.setState({graphData});
+    //         })
+    //     console.log(this.state.graphData); // Testing.
+    // }
+
+
 
     render() {
         return (
@@ -67,9 +70,9 @@ class AdminPrintableComponent extends React.Component {
                                     <ChartSeries>
                                         <ChartSeriesItem
                                             type="donut"
-                                            data={this.state.graphData}
-                                            categoryField="category"
-                                            field="count"
+                                            data={data}
+                                            categoryField="kind"
+                                            field="share"
                                         >
                                             <ChartSeriesLabels
                                                 color="#fff"
