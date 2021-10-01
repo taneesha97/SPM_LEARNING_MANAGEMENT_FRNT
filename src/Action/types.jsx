@@ -20,6 +20,11 @@ export const GET_CLASS = 'GET_CLASS';
 export const UPDATE_CLASS = 'UPDATE_CLASS';
 export const DELETE_CLASS = 'DELETE_CLASS';
 
+export const ADD_CLASS_NEW = 'ADD_CLASS_NEW';
+export const GET_CLASS_NEW = 'GET_CLASS_NEW';
+export const UPDATE_CLASS_NEW = 'UPDATE_CLASS_NEW';
+export const DELETE_CLASS_NEW = 'DELETE_CLASS_NEW';
+
 //Announcement related constants
 export const ADD_ANNOUNCEMENT = 'ADD_ANNOUNCEMENT';
 export const GET_ANNOUNCEMENT = 'GET_ANNOUNCEMENT';

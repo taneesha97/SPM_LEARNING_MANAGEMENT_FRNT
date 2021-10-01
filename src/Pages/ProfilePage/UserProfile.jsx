@@ -3,22 +3,28 @@ import './UserProfile.css'
 import profilePic from "./images/profilePic.png";
 import ProfileBio from "../../Component/Profile/ProfileBio";
 import UserDetailsUpdateComponent from "../../Component/Profile/UserDetailsUpdateComponent";
-import {fetchStudents, fetchTeachers, getUserByID, loggedUser} from "../../Action/Users";
+import {deleteUsers, fetchStudents, fetchTeachers, fetchUser, getUserByID, loggedUser} from "../../Action/Users";
 import {useDispatch, useSelector} from "react-redux";
 import PasswordUpdateComponent from "../../Component/Profile/PasswordUpdateComponent";
 import {Button, Modal} from "react-bootstrap";
+import AuthClass from "../../Validation/AuthClass";
+import {useHistory} from "react-router";
+import Transaction from "../../Component/Transaction/BankDetails/Transaction";
+
 
 const UserProfile = () => {
     const dispatch = useDispatch();
     const [buttonPopup, setButtonPopup] = useState(false);
     const [buttonPopup2, setButtonPopup2] = useState(false);
     const [buttonPopup1, setButtonPopup1] = useState(false);
-    const [popupName, setPopupName] = useState("");
+    const [popupName, setPopupName] = useState("");;
+    const history = useHistory();
     const response = useSelector((state) => state.userDetails1?.editDetail?.data);
     let userObject = localStorage.getItem("user")
     let user = JSON.parse(userObject)
     const user1 = useSelector((store) => store.userDetails1?.loginUser);
     console.log('12333', user1)
+    let id = localStorage.getItem("userid");
 
     const [result, setResult] = useState(response);
     const [show, setShow] = useState(false);
@@ -32,7 +38,7 @@ const UserProfile = () => {
     },[response])
 
     useEffect(() => {
-        dispatch(getUserByID(user.id));
+        dispatch(getUserByID(user?.id));
 
     },[])
 
@@ -46,6 +52,12 @@ const UserProfile = () => {
         setPopupName("Password");
     }
     const deleteAccount = () => {
+        dispatch(deleteUsers(id))
+        setTimeout(function(){
+            dispatch(fetchUser());
+            AuthClass.logout()
+            history.push('/login');
+        }, 1000);
 
     }
 
@@ -76,6 +88,7 @@ const UserProfile = () => {
                 </Modal>
                 <div className="bluescreen1">
                 <ProfileBio user1 = {user1}/>
+                <Transaction/>
                 </div>
                 <div className="userprofile">
                     <div className="userprofile1">

@@ -19,7 +19,7 @@ import TablePagination from "@material-ui/core/TablePagination";
 import SucessPopUp from "../../PopupModel/SucessPopUp";
 import PopUpTeacherStatusComponent from "../../PopupModel/TeacherStatus/PopUpTeacherStatusComponent";
 import {purple} from "@material-ui/core/colors";
-function TeacherTableComponent() {
+function TeacherTableComponent(props) {
 
 
     const dispatch = useDispatch();
@@ -33,13 +33,12 @@ function TeacherTableComponent() {
     const [page, setPage] = React.useState(0);
 
 
-    const response = useSelector((state) => state.userDetails1?.UserDetails?.records?.data);
-    const [filteredData, setFilteredData] = useState(response);
+
+    const [filteredData, setFilteredData] = useState(props?.teacherdetails);
 
     useEffect(() => {
         setPage(0);
-        console.log('calling')
-        dispatch(fetchTeachers());
+
     },[])
 
     const deleteTeacher = (id) => {
@@ -89,7 +88,6 @@ function TeacherTableComponent() {
 
 
     const buttonStatus = (id, status) => {
-        //console.log(value)
         setPopupId(id);
         setPopupStatus(status);
         setButtonPopup(true);
@@ -132,8 +130,8 @@ function TeacherTableComponent() {
                         </TableHead>
                         <TableBody>
 
-                            {response?.filter((val) => {
-                                if(searchTerm == ""){
+                            {props?.teacherdetails?.filter((val) => {
+                                if(searchTerm === ""){
                                     return val
                                 }else if(val?.name.toLowerCase().includes(searchTerm.toLowerCase())){
                                     return val
@@ -149,21 +147,21 @@ function TeacherTableComponent() {
                             })
                                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                                 .map((row) => (
-                                    <TableRow key={row.id}>
-                                        <TableCell align="center"> {row.name} </TableCell>
-                                        <TableCell align="center"> {row.email} </TableCell>
-                                        <TableCell align="center"> {row.age} </TableCell>
-                                        <TableCell align="center"> {row.username} </TableCell>
-                                        <TableCell align="center"> {row.status} </TableCell>
+                                    <TableRow key={row?.id}>
+                                        <TableCell align="center"> {row?.name} </TableCell>
+                                        <TableCell align="center"> {row?.email} </TableCell>
+                                        <TableCell align="center"> {row?.age} </TableCell>
+                                        <TableCell align="center"> {row?.username} </TableCell>
+                                        <TableCell align="center"> {row?.status} </TableCell>
                                         <TableCell align="center">
                                             <a onClick={() => {
-                                                deleteTeacher(row.id)}}>
+                                                deleteTeacher(row?.id)}}>
                                                 <img src= {teacherDeleteimage1}  className="teacherDelete-image1"/>
                                             </a>
 
                                         </TableCell>
                                         <TableCell align="center">
-                                            <button type="button" onClick={() => {buttonStatus(row.id, row.status)}} className="btn btn-info">Update</button>
+                                            <button type="button" onClick={() => {buttonStatus(row?.id, row?.status)}} className="btn btn-info">Update</button>
                                             {/*<a onClick={() => {*/}
                                             {/*    deleteTeacher(row.id)}}>*/}
                                             {/*    <img src= {teacherDeleteimage1}  className="teacherDelete-image1"/>*/}
