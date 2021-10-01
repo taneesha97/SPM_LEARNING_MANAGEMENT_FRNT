@@ -165,6 +165,7 @@ function CustomVideoPlayerComponent() {
                 >
                     <ReactPlayer
                         width={"100%"}
+                        height="550px"
                         url={assignedUrl}
                         muted={muted}
                         playing={playing}
@@ -199,7 +200,7 @@ function CustomVideoPlayerComponent() {
                         MediaPlayerName={playerName}
                     />
                 </div>
-                <p className="header-video-player"> Name of the video </p>
+                <p className="header-video-player"> VIDEO-01 </p>
                 <p className="header-video-player-comment-section"> Comment section
                 </p>
                 <div className="video-player-comment">
