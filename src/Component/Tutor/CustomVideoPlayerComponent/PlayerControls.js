@@ -114,7 +114,7 @@ export default forwardRef(({onPlayPause,
                             totalDuration,
                             onChangeDisplayFormat,
                             MediaPlayerName
-}) => {
+}, ref) => {
     // Methods
     const classes = useStyles();
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -131,7 +131,7 @@ export default forwardRef(({onPlayPause,
     const id = open ? 'playbackrate-popover' : undefined;
 
     return (
-        <div className={classes.controlWrapper}>
+        <div className={classes.controlWrapper} ref={ref}>
             <Grid container direction="row" alignItems="center" justify="space-between"
                   style={{padding: 16}}>
                 <Grid item>

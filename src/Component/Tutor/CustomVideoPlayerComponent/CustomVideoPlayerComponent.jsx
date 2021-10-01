@@ -33,6 +33,8 @@ const format = (seconds) => {
     return `${mm}:${ss}`
 }
 
+let count = 0;
+
 
 
 function CustomVideoPlayerComponent() {
@@ -107,7 +109,18 @@ function CustomVideoPlayerComponent() {
     }
 
     const handleProgress = (changeState) => {
+
+        if(count>3){
+            controlRef.current.style.visibility = "hidden"
+            count = 0
+        }
+
+        if(controlRef.current.style.visibility === "visible"){
+            count+=1
+        }
+
         if(!state.seeking){setState({...state, ...changeState});}
+
     };
 
     const handleSeekChange = (e, newValue) => {
@@ -121,6 +134,11 @@ function CustomVideoPlayerComponent() {
     const handleSeekMouseUp = (e, newValue) => {
         setState({...state, seeking: false})
         playerRef.current.seekTo(newValue/100);
+    }
+
+    const handleMouseMove = () => {
+        controlRef.current.style.visibility = "visible";
+        count = 0;
     }
 
     const currentTime = playerRef.current ? playerRef.current.getCurrentTime(): '00:00';
@@ -139,7 +157,12 @@ function CustomVideoPlayerComponent() {
         <React.Fragment>
             <div style={{marginTop: "10px"}}/>
             <Container maxWidth="md">
-                <div ref={playerContainerRef} className={classes.playerWrapper}>
+                <div
+                    ref={playerContainerRef}
+                     className={classes.playerWrapper}
+                    onMouseMove={handleMouseMove}
+
+                >
                     <ReactPlayer
                         width={"100%"}
                         url={assignedUrl}
