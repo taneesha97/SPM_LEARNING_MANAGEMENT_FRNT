@@ -16,7 +16,6 @@ import {useLocation} from "react-router";
 /**
  * External Report Imports.
  * **/
-import PrintableComponent from "./PrintableComponent/PrintableComponent";
 import AdminReport1 from "../User/AdminReport1";
 
 
@@ -40,6 +39,7 @@ function ReactToPrintClass() {
     const [tutor, setTutor] = useState(null);
     const [payment, setPayment] = useState(null);
     const [tclass, setTClass] = useState(null);
+    const [admin1, setAdmin1] = useState(null);
 
     //Testing
     console.log(age?.age);
@@ -66,6 +66,9 @@ function ReactToPrintClass() {
             setPayment("payment");
         } else if(age?.type === "tclass"){
             setTClass("tclass");
+        }
+        else if(age?.type === "admin1"){
+            setAdmin1("admin1");
         }
     },[])
 
@@ -108,6 +111,7 @@ function ReactToPrintClass() {
                 admin ?
                 <AdminReport1 age = {admin_age} age1={admin_age1} data = {response} className="component-to-print" ref={el => (componentRef = el)}/> :
                     tutor ? <PrintableComponent className="component-to-print" ref={el => (componentRef = el)}/> :
+                        admin1 ? <AdminReport2 className="component-to-print" ref={el => (componentRef = el)}/> :
                         payment? "Payment report component comes here!":
                             tclass? "Class report component comes here!":
                         "Default Error Component"}
