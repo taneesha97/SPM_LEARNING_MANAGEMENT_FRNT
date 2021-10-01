@@ -4,6 +4,7 @@ import {Chart, ChartSeries, ChartSeriesItem, ChartSeriesLabels} from "@progress/
 import sampleData from "../SampleData/invoice-data.json";
 import './AdminReport1.css'
 import TestingReport2 from "../../../Component/Report/TestingReport2";
+import TestingReport3 from "../../../Component/Report/TestingReport3";
 
 export class AdminReport1 extends Component {
 
@@ -54,7 +55,8 @@ export class AdminReport1 extends Component {
                                 </div>
                             </div>
                             <div className="pdf-chart">
-                                <TestingReport2 age = {this.props.age} age1 = {this.props.age1}/>
+                                {/*<TestingReport2 age = {this.props.age} age1 = {this.props.age1}/>*/}
+                                <TestingReport3/>
                                 {/*<Chart style={{ height: 280 }}>*/}
                                 {/*    /!*<ChartSeries>*!/*/}
                                 {/*    /!*    <ChartSeriesItem*!/*/}

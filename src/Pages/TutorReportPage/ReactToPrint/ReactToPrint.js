@@ -21,7 +21,7 @@ function ReactToPrintClass(props) {
     const age1 = props?.location?.state?.age1;
     console.log(age1)
 
-function ReactToPrintClass({input}) {
+// function ReactToPrintClass({input}) {
 
 
     let componentRef = useRef(null);
@@ -53,8 +53,8 @@ function ReactToPrintClass({input}) {
                 }
                 content={() => componentRef}
             />
-            <AdminReport1 age = {age} age1={age1} data = {response} className="component-to-print" ref={el => (componentRef = el)}/>
-            {/*<PrintableComponent className="component-to-print" ref={el => (componentRef = el)}/>*/}
+            {/*<AdminReport1 age = {age} age1={age1} data = {response} className="component-to-print" ref={el => (componentRef = el)}/>*/}
+            <PrintableComponent className="component-to-print" ref={el => (componentRef = el)}/>
         </div>
     )
 }
