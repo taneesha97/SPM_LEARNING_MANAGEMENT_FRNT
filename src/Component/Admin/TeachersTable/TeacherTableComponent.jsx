@@ -38,7 +38,6 @@ function TeacherTableComponent(props) {
 
     useEffect(() => {
         setPage(0);
-        console.log('calling')
 
     },[])
 
@@ -89,7 +88,6 @@ function TeacherTableComponent(props) {
 
 
     const buttonStatus = (id, status) => {
-        //console.log(value)
         setPopupId(id);
         setPopupStatus(status);
         setButtonPopup(true);
@@ -133,7 +131,7 @@ function TeacherTableComponent(props) {
                         <TableBody>
 
                             {props?.teacherdetails?.filter((val) => {
-                                if(searchTerm == ""){
+                                if(searchTerm === ""){
                                     return val
                                 }else if(val?.name.toLowerCase().includes(searchTerm.toLowerCase())){
                                     return val

@@ -27,10 +27,13 @@ function AdminDashboard() {
     //getUserCount
     const response = useSelector((state) => state.userDetails1?.usercount?.data);
     const teacherdetails = useSelector((state) => state.userDetails1?.UserDetails?.records?.data);
+
     useEffect(()=> {
         dispatch(getUserCount())
         dispatch(fetchTeachers());
-    }, [])
+    }, [usertype])
+
+
 
     useEffect(()=> {
         if(usertype != "admin"){
