@@ -1,6 +1,8 @@
 import React from 'react'
 import './styles.css'
 import {useHistory} from "react-router";
+import Grid from "@material-ui/core/Grid";
+import {Container} from "@material-ui/core";
 
 const CustomizeSection = ({main_topic, sub_topic, backgroundcl, btn_text, btn_color, textcolor, children,navigationPath}) => {
 
@@ -23,7 +25,11 @@ const CustomizeSection = ({main_topic, sub_topic, backgroundcl, btn_text, btn_co
                 <button className='view-all-btn' style={buttonStyle} onClick={setPath}>{btn_text}</button>
             </div>
             <div className='section-body'>
-                {children}
+                <Container>
+                    <Grid container>
+                        {children}
+                    </Grid>
+                </Container>
             </div>
         </div>
     )
