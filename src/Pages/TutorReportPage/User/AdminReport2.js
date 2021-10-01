@@ -50,23 +50,7 @@ export class AdminReport2 extends Component {
                                 </div>
                             </div>
                             <div className="pdf-chart">
-                                {/*<TestingReport2 age = {this.props.age} age1 = {this.props.age1}/>*/}
                                 <TestingReport3/>
-                                {/*<Chart style={{ height: 280 }}>*/}
-                                {/*    /!*<ChartSeries>*!/*/}
-                                {/*    /!*    <ChartSeriesItem*!/*/}
-                                {/*    /!*        type="donut"*!/*/}
-                                {/*    /!*        data={sampleData}*!/*/}
-                                {/*    /!*        categoryField="product"*!/*/}
-                                {/*    /!*        field="share"*!/*/}
-                                {/*    /!*    >*!/*/}
-                                {/*    /!*        <ChartSeriesLabels*!/*/}
-                                {/*    /!*            color="#fff"*!/*/}
-                                {/*    /!*            background="none"*!/*/}
-                                {/*    /!*        />*!/*/}
-                                {/*    /!*    </ChartSeriesItem>*!/*/}
-                                {/*    /!*</ChartSeries>*!/*/}
-                                {/*</Chart>*/}
                             </div>
                             <div className="pdf-body">
                                 <div className="custom-grid" id="grid">

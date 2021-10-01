@@ -38,17 +38,38 @@ const useStyles = makeStyles(theme => ({
         elevation: 8
     },
     paper1: {
-        height: "fit-content",
-        minWidth: "400px",
-        padding: "20px",
+        position: "absolute",
+        height: "100px",
+        paddingTop: "20px",
+        marginTop: "-200px",
+        minWidth: "270px",
         alignItems: "center",
-        justifyContent: "center",
+        justifyContent: "left",
+
+
+        //elevation: 8
+    },
+    paper2: {
+        position: "absolute",
+        paddingTop: "20px",
+        height: "100px",
+        marginTop: "-200px",
+        minWidth: "250px",
+        alignItems: "center",
+        justifyContent: "right",
+        marginLeft: "100px"
         //elevation: 8
     },
     dataFont : {
-        fontSize: "15px"
+        fontSize: "12px"
     },
     chart1 : {
+        //position: "absolute",
+        marginRight: "100px",
+        marginTop: "-100px"
+    },
+    chart2 : {
+        position: "absolute",
         marginTop: "-100px"
     }
 }))
@@ -123,10 +144,10 @@ const TestingReport3 = () => {
         <div>
             <div className={classes.container}>
                 <Grid container className={classes.container1} direction="column" alignItems="center">
-                    <Grid container className={classes.container2} direction="row"spacing={3} alignItems="center">
-                        <Grid item lg={3}>
+                    <Grid container className={classes.container2} direction="row"spacing={16} alignItems="center">
+                        <Grid item lg={4} className={classes.chart1}>
 
-                            <Chart className={classes.chart1}>
+                            <Chart >
                                 <ChartSeries>
                                     <ChartSeriesItem
                                         type="donut"
@@ -147,9 +168,9 @@ const TestingReport3 = () => {
                             </Chart>
 
                         </Grid>
-                        <Grid item xs={12} sm={6} md={4} lg={3}>
+                        <Grid item lg={4}>
 
-                            <Chart className={classes.chart1}>
+                            <Chart className={classes.chart2}>
                                 <ChartSeries>
                                     <ChartSeriesItem
                                         type="donut"
@@ -170,24 +191,23 @@ const TestingReport3 = () => {
                             </Chart>
 
                         </Grid>
-                        <Paper className={classes.paper1}>
-                            <Grid container direction="column" alignItems="center" spacing={2}>
-                                <div className={classes.dataFont}>Total Users :{response?.at(2)} </div>
-                                <div className={classes.dataFont}>Total Teachers : {response?.at(0)} ({(response?.at(0) / response?.at(2)) * 100})%</div>
-                                <div className={classes.dataFont}>Total Students : {response?.at(1)} ({(response?.at(1) / response?.at(2)) * 100})%</div>
-                                <div className={classes.dataFont}>Total Admins : {(response?.at(2) - (response?.at(1) + response?.at(0)) )} ({((response?.at(2) - (response?.at(1) + response?.at(0)) ) / response?.at(2)) * 100})%</div>
-                            </Grid>
-
-                        </Paper>
 
 
                     </Grid>
-                    <Grid container className={classes.container3} direction="row"spacing={3} alignItems="center">
-                        <Grid item xs={12} sm={6} md={4} lg={4}>
-
-                        </Grid>
+                    <Grid container className={classes.container3} direction="row"spacing={16} alignItems="center">
                         <Grid item xs={12} sm={6} md={4} lg={4}>
                             <Paper className={classes.paper1}>
+                                <Grid container direction="column" alignItems="center" spacing={2}>
+                                    <div className={classes.dataFont}>Total Users :{response?.at(2)} </div>
+                                    <div className={classes.dataFont}>Total Teachers : {response?.at(0)} ({(response?.at(0) / response?.at(2)) * 100})%</div>
+                                    <div className={classes.dataFont}>Total Students : {response?.at(1)} ({(response?.at(1) / response?.at(2)) * 100})%</div>
+                                    <div className={classes.dataFont}>Total Admins : {(response?.at(2) - (response?.at(1) + response?.at(0)) )} ({((response?.at(2) - (response?.at(1) + response?.at(0)) ) / response?.at(2)) * 100})%</div>
+                                </Grid>
+
+                            </Paper>
+                        </Grid>
+                        <Grid item xs={12} sm={6} md={4} lg={4}>
+                            <Paper className={classes.paper2}>
                                 <Grid container direction="column" alignItems="center" spacing={2}>
                                     <div className={classes.dataFont}>Total Teachers : {response3?.at(0) + response3?.at(1) + response3?.at(2) } </div>
                                     <div className={classes.dataFont}>Total Valid Teachers : {response3?.at(0)} ({(response3?.at(0) / (response3?.at(0) + response3?.at(1) + response3?.at(2))) * 100 }%)</div>
