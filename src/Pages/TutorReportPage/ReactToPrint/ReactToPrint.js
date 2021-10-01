@@ -1,9 +1,15 @@
 import React, {useEffect, useRef, useState} from 'react'
 import ReactToPrint from "react-to-print";
-import "./ReactToPrint.scss";
+
+
+import "./ReactToPrint.css";
+import ReportTesting from "../Testing/ReportTesting";
+import PrintableComponent from "./PrintableComponent/PrintableComponent";
+
 import Button from "@progress/kendo-react-buttons/dist/es/Button";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchUser} from "../../../Action/Users";
+
 import {useLocation} from "react-router";
 
 /**
@@ -12,6 +18,9 @@ import {useLocation} from "react-router";
 import PrintableComponent from "./PrintableComponent/PrintableComponent";
 import AdminReport1 from "../User/AdminReport1";
 
+
+
+import AdminPrintableComponent from "../../AdminReportPage/AdminPrintableComponent/AdminPrintableComponent";
 
 /**
  * If work make this  class a reusable class passing the component as props (Default component)
@@ -47,6 +56,7 @@ function ReactToPrintClass() {
          * Update the condition accordingly
          * **/
 
+
         if(age?.type === "admin"){
             setAdmin("admin");
         } else if(age?.type === "tutor") {
@@ -57,6 +67,9 @@ function ReactToPrintClass() {
             setTClass("tclass");
         }
     },[])
+
+// function ReactToPrintClass({input}) {
+
 
 
     let componentRef = useRef(null);
@@ -88,6 +101,7 @@ function ReactToPrintClass() {
                 }
                 content={() => componentRef}
             />
+
             {
                 admin ?
                 <AdminReport1 age = {admin_age} age1={admin_age1} data = {response} className="component-to-print" ref={el => (componentRef = el)}/> :
@@ -95,6 +109,7 @@ function ReactToPrintClass() {
                         payment? "Payment report component comes here!":
                             tclass? "Class report component comes here!":
                         "Default Error Component"}
+     
         </div>
     )
 }
