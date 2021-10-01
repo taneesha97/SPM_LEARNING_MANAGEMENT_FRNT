@@ -8,13 +8,13 @@ import ReportTesting from "../Testing/ReportTesting";
 import Button from "@progress/kendo-react-buttons/dist/es/Button";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchUser} from "../../../Action/Users";
+import AdminReport2 from "../User/AdminReport2";
 
 import {useLocation} from "react-router";
 
 /**
  * External Report Imports.
  * **/
-import PrintableComponent from "./PrintableComponent/PrintableComponent";
 import AdminReport1 from "../User/AdminReport1";
 import AdminPrintableComponent from "../../AdminReportPage/AdminPrintableComponent/AdminPrintableComponent";
 
@@ -35,6 +35,7 @@ function ReactToPrintClass() {
     const [tutor, setTutor] = useState(null);
     const [payment, setPayment] = useState(null);
     const [tclass, setTClass] = useState(null);
+    const [admin1, setAdmin1] = useState(null);
 
     //Testing
     console.log(age?.age);
@@ -62,10 +63,14 @@ function ReactToPrintClass() {
         } else if(age?.type === "tclass"){
             setTClass("tclass");
         }
+        else if(age?.type === "admin1"){
+            setAdmin1("admin1");
+        }
     },[])
 
 // function ReactToPrintClass({input}) {
 
+// function ReactToPrintClass({input}) {
 
 
     let componentRef = useRef(null);
@@ -102,11 +107,15 @@ function ReactToPrintClass() {
                 admin ?
                 <AdminReport1 age = {admin_age} age1={admin_age1} data = {response} className="component-to-print" ref={el => (componentRef = el)}/> :
                     tutor ? <PrintableComponent className="component-to-print" ref={el => (componentRef = el)}/> :
+
+                        admin1 ? <AdminReport2 className="component-to-print" ref={el => (componentRef = el)}/> :
+
                     tclass ? <AdminPrintableComponent className="component-to-print" ref={el => (componentRef = el)}/> :
+
                         payment? "Payment report component comes here!":
                             tclass? "Class report component comes here!":
                         "Default Error Component"}
-     
+
         </div>
     )
 }

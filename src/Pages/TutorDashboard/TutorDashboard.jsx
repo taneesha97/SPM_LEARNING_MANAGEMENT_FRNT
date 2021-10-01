@@ -27,17 +27,21 @@ import Button from "@progress/kendo-react-buttons/dist/es/Button";
 function TutorDashboard() {
 
     let usertype = localStorage.getItem("usertype")
+    let status = localStorage.getItem("status")
     console.log(usertype)
     const history = useHistory();
 
     //User Validation Upon Landing On the Page -- Temporarily Disable.
     useEffect(()=> {
-        // if(usertype != "teacher" && usertype != "admin"){
-        //     history.push('./login')
-        //     //window.location.href='/login';
-        // } else {
-        //     //setFlag(true);
-        // }
+        if(usertype != "teacher" && usertype != "admin"){
+            history.push('./login')
+            //window.location.href='/login';
+        } else {
+            if (status != "valid"){
+                history.push('./login')
+            }
+            //setFlag(true);
+        }
         getItems();
     }, [])
 

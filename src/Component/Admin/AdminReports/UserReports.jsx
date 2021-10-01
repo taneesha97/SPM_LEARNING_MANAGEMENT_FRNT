@@ -17,7 +17,8 @@ const useStyles = makeStyles(theme => ({
     },
     paymentType: {
         width: '30ch',
-        height: '4vw'
+        height: '4vw',
+        background: 'white'
     },
     paymentType1: {
         width: '20ch',
@@ -30,7 +31,7 @@ const useStyles = makeStyles(theme => ({
         marginLeft: '3px'
     },
     stage3: {
-        padding: '70px',
+        padding: '30px',
         //marginLeft: '3px',
         marginBottom: '10px'
     },
@@ -73,8 +74,9 @@ function UserReports() {
     }
 
     return (
-        <div>
-            <h1 className={classes.title2}>Teacher Details Table</h1>
+        <div style={{background: "#525252", borderRadius: "30px"}} >
+            <h1 className={classes.title2}>User Management Reports</h1><br/>
+            <h1 className={classes.title2}>Age Gap Report</h1>
             <Grid className={classes.stage3} container direction="row" alignItems="left" spacing={8}>
                 <Grid item>
                     <Grid item xs={12} sm={6}>
@@ -97,11 +99,31 @@ function UserReports() {
                             variant="contained"
                             color="primary"
                             size="large"
-                        >check </Button>
+                        >generate </Button>
                         </Link>
                     </Grid>
 
                 </Grid>
+            </Grid>
+            <Grid className={classes.stage3} container direction="row" alignItems="left" spacing={8}>
+                <Grid className={classes.stage3} container direction="row" alignItems="left" spacing={8}>
+                    <h1 className={classes.title2}>Age Gap Report</h1>
+                    <Grid item xs={12} sm={6}>
+                        <Link to={{
+                            pathname: '/report',
+                            age: {type: "admin1"}
+                        }}>
+                            <Button
+                                style={{ marginLeft: "15px", marginTop: "-30px", width: "100px"}}
+                                variant="contained"
+                                color="primary"
+                                size="large"
+                            >generate </Button>
+                        </Link>
+                    </Grid>
+                </Grid>
+
+
             </Grid>
         </div>
     )
