@@ -2,8 +2,10 @@
   background-color: #525252;
   width: 390px;
   height: 390px;
+  margin-left: 15px;
   border-radius: 30px;
   padding-bottom: 20px;
+  margin-bottom: 10px;
 }
 .announcement-container .announcement-body {
   padding-bottom: 10px;
