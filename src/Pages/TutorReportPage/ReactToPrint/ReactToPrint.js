@@ -1,13 +1,28 @@
-import React, {useEffect, useRef} from 'react'
+import React, {useEffect, useRef, useState} from 'react'
 import ReactToPrint from "react-to-print";
-import "./ReactToPrint.scss";
+
+
+import "./ReactToPrint.css";
 import ReportTesting from "../Testing/ReportTesting";
 import PrintableComponent from "./PrintableComponent/PrintableComponent";
+
 import Button from "@progress/kendo-react-buttons/dist/es/Button";
-import AdminReport1 from "../User/AdminReport1";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchUser} from "../../../Action/Users";
 import AdminReport2 from "../User/AdminReport2";
+
+import {useLocation} from "react-router";
+
+/**
+ * External Report Imports.
+ * **/
+import PrintableComponent from "./PrintableComponent/PrintableComponent";
+import AdminReport1 from "../User/AdminReport1";
+
+
+
+import AdminPrintableComponent from "../../AdminReportPage/AdminPrintableComponent/AdminPrintableComponent";
+
 /**
  * If work make this  class a reusable class passing the component as props (Default component)
  * Component to print should be passed inside to this class <PrintableComponent/>
@@ -15,12 +30,46 @@ import AdminReport2 from "../User/AdminReport2";
  * **/
 
 
-function ReactToPrintClass(props) {
+function ReactToPrintClass() {
 
-    const age = props?.location?.state?.age;
-    console.log(age)
-    const age1 = props?.location?.state?.age1;
-    console.log(age1)
+    //Parameters to the Report.
+    const { age } = useLocation();
+
+    //Selection User States
+    const [admin, setAdmin] = useState(null);
+    const [tutor, setTutor] = useState(null);
+    const [payment, setPayment] = useState(null);
+    const [tclass, setTClass] = useState(null);
+
+    //Testing
+    console.log(age?.age);
+    console.log(age?.age1);
+    console.log(age?.type);
+
+    //Admin Variables.
+    const admin_age =  age?.age;
+    const admin_age1 = age?.age1;
+
+    useEffect(() => {
+        //Selection condition for each user.
+
+        /**
+         * Update the condition accordingly
+         * **/
+
+
+        if(age?.type === "admin"){
+            setAdmin("admin");
+        } else if(age?.type === "tutor") {
+            setTutor("tutor")
+        } else if(age?.type === "payment"){
+            setPayment("payment");
+        } else if(age?.type === "tclass"){
+            setTClass("tclass");
+        }
+    },[])
+
+// function ReactToPrintClass({input}) {
 
 // function ReactToPrintClass({input}) {
 
@@ -54,9 +103,15 @@ function ReactToPrintClass(props) {
                 }
                 content={() => componentRef}
             />
-            {/*<AdminReport2 age = {age} age1={age1} data = {response} className="component-to-print" ref={el => (componentRef = el)}/>*/}
-            <AdminReport2 className="component-to-print" ref={el => (componentRef = el)}/>
-            {/*<PrintableComponent className="component-to-print" ref={el => (componentRef = el)}/>*/}
+
+            {
+                admin ?
+                <AdminReport1 age = {admin_age} age1={admin_age1} data = {response} className="component-to-print" ref={el => (componentRef = el)}/> :
+                    tutor ? <PrintableComponent className="component-to-print" ref={el => (componentRef = el)}/> :
+                        payment? "Payment report component comes here!":
+                            tclass? "Class report component comes here!":
+                        "Default Error Component"}
+
         </div>
     )
 }
