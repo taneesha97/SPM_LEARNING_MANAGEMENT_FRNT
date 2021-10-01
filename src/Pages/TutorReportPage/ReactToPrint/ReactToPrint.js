@@ -9,9 +9,10 @@ import {useDispatch, useSelector} from "react-redux";
 import {fetchUser} from "../../../Action/Users";
 /**
  * If work make this  class a reusable class passing the component as props (Default component)
- * Component to print shoudl be passed inside to this class <PrintableComponent/>
+ * Component to print should be passed inside to this class <PrintableComponent/>
  *
  * **/
+
 
 function ReactToPrintClass(props) {
 
@@ -20,10 +21,18 @@ function ReactToPrintClass(props) {
     const age1 = props?.location?.state?.age1;
     console.log(age1)
 
+function ReactToPrintClass({input}) {
+
+
     let componentRef = useRef(null);
     const dispatch = useDispatch();
     const response = useSelector((state) => state.userDetails1?.UserDetails?.records?.data);
     console.log(response);
+
+    /**
+     * dynamically assigned the
+     * **/
+
 
     useEffect(() => {
         dispatch(fetchUser());
@@ -33,7 +42,6 @@ function ReactToPrintClass(props) {
         <div className="parent-container">
             <ReactToPrint
                 trigger={() =>
-
                     <div className="printing-component-container">
                         <div className="printing-component-header">PDF Report Generator</div>
                         <div className="printing-component-sub-header">PDF Report Generator</div>

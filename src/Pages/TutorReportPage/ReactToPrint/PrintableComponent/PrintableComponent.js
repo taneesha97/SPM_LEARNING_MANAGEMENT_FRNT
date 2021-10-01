@@ -1,11 +1,25 @@
 import './PrintableComponent.scss'
-import {Button} from "@progress/kendo-react-buttons";
-import {PDFExport} from "@progress/kendo-react-pdf";
 import React from "react";
 import Logo from "../../companyLogo/Logo.png";
 import {Chart, ChartSeries, ChartSeriesItem, ChartSeriesLabels} from "@progress/kendo-react-charts";
 import sampleData from "../../SampleData/invoice-data.json";
+import axios from "axios";
 class PrintableComponent extends React.Component {
+
+    state = {
+        graphData: []
+    }
+
+    // Async method to return the data.
+    // Plug the data to the chart.
+    async componentDidMount() {
+        await axios.get(`http://localhost:8073/api/tutor/charts`)
+            .then(res => {
+                const graphData = res.data;
+                this.setState({graphData});
+            })
+        console.log(this.state.graphData); // Testing.
+    }
 
     render() {
         return (
@@ -54,9 +68,9 @@ class PrintableComponent extends React.Component {
                                         <ChartSeries>
                                             <ChartSeriesItem
                                                 type="donut"
-                                                data={sampleData}
-                                                categoryField="product"
-                                                field="share"
+                                                data={this.state.graphData}
+                                                categoryField="category"
+                                                field="count"
                                             >
                                                 <ChartSeriesLabels
                                                     color="#fff"
@@ -68,7 +82,6 @@ class PrintableComponent extends React.Component {
                                 </div>
                                 <div className="pdf-body">
                                     <div className="custom-grid" id="grid">
-                                        <div> Content Comes Here! </div>
                                     </div>
                                 </div>
                             </div>
