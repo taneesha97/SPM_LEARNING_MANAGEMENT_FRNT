@@ -8,16 +8,20 @@ import ReportTesting from "../Testing/ReportTesting";
 import Button from "@progress/kendo-react-buttons/dist/es/Button";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchUser} from "../../../Action/Users";
+import AdminReport2 from "../User/AdminReport2";
 
 import {useLocation} from "react-router";
 
 /**
  * External Report Imports.
  * **/
-import PrintableComponent from "./PrintableComponent/PrintableComponent";
 import AdminReport1 from "../User/AdminReport1";
 import AdminPrintableComponent from "../../AdminReportPage/AdminPrintableComponent/AdminPrintableComponent";
+
 import AnnouncementPrintableComponent from "../../AdminReportPage/AnnouncementPrintableComponent/AnnouncementPrintableComponent";
+
+import PrintableComponent from "./PrintableComponent/PrintableComponent";
+
 
 /**
  * If work make this  class a reusable class passing the component as props (Default component)
@@ -36,12 +40,16 @@ function ReactToPrintClass() {
     const [tutor, setTutor] = useState(null);
     const [payment, setPayment] = useState(null);
     const [tclass, setTClass] = useState(null);
+
     const [tAnn, setTann] = useState(null);
 
+    const [admin1, setAdmin1] = useState(null);
+
+
     //Testing
-    console.log(age?.age);
-    console.log(age?.age1);
-    console.log(age?.type);
+    console.log('aa ',age?.age);
+    console.log('aa1 ',age?.age1);
+    console.log('aa2 ',age?.type);
 
     //Admin Variables.
     const admin_age =  age?.age;
@@ -66,10 +74,14 @@ function ReactToPrintClass() {
         }else if(age?.type === "tAnn"){
             setTann("tAnn");
         }
+        else if(age?.type === "admin1"){
+            setAdmin1("admin1");
+        }
     },[])
 
 // function ReactToPrintClass({input}) {
 
+// function ReactToPrintClass({input}) {
 
 
     let componentRef = useRef(null);
@@ -104,14 +116,21 @@ function ReactToPrintClass() {
 
             {
                 admin ?
-                <AdminReport1 age = {admin_age} age1={admin_age1} data = {response} className="component-to-print" ref={el => (componentRef = el)}/> :
+                <AdminReport1 age = {age?.age} age1={age?.age1} data = {response} className="component-to-print" ref={el => (componentRef = el)}/> :
                     tutor ? <PrintableComponent className="component-to-print" ref={el => (componentRef = el)}/> :
+
+                        admin1 ? <AdminReport2 className="component-to-print" ref={el => (componentRef = el)}/> :
+
                     tclass ? <AdminPrintableComponent className="component-to-print" ref={el => (componentRef = el)}/> :
+
                         tAnn ? <AnnouncementPrintableComponent className="component-to-print" ref={el => (componentRef = el)}/> :
+
+
+
                         payment? "Payment report component comes here!":
                             tAnn? "Class report component comes here!":
                         "Default Error Component"}
-     
+
         </div>
     )
 }
