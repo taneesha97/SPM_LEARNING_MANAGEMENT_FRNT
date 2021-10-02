@@ -136,8 +136,6 @@ function TutorDashboard() {
                         setTriggerData={setTriggerData}
                         triggerData={triggerData}/>
             <StudentTableComponent response1 = {response1}/>
-            <br/>
-            <SampleTable/>
             <InqPopUpMenu trigger={trigger}
                           setTrigger={setTrigger}
                           triggerHeader={triggerData}
