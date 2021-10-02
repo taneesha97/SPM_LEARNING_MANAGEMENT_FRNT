@@ -7,10 +7,13 @@ import {fetchUser} from "../../../Action/Users";
 import {useLocation} from "react-router";
 
 /**
+ *
  * External Report Imports.
+ *
  * **/
 import PrintableComponent from "./PrintableComponent/PrintableComponent";
 import AdminReport1 from "../User/AdminReport1";
+import {Container} from "@material-ui/core";
 
 
 /**
@@ -75,6 +78,7 @@ function ReactToPrintClass() {
 
     return (
         <div className="parent-container">
+            <Container>
             <ReactToPrint
                 trigger={() =>
                     <div className="printing-component-container">
@@ -95,6 +99,8 @@ function ReactToPrintClass() {
                         payment? "Payment report component comes here!":
                             tclass? "Class report component comes here!":
                         "Default Error Component"}
+            </Container>
+
         </div>
     )
 }
