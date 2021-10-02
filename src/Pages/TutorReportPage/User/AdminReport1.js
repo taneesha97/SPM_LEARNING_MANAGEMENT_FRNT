@@ -11,7 +11,11 @@ export class AdminReport1 extends Component {
     constructor(props) {
         super();
     }
+
+
     render() {
+        //
+        console.log(this.props.age)
         return (
             <div className="app-content">
                 <div className="page-container hidden-on-narrow">
@@ -55,8 +59,8 @@ export class AdminReport1 extends Component {
                                 </div>
                             </div>
                             <div className="pdf-chart">
-                                {/*<TestingReport2 age = {this.props.age} age1 = {this.props.age1}/>*/}
-                                <TestingReport2/>
+                                <TestingReport2 age = {this.props.age} age1 = {this.props.age1}/>
+                                {/*<TestingReport2/>*/}
                             </div>
                             <div className="pdf-body">
                                 <div className="custom-grid" id="grid">

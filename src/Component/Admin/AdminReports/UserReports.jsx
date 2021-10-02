@@ -107,7 +107,7 @@ function UserReports() {
             </Grid>
             <Grid className={classes.stage3} container direction="row" alignItems="left" spacing={8}>
                 <Grid className={classes.stage3} container direction="row" alignItems="left" spacing={8}>
-                    <h1 className={classes.title2}>Age Gap Report</h1>
+                    <h1 className={classes.title2}>User Tracking Report</h1>
                     <Grid item xs={12} sm={6}>
                         <Link to={{
                             pathname: '/report',

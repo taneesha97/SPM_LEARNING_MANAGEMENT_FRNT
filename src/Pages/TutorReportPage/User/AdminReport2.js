@@ -31,7 +31,7 @@ export class AdminReport2 extends Component {
                             </div>
                             <div className="addresses">
                                 <div className="for">
-                                    <h3>File Overview</h3>
+                                    <h3>User Overview - Admin</h3>
                                     <p>
                                         This report shows the over view of user with user count and valid status of teacher count
                                     </p>
@@ -52,11 +52,11 @@ export class AdminReport2 extends Component {
                             <div className="pdf-chart">
                                 <TestingReport3/>
                             </div>
-                            <div className="pdf-body">
-                                <div className="custom-grid" id="grid">
-                                    <div> Content Comes Here! </div>
-                                </div>
-                            </div>
+                            {/*<div className="pdf-body">*/}
+                            {/*    <div className="custom-grid" id="grid">*/}
+                            {/*        <div> Content Comes Here! </div>*/}
+                            {/*    </div>*/}
+                            {/*</div>*/}
                         </div>
                     </div>
                 </div>

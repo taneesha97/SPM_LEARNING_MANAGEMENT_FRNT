@@ -84,6 +84,8 @@ function createData(name, age, email, status, type) {
 
 
 const TestingReport2 = (props) => {
+    console.log(props?.age)
+    console.log(props?.age1)
     const dispatch = useDispatch();
     const [age, setAge] = useState(props?.age)
     const [age1, setAge1] = useState(props?.age1)
@@ -132,7 +134,7 @@ const TestingReport2 = (props) => {
                                         </StyledTableCell>
                                         <StyledTableCell align="right">{row?.age}</StyledTableCell>
                                         <StyledTableCell align="right">{row?.email}</StyledTableCell>
-                                        <StyledTableCell align="right">{row?.status}</StyledTableCell>
+                                        <StyledTableCell align="right">{row?.username}</StyledTableCell>
                                         <StyledTableCell align="right">{row?.type}</StyledTableCell>
                                     </StyledTableRow>
                                 ))}
