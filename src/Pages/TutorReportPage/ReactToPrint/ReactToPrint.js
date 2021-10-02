@@ -4,7 +4,6 @@ import ReactToPrint from "react-to-print";
 
 import "./ReactToPrint.css";
 import ReportTesting from "../Testing/ReportTesting";
-import PrintableComponent from "./PrintableComponent/PrintableComponent";
 
 import Button from "@progress/kendo-react-buttons/dist/es/Button";
 import {useDispatch, useSelector} from "react-redux";
@@ -17,9 +16,6 @@ import {useLocation} from "react-router";
  * External Report Imports.
  * **/
 import AdminReport1 from "../User/AdminReport1";
-
-
-
 import AdminPrintableComponent from "../../AdminReportPage/AdminPrintableComponent/AdminPrintableComponent";
 
 /**
@@ -111,7 +107,11 @@ function ReactToPrintClass() {
                 admin ?
                 <AdminReport1 age = {age?.age} age1={age?.age1} data = {response} className="component-to-print" ref={el => (componentRef = el)}/> :
                     tutor ? <PrintableComponent className="component-to-print" ref={el => (componentRef = el)}/> :
+
                         admin1 ? <AdminReport2 className="component-to-print" ref={el => (componentRef = el)}/> :
+
+                    tclass ? <AdminPrintableComponent className="component-to-print" ref={el => (componentRef = el)}/> :
+
                         payment? "Payment report component comes here!":
                             tclass? "Class report component comes here!":
                         "Default Error Component"}
