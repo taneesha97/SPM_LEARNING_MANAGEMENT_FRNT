@@ -1,10 +1,8 @@
-import './PrintableComponent.scss'
+import './VideoStatsReport.scss'
 import React from "react";
-import Logo from "../../companyLogo/Logo.png";
-import {Chart, ChartSeries, ChartSeriesItem, ChartSeriesLabels} from "@progress/kendo-react-charts";
-import sampleData from "../../SampleData/invoice-data.json";
+import Logo from "../../../../Pages/TutorReportPage/companyLogo/Logo.png";
 import axios from "axios";
-class PrintableComponent extends React.Component {
+class VideoStatsReport extends React.Component {
 
     state = {
         graphData: []
@@ -64,21 +62,7 @@ class PrintableComponent extends React.Component {
                                     </div>
                                 </div>
                                 <div className="pdf-chart">
-                                    <Chart style={{ height: 280 }}>
-                                        <ChartSeries>
-                                            <ChartSeriesItem
-                                                type="donut"
-                                                data={this.state.graphData}
-                                                categoryField="category"
-                                                field="count"
-                                            >
-                                                <ChartSeriesLabels
-                                                    color="#fff"
-                                                    background="none"
-                                                />
-                                            </ChartSeriesItem>
-                                        </ChartSeries>
-                                    </Chart>
+                                    {/*Video table should come here*/}
                                 </div>
                                 <div className="pdf-body">
                                     <div className="custom-grid" id="grid">
@@ -92,4 +76,4 @@ class PrintableComponent extends React.Component {
     }
 }
 
-export default PrintableComponent;
+export default VideoStatsReport;
