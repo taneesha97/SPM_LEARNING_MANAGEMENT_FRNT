@@ -4,6 +4,7 @@ import ChartSeriesItem from "@progress/kendo-react-charts/dist/es/components/Ser
 import ChartSeriesLabels from "@progress/kendo-react-charts/dist/es/components/series-item/Labels";
 import ChartLegend from "@progress/kendo-react-charts/dist/es/components/Legend";
 import {Chart} from "@progress/kendo-react-charts";
+import './TestingReport.scss'
 import Grid from "@material-ui/core/Grid";
 import {Paper} from "@material-ui/core";
 import {makeStyles} from "@material-ui/core/styles";
@@ -23,13 +24,16 @@ const useStyles = makeStyles(theme => ({
     },
     container2: {
         //marginBottom: "30px",
+
+    },
+    container3: {
+        //marginBottom: "30px",
         minWidth: 'fit-content',
         height: 'fit-content'
     },
-    container3: {
-        marginTop: "100px",
-        minWidth: 'fit-content',
-        height: 'fit-content'
+    container4: {
+        minWidth: '230px',
+        height: '230px'
     },
     paper: {
         height: "200px",
@@ -38,38 +42,32 @@ const useStyles = makeStyles(theme => ({
         elevation: 8
     },
     paper1: {
-        position: "absolute",
-        height: "100px",
-        paddingTop: "20px",
-        marginTop: "-200px",
-        minWidth: "270px",
-        alignItems: "center",
-        justifyContent: "left",
-
+        // height: "100px",
+        // paddingTop: "20px",
+        // marginTop: "-200px",
+        // minWidth: "270px",
+        // alignItems: "center",
+        paddingLeft: "10px",
+        paddingRight: "10px",
+        minWidth: "fit-content",
 
         //elevation: 8
     },
     paper2: {
-        position: "absolute",
-        paddingTop: "20px",
-        height: "100px",
-        marginTop: "-200px",
-        minWidth: "250px",
-        alignItems: "center",
-        justifyContent: "right",
-        marginLeft: "100px"
         //elevation: 8
+        paddingLeft: "10px",
+        paddingRight: "10px",
+        minWidth: "fit-content",
     },
     dataFont : {
-        fontSize: "12px"
+        fontSize: "15px",
+        justifyItems:"left"
     },
     chart1 : {
-        //position: "absolute",
-        marginRight: "100px",
-        marginTop: "-100px"
+        // marginRight: "100px",
+        // marginTop: "-100px"
     },
     chart2 : {
-        position: "absolute",
         marginTop: "-100px"
     }
 }))
@@ -131,7 +129,7 @@ const TestingReport3 = () => {
 
     const data1 = [
         {
-            "kind": "valid: ", "share": response3?.at(0) / (response3?.at(0) + response3?.at(1) + response3?.at(2))
+            "kind": "valid: ", "share":  response3?.at(0) / (response3?.at(0) + response3?.at(1) + response3?.at(2))
         },
         {
             "kind": "invalid ", "share": response3?.at(1) / (response3?.at(0) + response3?.at(1) + response3?.at(2))
@@ -142,86 +140,122 @@ const TestingReport3 = () => {
     ]
     return (
         <div>
-            <div className={classes.container}>
-                <Grid container className={classes.container1} direction="column" alignItems="center">
-                    <Grid container className={classes.container2} direction="row"spacing={16} alignItems="center">
-                        <Grid item lg={4} className={classes.chart1}>
 
-                            <Chart >
-                                <ChartSeries>
-                                    <ChartSeriesItem
-                                        type="donut"
-                                        data={data}
-                                        categoryField="kind"
+                <div className="chart1">
+                    <div className="chart2 col">
+                        <Chart  className={classes.container4}>
+                            <ChartSeries>
+                                <ChartSeriesItem
+                                    type="donut"
+                                    data={data}
+                                    categoryField="kind"
 
-                                        field="share"
-                                    >
-                                        <ChartSeriesLabels
-                                            color="#fff"
-                                            background="none"
+                                    field="share"
+                                >
+                                    <ChartSeriesLabels
+                                        color="#fff"
+                                        background="none"
 
-                                            content={labelContent}
-                                        />
-                                    </ChartSeriesItem>
-                                </ChartSeries>
-                                <ChartLegend visible={false} />
-                            </Chart>
+                                        content={labelContent}
+                                    />
+                                </ChartSeriesItem>
+                            </ChartSeries>
+                            <ChartLegend visible={false} />
+                        </Chart>
+                    </div>
+                    <div className="chart3">
+                        <Chart className={classes.container4}>
+                            <ChartSeries>
+                                <ChartSeriesItem
+                                    type="donut"
+                                    data={data1}
 
-                        </Grid>
-                        <Grid item lg={4}>
+                                    categoryField="kind"
+                                    field="share"
+                                >
+                                    <ChartSeriesLabels
+                                        color="#fff"
+                                        background="none"
 
-                            <Chart className={classes.chart2}>
-                                <ChartSeries>
-                                    <ChartSeriesItem
-                                        type="donut"
-                                        data={data1}
+                                        content={labelContent}
+                                    />
+                                </ChartSeriesItem>
+                            </ChartSeries>
+                            <ChartLegend visible={false} />
+                        </Chart>
+                    </div>
 
-                                        categoryField="kind"
-                                        field="share"
-                                    >
-                                        <ChartSeriesLabels
-                                            color="#fff"
-                                            background="none"
-
-                                            content={labelContent}
-                                        />
-                                    </ChartSeriesItem>
-                                </ChartSeries>
-                                <ChartLegend visible={false} />
-                            </Chart>
-
-                        </Grid>
-
-
-                    </Grid>
-                    <Grid container className={classes.container3} direction="row"spacing={16} alignItems="center">
-                        <Grid item xs={12} sm={6} md={4} lg={4}>
-                            <Paper className={classes.paper1}>
-                                <Grid container direction="column" alignItems="center" spacing={2}>
-                                    <div className={classes.dataFont}>Total Users :{response?.at(2)} </div>
-                                    <div className={classes.dataFont}>Total Teachers : {response?.at(0)} ({(response?.at(0) / response?.at(2)) * 100})%</div>
-                                    <div className={classes.dataFont}>Total Students : {response?.at(1)} ({(response?.at(1) / response?.at(2)) * 100})%</div>
-                                    <div className={classes.dataFont}>Total Admins : {(response?.at(2) - (response?.at(1) + response?.at(0)) )} ({((response?.at(2) - (response?.at(1) + response?.at(0)) ) / response?.at(2)) * 100})%</div>
-                                </Grid>
-
-                            </Paper>
-                        </Grid>
-                        <Grid item xs={12} sm={6} md={4} lg={4}>
-                            <Paper className={classes.paper2}>
-                                <Grid container direction="column" alignItems="center" spacing={2}>
-                                    <div className={classes.dataFont}>Total Teachers : {response3?.at(0) + response3?.at(1) + response3?.at(2) } </div>
-                                    <div className={classes.dataFont}>Total Valid Teachers : {response3?.at(0)} ({(response3?.at(0) / (response3?.at(0) + response3?.at(1) + response3?.at(2))) * 100 }%)</div>
-                                    <div className={classes.dataFont}>Total Invalid Teachers : {response3?.at(1)} ({(response3?.at(1) / (response3?.at(0) + response3?.at(1) + response3?.at(2))) * 100 }%)</div>
-                                    <div className={classes.dataFont}>Total Pending Teachers : {response3?.at(2)} ({(response3?.at(2) / (response3?.at(0) + response3?.at(1) + response3?.at(2))) * 100 }%)</div>
-                                </Grid>
-
-                            </Paper>
-                        </Grid>
-                    </Grid>
-
-                </Grid>
+                </div>
+            <div className="chart5">
+                <div className="chart2 ">
+                    <div className={classes.paper1}>
+                            <div className={classes.dataFont}><b>Total User Analysis </b></div>
+                            <div className={classes.dataFont}>Total Users :{response?.at(2)} </div>
+                            <div className={classes.dataFont}>Total Teachers : {response?.at(0)} ({((response?.at(0) / response?.at(2)) * 100).toFixed(2)})%</div>
+                            <div className={classes.dataFont}>Total Students : {response?.at(1)} ({((response?.at(1) / response?.at(2)) * 100).toFixed(2)})%</div>
+                            <div className={classes.dataFont}>Total Admins : {(response?.at(2) - (response?.at(1) + response?.at(0)) )} ({(((response?.at(2) - (response?.at(1) + response?.at(0)) ) / response?.at(2)) * 100).toFixed(2)})%</div>
+                    </div>
+                </div>
+                <div className="chart4">
+                        <div className={classes.paper2}>
+                                <div className={classes.dataFont}><b>Total Teachers Analysis </b></div>
+                                <div className={classes.dataFont}>Total Teachers : {response3?.at(0) + response3?.at(1) + response3?.at(2) } </div>
+                                <div className={classes.dataFont}>Total Valid Teachers : {response3?.at(0)} ({(response3?.at(0) / (response3?.at(0) + response3?.at(1) + response3?.at(2))) * 100 }%)</div>
+                                <div className={classes.dataFont}>Total Invalid Teachers : {response3?.at(1)} ({(response3?.at(1) / (response3?.at(0) + response3?.at(1) + response3?.at(2))) * 100 }%)</div>
+                                <div className={classes.dataFont}>Total Pending Teachers : {response3?.at(2)} ({(response3?.at(2) / (response3?.at(0) + response3?.at(1) + response3?.at(2))) * 100 }%)</div>
+                        </div>
+                </div>
 
             </div>
+
+
+
+            {/*<div className={classes.container}>*/}
+            {/*    <Grid container className={classes.container1} direction="column" alignItems="center">*/}
+            {/*        <Grid container className={classes.container2} direction="row"spacing={16} alignItems="center">*/}
+            {/*            <Grid item lg={4} className={classes.chart1}>*/}
+
+            {/*                <Chart >*/}
+            {/*                    <ChartSeries>*/}
+            {/*                        <ChartSeriesItem*/}
+            {/*                            type="donut"*/}
+            {/*                            data={data}*/}
+            {/*                            categoryField="kind"*/}
+
+            {/*                            field="share"*/}
+            {/*                        >*/}
+            {/*                            <ChartSeriesLabels*/}
+            {/*                                color="#fff"*/}
+            {/*                                background="none"*/}
+
+            {/*                                content={labelContent}*/}
+            {/*                            />*/}
+            {/*                        </ChartSeriesItem>*/}
+            {/*                    </ChartSeries>*/}
+            {/*                    <ChartLegend visible={false} />*/}
+            {/*                </Chart>*/}
+
+            {/*            </Grid>*/}
+            {/*            <Grid item lg={4}>*/}
+
+
+
+            {/*            </Grid>*/}
+
+
+            {/*        </Grid>*/}
+            {/*        <Grid container className={classes.container3} direction="row"spacing={16} alignItems="center">*/}
+            {/*            <Grid item xs={12} sm={6} md={4} lg={4}>*/}
+
+            {/*            </Grid>*/}
+            {/*            <Grid item xs={12} sm={6} md={4} lg={4}>*/}
+
+            {/*            </Grid>*/}
+            {/*        </Grid>*/}
+
+            {/*    </Grid>*/}
+
+            {/*</div>*/}
 
             
 

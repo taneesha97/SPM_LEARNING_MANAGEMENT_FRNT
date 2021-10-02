@@ -42,9 +42,9 @@ function ReactToPrintClass() {
     const [admin1, setAdmin1] = useState(null);
 
     //Testing
-    console.log(age?.age);
-    console.log(age?.age1);
-    console.log(age?.type);
+    console.log('aa ',age?.age);
+    console.log('aa1 ',age?.age1);
+    console.log('aa2 ',age?.type);
 
     //Admin Variables.
     const admin_age =  age?.age;
@@ -109,7 +109,7 @@ function ReactToPrintClass() {
 
             {
                 admin ?
-                <AdminReport1 age = {admin_age} age1={admin_age1} data = {response} className="component-to-print" ref={el => (componentRef = el)}/> :
+                <AdminReport1 age = {age?.age} age1={age?.age1} data = {response} className="component-to-print" ref={el => (componentRef = el)}/> :
                     tutor ? <PrintableComponent className="component-to-print" ref={el => (componentRef = el)}/> :
                         admin1 ? <AdminReport2 className="component-to-print" ref={el => (componentRef = el)}/> :
                         payment? "Payment report component comes here!":
