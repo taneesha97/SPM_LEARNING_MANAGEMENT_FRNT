@@ -40,7 +40,7 @@ function ClassPage() {
                     })
                     .map((row) => (
                         console.log('%%%%%%%%%%%%%%%%',row),
-                            <div className="col-md-4">
+                            <div className="col-md-3">
                                 <ClassTile rows = {row}/>
                             </div>
                     ))}

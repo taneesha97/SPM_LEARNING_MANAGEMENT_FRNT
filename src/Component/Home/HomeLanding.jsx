@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import "./HomeLanding.css"
 
 import CustomizeSection from "./CustomizeSection/CustomizeSection";
@@ -19,19 +19,37 @@ import Book2 from '../Class/CourseTile/Image/book2.svg'
 import Book6 from '../Class/CourseTile/Image/books6.svg'
 import {useDispatch, useSelector} from "react-redux";
 import {getClasses, getClassesNew} from "../../Action/Class";
+import axios from "axios";
 
 
 
 function HomeLanding() {
 
-    const [show, setshow] = useState(false)
     const dispatch = useDispatch();
-    const[item, setItem] = useState(4);
+    const [data, setData] = useState([]);
 
-    const data = useSelector((state) => state.images?.classNewRecords?.records);
-    React.useEffect(() => {
-        dispatch(getClassesNew());
-    }, []);
+    const fetchEventDetails = async () => {
+        try {
+
+            const response = await axios
+                .get("http://localhost:8073/api/images")
+                .catch((error) => {
+                    console.log(error);
+                });
+            setData(response.data);
+            console.log(response.data);
+
+        } catch (err) {
+            console.log("Error");
+            console.log(err.message);
+        }
+    }
+
+    useEffect(() => {
+        fetchEventDetails();
+    }, [])
+
+
 
     return (
         <div>
@@ -47,17 +65,10 @@ function HomeLanding() {
             </div>
             <div className='dark-ash-background'>
                 <CustomizeSection main_topic={'Classes'} sub_topic={'Latest Classes, Enroll now for the full life time access.'} backgroundcl={'#ADA6CE'} btn_text={'View All'} btn_color={'#8340F4'} navigationPath={'class'}>
-                {/*    {data && item?.slice(0, setItem)?.map((row) => (*/}
-                {/*      <ClassTile rows = {row}/>*/}
-                {/*))}*/}
+                    {data?.slice(0, 3)?.map((row) => (
+                      <ClassTile rows = {row}/>
+                ))}
                 </CustomizeSection>
-
-                {/*const items = this.state.items.slice(0, this.state.showItems).map(*/}
-                {/*(item) => <div>{item}</div>*/}
-                {/*)*/}
-
-
-
                 <TutorSection/>
             </div>
             <GetUpdates/>

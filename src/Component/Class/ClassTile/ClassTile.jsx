@@ -33,7 +33,7 @@ const ClassTile = (props) => {
                         component="img"
                         //C:\sliit\3rd Year\2nd Semester\SPM\New folder\download.jpg
                         //`https://localhost:8073/...../${props}`
-                        style={{height: 300, width: 200, paddingTop: '56.25%', marginTop:'30'}}
+                        style={{height: 300, width: 200}}
                         image ={`http://localhost:8073/api/download/image/${props?.rows?.image}`}
                      >
 
