@@ -23,7 +23,7 @@ export class AdminReport1 extends Component {
                         <div className="inner-page">
                             <div className="pdf-header">
 								<span className="company-logo">
-									<img className="company-image" src={Logo} alt="Kendoka Company Logo"/> User Tracking Report
+									<img className="company-image" src={Logo} alt="Kendoka Company Logo"/> Age Gap Report
 								</span>
                             </div>
                             <div className="pdf-footer">
@@ -39,7 +39,7 @@ export class AdminReport1 extends Component {
                             </div>
                             <div className="addresses">
                                 <div className="for">
-                                    <h3>File Overview</h3>
+                                    <h3>Age Overview</h3>
                                     <p>
                                         This report shows the over view of users by there age.
                                         Here we consider the age gap as selected ages

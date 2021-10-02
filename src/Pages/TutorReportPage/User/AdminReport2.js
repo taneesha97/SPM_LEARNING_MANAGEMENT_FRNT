@@ -15,7 +15,7 @@ export class AdminReport2 extends Component {
                         <div className="inner-page">
                             <div className="pdf-header">
 								<span className="company-logo">
-									<img className="company-image" src={Logo} alt="Kendoka Company Logo"/> User Tracking Report 2
+									<img className="company-image" src={Logo} alt="Kendoka Company Logo"/> User Tracking Report
 								</span>
                             </div>
                             <div className="pdf-footer">
