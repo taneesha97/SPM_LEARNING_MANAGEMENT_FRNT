@@ -97,7 +97,7 @@ function AdminDashboard() {
 
                 <Link to={{
                     pathname: '/report',
-                    age: {type: "tclass"}
+                    age: {type: "tAnn"}
                 }}>
                     <Button
                         style={{ marginLeft: "200px", width: "300px", height:"60px" , background:'#7e65b0'}}
