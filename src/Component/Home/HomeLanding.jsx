@@ -41,8 +41,8 @@ function HomeLanding() {
                     <ClassTile/>
                     <ClassTile/>
                     <ClassTile/>
-                    <ClassTile/>
-                    <ClassTile/>
+                    {/*<ClassTile/>*/}
+                    {/*<ClassTile/>*/}
                 </CustomizeSection>
                 <TutorSection/>
             </div>
