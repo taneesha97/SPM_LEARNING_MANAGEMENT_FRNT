@@ -22,6 +22,7 @@ import {Container} from "@material-ui/core";
 import {fetchStudents, getUserCount} from "../../Action/Users";
 import {Link} from "react-router-dom";
 import Button from "@progress/kendo-react-buttons/dist/es/Button";
+import SampleTable from "../TutorReportPage/SampleData/SampleTable/SampleTable";
 
 
 function TutorDashboard() {

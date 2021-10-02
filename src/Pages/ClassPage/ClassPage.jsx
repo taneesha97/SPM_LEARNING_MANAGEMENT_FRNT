@@ -18,7 +18,7 @@ function ClassPage() {
 
     const API_URL_REQ = "http://localhost:8073/api";
     const response = axios.get(API_URL_REQ + '/images');
-    console.log(response);
+    console.log('imageeeeeeeeeeeeeee',response);
 
     React.useEffect(() => {
         dispatch(getClasses());

@@ -202,6 +202,7 @@ function ClassDetailsTable({method}) {
                                             inputProps: { 'aria-label': 'rows per page' },
                                             native: true,
                                         }}
+                                        component="div"
                                         onPageChange={handleChangePage}
                                         onRowsPerPageChange={handleChangeRowsPerPage}
                                     />
