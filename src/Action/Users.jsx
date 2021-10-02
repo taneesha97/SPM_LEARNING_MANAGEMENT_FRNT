@@ -6,7 +6,7 @@ import {
     FETCH_USERS,
     VALID_USER,
     ERROR_USER,
-    GET_USER_COUNT, LOGOUT_USER
+    GET_USER_COUNT, LOGOUT_USER, GET_TEACHER_STATUS_COUNT
 } from "./types";
 import axios from "axios";
 import * as api from '../API'
@@ -147,6 +147,20 @@ export const getUserCount = () => dispatch => {
         .then(response => {
                 dispatch({
                     type: GET_USER_COUNT,
+                    payload: response
+                })
+            }
+
+        ).catch((err) => {
+        console.log(err);
+    })
+}
+
+export const getTeacherStatusCount = () => dispatch => {
+    axios.get(api.baseURL + 'teachercount/')
+        .then(response => {
+                dispatch({
+                    type: GET_TEACHER_STATUS_COUNT,
                     payload: response
                 })
             }

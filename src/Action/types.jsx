@@ -7,6 +7,7 @@ export const GET_USER = 'GET_USER';
 export const GET_USER_COUNT = 'GET_USER_COUNT';
 export const ERROR_USER = 'ERROR_USER';
 export const LOGOUT_USER = 'LOGOUT_USER';
+export const GET_TEACHER_STATUS_COUNT = 'GET_TEACHER_STATUS_COUNT';
 
 //Course Related Constants.
 export const FETCH_COURSES = 'FETCH_COURSES';

@@ -22,34 +22,32 @@ import {Container, Grid} from "@material-ui/core";
 import {fetchStudents, getUserCount} from "../../Action/Users";
 import {Link} from "react-router-dom";
 import Button from "@progress/kendo-react-buttons/dist/es/Button";
-
-
+import SampleTable from "../TutorReportPage/SampleData/SampleTable/SampleTable";
 function TutorDashboard() {
 
     let usertype = localStorage.getItem("usertype")
+    let status = localStorage.getItem("status")
     console.log(usertype)
     const history = useHistory();
 
     //User Validation Upon Landing On the Page -- Temporarily Disable.
-    useEffect(() => {
-        // if(usertype != "teacher" && usertype != "admin"){
-        //     history.push('./login')
-        //     //window.location.href='/login';
-        // } else {
-        //     //setFlag(true);
-        // }
-        getItems();
-    }, [])
-
+    useEffect(()=> {
+        if(usertype != "teacher" && usertype != "admin"){
+            history.push('./login')
+            //window.location.href='/login';
+        } else {
+            if (status != "valid"){
+                history.push('./login')
+            }
+            //setFlag(true);
+          getItems();
+          getCourses();
+          dispatch(getUserCount());
+          dispatch(fetchStudents());
+        }
+  
     const response = useSelector((state) => state.userDetails1?.usercount?.data);
     const response1 = useSelector((state) => state.userDetails1?.UserDetails?.records?.data);
-    console.log(response1);
-    useEffect(() => {
-        dispatch(getUserCount())
-        dispatch(fetchStudents());
-    }, [])
-
-    console.log('dddd ', response)
 
     //Method to fetch all the feedback information.
     async function getItems() {

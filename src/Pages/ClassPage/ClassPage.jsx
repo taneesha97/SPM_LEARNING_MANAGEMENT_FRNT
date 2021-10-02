@@ -7,8 +7,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {getClasses, getClassesNew} from "../../Action/Class";
 import ClassTile from "../../Component/Class/ClassTile/ClassTile";
 import axios from "axios";
-import * as api from "../../API";
-import {FETCH_USERS} from "../../Action/types";
+
 
 function ClassPage() {
     const dispatch = useDispatch();
@@ -19,17 +18,7 @@ function ClassPage() {
 
     const API_URL_REQ = "http://localhost:8073/api";
     const response = axios.get(API_URL_REQ + '/images');
-    console.log(response);
-    // const response =  axios.get(API_URL_REQ, formData, {
-    //     onUploadProgress: (progressEvent) => {
-    //         const percentCompleted = Math.round(
-    //             (progressEvent.loaded * 100) / progressEvent.total
-    //         );
-    //         setProgress(percentCompleted);
-    //     },
-    // });
-
-
+    console.log('imageeeeeeeeeeeeeee',response);
 
     React.useEffect(() => {
         dispatch(getClasses());

@@ -1,21 +1,13 @@
 import React, { Component } from 'react'
 import Logo from "../companyLogo/Logo.png";
-import {Chart, ChartSeries, ChartSeriesItem, ChartSeriesLabels} from "@progress/kendo-react-charts";
-import sampleData from "../SampleData/invoice-data.json";
-import './AdminReport1.css'
-import TestingReport2 from "../../../Component/Report/TestingReport2";
 import TestingReport3 from "../../../Component/Report/TestingReport3";
+import TestingReport2 from "../../../Component/Report/TestingReport2";
 
-export class AdminReport1 extends Component {
-
+export class AdminReport2 extends Component {
     constructor(props) {
         super();
     }
-
-
     render() {
-        //
-        console.log(this.props.age)
         return (
             <div className="app-content">
                 <div className="page-container hidden-on-narrow">
@@ -23,7 +15,7 @@ export class AdminReport1 extends Component {
                         <div className="inner-page">
                             <div className="pdf-header">
 								<span className="company-logo">
-									<img className="company-image" src={Logo} alt="Kendoka Company Logo"/> Age Gap Report
+									<img className="company-image" src={Logo} alt="Kendoka Company Logo"/> User Tracking Report
 								</span>
                             </div>
                             <div className="pdf-footer">
@@ -39,10 +31,9 @@ export class AdminReport1 extends Component {
                             </div>
                             <div className="addresses">
                                 <div className="for">
-                                    <h3>Age Overview</h3>
+                                    <h3>User Overview - Admin</h3>
                                     <p>
-                                        This report shows the over view of users by there age.
-                                        Here we consider the age gap as selected ages
+                                        This report shows the over view of user with user count and valid status of teacher count
                                     </p>
                                 </div>
 
@@ -59,14 +50,13 @@ export class AdminReport1 extends Component {
                                 </div>
                             </div>
                             <div className="pdf-chart">
-                                <TestingReport2 age = {this.props.age} age1 = {this.props.age1}/>
-                                {/*<TestingReport2/>*/}
+                                <TestingReport3/>
                             </div>
-                            <div className="pdf-body">
-                                <div className="custom-grid" id="grid">
-                                    <div> Content Comes Here! </div>
-                                </div>
-                            </div>
+                            {/*<div className="pdf-body">*/}
+                            {/*    <div className="custom-grid" id="grid">*/}
+                            {/*        <div> Content Comes Here! </div>*/}
+                            {/*    </div>*/}
+                            {/*</div>*/}
                         </div>
                     </div>
                 </div>
@@ -75,4 +65,4 @@ export class AdminReport1 extends Component {
     }
 }
 
-export default AdminReport1
+export default AdminReport2
