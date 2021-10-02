@@ -5,23 +5,21 @@ import {useHistory} from "react-router";
 import {Card, CardMedia, makeStyles} from "@material-ui/core";
 
 const useStyles = makeStyles({
-    card: {
-        maxWidth: 345,
-    },
-    media: {
-        // ⚠️ object-fit is not supported by IE11.
-        objectFit: 'cover',
-    },
+    valuew : {
+        height: "200px"
+    }
 });
-
 const ClassTile = (props) => {
-    console.log('ROWS',props?.rows?.fullPath);
+
+    console.log('ROWS',props?.rows?.image);
     const history = useHistory();
-    // const { classes } = props;
     const classes = useStyles();
+
     const passData = () => {
         history.push('/singleclassview', { data: props?.rows })
     }
+
+    //const onMediaFallback = event => event.target.src = FALLBACK_IMAGE;
     // console.log(props.row.fullPath);
     return(
         <div className='class-tile-container' onClick={passData}>
@@ -30,14 +28,19 @@ const ClassTile = (props) => {
                 <div className='sub-heading'> {props?.rows?.description}</div>
             </div>
             <div className='right-container'>
-                <Card >
-                    {/*<CardMedia*/}
-                    {/*    component="img"*/}
-                    {/*    height="140"*/}
-                    {/*    className={classes.media}*/}
-                    {/*    image={require('D:/sliit/3rd Year/2nd sem/SPM/Assignment/SPM_LEARNING_MANAGEMENT_BACK_New/img/img_2.jpg')}>*/}
-                    {/*</CardMedia>*/}
+                <Card>
+                    <CardMedia
+                        component="img"
+                        //C:\sliit\3rd Year\2nd Semester\SPM\New folder\download.jpg
+                        //`https://localhost:8073/...../${props}`
+                        style={{height: 300, width: 200, paddingTop: '56.25%', marginTop:'30'}}
+                        image ={`http://localhost:8073/api/download/image/${props?.rows?.image}`}
+                     >
+
+
+                    </CardMedia>
                 </Card>
+                {/*<img />*/}
             </div>
 
         </div>

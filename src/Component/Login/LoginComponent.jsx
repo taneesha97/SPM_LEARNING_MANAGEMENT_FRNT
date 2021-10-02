@@ -46,6 +46,7 @@ function LoginComponent(props) {
                 const values = response.data;
                 console.log('res1 ', response.data);
                 localStorage.setItem('username', values?.username);
+                localStorage.setItem('status', values?.status);
                 localStorage.setItem('email', values?.email);
                 localStorage.setItem('userid', values?.id);
 
@@ -93,8 +94,8 @@ function LoginComponent(props) {
     }
     const NavigateToRegistration = () => {
         //window.location.href("/registration")
-        //window.location.href = "/registration";
-        history.push('/registration')
+        window.location.href = "/registration";
+        //history.push('/registration')
     }
 
     return (
