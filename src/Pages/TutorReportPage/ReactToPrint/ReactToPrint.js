@@ -15,6 +15,7 @@ import {Container} from "@material-ui/core";
 import PrintableComponent from "../../../Component/Tutor/TutorReports/FileReport/PrintableComponent";
 import AdminReport1 from "../User/AdminReport1";
 import CourseReport from "../../../Component/Tutor/TutorReports/CourseReport/CourseReport";
+import VideoStatsReport from "../../../Component/Tutor/TutorReports/VideoStatsReport/VideoStatsReport";
 
 
 
@@ -65,7 +66,10 @@ function ReactToPrintClass() {
             setTClass("tclass");
         } else if(age?.type ==="tutor2"){
             setTutor2("tutor2");
+        } else if(age?.type ==="tutor3"){
+            setTutor3("tutor3");
         }
+
     },[])
 
 
@@ -104,6 +108,7 @@ function ReactToPrintClass() {
                 <AdminReport1 age = {admin_age} age1={admin_age1} data = {response} className="component-to-print" ref={el => (componentRef = el)}/> :
                     tutor ? <PrintableComponent className="component-to-print" ref={el => (componentRef = el)}/> :
                         tutor2 ? <CourseReport className="component-to-print" ref={el => (componentRef = el)}/> :
+                            tutor3 ? <VideoStatsReport className="component-to-print" ref={el => (componentRef = el)}/> :
                         payment? "Payment report component comes here!":
                             tclass? "Class report component comes here!":
                         "Default Error Component"}

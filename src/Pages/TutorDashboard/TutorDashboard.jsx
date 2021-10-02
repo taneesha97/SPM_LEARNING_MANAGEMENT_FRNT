@@ -154,7 +154,7 @@ function TutorDashboard() {
                             <div className="button-item">
                                 <Link to={{
                                     pathname: '/report',
-                                    age: {type: "tutor"}
+                                    age: {type: "tutor3"}
                                 }}><Button primary={true}>Video stats</Button></Link>
                             </div>
 

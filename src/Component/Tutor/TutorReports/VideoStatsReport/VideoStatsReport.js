@@ -1,8 +1,6 @@
 import './VideoStatsReport.scss'
 import React from "react";
 import Logo from "../../../../Pages/TutorReportPage/companyLogo/Logo.png";
-import {Chart, ChartSeries, ChartSeriesItem, ChartSeriesLabels} from "@progress/kendo-react-charts";
-import sampleData from "../../../../Pages/TutorReportPage/SampleData/invoice-data.json";
 import axios from "axios";
 class VideoStatsReport extends React.Component {
 
@@ -64,21 +62,7 @@ class VideoStatsReport extends React.Component {
                                     </div>
                                 </div>
                                 <div className="pdf-chart">
-                                    <Chart style={{ height: 280 }}>
-                                        <ChartSeries>
-                                            <ChartSeriesItem
-                                                type="donut"
-                                                data={this.state.graphData}
-                                                categoryField="category"
-                                                field="count"
-                                            >
-                                                <ChartSeriesLabels
-                                                    color="#fff"
-                                                    background="none"
-                                                />
-                                            </ChartSeriesItem>
-                                        </ChartSeries>
-                                    </Chart>
+                                    {/*Video table should come here*/}
                                 </div>
                                 <div className="pdf-body">
                                     <div className="custom-grid" id="grid">
