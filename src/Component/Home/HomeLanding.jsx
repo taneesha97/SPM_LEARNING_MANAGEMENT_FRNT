@@ -17,12 +17,21 @@ import CourseTile from "../Class/CourseTile/CourseTile";
 import Booksontop from '../Class/CourseTile/Image/booksonTop.svg'
 import Book2 from '../Class/CourseTile/Image/book2.svg'
 import Book6 from '../Class/CourseTile/Image/books6.svg'
+import {useDispatch, useSelector} from "react-redux";
+import {getClasses, getClassesNew} from "../../Action/Class";
 
 
 
 function HomeLanding() {
 
     const [show, setshow] = useState(false)
+    const dispatch = useDispatch();
+    const[item, setItem] = useState(4);
+
+    const data = useSelector((state) => state.images?.classNewRecords?.records);
+    React.useEffect(() => {
+        dispatch(getClassesNew());
+    }, []);
 
     return (
         <div>
@@ -38,12 +47,17 @@ function HomeLanding() {
             </div>
             <div className='dark-ash-background'>
                 <CustomizeSection main_topic={'Classes'} sub_topic={'Latest Classes, Enroll now for the full life time access.'} backgroundcl={'#ADA6CE'} btn_text={'View All'} btn_color={'#8340F4'} navigationPath={'class'}>
-                    <ClassTile/>
-                    <ClassTile/>
-                    <ClassTile/>
-                    {/*<ClassTile/>*/}
-                    {/*<ClassTile/>*/}
+                {/*    {data && item?.slice(0, setItem)?.map((row) => (*/}
+                {/*      <ClassTile rows = {row}/>*/}
+                {/*))}*/}
                 </CustomizeSection>
+
+                {/*const items = this.state.items.slice(0, this.state.showItems).map(*/}
+                {/*(item) => <div>{item}</div>*/}
+                {/*)*/}
+
+
+
                 <TutorSection/>
             </div>
             <GetUpdates/>
