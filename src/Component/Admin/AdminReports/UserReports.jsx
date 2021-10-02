@@ -42,12 +42,11 @@ const useStyles = makeStyles(theme => ({
     },
     title1: {
         color:'#FFFFFF',
-        font: '4vw'
+        fontSize: '25px',
     },
     title2: {
-        color:'#FFFFFF',
-        font: '4vw',
-        marginLeft: "70px"
+        color:'#C4C4C4',
+        fontSize: '25px',
     },
     header: {
         background: '#A0E7E5'
@@ -74,57 +73,61 @@ function UserReports() {
     }
 
     return (
-        <div style={{background: "#525252", borderRadius: "30px"}} >
-            <h1 className={classes.title2}>User Management Reports</h1><br/>
-            <h1 className={classes.title2}>Age Gap Report</h1>
-            <Grid className={classes.stage3} container direction="row" alignItems="left" spacing={8}>
-                <Grid item>
-                    <Grid item xs={12} sm={6}>
-                        <TextField type="number" value={age} onChange={(e) => setAge(e.target.value)} className={classes.paymentType} id="outlined-basic" label="Age" variant="outlined" />
-                    </Grid>
-                </Grid>
-                <Grid item>
-                    <Grid item xs={12} sm={6}>
-                        <TextField type="number" value={age1} onChange={(e) => setAge1(e.target.value)}  className={classes.paymentType} id="outlined-basic" label="Age" variant="outlined" />
-                    </Grid>
-                </Grid>
-                <Grid item>
-                    <Grid item xs={12} sm={6}>
-                        <Link to={{
-                            pathname: '/report',
-                            age: {age: age, age1: age1, type: "admin"}
-                        }}>
-                        <Button
-                            style={{ marginLeft: "15px", width: "100px"}}
-                            variant="contained"
-                            color="primary"
-                            size="large"
-                        >generate </Button>
-                        </Link>
-                    </Grid>
+        <div style={{background: "#525252", borderRadius: "30px", paddingTop: "20px"}} >
+            <center>
+                <h1 className={classes.title2}>User Management Reports</h1><br/>
+            </center>
 
-                </Grid>
-            </Grid>
-            <Grid className={classes.stage3} container direction="row" alignItems="left" spacing={8}>
+
+                <h1 className={classes.title2}>Age Gap Report</h1>
                 <Grid className={classes.stage3} container direction="row" alignItems="left" spacing={8}>
-                    <h1 className={classes.title2}>User Tracking Report</h1>
-                    <Grid item xs={12} sm={6}>
-                        <Link to={{
-                            pathname: '/report',
-                            age: {type: "admin1"}
-                        }}>
-                            <Button
-                                style={{ marginLeft: "15px", marginTop: "-30px", width: "100px"}}
-                                variant="contained"
-                                color="primary"
-                                size="large"
-                            >generate </Button>
-                        </Link>
+                    <Grid item>
+                        <Grid item xs={12} sm={6}>
+                            <TextField type="number" value={age} onChange={(e) => setAge(e.target.value)} className={classes.paymentType} id="outlined-basic" label="Age" variant="outlined" />
+                        </Grid>
+                    </Grid>
+                    <Grid item>
+                        <Grid item xs={12} sm={6}>
+                            <TextField type="number" value={age1} onChange={(e) => setAge1(e.target.value)}  className={classes.paymentType} id="outlined-basic" label="Age" variant="outlined" />
+                        </Grid>
+                    </Grid>
+                    <Grid item>
+                        <Grid item xs={12} sm={6}>
+                            <Link to={{
+                                pathname: '/report',
+                                age: {age: age, age1: age1, type: "admin"}
+                            }}>
+                                <Button
+                                    style={{ marginLeft: "15px", width: "100px"}}
+                                    variant="contained"
+                                    color="primary"
+                                    size="large"
+                                >generate </Button>
+                            </Link>
+                        </Grid>
+
                     </Grid>
                 </Grid>
 
+                    <Grid className={classes.stage3} container direction="row" alignItems="left" spacing={8}>
+                        <h1 className={classes.title2}>User Tracking Report</h1>
+                        <Grid item xs={12} sm={6}>
+                            <Link to={{
+                                pathname: '/report',
+                                age: {type: "admin1"}
+                            }}>
+                                <Button
+                                    style={{ marginLeft: "15px", marginTop: "-30px", width: "100px"}}
+                                    variant="contained"
+                                    color="primary"
+                                    size="large"
+                                >generate </Button>
+                            </Link>
+                        </Grid>
+                    </Grid>
 
-            </Grid>
+
+
         </div>
     )
 }
