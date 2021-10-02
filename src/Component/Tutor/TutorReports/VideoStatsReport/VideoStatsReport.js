@@ -1,10 +1,10 @@
-import './PrintableComponent.scss'
+import './VideoStatsReport.scss'
 import React from "react";
-import Logo from "../../companyLogo/Logo.png";
+import Logo from "../../../../Pages/TutorReportPage/companyLogo/Logo.png";
 import {Chart, ChartSeries, ChartSeriesItem, ChartSeriesLabels} from "@progress/kendo-react-charts";
-import sampleData from "../../SampleData/invoice-data.json";
+import sampleData from "../../../../Pages/TutorReportPage/SampleData/invoice-data.json";
 import axios from "axios";
-class PrintableComponent extends React.Component {
+class VideoStatsReport extends React.Component {
 
     state = {
         graphData: []
@@ -92,4 +92,4 @@ class PrintableComponent extends React.Component {
     }
 }
 
-export default PrintableComponent;
+export default VideoStatsReport;

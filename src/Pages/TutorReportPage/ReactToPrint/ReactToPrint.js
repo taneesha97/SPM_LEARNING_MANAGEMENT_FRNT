@@ -5,15 +5,18 @@ import Button from "@progress/kendo-react-buttons/dist/es/Button";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchUser} from "../../../Action/Users";
 import {useLocation} from "react-router";
+import {Container} from "@material-ui/core";
 
 /**
  *
  * External Report Imports.
  *
  * **/
-import PrintableComponent from "./PrintableComponent/PrintableComponent";
+import PrintableComponent from "../../../Component/Tutor/TutorReports/FileReport/PrintableComponent";
 import AdminReport1 from "../User/AdminReport1";
-import {Container} from "@material-ui/core";
+import CourseReport from "../../../Component/Tutor/TutorReports/CourseReport/CourseReport";
+
+
 
 
 /**
@@ -33,6 +36,8 @@ function ReactToPrintClass() {
     const [tutor, setTutor] = useState(null);
     const [payment, setPayment] = useState(null);
     const [tclass, setTClass] = useState(null);
+    const [tutor2, setTutor2] = useState(null);
+    const [tutor3, setTutor3] = useState(null);
 
     //Testing
     console.log(age?.age);
@@ -58,6 +63,8 @@ function ReactToPrintClass() {
             setPayment("payment");
         } else if(age?.type === "tclass"){
             setTClass("tclass");
+        } else if(age?.type ==="tutor2"){
+            setTutor2("tutor2");
         }
     },[])
 
@@ -96,6 +103,7 @@ function ReactToPrintClass() {
                 admin ?
                 <AdminReport1 age = {admin_age} age1={admin_age1} data = {response} className="component-to-print" ref={el => (componentRef = el)}/> :
                     tutor ? <PrintableComponent className="component-to-print" ref={el => (componentRef = el)}/> :
+                        tutor2 ? <CourseReport className="component-to-print" ref={el => (componentRef = el)}/> :
                         payment? "Payment report component comes here!":
                             tclass? "Class report component comes here!":
                         "Default Error Component"}
