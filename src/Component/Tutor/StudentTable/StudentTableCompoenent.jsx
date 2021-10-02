@@ -21,6 +21,7 @@ import TableFooter from "@material-ui/core/TableFooter";
 
 
 const StudentTableComponent = (props)  => {
+    console.log(props?.response1)
     const dispatch = useDispatch();
     const history = useHistory();
     const [searchTerm, setSearchTerm] = useState("");
@@ -123,8 +124,8 @@ const StudentTableComponent = (props)  => {
                                 return val
                             }
                         })
-                            .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                            .map((row) => (
+                            ?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                            ?.map((row) => (
                             console.log(row),
                                 <TableRow>
                                     <TableCell align="center"> {row?.name} </TableCell>
