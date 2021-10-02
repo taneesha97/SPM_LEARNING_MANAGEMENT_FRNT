@@ -17,6 +17,7 @@ import {useLocation} from "react-router";
  * **/
 import AdminReport1 from "../User/AdminReport1";
 import AdminPrintableComponent from "../../AdminReportPage/AdminPrintableComponent/AdminPrintableComponent";
+import PrintableComponent from "./PrintableComponent/PrintableComponent";
 
 /**
  * If work make this  class a reusable class passing the component as props (Default component)
